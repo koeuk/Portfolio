@@ -9,14 +9,14 @@
             <div class="relative overflow-hidden section-content">
                 <div class="flex animate-scroll-projects">
                     <!-- First set -->
-                    <div class="flex gap-8 py-2">
+                    <div class="flex gap-3 sm:gap-8 py-2">
                         <ProjectCard v-for="(project, index) in featuredProjects" :key="project.id" :project="project"
-                            :index="index" class="w-[380px] h-[420px] flex-shrink-0" />
+                            :index="index" class="w-[160px] h-[280px] sm:w-[380px] sm:h-[420px] flex-shrink-0" />
                     </div>
                     <!-- Duplicate for seamless loop -->
-                    <div class="flex gap-8">
+                    <div class="flex gap-3 sm:gap-8">
                         <ProjectCard v-for="(project, index) in featuredProjects" :key="'dup-' + project.id"
-                            :project="project" :index="index" class="w-[380px] h-[420px] flex-shrink-0" />
+                            :project="project" :index="index" class="w-[160px] h-[280px] sm:w-[380px] sm:h-[420px] flex-shrink-0" />
                     </div>
                 </div>
             </div>

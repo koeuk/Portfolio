@@ -83,7 +83,7 @@
            hover:bg-white hover:text-primary transition-all duration-300 inline-flex items-center gap-2;
   }
   .card {
-    @apply bg-white dark:bg-primary-light rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300
+    @apply bg-white dark:bg-primary-light rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300
            border border-gray-100 dark:border-gray-700 hover:scale-[1.02];
   }
   .input-field {
