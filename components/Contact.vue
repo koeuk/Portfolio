@@ -1,11 +1,11 @@
 <template>
-    <section id="contact" class="section bg-gradient-to-br from-primary via-primary-light to-primary text-white">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20">
+    <section id="contact" ref="elementRef" class="section rounded-t-3xl bg-gradient-to-br from-primary via-primary-light to-primary text-white">
+        <div class="max-w-5xl mx-auto" :class="{ 'section-visible': isVisible }">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title">
                 {{ t('contact.title') }}
             </h2>
 
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-12 section-content">
                 <!-- Contact Info -->
                 <div>
                     <h3 class="text-3xl font-bold mb-6">{{ t('contact.subtitle') }}</h3>
@@ -85,6 +85,7 @@
 <script setup lang="ts">
     const { personalInfo } = useData()
     const { t } = useI18n()
+    const { isVisible, elementRef } = useScrollAnimation()
 
     const form = reactive({ name: '', email: '', message: '' })
     const status = ref<'idle' | 'success' | 'error'>('idle')
@@ -99,3 +100,26 @@
         }, 3000)
     }
 </script>
+
+<style scoped>
+.section-title,
+.section-content {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(50px) scale(0.95);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-visible .section-title {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+}
+
+.section-visible .section-content {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+    transition-delay: 0.15s;
+}
+</style>

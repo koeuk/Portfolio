@@ -1,8 +1,8 @@
 <template>
-    <section id="about" class="section dark:bg-primary">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
+    <section id="about" ref="elementRef" class="section bg-white dark:bg-primary">
+        <div class="grid md:grid-cols-2 gap-12 items-center" :class="{ 'section-visible': isVisible }">
             <!-- Photo with Avatar -->
-            <div class="flex justify-center">
+            <div class="flex justify-center about-image">
                 <Avatar class="w-80 h-80 shadow-2xl border-4 border-accent/20">
                     <AvatarImage src="/images/koeuk.jpg" :alt="personalInfo.name" />
                     <AvatarFallback
@@ -13,7 +13,7 @@
             </div>
 
             <!-- Content -->
-            <div>
+            <div class="about-content">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 text-primary dark:text-white">
                     {{ t('about.title') }}
                 </h2>
@@ -47,6 +47,7 @@
 <script setup lang="ts">
     const { personalInfo } = useData()
     const { t } = useI18n()
+    const { isVisible, elementRef } = useScrollAnimation()
 
     const badgeKeys = [
         'badge.frontend',
@@ -57,3 +58,26 @@
         'badge.problemSolving'
     ]
 </script>
+
+<style scoped>
+.about-image,
+.about-content {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(50px) scale(0.95);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-visible .about-image {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+}
+
+.section-visible .about-content {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+    transition-delay: 0.15s;
+}
+</style>
