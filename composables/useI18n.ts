@@ -15,6 +15,7 @@ const translations: Translations = {
   "nav.skills": { en: "Skills", km: "ជំនាញ", zh: "技能" },
   "nav.about": { en: "About", km: "អំពី", zh: "关于" },
   "nav.contact": { en: "Contact", km: "ទំនាក់ទំនង", zh: "联系" },
+  "nav.blog": { en: "Blog", km: "ប្លក់", zh: "博客" },
 
   // Hero
   "hero.greeting": { en: "Hi, I'm", km: "សួស្តី ខ្ញុំឈ្មោះ", zh: "你好，我是" },
@@ -108,6 +109,19 @@ const translations: Translations = {
     en: "Something went wrong. Please try again.",
     km: "មានបញ្ហា។ សូមព្យាយាមម្តងទៀត។",
     zh: "出错了，请重试。",
+  },
+
+  // Blog
+  "blog.title": { en: "Blog", km: "ប្លក់", zh: "博客" },
+  "blog.subtitle": {
+    en: "Thoughts, tutorials, and insights about web development",
+    km: "គំនិត ការបង្រៀន និងការយល់ដឹងអំពីការអភិវឌ្ឍន៍វេប",
+    zh: "关于网页开发的想法、教程和见解"
+  },
+  "blog.comingSoon": {
+    en: "Blog posts coming soon...",
+    km: "អត្ថបទប្លក់នឹងមកដល់ឆាប់ៗ...",
+    zh: "博客文章即将推出..."
   },
 
   // Footer

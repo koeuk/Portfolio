@@ -10,10 +10,10 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6">
-                    <a v-for="link in navLinks" :key="link.href" :href="link.href"
+                    <NuxtLink v-for="link in navLinks" :key="link.href" :to="link.href"
                         class="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white transition-colors font-medium">
                         {{ t(link.label) }}
-                    </a>
+                    </NuxtLink>
 
                     <!-- Language Selector -->
                     <div class="relative">
@@ -69,10 +69,10 @@
         <Transition name="mobile-menu">
             <div v-if="isOpen"
                 class="md:hidden bg-white dark:bg-primary border-t border-gray-200 dark:border-gray-700 shadow-lg">
-                <a v-for="link in navLinks" :key="link.href" :href="link.href" @click="isOpen = false"
+                <NuxtLink v-for="link in navLinks" :key="link.href" :to="link.href" @click="isOpen = false"
                     class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-primary-light text-gray-700 dark:text-gray-200 transition-colors">
                     {{ t(link.label) }}
-                </a>
+                </NuxtLink>
                 <!-- Language selector mobile -->
                 <div class="px-4 py-3 border-t border-gray-200 dark:border-gray-700">
                     <div class="flex gap-2">
@@ -98,11 +98,12 @@
     const showLangMenu = ref(false)
 
     const navLinks = [
-        { href: '#home', label: 'nav.home' },
-        { href: '#projects', label: 'nav.projects' },
-        { href: '#skills', label: 'nav.skills' },
-        { href: '#about', label: 'nav.about' },
-        { href: '#contact', label: 'nav.contact' }
+        { href: '/#home', label: 'nav.home' },
+        { href: '/#projects', label: 'nav.projects' },
+        { href: '/#skills', label: 'nav.skills' },
+        { href: '/#about', label: 'nav.about' },
+        { href: '/#contact', label: 'nav.contact' },
+        { href: '/blog', label: 'nav.blog', isPage: true }
     ]
 
     const currentFlag = computed(() => {
