@@ -25,19 +25,19 @@
             <svg class="absolute w-full h-full opacity-20" preserveAspectRatio="none">
                 <defs>
                     <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#d4b0ff;stop-opacity:0" />
-                        <stop offset="50%" style="stop-color:#d4b0ff;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#90f0e1;stop-opacity:0" />
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0" />
+                        <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
                     </linearGradient>
                     <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#90f0e1;stop-opacity:0" />
-                        <stop offset="50%" style="stop-color:#c7f783;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#ffa570;stop-opacity:0" />
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0" />
+                        <stop offset="50%" style="stop-color:#e5e5e5;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
                     </linearGradient>
                     <linearGradient id="lineGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#ffa570;stop-opacity:0" />
-                        <stop offset="50%" style="stop-color:#ffa570;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#d4b0ff;stop-opacity:0" />
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0" />
+                        <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
                     </linearGradient>
                 </defs>
                 <line class="animated-line line-1" x1="0" y1="20%" x2="100%" y2="20%" stroke="url(#lineGradient1)" stroke-width="1"/>
@@ -53,7 +53,7 @@
         <div class="section text-center text-white relative z-10 px-4">
             <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight slide-up">
                 {{ t('hero.greeting') }}
-                <span class="bg-gradient-to-r from-accent via-accent-light to-accent bg-clip-text text-transparent">
+                <span class="text-white">
                     {{ displayedName }}<span class="animate-blink">|</span>
                 </span>
             </h1>
@@ -68,8 +68,8 @@
 
             <!-- Scroll Indicator -->
             <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:block slide-up-delay-3">
-                <div class="w-6 h-10 border-2 border-accent rounded-full flex justify-center p-2 animate-bounce-slow">
-                    <div class="w-1 h-3 bg-accent rounded-full"></div>
+                <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center p-2 animate-bounce-slow">
+                    <div class="w-1 h-3 bg-white rounded-full"></div>
                 </div>
             </div>
         </div>
@@ -152,15 +152,15 @@
     }
 }
 
-/* Mesh Gradient - Colorful */
+/* Mesh Gradient - Dark & White theme */
 .mesh-gradient {
     background:
-        radial-gradient(at 0% 0%, rgba(212, 176, 255, 0.3) 0px, transparent 50%),
-        radial-gradient(at 50% 0%, rgba(144, 240, 225, 0.25) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(199, 247, 131, 0.2) 0px, transparent 50%),
-        radial-gradient(at 100% 50%, rgba(255, 165, 112, 0.25) 0px, transparent 50%),
-        radial-gradient(at 50% 100%, rgba(144, 240, 225, 0.2) 0px, transparent 50%),
-        radial-gradient(at 0% 50%, rgba(212, 176, 255, 0.2) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(255, 255, 255, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(255, 255, 255, 0.04) 0px, transparent 50%),
+        radial-gradient(at 100% 50%, rgba(255, 255, 255, 0.06) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(255, 255, 255, 0.04) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, rgba(255, 255, 255, 0.06) 0px, transparent 50%);
     animation: meshMove 20s ease-in-out infinite;
 }
 
@@ -182,7 +182,7 @@
 /* Floating Particles */
 .particle {
     position: absolute;
-    background: linear-gradient(135deg, #d4b0ff, #90f0e1, #c7f783, #ffa570);
+    background: #ffffff;
     border-radius: 50%;
     bottom: -10px;
     opacity: 0;
@@ -190,15 +190,15 @@
 }
 
 .particle:nth-child(odd) {
-    background: #90f0e1;
+    background: #ffffff;
 }
 
 .particle:nth-child(3n) {
-    background: #d4b0ff;
+    background: #e5e5e5;
 }
 
 .particle:nth-child(4n) {
-    background: #ffa570;
+    background: #f5f5f5;
 }
 
 @keyframes particleRise {
@@ -231,7 +231,7 @@
 .orb-1 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #d4b0ff 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
     top: -150px;
     left: -150px;
     animation-delay: 0s;
@@ -240,7 +240,7 @@
 .orb-2 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, #90f0e1 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
     bottom: -100px;
     right: -100px;
     animation-delay: -5s;
@@ -250,7 +250,7 @@
 .orb-3 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, #c7f783 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     top: 40%;
     right: 15%;
     animation-delay: -10s;
@@ -260,7 +260,7 @@
 .orb-4 {
     width: 450px;
     height: 450px;
-    background: radial-gradient(circle, #ffa570 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
     bottom: 20%;
     left: 5%;
     animation-delay: -7s;
@@ -325,8 +325,8 @@
 /* Grid Pattern */
 .bg-grid-pattern {
     background-image:
-        linear-gradient(rgba(20, 184, 166, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(20, 184, 166, 0.15) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 60px 60px;
     animation: gridPulse 4s ease-in-out infinite;
 }

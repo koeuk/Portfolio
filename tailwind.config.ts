@@ -21,9 +21,9 @@ export default {
     },
     extend: {
       colors: {
-        primary: { DEFAULT: '#050B0D', light: '#0D1F23', dark: '#020405' },
-        accent: { DEFAULT: '#14B8A6', light: '#2DD4BF', dark: '#0D9488' },
-        surface: { DEFAULT: '#AFB3B7', light: '#C5C9CC', dark: '#969A9E' },
+        primary: { DEFAULT: '#0a0a0a', light: '#1a1a1a', dark: '#000000' },
+        accent: { DEFAULT: '#ffffff', light: '#f5f5f5', dark: '#e5e5e5' },
+        surface: { DEFAULT: '#f5f5f5', light: '#ffffff', dark: '#e5e5e5' },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
