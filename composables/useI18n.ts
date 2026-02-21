@@ -13,6 +13,7 @@ const translations: Translations = {
   "nav.home": { en: "Home", km: "ទំព័រដើម", zh: "首页" },
   "nav.projects": { en: "Projects", km: "គម្រោង", zh: "项目" },
   "nav.skills": { en: "Skills", km: "ជំនាញ", zh: "技能" },
+  "nav.experience": { en: "Experience", km: "បទពិសោធន៍", zh: "经验" },
   "nav.about": { en: "About", km: "អំពី", zh: "关于" },
   "nav.contact": { en: "Contact", km: "ទំនាក់ទំនង", zh: "联系" },
   "nav.blog": { en: "Blog", km: "ប្លក់", zh: "博客" },
@@ -44,6 +45,58 @@ const translations: Translations = {
     en: "Skills & Technologies",
     km: "ជំនាញ និង បច្ចេកវិទ្យា",
     zh: "技能与技术",
+  },
+
+  // Experience
+  "experience.title": {
+    en: "Work Experience",
+    km: "បទពិសោធន៍ការងារ",
+    zh: "工作经验",
+  },
+  "experience.1.role": {
+    en: "Senior Frontend Developer",
+    km: "អ្នកបង្កើត Frontend ជាន់ខ្ពស់",
+    zh: "高级前端开发工程师",
+  },
+  "experience.1.company": {
+    en: "Tech Company",
+    km: "ក្រុមហ៊ុនបច្ចេកវិទ្យា",
+    zh: "科技公司",
+  },
+  "experience.1.description": {
+    en: "Leading frontend architecture and development of scalable web applications. Mentoring junior developers and driving best practices across the team.",
+    km: "ដឹកនាំស្ថាបត្យកម្ម frontend និងការអភិវឌ្ឍន៍កម្មវិធីវេបដែលអាចពង្រីកបាន។ ណែនាំអ្នកអភិវឌ្ឍន៍វ័យក្មេង និងជំរុញការអនុវត្តល្អបំផុតក្នុងក្រុម។",
+    zh: "领导前端架构和可扩展Web应用程序的开发。指导初级开发人员并推动团队最佳实践。",
+  },
+  "experience.2.role": {
+    en: "Frontend Developer",
+    km: "អ្នកបង្កើត Frontend",
+    zh: "前端开发工程师",
+  },
+  "experience.2.company": {
+    en: "Digital Agency",
+    km: "ភ្នាក់ងារឌីជីថល",
+    zh: "数字代理公司",
+  },
+  "experience.2.description": {
+    en: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
+    km: "បង្កើតកម្មវិធីវេបឆ្លើយតប និងមានប្រសិទ្ធភាពសម្រាប់អតិថិជនផ្សេងៗ។ សហការជាមួយអ្នករចនា និងក្រុម backend ដើម្បីផ្តល់បទពិសោធន៍អ្នកប្រើប្រាស់ល្អ។",
+    zh: "为不同客户构建响应式高性能Web应用程序。与设计师和后端团队合作，交付精致的用户体验。",
+  },
+  "experience.3.role": {
+    en: "Junior Web Developer",
+    km: "អ្នកបង្កើតវេបសាយវ័យក្មេង",
+    zh: "初级Web开发工程师",
+  },
+  "experience.3.company": {
+    en: "Startup Inc",
+    km: "ក្រុមហ៊ុន Startup",
+    zh: "创业公司",
+  },
+  "experience.3.description": {
+    en: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
+    km: "បង្កើត និងថែទាំវេបសាយសម្រាប់អតិថិជន។ ទទួលបានបទពិសោធន៍ជាក់ស្តែងជាមួយ framework frontend ទំនើប និងការអភិវឌ្ឍន៍ agile។",
+    zh: "开发和维护面向客户的网站。获得了现代前端框架和敏捷开发工作流程的实践经验。",
   },
 
   // About

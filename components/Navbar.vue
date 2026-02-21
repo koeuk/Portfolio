@@ -101,6 +101,7 @@
         { href: '/#home', label: 'nav.home' },
         { href: '/#projects', label: 'nav.projects' },
         { href: '/#skills', label: 'nav.skills' },
+        { href: '/#experience', label: 'nav.experience' },
         { href: '/#about', label: 'nav.about' },
         { href: '/#contact', label: 'nav.contact' },
         { href: '/blog', label: 'nav.blog', isPage: true }

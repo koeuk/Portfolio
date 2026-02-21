@@ -15,6 +15,15 @@ export interface Skill {
   category: "frontend" | "backend" | "tools";
 }
 
+export interface Experience {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  technologies: string[];
+}
+
 export const useData = () => {
   const personalInfo = {
     name: "Koeuk Dev",
@@ -120,6 +129,33 @@ export const useData = () => {
     { name: "VS Code", icon: "💻", category: "tools" },
   ];
 
+  const experiences: Experience[] = [
+    {
+      id: "1",
+      role: "Senior Frontend Developer",
+      company: "Tech Company",
+      period: "2024 - Present",
+      description: "Leading frontend architecture and development of scalable web applications. Mentoring junior developers and driving best practices across the team.",
+      technologies: ["Vue.js", "TypeScript", "Nuxt.js", "Tailwind CSS"],
+    },
+    {
+      id: "2",
+      role: "Frontend Developer",
+      company: "Digital Agency",
+      period: "2022 - 2024",
+      description: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
+      technologies: ["Vue.js", "JavaScript", "CSS3", "Node.js"],
+    },
+    {
+      id: "3",
+      role: "Junior Web Developer",
+      company: "Startup Inc",
+      period: "2021 - 2022",
+      description: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Git"],
+    },
+  ];
+
   const badges = [
     "Frontend Development",
     "Responsive Design",
@@ -133,6 +169,7 @@ export const useData = () => {
     personalInfo,
     projects,
     skills,
+    experiences,
     badges,
   };
 };
