@@ -3,7 +3,7 @@
         :class="scrolled ? 'bg-white/95 dark:bg-primary/95 backdrop-blur-sm shadow-md' : 'bg-white/90 dark:bg-primary/90'">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <NuxtLink to="/"
+                <NuxtLink to="/#home"
                     class="text-2xl font-bold text-primary dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                     Portfolio
                 </NuxtLink>
