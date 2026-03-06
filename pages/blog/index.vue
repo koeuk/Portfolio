@@ -91,7 +91,7 @@ const posts = [
     date: 'Jan 15, 2026',
     category: 'Vue',
     tags: ['Vue', 'JavaScript'],
-    slug: '#'
+    slug: '/blog/vue-composition-api'
   },
   {
     id: 2,
