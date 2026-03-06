@@ -3,13 +3,12 @@
     <!-- Navbar outside transition so it stays fixed -->
     <Navbar />
 
-    <Transition name="page-load" appear>
-      <div v-if="isLoaded" class="page-wrapper">
-        <NuxtLayout>
-          <NuxtPage />
-        </NuxtLayout>
-      </div>
-    </Transition>
+    <div class="page-wrapper transition-all duration-1000 ease-out" 
+         :class="{ 'opacity-0 blur-lg scale-95 translate-y-10': !isLoaded, 'opacity-100 blur-0 scale-100 translate-y-0': isLoaded }">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
   </div>
 </template>
 
@@ -27,23 +26,10 @@ onMounted(() => {
 </script>
 
 <style>
-.page-load-enter-active {
-  transition: all 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.page-load-enter-from {
-  opacity: 0;
-  filter: blur(10px);
-  transform: scale(0.98) translateY(20px);
-}
-
-.page-load-enter-to {
-  opacity: 1;
-  filter: blur(0);
-  transform: scale(1) translateY(0);
-}
-
 .page-wrapper {
   will-change: opacity, transform, filter;
+  transition-property: opacity, transform, filter;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 1.4s;
 }
 </style>
