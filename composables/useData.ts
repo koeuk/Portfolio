@@ -15,6 +15,14 @@ export interface Skill {
   category: "frontend" | "backend" | "tools";
 }
 
+export interface ExperienceCategory {
+  id: string;
+  points: string[];
+  subheading?: string;
+  period?: string;
+  technologies?: string[];
+}
+
 export interface Experience {
   id: string;
   role: string;
@@ -23,6 +31,10 @@ export interface Experience {
   description: string;
   technologies: string[];
   images?: string[];
+  categories?: {
+    id: string;
+    items: ExperienceCategory[];
+  }[];
 }
 
 export const useData = () => {
@@ -135,7 +147,7 @@ export const useData = () => {
       id: "1",
       role: "YouTube UI Project",
       company: "Build simple UI YouTube",
-      period: "2024 - Present",
+      period: "2026 - Present",
       description: "Developed a desktop-based YouTube interface using Java Swing for the frontend and Oracle SQL for the database management. Focused on creating a robust, high-performance user experience with direct JDBC integration.",
       technologies: ["Java", "Java Swing", "Oracle SQL"],
       images: [
@@ -147,13 +159,60 @@ export const useData = () => {
         "/images/experience/1/categories.png",
         "/images/experience/1/tags.png",
         "/images/experience/1/comments.png"
+      ],
+      categories: [
+        {
+          id: 'web_interface',
+          items: [
+            {
+              id: 'discovery',
+              period: 'WEB MODULE',
+              subheading: 'Content Delivery Network',
+              points: ['homepage', 'search', 'watch_page', 'subscriptions', 'history'],
+              technologies: ['Java Swing', 'JDBC', 'Oracle SQL']
+            },
+            {
+              id: 'interaction',
+              period: 'SOCIAL',
+              subheading: 'Community Engagement',
+              points: ['comments', 'channel_pages'],
+              technologies: ['Swing UI', 'Event Listeners']
+            },
+            {
+              id: 'creator_tools',
+              period: 'TOOLS',
+              subheading: 'Video Management System',
+              points: ['studio_dashboard', 'video_management', 'engagement_stats'],
+              technologies: ['File I/O', 'Oracle BFILE']
+            }
+          ]
+        },
+        {
+          id: 'admin_interface',
+          items: [
+            {
+              id: 'overview',
+              period: 'ADMIN',
+              subheading: 'Core System Management',
+              points: ['dashboard_metrics', 'system_logs'],
+              technologies: ['Admin Dash', 'Chart Logic']
+            },
+            {
+              id: 'user_content',
+              period: 'STORAGE',
+              subheading: 'Security & Moderation',
+              points: ['user_moderation', 'video_approval', 'storage_management'],
+              technologies: ['Security', 'CRUD']
+            }
+          ]
+        }
       ]
     },
     {
       id: "2",
       role: "Frontend Developer",
       company: "Digital Agency",
-      period: "2022 - 2024",
+      period: "2025 - 2026",
       description: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
       technologies: ["Vue.js", "JavaScript", "CSS3", "Node.js"],
     },
@@ -161,7 +220,7 @@ export const useData = () => {
       id: "3",
       role: "UI/UX Engineer",
       company: "Innovation Lab",
-      period: "2021 - 2022",
+      period: "2024 - 2025",
       description: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",
       technologies: ["Vue.js", "Figma", "Sass", "Cypress"],
     },
@@ -169,7 +228,7 @@ export const useData = () => {
       id: "4",
       role: "Junior Web Developer",
       company: "Startup Inc",
-      period: "2020 - 2021",
+      period: "2024 - 2025",
       description: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
       technologies: ["HTML5", "CSS3", "JavaScript", "Git"],
     },
@@ -177,7 +236,7 @@ export const useData = () => {
       id: "5",
       role: "Web Development Intern",
       company: "Creative Studio",
-      period: "2019 - 2020",
+      period: "2025 - 2026",
       description: "Assisted in the development of responsive landing pages and email templates. Learned industry best practices for clean code and performance optimization.",
       technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
     },
@@ -185,7 +244,7 @@ export const useData = () => {
       id: "6",
       role: "Freelance Developer",
       company: "Self-Employed",
-      period: "2018 - 2019",
+      period: "2024 - 2025",
       description: "Designed and developed custom websites for small businesses. Managed full project lifecycles from initial concept to deployment and maintenance.",
       technologies: ["WordPress", "PHP", "jQuery", "MySQL"],
     },
@@ -193,7 +252,7 @@ export const useData = () => {
       id: "7",
       role: "Open Source Contributor",
       company: "GitHub Community",
-      period: "2017 - 2018",
+      period: "2024 - 2025",
       description: "Contributed to various open-source projects, fixing bugs and implementing new features. Collaborated with developers worldwide and improved code quality.",
       technologies: ["Git", "Markdown", "JavaScript", "Testing"],
     },

@@ -11,10 +11,34 @@
         </p>
       </div>
 
+      <!-- Year Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-12 slide-up">
+        <button 
+          @click="selectedYear = 'All'"
+          class="px-8 py-3 rounded-full text-sm font-black transition-all duration-500 uppercase tracking-widest border"
+          :class="selectedYear === 'All' 
+            ? 'bg-primary text-white border-primary shadow-[0_10px_30px_rgba(0,0,0,0.1)] scale-110' 
+            : 'bg-white text-gray-400 border-gray-100 dark:bg-primary-light dark:border-gray-800' "
+        >
+          All Experiences
+        </button>
+        <button 
+          v-for="year in availableYears" 
+          :key="year"
+          @click="selectedYear = year"
+          class="px-8 py-3 rounded-full text-sm font-black transition-all duration-500 uppercase tracking-widest border"
+          :class="selectedYear === year 
+            ? 'bg-primary text-white border-primary shadow-[0_10px_30px_rgba(0,0,0,0.1)] scale-110' 
+            : 'bg-white text-gray-400 border-gray-100 dark:bg-primary-light dark:border-gray-800' "
+        >
+          {{ year }}
+        </button>
+      </div>
+
       <!-- Experience Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <NuxtLink
-          v-for="(exp, index) in experiences"
+          v-for="(exp, index) in filteredExperiences"
           :key="exp.id"
           :to="`/experience/${exp.id}`"
           class="group card p-8 flex flex-col h-full hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 slide-up"
@@ -26,7 +50,6 @@
             </span>
             <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-primary border border-gray-200 dark:border-gray-700 flex items-center justify-center group-hover:bg-primary group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-primary transition-all duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="Arrow-right" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </div>
@@ -59,8 +82,29 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+
 const { experiences } = useData()
 const { t } = useI18n()
+
+const selectedYear = ref('All')
+
+const availableYears = computed(() => {
+  const allowed = ['2026', '2025', '2024']
+  const years = new Set<string>()
+  experiences.forEach(exp => {
+    const startYear = exp.period.split(' ')[0]
+    if (startYear && allowed.includes(startYear)) years.add(startYear)
+  })
+  return Array.from(years).sort((a, b) => b.localeCompare(a))
+})
+
+const filteredExperiences = computed(() => {
+  const allowed = ['2026', '2025', '2024']
+  const baseSet = experiences.filter(exp => allowed.includes(exp.period.split(' ')[0]))
+  if (selectedYear.value === 'All') return baseSet
+  return baseSet.filter(exp => exp.period.startsWith(selectedYear.value))
+})
 
 useHead({
   title: `Work Experience | Koeuk Dev`,

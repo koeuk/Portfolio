@@ -128,6 +128,65 @@
           </div>
         </div>
       </div>
+
+      <!-- Project Showcase Breakdown -->
+      <div v-if="experience.categories" class="mt-32 space-y-24">
+        <div v-for="section in experience.categories" :key="section.id" class="space-y-12 slide-up">
+          <div class="flex items-center gap-6">
+            <h2 class="text-3xl md:text-4xl font-black text-primary dark:text-white uppercase tracking-tighter">
+              {{ t(`experience.${experience.id}.${section.id}.title`) }}
+            </h2>
+            <div class="h-px flex-grow bg-gray-100 dark:bg-gray-800"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div 
+              v-for="category in section.items" 
+              :key="category.id"
+              class="group card p-8 md:p-10 flex flex-col h-full hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-700 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:-translate-y-2 relative"
+            >
+              <div class="mb-6 flex justify-between items-start">
+                <span v-if="category.period" class="text-xs font-black text-gray-400 uppercase tracking-widest">
+                  {{ category.period }}
+                </span>
+                <div class="w-10 h-10 rounded-full bg-gray-50 dark:bg-primary border border-gray-100 dark:border-gray-800 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-black text-primary dark:text-white mb-2">
+                {{ t(`experience.${experience.id}.${section.id}.${category.id}.label`) }}
+              </h3>
+              
+              <p v-if="category.subheading" class="text-gray-500 font-bold mb-6">
+                {{ category.subheading }}
+              </p>
+
+              <ul class="space-y-4 mb-8 flex-grow">
+                <li v-for="point in category.points" :key="point" class="flex gap-4 items-start text-gray-600 dark:text-gray-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary/20 dark:bg-white/20 mt-2.5 flex-shrink-0"></span>
+                  <span class="text-lg leading-relaxed font-medium">
+                    {{ t(`experience.${experience.id}.${section.id}.${category.id}.${point}`) }}
+                  </span>
+                </li>
+              </ul>
+
+              <!-- Category Tech Pills -->
+              <div v-if="category.technologies" class="flex flex-wrap gap-2 pt-8 border-t border-gray-50 dark:border-gray-800/50">
+                <span
+                  v-for="tech in category.technologies"
+                  :key="tech"
+                  class="px-4 py-1.5 text-[10px] font-black rounded-full bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-800 text-gray-500 dark:text-gray-400 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 uppercase tracking-tighter"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Lightbox Modal -->

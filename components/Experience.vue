@@ -18,10 +18,10 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 section-content">
         <NuxtLink
-          v-for="(exp, index) in experiences"
+          v-for="(exp, index) in experiences.slice(0, 6)"
           :key="exp.id"
           :to="`/experience/${exp.id}`"
-          class="group card p-8 flex flex-col h-full hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+          class="group card p-8 flex flex-col h-full border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
         >
           <div class="mb-6 flex justify-between items-start">
             <span class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest group-hover:text-primary dark:group-hover:text-white transition-colors">
