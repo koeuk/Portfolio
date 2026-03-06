@@ -79,9 +79,18 @@ const tabs = [
   { label: 'Vue', value: 'Vue' },
   { label: 'TypeScript', value: 'TypeScript' },
   { label: 'Laravel & Vue', value: 'Laravel & Vue' },
+  { label: 'Interview', value: 'Interview' },
 ]
 
-const activeTab = ref('all')
+const route = useRoute()
+const router = useRouter()
+
+const activeTab = computed({
+  get: () => (route.query.tab as string) || 'all',
+  set: (val: string) => {
+    router.replace({ query: val === 'all' ? {} : { tab: val } })
+  }
+})
 
 const posts = [
   {
@@ -200,6 +209,51 @@ const posts = [
     category: 'Laravel',
     tags: ['Laravel', 'PHP'],
     slug: '/blog/laravel-passwords'
+  },
+  {
+    id: 14,
+    title: 'Laravel Interview Questions',
+    excerpt: 'Prepare for your next Laravel interview with commonly asked questions covering routing, Eloquent, middleware, and more.',
+    date: 'Mar 1, 2026',
+    category: 'Interview',
+    tags: ['Laravel', 'Interview'],
+    slug: '/blog/interview-laravel'
+  },
+  {
+    id: 15,
+    title: 'Vue.js Interview Questions',
+    excerpt: 'Master Vue.js interview questions — reactivity, lifecycle hooks, Composition API, Vuex/Pinia, and component patterns.',
+    date: 'Feb 25, 2026',
+    category: 'Interview',
+    tags: ['Vue', 'Interview'],
+    slug: '/blog/interview-vue'
+  },
+  {
+    id: 16,
+    title: 'MySQL Interview Questions',
+    excerpt: 'Common MySQL interview questions — indexes, joins, transactions, optimization, stored procedures, and replication.',
+    date: 'Feb 20, 2026',
+    category: 'Interview',
+    tags: ['MySQL', 'Interview'],
+    slug: '/blog/interview-mysql'
+  },
+  {
+    id: 17,
+    title: 'SQL Database Interview Questions',
+    excerpt: 'Essential SQL interview questions — SELECT queries, subqueries, aggregation, normalization, and database design.',
+    date: 'Feb 15, 2026',
+    category: 'Interview',
+    tags: ['SQL', 'Interview'],
+    slug: '/blog/interview-sql'
+  },
+  {
+    id: 18,
+    title: 'TypeScript Interview Questions',
+    excerpt: 'Top TypeScript interview questions — types vs interfaces, generics, utility types, type guards, and advanced patterns.',
+    date: 'Feb 10, 2026',
+    category: 'Interview',
+    tags: ['TypeScript', 'Interview'],
+    slug: '/blog/interview-typescript'
   }
 ]
 
