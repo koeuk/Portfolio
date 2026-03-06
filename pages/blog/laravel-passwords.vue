@@ -153,6 +153,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'Laravel Password Reset - Koeuk Dev' })
 
 const codes = [

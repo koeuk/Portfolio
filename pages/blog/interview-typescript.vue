@@ -228,6 +228,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'TypeScript Interview Questions - Koeuk Dev' })
 
 const codes = [

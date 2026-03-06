@@ -438,6 +438,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'MySQL Interview Questions - Koeuk Dev' })
 
 const codes = [

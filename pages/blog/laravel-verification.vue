@@ -107,6 +107,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'Laravel Email Verification - Koeuk Dev' })
 
 const codes = [

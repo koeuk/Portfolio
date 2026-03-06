@@ -141,6 +141,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'Laravel Hashing - Koeuk Dev' })
 
 const codes = [

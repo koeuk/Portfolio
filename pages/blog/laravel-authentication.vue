@@ -131,6 +131,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'Laravel Authentication - Koeuk Dev' })
 
 const codes = [

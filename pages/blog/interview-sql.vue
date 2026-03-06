@@ -314,6 +314,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'SQL Database Interview Questions - Koeuk Dev' })
 
 const codes = [
