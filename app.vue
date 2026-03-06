@@ -9,6 +9,9 @@
         <NuxtPage />
       </NuxtLayout>
     </div>
+
+    <!-- Global Back to Top Button -->
+    <BackToTop />
   </div>
 </template>
 

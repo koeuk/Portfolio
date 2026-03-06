@@ -239,6 +239,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'Vue.js Interview Questions - Koeuk Dev' })
 
 const codes = [

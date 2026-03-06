@@ -25,7 +25,7 @@
       </div>
 
       <!-- Gallery Section (Full Width of Container) -->
-      <section v-if="experience.images && experience.images.length > 0" class="mb-20 slide-up-delay-1">
+      <section v-if="experience.images && experience.images.length > 0" class="mb-20 slide-up-delay-1" @mouseenter="stopAutoSlide" @mouseleave="startAutoSlide" @touchstart="stopAutoSlide" @touchend="startAutoSlide">
         <div class="relative group aspect-[16/9] rounded-[2rem] overflow-hidden border border-gray-100 dark:border-gray-800 shadow-2xl bg-gray-100 dark:bg-primary-dark">
           <Transition name="fade" mode="out-in">
             <img 
@@ -61,16 +61,40 @@
         </div>
 
         <!-- Thumbnail Strip below -->
-        <div class="flex justify-center gap-4 mt-8 overflow-x-auto pb-4 px-2 no-scrollbar">
-          <button 
-            v-for="(img, idx) in experience.images" 
-            :key="img"
-            @click="currentImgIndex = idx"
-            class="flex-shrink-0 w-24 h-16 rounded-2xl overflow-hidden border-2 transition-all duration-300"
-            :class="idx === currentImgIndex ? 'border-primary dark:border-white scale-110 shadow-lg' : 'border-transparent opacity-40 hover:opacity-100'"
-          >
-            <img :src="img" class="w-full h-full object-cover" />
-          </button>
+        <div class="relative w-full max-w-4xl mx-auto mt-8">
+          <div class="flex items-center gap-4">
+            <!-- Back button -->
+            <button @click="scrollThumbnails('left')" class="p-2 text-gray-400 hover:text-primary dark:hover:text-white transition-colors flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            
+            <div ref="thumbnailContainer" class="flex flex-grow gap-4 overflow-x-auto py-4 px-2 no-scrollbar scroll-smooth snap-x snap-mandatory">
+              <button 
+                v-for="(img, idx) in experience.images" 
+                :key="img"
+                @click="currentImgIndex = idx"
+                class="flex-shrink-0 w-28 h-18 sm:w-32 sm:h-20 rounded-2xl overflow-hidden border-2 transition-all duration-300 snap-center"
+                :class="idx === currentImgIndex ? 'border-primary dark:border-white scale-105 shadow-xl ring-4 ring-primary/20 dark:ring-white/20' : 'border-transparent opacity-50 hover:opacity-100'"
+              >
+                <img :src="img" class="w-full h-full object-cover" />
+              </button>
+            </div>
+
+            <!-- Next button -->
+            <button @click="scrollThumbnails('right')" class="p-2 text-gray-400 hover:text-primary dark:hover:text-white transition-colors flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+          
+          <!-- Custom Track Bar matches screenshot request -->
+          <div class="flex items-center justify-between bg-gray-400 dark:bg-gray-600 rounded-full w-full h-3 mt-4 px-1 mx-auto max-w-3xl opacity-50">
+            <button @click="scrollThumbnails('left')" class="text-white hover:text-primary transition-colors flex items-center justify-center p-1">
+              <svg class="w-2 h-2 fill-current" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+            </button>
+            <button @click="scrollThumbnails('right')" class="text-white hover:text-primary transition-colors flex items-center justify-center p-1">
+              <svg class="w-2 h-2 fill-current" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -248,12 +272,16 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+
 const route = useRoute()
 const { experiences } = useData()
 const { t } = useI18n()
 
 const currentImgIndex = ref(0)
 const lightboxOpen = ref(false)
+const thumbnailContainer = ref<HTMLElement | null>(null)
+let slideInterval: any = null
 
 const experience = computed(() => {
   return experiences.find(e => e.id === route.params.id)
@@ -274,6 +302,48 @@ const openLightbox = (index: number) => {
   lightboxOpen.value = true
 }
 
+const startAutoSlide = () => {
+  stopAutoSlide()
+  slideInterval = setInterval(() => {
+    nextImg()
+  }, 4000)
+}
+
+const stopAutoSlide = () => {
+  if (slideInterval) clearInterval(slideInterval)
+}
+
+onMounted(() => {
+  startAutoSlide()
+})
+
+onUnmounted(() => {
+  stopAutoSlide()
+})
+
+const scrollThumbnails = (direction: 'left' | 'right') => {
+  if (!thumbnailContainer.value) return
+  const scrollAmount = 300
+  thumbnailContainer.value.scrollBy({
+    left: direction === 'left' ? -scrollAmount : scrollAmount,
+    behavior: 'smooth'
+  })
+}
+
+watch(currentImgIndex, (newIdx) => {
+  if (!thumbnailContainer.value) return
+  const activeThumbnail = thumbnailContainer.value.children[newIdx] as HTMLElement
+  if (activeThumbnail) {
+    const containerWidth = thumbnailContainer.value.offsetWidth
+    const thumbLeft = activeThumbnail.offsetLeft
+    const thumbWidth = activeThumbnail.offsetWidth
+    thumbnailContainer.value.scrollTo({
+      left: thumbLeft - containerWidth / 2 + thumbWidth / 2,
+      behavior: 'smooth'
+    })
+  }
+})
+
 useHead({
   title: experience.value 
     ? `${t(`experience.${experience.value.id}.role`)} at ${t(`experience.${experience.value.id}.company`)} | Koeuk Dev`
@@ -285,6 +355,15 @@ useHead({
 </script>
 
 <style scoped>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 .slide-up {
   animation: slideUp 1s ease-out forwards;
 }

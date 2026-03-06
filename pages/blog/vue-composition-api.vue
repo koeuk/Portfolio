@@ -243,6 +243,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useHead({ title: 'Vue 3 Composition API - Koeuk Dev' })
 
 const codes = [
