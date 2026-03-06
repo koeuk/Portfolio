@@ -54,29 +54,29 @@ const translations: Translations = {
     zh: "工作经验",
   },
   "experience.1.role": {
-    en: "Senior Frontend Developer",
-    km: "អ្នកបង្កើត Frontend ជាន់ខ្ពស់",
-    zh: "高级前端开发工程师",
+    en: "Build simple UI YouTube",
+    km: "ការកសាង UI YouTube ធម្មតា",
+    zh: "构建简单的 YouTube UI",
   },
   "experience.1.company": {
-    en: "Tech Company",
-    km: "ក្រុមហ៊ុនបច្ចេកវិទ្យា",
-    zh: "科技公司",
+    en: "Java & Oracle Developer",
+    km: "អ្នកបង្កើត Java & Oracle",
+    zh: "Java & Oracle 开发者",
   },
   "experience.1.description": {
-    en: "Leading frontend architecture and development of scalable web applications. Mentoring junior developers and driving best practices across the team.",
-    km: "ដឹកនាំស្ថាបត្យកម្ម frontend និងការអភិវឌ្ឍន៍កម្មវិធីវេបដែលអាចពង្រីកបាន។ ណែនាំអ្នកអភិវឌ្ឍន៍វ័យក្មេង និងជំរុញការអនុវត្តល្អបំផុតក្នុងក្រុម។",
-    zh: "领导前端架构和可扩展Web应用程序的开发。指导初级开发人员并推动团队最佳实践。",
+    en: "Developed a desktop-based YouTube interface using Java Swing for the frontend and Oracle SQL for the database management. Focused on creating a robust, high-performance user experience with direct JDBC integration.",
+    km: "បានបង្កើតចំណុចប្រទាក់ YouTube ដែលផ្អែកលើ desktop ដោយប្រើ Java Swing សម្រាប់ frontend និង Oracle SQL សម្រាប់ការគ្រប់គ្រងមូលដ្ឋានទិន្នន័យ។ ផ្តោតលើការបង្កើតបទពិសោធន៍អ្នកប្រើប្រាស់ដែលរឹងមាំ និងមានប្រសិទ្ធភាពខ្ពស់ ជាមួយនឹងការតភ្ជាប់ JDBC ផ្ទាល់។",
+    zh: "使用 Java Swing 开发桌面端 YouTube 界面，并采用 Oracle SQL 进行数据库管理。专注于创建稳健、高性能的用户体验，实现直接的 JDBC 集成。",
   },
   "experience.2.role": {
-    en: "Frontend Developer",
-    km: "អ្នកបង្កើត Frontend",
-    zh: "前端开发工程师",
-  },
-  "experience.2.company": {
     en: "Digital Agency",
     km: "ភ្នាក់ងារឌីជីថល",
     zh: "数字代理公司",
+  },
+  "experience.2.company": {
+    en: "Frontend Developer",
+    km: "អ្នកបង្កើត Frontend",
+    zh: "前端开发工程师",
   },
   "experience.2.description": {
     en: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
@@ -84,19 +84,79 @@ const translations: Translations = {
     zh: "为不同客户构建响应式高性能Web应用程序。与设计师和后端团队合作，交付精致的用户体验。",
   },
   "experience.3.role": {
-    en: "Junior Web Developer",
-    km: "អ្នកបង្កើតវេបសាយវ័យក្មេង",
-    zh: "初级Web开发工程师",
+    en: "Innovation Lab",
+    km: "មន្ទីរពិសោធន៍ច្នៃប្រឌិត",
+    zh: "创新实验室",
   },
   "experience.3.company": {
+    en: "UI/UX Engineer",
+    km: "វិស្វករ UI/UX",
+    zh: "UI/UX 工程师",
+  },
+  "experience.3.description": {
+    en: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",
+    km: "ភ្ជាប់គំលាតរវាងការរចនា និងការអភិវឌ្ឍន៍។ បង្កើតគំរូ prototype កម្រិតខ្ពស់ និងអនុវត្តសមាសភាគ UI ស្មុគស្មាញដោយផ្តោតលើ accessibility។",
+    zh: "弥合设计与开发之间的差距。创建高保真原型并实现复杂的 UI 组件，重点关注可访问性。",
+  },
+  "experience.4.role": {
     en: "Startup Inc",
     km: "ក្រុមហ៊ុន Startup",
     zh: "创业公司",
   },
-  "experience.3.description": {
+  "experience.4.company": {
+    en: "Junior Web Developer",
+    km: "អ្នកបង្កើតវេបសាយវ័យក្មេង",
+    zh: "初级Web开发工程师",
+  },
+  "experience.4.description": {
     en: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
     km: "បង្កើត និងថែទាំវេបសាយសម្រាប់អតិថិជន។ ទទួលបានបទពិសោធន៍ជាក់ស្តែងជាមួយ framework frontend ទំនើប និងការអភិវឌ្ឍន៍ agile។",
     zh: "开发和维护面向客户的网站。获得了现代前端框架和敏捷开发工作流程的实践经验。",
+  },
+  "experience.5.role": {
+    en: "Creative Studio",
+    km: "ស្ទីឌីយោច្នៃប្រឌិត",
+    zh: "创意工作室",
+  },
+  "experience.5.company": {
+    en: "Web Development Intern",
+    km: "កម្មសិក្សាការីអភិវឌ្ឍន៍វេបសាយ",
+    zh: "网页开发实习生",
+  },
+  "experience.5.description": {
+    en: "Assisted in the development of responsive landing pages and email templates. Learned industry best practices for clean code and performance optimization.",
+    km: "ជួយក្នុងការអភិវឌ្ឍន៍ទំព័រ landing និងគំរូអ៊ីមែល។ រៀនពីការអនុវត្តល្អបំផុតសម្រាប់កូដស្អាត និងការធ្វើឱ្យប្រសើរឡើងនូវប្រសិទ្ធភាព។",
+    zh: "协助开发响应式落地页和电子邮件模板。学习了行业在简洁代码和性能优化方面的最佳实践。",
+  },
+  "experience.6.role": {
+    en: "Self-Employed",
+    km: "ធ្វើការដោយខ្លួនឯង",
+    zh: "自雇",
+  },
+  "experience.6.company": {
+    en: "Freelance Developer",
+    km: "អ្នកអភិវឌ្ឍន៍ឯករាជ្យ",
+    zh: "自由职业开发者",
+  },
+  "experience.6.description": {
+    en: "Designed and developed custom websites for small businesses. Managed full project lifecycles from initial concept to deployment and maintenance.",
+    km: "រចនា និងអភិវឌ្ឍន៍វេបសាយតាមតម្រូវការសម្រាប់អាជីវកម្មខ្នាតតូច។ ដឹកនាំគម្រោងទាំងមូលចាប់ពីគំនិតដំបូងរហូតដល់ការដាក់ឱ្យប្រើប្រាស់ និងការថែទាំ។",
+    zh: "为小型企业设计和开发定制网站。管理从最初概念到部署和维护的完整项目生命周期。",
+  },
+  "experience.7.role": {
+    en: "GitHub Community",
+    km: "សហគមន៍ GitHub",
+    zh: "GitHub 社区",
+  },
+  "experience.7.company": {
+    en: "Open Source Contributor",
+    km: "អ្នករួមចំណែក Open Source",
+    zh: "开源贡献者",
+  },
+  "experience.7.description": {
+    en: "Contributed to various open-source projects, fixing bugs and implementing new features. Collaborated with developers worldwide and improved code quality.",
+    km: "ចូលរួមចំណែកក្នុងគម្រោង open-source ផ្សេងៗ ការកែប្រែកំហុស និងការបង្កើតមុខងារថ្មីៗ។ សហការជាមួយអ្នកអភិវឌ្ឍន៍ជុំវិញពិភពលោក និងលើកកម្ពស់គុណភាពកូដ។",
+    zh: "为各种开源项目做出贡献，修复 bug 并实现新功能。与全球开发者合作，提高了代码质量。",
   },
 
   // About

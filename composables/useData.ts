@@ -22,6 +22,7 @@ export interface Experience {
   period: string;
   description: string;
   technologies: string[];
+  images?: string[];
 }
 
 export const useData = () => {
@@ -132,11 +133,21 @@ export const useData = () => {
   const experiences: Experience[] = [
     {
       id: "1",
-      role: "Senior Frontend Developer",
-      company: "Tech Company",
+      role: "YouTube UI Project",
+      company: "Build simple UI YouTube",
       period: "2024 - Present",
-      description: "Leading frontend architecture and development of scalable web applications. Mentoring junior developers and driving best practices across the team.",
-      technologies: ["Vue.js", "TypeScript", "Nuxt.js", "Tailwind CSS"],
+      description: "Developed a desktop-based YouTube interface using Java Swing for the frontend and Oracle SQL for the database management. Focused on creating a robust, high-performance user experience with direct JDBC integration.",
+      technologies: ["Java", "Java Swing", "Oracle SQL"],
+      images: [
+        "/images/experience/1/login.png",
+        "/images/experience/1/dashboard.png",
+        "/images/experience/1/manage-users.png",
+        "/images/experience/1/user-detail.png",
+        "/images/experience/1/manage-videos.png",
+        "/images/experience/1/categories.png",
+        "/images/experience/1/tags.png",
+        "/images/experience/1/comments.png"
+      ]
     },
     {
       id: "2",
@@ -148,11 +159,43 @@ export const useData = () => {
     },
     {
       id: "3",
+      role: "UI/UX Engineer",
+      company: "Innovation Lab",
+      period: "2021 - 2022",
+      description: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",
+      technologies: ["Vue.js", "Figma", "Sass", "Cypress"],
+    },
+    {
+      id: "4",
       role: "Junior Web Developer",
       company: "Startup Inc",
-      period: "2021 - 2022",
+      period: "2020 - 2021",
       description: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
       technologies: ["HTML5", "CSS3", "JavaScript", "Git"],
+    },
+    {
+      id: "5",
+      role: "Web Development Intern",
+      company: "Creative Studio",
+      period: "2019 - 2020",
+      description: "Assisted in the development of responsive landing pages and email templates. Learned industry best practices for clean code and performance optimization.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    },
+    {
+      id: "6",
+      role: "Freelance Developer",
+      company: "Self-Employed",
+      period: "2018 - 2019",
+      description: "Designed and developed custom websites for small businesses. Managed full project lifecycles from initial concept to deployment and maintenance.",
+      technologies: ["WordPress", "PHP", "jQuery", "MySQL"],
+    },
+    {
+      id: "7",
+      role: "Open Source Contributor",
+      company: "GitHub Community",
+      period: "2017 - 2018",
+      description: "Contributed to various open-source projects, fixing bugs and implementing new features. Collaborated with developers worldwide and improved code quality.",
+      technologies: ["Git", "Markdown", "JavaScript", "Testing"],
     },
   ];
 
