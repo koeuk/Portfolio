@@ -60,7 +60,7 @@
 
       <!-- No results for filter -->
       <div v-if="filteredPosts.length === 0" class="text-center py-20">
-        <p class="text-gray-500 dark:text-gray-400 text-lg">No posts found for this filter.</p>
+        <p class="text-gray-500 dark:text-gray-400 text-lg">{{ t('blog.noResults') }}</p>
       </div>
     </div>
   </div>
@@ -73,14 +73,15 @@ useHead({
   title: 'Blog - Koeuk Dev'
 })
 
-const tabs = [
-  { label: 'All', value: 'all' },
-  { label: 'Laravel', value: 'Laravel' },
-  { label: 'Vue', value: 'Vue' },
-  { label: 'TypeScript', value: 'TypeScript' },
-  { label: 'Laravel & Vue', value: 'Laravel & Vue' },
-  { label: 'Interview', value: 'Interview' },
-]
+const tabs = computed(() => [
+  { label: t('blog.tab.all'), value: 'all' },
+  { label: t('blog.tab.laravel'), value: 'Laravel' },
+  { label: t('blog.tab.vue'), value: 'Vue' },
+  { label: t('blog.tab.typescript'), value: 'TypeScript' },
+  { label: t('blog.tab.laravelVue'), value: 'Laravel & Vue' },
+  { label: t('blog.tab.interview'), value: 'Interview' },
+  { label: t('blog.tab.database'), value: 'Database' },
+])
 
 const route = useRoute()
 const router = useRouter()
@@ -254,6 +255,15 @@ const posts = [
     category: 'Interview',
     tags: ['TypeScript', 'Interview'],
     slug: '/blog/interview-typescript'
+  },
+  {
+    id: 19,
+    title: 'Database Basics: From Zero to Real Tables',
+    excerpt: 'Learn database fundamentals from scratch — data types, CREATE TABLE, primary keys, foreign keys, INSERT, SELECT, JOIN, and build a real e-commerce database.',
+    date: 'Mar 6, 2026',
+    category: 'Database',
+    tags: ['Database', 'SQL'],
+    slug: '/blog/database-basics'
   }
 ]
 

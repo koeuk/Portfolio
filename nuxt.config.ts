@@ -15,6 +15,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Premium portfolio showcasing web development projects and skills' }
       ],
       link: [
+        { rel: 'icon', type: 'image/jpeg', href: '/images/profile.jpg' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' }
       ]
     }

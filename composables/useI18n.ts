@@ -176,6 +176,20 @@ const translations: Translations = {
     km: "អត្ថបទប្លក់នឹងមកដល់ឆាប់ៗ...",
     zh: "博客文章即将推出..."
   },
+  "blog.tab.all": { en: "All", km: "ទាំងអស់", zh: "全部" },
+  "blog.tab.laravel": { en: "Laravel", km: "Laravel", zh: "Laravel" },
+  "blog.tab.vue": { en: "Vue", km: "Vue", zh: "Vue" },
+  "blog.tab.typescript": { en: "TypeScript", km: "TypeScript", zh: "TypeScript" },
+  "blog.tab.laravelVue": { en: "Laravel & Vue", km: "Laravel & Vue", zh: "Laravel & Vue" },
+  "blog.tab.interview": { en: "Interview", km: "សំភាសន៍", zh: "面试" },
+  "blog.tab.database": { en: "Database", km: "មូលដ្ឋានទិន្នន័យ", zh: "数据库" },
+  "blog.noResults": {
+    en: "No posts found for this filter.",
+    km: "រកមិនឃើញអត្ថបទសម្រាប់តម្រងនេះទេ។",
+    zh: "未找到此筛选条件的文章。"
+  },
+  "blog.backToBlog": { en: "Back to Blog", km: "ត្រឡប់ទៅប្លក់", zh: "返回博客" },
+  "blog.summary": { en: "Summary", km: "សេចក្តីសង្ខេប", zh: "总结" },
 
   // Footer
   "footer.rights": {

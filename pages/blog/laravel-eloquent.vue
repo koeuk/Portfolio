@@ -4,7 +4,7 @@
       <!-- Back button -->
       <NuxtLink to="/blog" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors mb-8">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        Back to Blog
+        {{ t('blog.backToBlog') }}
       </NuxtLink>
 
       <!-- Header -->
@@ -136,7 +136,7 @@
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Summary</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
@@ -174,6 +174,7 @@
 useHead({
   title: 'Laravel Eloquent ORM - Koeuk Dev'
 })
+const { t } = useI18n()
 
 const codes = [
   `SELECT * FROM users WHERE active = 1 ORDER BY name ASC;`,

@@ -3,9 +3,9 @@
         :class="scrolled ? 'bg-white/95 dark:bg-primary/95 backdrop-blur-sm shadow-md' : 'bg-white/90 dark:bg-primary/90'">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <NuxtLink to="/#home"
-                    class="text-2xl font-bold text-primary dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-                    Portfolio
+                <NuxtLink to="/#home" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <img src="/images/profile.jpg" alt="Logo" class="w-9 h-9 rounded-full object-cover border-2 border-primary dark:border-white" />
+                    <span class="text-xl font-bold text-primary dark:text-white">Koeuk Dev</span>
                 </NuxtLink>
 
                 <!-- Desktop Menu -->
