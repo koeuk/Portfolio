@@ -35,6 +35,9 @@ export interface Experience {
     id: string;
     items: ExperienceCategory[];
   }[];
+  keyDifferences?: {
+    id: string;
+  }[];
 }
 
 export const useData = () => {
@@ -169,7 +172,7 @@ export const useData = () => {
               period: 'WEB MODULE',
               subheading: 'Content Delivery Network',
               points: ['homepage', 'search', 'watch_page', 'subscriptions', 'history'],
-              technologies: ['Java Swing', 'JDBC', 'Oracle SQL']
+              technologies: ['Thumbnail Display', 'Video Duration', 'View Counts']
             },
             {
               id: 'interaction',
@@ -182,8 +185,8 @@ export const useData = () => {
               id: 'creator_tools',
               period: 'TOOLS',
               subheading: 'Video Management System',
-              points: ['studio_dashboard', 'video_management', 'engagement_stats'],
-              technologies: ['File I/O', 'Oracle BFILE']
+              points: ['upload_video', 'management', 'analytics', 'channel_customization'],
+              technologies: ['Oracle BFILEs', 'File I/O']
             }
           ]
         },
@@ -194,18 +197,38 @@ export const useData = () => {
               id: 'overview',
               period: 'ADMIN',
               subheading: 'Core System Management',
-              points: ['dashboard_metrics', 'system_logs'],
+              points: ['global_stats', 'visual_analytics'],
               technologies: ['Admin Dash', 'Chart Logic']
             },
             {
-              id: 'user_content',
-              period: 'STORAGE',
-              subheading: 'Security & Moderation',
-              points: ['user_moderation', 'video_approval', 'storage_management'],
+              id: 'user_management',
+              period: 'USERS',
+              subheading: 'Full Access Control',
+              points: ['user_crud', 'access_control', 'role_management'],
               technologies: ['Security', 'CRUD']
+            },
+            {
+              id: 'content_moderation',
+              period: 'MODERATION',
+              subheading: 'Security & Moderation',
+              points: ['video_crud', 'upload_queue', 'metadata_control'],
+              technologies: ['Approval Workflow', 'JDBC']
+            },
+            {
+              id: 'system_features',
+              period: 'SYSTEM',
+              subheading: 'Platform Configuration',
+              points: ['theme_toggle', 'interface_switching'],
+              technologies: ['Swing Themes', 'State Management']
             }
           ]
         }
+      ],
+      keyDifferences: [
+        { id: 'video_management' },
+        { id: 'user_management' },
+        { id: 'moderation' },
+        { id: 'target_audience' }
       ]
     },
     {
