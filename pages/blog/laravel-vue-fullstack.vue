@@ -14,7 +14,7 @@
           <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs rounded-full font-medium">Vue</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          Full-Stack App with Laravel &amp; Vue
+          {{ t('blog.laravel.fullstack.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Dec 20, 2025</p>
       </div>
@@ -24,12 +24,12 @@
         <!-- 1. Introduction -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Introduction — Why Laravel + Vue?</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.introTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-              Laravel and Vue.js are one of the most popular full-stack combinations in modern web development. Laravel provides a robust backend framework with elegant syntax, built-in authentication, an ORM (Eloquent), and powerful routing. Vue.js complements it perfectly as a reactive, component-based frontend framework.
+              {{ t('blog.laravel.fullstack.introP1') }}
             </p>
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-              Together, they allow you to build single-page applications (SPAs) with a clean API-driven architecture. In this guide, we will walk through building a complete full-stack CRUD application from scratch, covering everything from project setup to deployment.
+              {{ t('blog.laravel.fullstack.introP2') }}
             </p>
           </div>
         </section>
@@ -37,17 +37,17 @@
         <!-- 2. Project Setup -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Project Setup (Laravel Backend + Vue Frontend via Vite)</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.setupTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              First, create a new Laravel project and then set up Vue.js as the frontend using Vite, which is the default bundler in modern Laravel.
+              {{ t('blog.laravel.fullstack.setupP1') }}
             </p>
-            <CodeBlock title="Terminal — Laravel Setup" :code="codes[0]" />
+            <CodeBlock :title="t('blog.laravel.fullstack.setupTerminalLaravel')" :code="codes[0]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              Next, install Vue and the Vite plugin for Vue inside your Laravel project.
+              {{ t('blog.laravel.fullstack.setupP2') }}
             </p>
-            <CodeBlock title="Terminal — Vue + Vite Setup" :code="codes[1]" />
+            <CodeBlock :title="t('blog.laravel.fullstack.setupTerminalVite')" :code="codes[1]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              Configure Vite to handle Vue single-file components by updating the Vite config.
+              {{ t('blog.laravel.fullstack.setupP3') }}
             </p>
             <CodeBlock title="vite.config.js" :code="codes[2]" />
           </div>
@@ -56,9 +56,8 @@
         <!-- 3. Setting Up Laravel API Routes -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Setting Up Laravel API Routes</h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Laravel provides a dedicated file for API routes. All routes defined in <code class="inline-code">routes/api.php</code> are automatically prefixed with <code class="inline-code">/api</code>. Define your resource routes here so the Vue frontend can communicate with the backend via RESTful endpoints.
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.apiRoutesTitle') }}</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.fullstack.apiRoutesDesc')">
             </p>
             <CodeBlock title="routes/api.php" :code="codes[3]" />
           </div>
@@ -67,13 +66,12 @@
         <!-- 4. Creating a RESTful Controller -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Creating a RESTful Controller</h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Generate a resource controller that includes all CRUD methods. The <code class="inline-code">--api</code> flag creates a controller without the <code class="inline-code">create</code> and <code class="inline-code">edit</code> methods since those are only needed for server-rendered forms.
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.controllerTitle') }}</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.fullstack.controllerDesc')">
             </p>
             <CodeBlock title="Terminal" :code="codes[4]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              Implement the controller with JSON responses for the API.
+              {{ t('blog.laravel.fullstack.controllerP2') }}
             </p>
             <CodeBlock title="app/Http/Controllers/Api/TaskController.php" :code="codes[5]" />
           </div>
@@ -82,14 +80,14 @@
         <!-- 5. Creating a Model and Migration -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Creating a Model and Migration</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.modelTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Generate the Task model along with a migration file. The migration defines the database schema for the tasks table.
+              {{ t('blog.laravel.fullstack.modelP1') }}
             </p>
             <CodeBlock title="Terminal" :code="codes[6]" />
             <CodeBlock class="mt-4" title="database/migrations/xxxx_create_tasks_table.php" :code="codes[7]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              Define the fillable fields on the model and run the migration.
+              {{ t('blog.laravel.fullstack.modelP2') }}
             </p>
             <CodeBlock title="app/Models/Task.php" :code="codes[8]" />
             <CodeBlock class="mt-4" title="Terminal" :code="codes[9]" />
@@ -99,13 +97,12 @@
         <!-- 6. CORS Configuration -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. CORS Configuration</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.corsTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              If your Vue frontend runs on a different port or domain than your Laravel backend, you need to configure Cross-Origin Resource Sharing (CORS). Laravel includes a CORS config file out of the box.
+              {{ t('blog.laravel.fullstack.corsP1') }}
             </p>
             <CodeBlock title="config/cors.php" :code="codes[10]" />
-            <p class="text-gray-600 dark:text-gray-300 mt-4">
-              During local development with Vite, your Vue app typically runs on <code class="inline-code">http://localhost:5173</code> while Laravel serves on <code class="inline-code">http://localhost:8000</code>. The above configuration allows all origins in development. For production, you should restrict <code class="inline-code">allowed_origins</code> to your actual domain.
+            <p class="text-gray-600 dark:text-gray-300 mt-4" v-html="t('blog.laravel.fullstack.corsP2')">
             </p>
           </div>
         </section>
@@ -113,14 +110,14 @@
         <!-- 7. Vue Frontend Setup -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">7. Vue Frontend Setup (with Axios)</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.vueSetupTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Install Axios for making HTTP requests to the Laravel API. Set up a base API client that you can reuse across all your Vue components.
+              {{ t('blog.laravel.fullstack.vueSetupP1') }}
             </p>
             <CodeBlock title="Terminal" :code="codes[11]" />
             <CodeBlock class="mt-4" title="resources/js/api/axios.js" :code="codes[12]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              Set up the Vue app entry point and mount it to the DOM.
+              {{ t('blog.laravel.fullstack.vueSetupP2') }}
             </p>
             <CodeBlock title="resources/js/app.js" :code="codes[13]" />
           </div>
@@ -129,9 +126,8 @@
         <!-- 8. Creating Vue Components to Consume API -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">8. Creating Vue Components to Consume API</h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Create a TaskList component that fetches tasks from the Laravel API and displays them. This component uses the Composition API with <code class="inline-code">&lt;script setup&gt;</code> syntax.
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.componentsTitle') }}</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.fullstack.componentsDesc')">
             </p>
             <CodeBlock title="resources/js/components/TaskList.vue" :code="codes[14]" />
           </div>
@@ -140,9 +136,9 @@
         <!-- 9. CRUD Operations -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">9. CRUD Operations (Create, Read, Update, Delete)</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.crudTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Build a complete task manager component that supports all CRUD operations. This component includes a form for creating and editing tasks, and action buttons for updating and deleting them.
+              {{ t('blog.laravel.fullstack.crudDesc') }}
             </p>
             <CodeBlock title="resources/js/components/TaskManager.vue" :code="codes[15]" />
           </div>
@@ -151,21 +147,21 @@
         <!-- 10. Authentication with Sanctum -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">10. Authentication with Sanctum</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.authTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Laravel Sanctum provides a lightweight authentication system for SPAs. It uses cookie-based session authentication for same-domain apps and token-based authentication for third-party APIs.
+              {{ t('blog.laravel.fullstack.authP1') }}
             </p>
-            <CodeBlock title="Terminal — Install Sanctum" :code="codes[16]" />
+            <CodeBlock :title="t('blog.laravel.fullstack.authTerminalSanctum')" :code="codes[16]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              Create an authentication controller to handle login and return the user data.
+              {{ t('blog.laravel.fullstack.authP2') }}
             </p>
             <CodeBlock title="app/Http/Controllers/Api/AuthController.php" :code="codes[17]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              Add authentication routes and protect your API routes with the Sanctum middleware.
+              {{ t('blog.laravel.fullstack.authP3') }}
             </p>
             <CodeBlock title="routes/api.php (updated)" :code="codes[18]" />
             <p class="text-gray-600 dark:text-gray-300 mt-4 mb-4">
-              On the Vue side, handle login and store the token for subsequent requests.
+              {{ t('blog.laravel.fullstack.authP4') }}
             </p>
             <CodeBlock title="resources/js/composables/useAuth.js" :code="codes[19]" />
           </div>
@@ -174,35 +170,35 @@
         <!-- 11. Deployment Tips -->
         <section class="mb-12">
           <div class="qa-section">
-            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">11. Deployment Tips</h2>
+            <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.fullstack.deployTitle') }}</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
-              When deploying your full-stack Laravel + Vue application, follow these steps to ensure everything runs smoothly in production.
+              {{ t('blog.laravel.fullstack.deployDesc') }}
             </p>
-            <CodeBlock title="Terminal — Production Build" :code="codes[20]" />
+            <CodeBlock :title="t('blog.laravel.fullstack.deployTerminal')" :code="codes[20]" />
             <ul class="space-y-2 text-gray-600 dark:text-gray-300 mt-4">
               <li class="flex items-start gap-2">
                 <span class="text-green-500 mt-1">&#10003;</span>
-                <span>Set <code class="inline-code">APP_ENV=production</code> and <code class="inline-code">APP_DEBUG=false</code> in your <code class="inline-code">.env</code> file.</span>
+                <span v-html="t('blog.laravel.fullstack.deployTip1')"></span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-green-500 mt-1">&#10003;</span>
-                <span>Run <code class="inline-code">php artisan config:cache</code> and <code class="inline-code">php artisan route:cache</code> for performance.</span>
+                <span v-html="t('blog.laravel.fullstack.deployTip2')"></span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-green-500 mt-1">&#10003;</span>
-                <span>Use a process manager like Supervisor for queue workers.</span>
+                <span>{{ t('blog.laravel.fullstack.deployTip3') }}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-green-500 mt-1">&#10003;</span>
-                <span>Configure your web server (Nginx or Apache) to point to the <code class="inline-code">public/</code> directory.</span>
+                <span v-html="t('blog.laravel.fullstack.deployTip4')"></span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-green-500 mt-1">&#10003;</span>
-                <span>Set up SSL with Let's Encrypt for HTTPS.</span>
+                <span>{{ t('blog.laravel.fullstack.deployTip5') }}</span>
               </li>
               <li class="flex items-start gap-2">
                 <span class="text-green-500 mt-1">&#10003;</span>
-                <span>Restrict CORS <code class="inline-code">allowed_origins</code> to your actual domain in production.</span>
+                <span v-html="t('blog.laravel.fullstack.deployTip6')"></span>
               </li>
             </ul>
           </div>
@@ -210,42 +206,42 @@
 
         <!-- Summary -->
         <section class="mb-12 qa-section">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Summary</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            In this guide, we built a complete full-stack application using Laravel as the API backend and Vue.js as the reactive frontend. Here is what we covered:
+            {{ t('blog.laravel.fullstack.summaryIntro') }}
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Set up a Laravel project with Vue.js via Vite for modern frontend tooling.</span>
+              <span>{{ t('blog.laravel.fullstack.sum1') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Created RESTful API routes and a resource controller for CRUD operations.</span>
+              <span>{{ t('blog.laravel.fullstack.sum2') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Defined an Eloquent model and database migration for the tasks table.</span>
+              <span>{{ t('blog.laravel.fullstack.sum3') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Configured CORS to allow the Vue frontend to communicate with the Laravel API.</span>
+              <span>{{ t('blog.laravel.fullstack.sum4') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Built Vue components using the Composition API to consume the API with Axios.</span>
+              <span>{{ t('blog.laravel.fullstack.sum5') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Implemented full CRUD operations (Create, Read, Update, Delete) in a TaskManager component.</span>
+              <span>{{ t('blog.laravel.fullstack.sum6') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Added authentication using Laravel Sanctum with token-based API protection.</span>
+              <span>{{ t('blog.laravel.fullstack.sum7') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Covered deployment best practices for production environments.</span>
+              <span>{{ t('blog.laravel.fullstack.sum8') }}</span>
             </li>
           </ul>
         </section>

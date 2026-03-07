@@ -12,7 +12,7 @@
           <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs rounded-full font-medium">JavaScript</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          TypeScript Best Practices for 2026
+          {{ t('blog.ts.bestPractices.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Jan 5, 2026</p>
       </div>
@@ -21,106 +21,106 @@
 
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            TypeScript has become the standard for building robust, scalable JavaScript applications. Whether you are working on a frontend framework like Vue or React, or a backend with Node.js, following best practices ensures your codebase stays maintainable and type-safe. Here are the top TypeScript best practices you should adopt in 2026.
+            {{ t('blog.ts.bestPractices.intro') }}
           </p>
         </section>
 
         <!-- 1. Use strict TypeScript Configuration -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">1. Use Strict TypeScript Configuration</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">Always enable <code class="inline-code">strict: true</code> in your <code class="inline-code">tsconfig.json</code>. This enables a suite of strict checks including <code class="inline-code">noImplicitAny</code>, <code class="inline-code">strictNullChecks</code>, and <code class="inline-code">strictFunctionTypes</code>. Additionally, consider enabling <code class="inline-code">noUncheckedIndexedAccess</code> to catch potential undefined values when accessing arrays or objects by index.</p>
-          <CodeBlock title="tsconfig.json — Strict Configuration" :code="codes[0]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s1Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s1Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s1Code')" :code="codes[0]" />
         </div>
 
         <!-- 2. Prefer Interfaces over Types for Object Shapes -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">2. Prefer Interfaces over Types for Object Shapes</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">When defining object shapes, prefer <code class="inline-code">interface</code> over <code class="inline-code">type</code>. Interfaces support declaration merging, produce better error messages, and are more performant for the compiler. Use <code class="inline-code">type</code> for unions, intersections, mapped types, and other advanced constructs.</p>
-          <CodeBlock title="Interface vs Type for Objects" :code="codes[1]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s2Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s2Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s2Code')" :code="codes[1]" />
         </div>
 
         <!-- 3. Use Type Inference -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">3. Use Type Inference — Don't Over-Annotate</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">TypeScript has powerful type inference. You do not need to annotate every variable or return type. Let the compiler infer types when the value makes the type obvious. Annotate function parameters and public API boundaries, but avoid redundant annotations on simple assignments.</p>
-          <CodeBlock title="Let TypeScript Infer Types" :code="codes[2]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s3Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.ts.bestPractices.s3Desc') }}</p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s3Code')" :code="codes[2]" />
         </div>
 
         <!-- 4. Use Discriminated Unions for State -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">4. Use Discriminated Unions for State</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">Discriminated unions are one of TypeScript's most powerful patterns. Use a shared literal property (the discriminant) to model different states. This allows TypeScript to narrow types automatically in <code class="inline-code">switch</code> or <code class="inline-code">if</code> blocks, making impossible states unrepresentable.</p>
-          <CodeBlock title="Discriminated Unions for State Management" :code="codes[3]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s4Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s4Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s4Code')" :code="codes[3]" />
         </div>
 
         <!-- 5. Use Zod or Valibot for Runtime Validation -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">5. Use Zod or Valibot for Runtime Validation</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">TypeScript types are erased at runtime. When dealing with external data (API responses, form inputs, environment variables), use a runtime validation library like <code class="inline-code">Zod</code> or <code class="inline-code">Valibot</code> to validate and parse data, ensuring your runtime types match your compile-time types.</p>
-          <CodeBlock title="Runtime Validation with Zod" :code="codes[4]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s5Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s5Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s5Code')" :code="codes[4]" />
         </div>
 
         <!-- 6. Use const assertions -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">6. Use const Assertions (as const)</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">The <code class="inline-code">as const</code> assertion tells TypeScript to infer the narrowest possible type for a value. This is especially useful for configuration objects, lookup tables, and anywhere you want literal types instead of widened primitives.</p>
-          <CodeBlock title="const Assertions" :code="codes[5]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s6Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s6Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s6Code')" :code="codes[5]" />
         </div>
 
         <!-- 7. Generics -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">7. Generics — Write Reusable, Type-Safe Functions</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">Generics allow you to write functions, classes, and interfaces that work with any type while preserving type safety. Use constraints with <code class="inline-code">extends</code> to limit what types are accepted. Avoid over-using generics — only add them when you need to preserve a relationship between input and output types.</p>
-          <CodeBlock title="Generics with Constraints" :code="codes[6]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s7Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s7Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s7Code')" :code="codes[6]" />
         </div>
 
         <!-- 8. Use Utility Types -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">8. Use Utility Types (Partial, Pick, Omit, Record, Required)</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">TypeScript provides built-in utility types that let you transform existing types without redefining them. Master these to keep your code DRY and avoid duplicating type definitions across your codebase.</p>
-          <CodeBlock title="Built-in Utility Types" :code="codes[7]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s8Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.ts.bestPractices.s8Desc') }}</p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s8Code')" :code="codes[7]" />
         </div>
 
         <!-- 9. Narrow Types with Type Guards -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">9. Narrow Types with Type Guards</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">Type guards let you narrow a union type to a more specific type within a conditional block. Use <code class="inline-code">typeof</code>, <code class="inline-code">instanceof</code>, the <code class="inline-code">in</code> operator, or custom type predicates to safely handle different type variants.</p>
-          <CodeBlock title="Type Guards and Narrowing" :code="codes[8]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s9Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s9Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s9Code')" :code="codes[8]" />
         </div>
 
         <!-- 10. Use Template Literal Types -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">10. Use Template Literal Types</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">Template literal types let you create string types from combinations of other string literals. They are powerful for typing event names, CSS values, API routes, and any scenario where strings follow a predictable pattern.</p>
-          <CodeBlock title="Template Literal Types" :code="codes[9]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s10Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.ts.bestPractices.s10Desc') }}</p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s10Code')" :code="codes[9]" />
         </div>
 
         <!-- 11. Avoid any — Use unknown Instead -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">11. Avoid `any` — Use `unknown` Instead</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">Using <code class="inline-code">any</code> disables all type checking and defeats the purpose of TypeScript. When you truly do not know a type, use <code class="inline-code">unknown</code> instead. It forces you to perform type checks before using the value, keeping your code safe.</p>
-          <CodeBlock title="unknown vs any" :code="codes[10]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3" v-html="t('blog.ts.bestPractices.s11Title')"></h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s11Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s11Code')" :code="codes[10]" />
         </div>
 
         <!-- 12. Use Enums Carefully -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">12. Use Enums Carefully (Prefer const Objects)</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">TypeScript enums have quirks — numeric enums allow reverse mapping and can accept any number, and regular enums generate runtime code. In most cases, prefer <code class="inline-code">as const</code> objects or union types for a simpler, more predictable, and tree-shakeable alternative.</p>
-          <CodeBlock title="Enums vs const Objects" :code="codes[11]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.ts.bestPractices.s12Title') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.ts.bestPractices.s12Desc')"></p>
+          <CodeBlock :title="t('blog.ts.bestPractices.s12Code')" :code="codes[11]" />
         </div>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Summary</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Enable <code class="inline-code">strict: true</code> and <code class="inline-code">noUncheckedIndexedAccess</code> for maximum type safety.</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Prefer <code class="inline-code">interface</code> for object shapes and <code class="inline-code">type</code> for unions and complex types.</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Let TypeScript infer types — annotate parameters and public APIs, not obvious assignments.</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Model state with discriminated unions to make impossible states unrepresentable.</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Use Zod or Valibot for runtime validation of external data.</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Use <code class="inline-code">as const</code>, generics, and utility types to write DRY, type-safe code.</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Narrow types with type guards and template literal types for precise control.</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>Avoid <code class="inline-code">any</code> — use <code class="inline-code">unknown</code>. Prefer const objects over enums.</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.ts.bestPractices.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.ts.bestPractices.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>{{ t('blog.ts.bestPractices.sum3') }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>{{ t('blog.ts.bestPractices.sum4') }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>{{ t('blog.ts.bestPractices.sum5') }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.ts.bestPractices.sum6')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span>{{ t('blog.ts.bestPractices.sum7') }}</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.ts.bestPractices.sum8')"></span></li>
           </ul>
         </section>
       </article>

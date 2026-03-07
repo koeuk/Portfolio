@@ -2707,6 +2707,498 @@ const translations: Translations = {
     km: 'បង្កើតគ្រោងមូលដ្ឋានទិន្នន័យអេឡិចត្រូនិកពាណិជ្ជកម្មពិត',
     zh: '构建真实的电子商务数据库架构',
   },
+
+  // Blog - Laravel & Vue Full-Stack
+  "blog.laravel.fullstack.title": {
+    en: "Full-Stack App with Laravel & Vue",
+    km: "កម្មវិធី Full-Stack ជាមួយ Laravel & Vue",
+    zh: "使用 Laravel 和 Vue 构建全栈应用",
+  },
+  "blog.laravel.fullstack.introTitle": {
+    en: "1. Introduction — Why Laravel + Vue?",
+    km: "1. សេចក្តីផ្តើម — ហេតុអ្វីបានជា Laravel + Vue?",
+    zh: "1. 简介 — 为什么选择 Laravel + Vue？",
+  },
+  "blog.laravel.fullstack.introP1": {
+    en: "Laravel and Vue.js are one of the most popular full-stack combinations in modern web development. Laravel provides a robust backend framework with elegant syntax, built-in authentication, an ORM (Eloquent), and powerful routing. Vue.js complements it perfectly as a reactive, component-based frontend framework.",
+    km: "Laravel និង Vue.js គឺជាការផ្សំ full-stack ដ៏ពេញនិយមបំផុតមួយក្នុងការអភិវឌ្ឍន៍វេបសាយទំនើប។ Laravel ផ្តល់នូវ framework backend ដ៏រឹងមាំជាមួយវាក្យសម្ព័ន្ធឡូយ ការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវដែលភ្ជាប់មកជាមួយ ORM (Eloquent) និងការដឹកនាំផ្លូវដ៏មានថាមពល។ Vue.js បំពេញវាបានយ៉ាងល្អឥតខ្ចោះក្នុងនាមជា framework frontend ប្រតិកម្មដែលផ្អែកលើ component។",
+    zh: "Laravel 和 Vue.js 是现代 Web 开发中最受欢迎的全栈组合之一。Laravel 提供了一个强大的后端框架，具有优雅的语法、内置身份验证、ORM（Eloquent）和强大的路由。Vue.js 作为一个响应式、基于组件的前端框架，与其完美互补。",
+  },
+  "blog.laravel.fullstack.introP2": {
+    en: "Together, they allow you to build single-page applications (SPAs) with a clean API-driven architecture. In this guide, we will walk through building a complete full-stack CRUD application from scratch, covering everything from project setup to deployment.",
+    km: "រួមគ្នា ពួកវាអនុញ្ញាតឱ្យអ្នកបង្កើតកម្មវិធីទំព័រតែមួយ (SPAs) ជាមួយស្ថាបត្យកម្មដែលដឹកនាំដោយ API ដ៏ស្អាត។ ក្នុងមគ្គុទ្ទេសក៍នេះ យើងនឹងដើរតាមការបង្កើតកម្មវិធី CRUD full-stack ពេញលេញពីដំបូង គ្របដណ្តប់អ្វីគ្រប់យ៉ាងពីការដំឡើងគម្រោងរហូតដល់ការដាក់ឱ្យប្រើប្រាស់។",
+    zh: "它们结合在一起，让你能够使用干净的 API 驱动架构构建单页应用（SPA）。在本指南中，我们将从零开始构建一个完整的全栈 CRUD 应用程序，涵盖从项目设置到部署的所有内容。",
+  },
+  "blog.laravel.fullstack.setupTitle": {
+    en: "2. Project Setup (Laravel Backend + Vue Frontend via Vite)",
+    km: "2. ការដំឡើងគម្រោង (Laravel Backend + Vue Frontend តាមរយៈ Vite)",
+    zh: "2. 项目设置（Laravel 后端 + 通过 Vite 的 Vue 前端）",
+  },
+  "blog.laravel.fullstack.setupP1": {
+    en: "First, create a new Laravel project and then set up Vue.js as the frontend using Vite, which is the default bundler in modern Laravel.",
+    km: "ដំបូង បង្កើតគម្រោង Laravel ថ្មីមួយ រួចដំឡើង Vue.js ជា frontend ដោយប្រើ Vite ដែលជា bundler លំនាំដើមនៅក្នុង Laravel ទំនើប។",
+    zh: "首先，创建一个新的 Laravel 项目，然后使用 Vite（现代 Laravel 中的默认打包工具）将 Vue.js 设置为前端。",
+  },
+  "blog.laravel.fullstack.setupTerminalLaravel": {
+    en: "Terminal — Laravel Setup",
+    km: "Terminal — ការដំឡើង Laravel",
+    zh: "终端 — Laravel 设置",
+  },
+  "blog.laravel.fullstack.setupP2": {
+    en: "Next, install Vue and the Vite plugin for Vue inside your Laravel project.",
+    km: "បន្ទាប់មក ដំឡើង Vue និង Vite plugin សម្រាប់ Vue នៅក្នុងគម្រោង Laravel របស់អ្នក។",
+    zh: "接下来，在你的 Laravel 项目中安装 Vue 和用于 Vue 的 Vite 插件。",
+  },
+  "blog.laravel.fullstack.setupTerminalVite": {
+    en: "Terminal — Vue + Vite Setup",
+    km: "Terminal — ការដំឡើង Vue + Vite",
+    zh: "终端 — Vue + Vite 设置",
+  },
+  "blog.laravel.fullstack.setupP3": {
+    en: "Configure Vite to handle Vue single-file components by updating the Vite config.",
+    km: "កំណត់រចនាសម្ព័ន្ធ Vite ដើម្បីគ្រប់គ្រង Vue single-file components ដោយធ្វើបច្ចុប្បន្នភាពការកំណត់ Vite។",
+    zh: "通过更新 Vite 配置来配置 Vite 以处理 Vue 单文件组件。",
+  },
+  "blog.laravel.fullstack.apiRoutesTitle": {
+    en: "3. Setting Up Laravel API Routes",
+    km: "3. ការដំឡើង Laravel API Routes",
+    zh: "3. 设置 Laravel API 路由",
+  },
+  "blog.laravel.fullstack.apiRoutesDesc": {
+    en: 'Laravel provides a dedicated file for API routes. All routes defined in <code class="inline-code">routes/api.php</code> are automatically prefixed with <code class="inline-code">/api</code>. Define your resource routes here so the Vue frontend can communicate with the backend via RESTful endpoints.',
+    km: 'Laravel ផ្តល់នូវឯកសារពិសេសសម្រាប់ API routes។ Routes ទាំងអស់ដែលកំណត់នៅក្នុង <code class="inline-code">routes/api.php</code> ត្រូវបានបន្ថែម <code class="inline-code">/api</code> នៅពីមុខដោយស្វ័យប្រវត្តិ។ កំណត់ resource routes របស់អ្នកនៅទីនេះដើម្បីឱ្យ Vue frontend អាចទំនាក់ទំនងជាមួយ backend តាមរយៈ RESTful endpoints។',
+    zh: 'Laravel 提供了一个专门用于 API 路由的文件。在 <code class="inline-code">routes/api.php</code> 中定义的所有路由都会自动加上 <code class="inline-code">/api</code> 前缀。在此定义你的资源路由，以便 Vue 前端可以通过 RESTful 端点与后端通信。',
+  },
+  "blog.laravel.fullstack.controllerTitle": {
+    en: "4. Creating a RESTful Controller",
+    km: "4. ការបង្កើត RESTful Controller",
+    zh: "4. 创建 RESTful 控制器",
+  },
+  "blog.laravel.fullstack.controllerDesc": {
+    en: 'Generate a resource controller that includes all CRUD methods. The <code class="inline-code">--api</code> flag creates a controller without the <code class="inline-code">create</code> and <code class="inline-code">edit</code> methods since those are only needed for server-rendered forms.',
+    km: 'បង្កើត resource controller ដែលរួមបញ្ចូលវិធីសាស្ត្រ CRUD ទាំងអស់។ Flag <code class="inline-code">--api</code> បង្កើត controller ដោយគ្មានវិធីសាស្ត្រ <code class="inline-code">create</code> និង <code class="inline-code">edit</code> ព្រោះវាត្រូវការតែសម្រាប់ server-rendered forms ប៉ុណ្ណោះ។',
+    zh: '生成一个包含所有 CRUD 方法的资源控制器。<code class="inline-code">--api</code> 标志创建一个不包含 <code class="inline-code">create</code> 和 <code class="inline-code">edit</code> 方法的控制器，因为这些方法只用于服务器端渲染的表单。',
+  },
+  "blog.laravel.fullstack.controllerP2": {
+    en: "Implement the controller with JSON responses for the API.",
+    km: "អនុវត្ត controller ជាមួយ JSON responses សម្រាប់ API។",
+    zh: "实现带有 JSON 响应的控制器用于 API。",
+  },
+  "blog.laravel.fullstack.modelTitle": {
+    en: "5. Creating a Model and Migration",
+    km: "5. ការបង្កើត Model និង Migration",
+    zh: "5. 创建模型和迁移",
+  },
+  "blog.laravel.fullstack.modelP1": {
+    en: "Generate the Task model along with a migration file. The migration defines the database schema for the tasks table.",
+    km: "បង្កើត Task model រួមជាមួយឯកសារ migration។ Migration កំណត់គ្រោង database សម្រាប់តារាង tasks។",
+    zh: "生成 Task 模型以及迁移文件。迁移定义了 tasks 表的数据库架构。",
+  },
+  "blog.laravel.fullstack.modelP2": {
+    en: "Define the fillable fields on the model and run the migration.",
+    km: "កំណត់វាល fillable នៅលើ model ហើយដំណើរការ migration។",
+    zh: "在模型上定义可填充字段并运行迁移。",
+  },
+  "blog.laravel.fullstack.corsTitle": {
+    en: "6. CORS Configuration",
+    km: "6. ការកំណត់រចនាសម្ព័ន្ធ CORS",
+    zh: "6. CORS 配置",
+  },
+  "blog.laravel.fullstack.corsP1": {
+    en: "If your Vue frontend runs on a different port or domain than your Laravel backend, you need to configure Cross-Origin Resource Sharing (CORS). Laravel includes a CORS config file out of the box.",
+    km: "ប្រសិនបើ Vue frontend របស់អ្នកដំណើរការនៅលើ port ឬ domain ផ្សេងពី Laravel backend របស់អ្នក អ្នកត្រូវកំណត់រចនាសម្ព័ន្ធ Cross-Origin Resource Sharing (CORS)។ Laravel រួមបញ្ចូលឯកសារកំណត់ CORS ដោយស្រេច។",
+    zh: "如果你的 Vue 前端运行在与 Laravel 后端不同的端口或域名上，你需要配置跨域资源共享（CORS）。Laravel 自带 CORS 配置文件。",
+  },
+  "blog.laravel.fullstack.corsP2": {
+    en: 'During local development with Vite, your Vue app typically runs on <code class="inline-code">http://localhost:5173</code> while Laravel serves on <code class="inline-code">http://localhost:8000</code>. The above configuration allows all origins in development. For production, you should restrict <code class="inline-code">allowed_origins</code> to your actual domain.',
+    km: 'ក្នុងអំឡុងពេលអភិវឌ្ឍន៍ក្នុង local ជាមួយ Vite កម្មវិធី Vue របស់អ្នកជាធម្មតាដំណើរការនៅ <code class="inline-code">http://localhost:5173</code> ខណៈដែល Laravel ដំណើរការនៅ <code class="inline-code">http://localhost:8000</code>។ ការកំណត់ខាងលើអនុញ្ញាតឱ្យ origins ទាំងអស់ក្នុងការអភិវឌ្ឍន៍។ សម្រាប់ production អ្នកគួរកំណត់ <code class="inline-code">allowed_origins</code> ទៅ domain ពិតរបស់អ្នក។',
+    zh: '在使用 Vite 进行本地开发时，你的 Vue 应用通常运行在 <code class="inline-code">http://localhost:5173</code>，而 Laravel 运行在 <code class="inline-code">http://localhost:8000</code>。上述配置在开发中允许所有来源。在生产环境中，你应该将 <code class="inline-code">allowed_origins</code> 限制为你的实际域名。',
+  },
+  "blog.laravel.fullstack.vueSetupTitle": {
+    en: "7. Vue Frontend Setup (with Axios)",
+    km: "7. ការដំឡើង Vue Frontend (ជាមួយ Axios)",
+    zh: "7. Vue 前端设置（使用 Axios）",
+  },
+  "blog.laravel.fullstack.vueSetupP1": {
+    en: "Install Axios for making HTTP requests to the Laravel API. Set up a base API client that you can reuse across all your Vue components.",
+    km: "ដំឡើង Axios សម្រាប់ធ្វើ HTTP requests ទៅ Laravel API។ ដំឡើង API client មូលដ្ឋានដែលអ្នកអាចប្រើឡើងវិញនៅក្នុង Vue components ទាំងអស់របស់អ្នក។",
+    zh: "安装 Axios 用于向 Laravel API 发送 HTTP 请求。设置一个基础 API 客户端，你可以在所有 Vue 组件中重复使用。",
+  },
+  "blog.laravel.fullstack.vueSetupP2": {
+    en: "Set up the Vue app entry point and mount it to the DOM.",
+    km: "ដំឡើង Vue app entry point ហើយភ្ជាប់វាទៅ DOM។",
+    zh: "设置 Vue 应用入口点并将其挂载到 DOM。",
+  },
+  "blog.laravel.fullstack.componentsTitle": {
+    en: "8. Creating Vue Components to Consume API",
+    km: "8. ការបង្កើត Vue Components ដើម្បីប្រើ API",
+    zh: "8. 创建 Vue 组件以使用 API",
+  },
+  "blog.laravel.fullstack.componentsDesc": {
+    en: 'Create a TaskList component that fetches tasks from the Laravel API and displays them. This component uses the Composition API with <code class="inline-code">&lt;script setup&gt;</code> syntax.',
+    km: 'បង្កើត TaskList component ដែលទាញ tasks ពី Laravel API ហើយបង្ហាញវា។ Component នេះប្រើ Composition API ជាមួយវាក្យសម្ព័ន្ធ <code class="inline-code">&lt;script setup&gt;</code>។',
+    zh: '创建一个 TaskList 组件，从 Laravel API 获取任务并显示它们。该组件使用 Composition API 和 <code class="inline-code">&lt;script setup&gt;</code> 语法。',
+  },
+  "blog.laravel.fullstack.crudTitle": {
+    en: "9. CRUD Operations (Create, Read, Update, Delete)",
+    km: "9. ប្រតិបត្តិការ CRUD (បង្កើត អាន ធ្វើបច្ចុប្បន្នភាព លុប)",
+    zh: "9. CRUD 操作（创建、读取、更新、删除）",
+  },
+  "blog.laravel.fullstack.crudDesc": {
+    en: "Build a complete task manager component that supports all CRUD operations. This component includes a form for creating and editing tasks, and action buttons for updating and deleting them.",
+    km: "បង្កើត component គ្រប់គ្រង task ពេញលេញដែលគាំទ្រប្រតិបត្តិការ CRUD ទាំងអស់។ Component នេះរួមបញ្ចូលទម្រង់សម្រាប់បង្កើតនិងកែសម្រួល tasks និងប៊ូតុងសកម្មភាពសម្រាប់ធ្វើបច្ចុប្បន្នភាពនិងលុបពួកវា។",
+    zh: "构建一个完整的任务管理组件，支持所有 CRUD 操作。该组件包括用于创建和编辑任务的表单，以及用于更新和删除任务的操作按钮。",
+  },
+  "blog.laravel.fullstack.authTitle": {
+    en: "10. Authentication with Sanctum",
+    km: "10. ការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវជាមួយ Sanctum",
+    zh: "10. 使用 Sanctum 进行身份验证",
+  },
+  "blog.laravel.fullstack.authP1": {
+    en: "Laravel Sanctum provides a lightweight authentication system for SPAs. It uses cookie-based session authentication for same-domain apps and token-based authentication for third-party APIs.",
+    km: "Laravel Sanctum ផ្តល់ប្រព័ន្ធផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវស្រាលសម្រាប់ SPAs។ វាប្រើការផ្ទៀងផ្ទាត់ session ដោយ cookie សម្រាប់កម្មវិធីនៅ domain ដូចគ្នា និងការផ្ទៀងផ្ទាត់ដោយ token សម្រាប់ APIs ភាគីទីបី។",
+    zh: "Laravel Sanctum 为 SPA 提供了一个轻量级的身份验证系统。它对同域应用使用基于 cookie 的会话身份验证，对第三方 API 使用基于令牌的身份验证。",
+  },
+  "blog.laravel.fullstack.authTerminalSanctum": {
+    en: "Terminal — Install Sanctum",
+    km: "Terminal — ដំឡើង Sanctum",
+    zh: "终端 — 安装 Sanctum",
+  },
+  "blog.laravel.fullstack.authP2": {
+    en: "Create an authentication controller to handle login and return the user data.",
+    km: "បង្កើត authentication controller ដើម្បីគ្រប់គ្រងការចូល និងត្រឡប់ទិន្នន័យអ្នកប្រើប្រាស់។",
+    zh: "创建一个身份验证控制器来处理登录并返回用户数据。",
+  },
+  "blog.laravel.fullstack.authP3": {
+    en: "Add authentication routes and protect your API routes with the Sanctum middleware.",
+    km: "បន្ថែម authentication routes ហើយការពារ API routes របស់អ្នកជាមួយ Sanctum middleware។",
+    zh: "添加身份验证路由并使用 Sanctum 中间件保护你的 API 路由。",
+  },
+  "blog.laravel.fullstack.authP4": {
+    en: "On the Vue side, handle login and store the token for subsequent requests.",
+    km: "នៅផ្នែក Vue គ្រប់គ្រងការចូល និងរក្សាទុក token សម្រាប់ requests បន្ទាប់។",
+    zh: "在 Vue 端，处理登录并存储令牌以用于后续请求。",
+  },
+  "blog.laravel.fullstack.deployTitle": {
+    en: "11. Deployment Tips",
+    km: "11. គន្លឹះក្នុងការដាក់ឱ្យប្រើប្រាស់",
+    zh: "11. 部署提示",
+  },
+  "blog.laravel.fullstack.deployDesc": {
+    en: "When deploying your full-stack Laravel + Vue application, follow these steps to ensure everything runs smoothly in production.",
+    km: "នៅពេលដាក់ឱ្យប្រើប្រាស់កម្មវិធី Laravel + Vue full-stack របស់អ្នក សូមអនុវត្តតាមជំហានទាំងនេះដើម្បីធានាថាអ្វីៗដំណើរការល្អក្នុង production។",
+    zh: "部署你的全栈 Laravel + Vue 应用时，请按照以下步骤确保一切在生产环境中顺利运行。",
+  },
+  "blog.laravel.fullstack.deployTerminal": {
+    en: "Terminal — Production Build",
+    km: "Terminal — Build សម្រាប់ Production",
+    zh: "终端 — 生产构建",
+  },
+  "blog.laravel.fullstack.deployTip1": {
+    en: 'Set <code class="inline-code">APP_ENV=production</code> and <code class="inline-code">APP_DEBUG=false</code> in your <code class="inline-code">.env</code> file.',
+    km: 'កំណត់ <code class="inline-code">APP_ENV=production</code> និង <code class="inline-code">APP_DEBUG=false</code> នៅក្នុងឯកសារ <code class="inline-code">.env</code> របស់អ្នក។',
+    zh: '在你的 <code class="inline-code">.env</code> 文件中设置 <code class="inline-code">APP_ENV=production</code> 和 <code class="inline-code">APP_DEBUG=false</code>。',
+  },
+  "blog.laravel.fullstack.deployTip2": {
+    en: 'Run <code class="inline-code">php artisan config:cache</code> and <code class="inline-code">php artisan route:cache</code> for performance.',
+    km: 'ដំណើរការ <code class="inline-code">php artisan config:cache</code> និង <code class="inline-code">php artisan route:cache</code> សម្រាប់ប្រសិទ្ធភាព។',
+    zh: '运行 <code class="inline-code">php artisan config:cache</code> 和 <code class="inline-code">php artisan route:cache</code> 以提升性能。',
+  },
+  "blog.laravel.fullstack.deployTip3": {
+    en: "Use a process manager like Supervisor for queue workers.",
+    km: "ប្រើ process manager ដូចជា Supervisor សម្រាប់ queue workers។",
+    zh: "使用 Supervisor 等进程管理器来管理队列工作者。",
+  },
+  "blog.laravel.fullstack.deployTip4": {
+    en: 'Configure your web server (Nginx or Apache) to point to the <code class="inline-code">public/</code> directory.',
+    km: 'កំណត់រចនាសម្ព័ន្ធ web server របស់អ្នក (Nginx ឬ Apache) ដើម្បីចង្អុលទៅថត <code class="inline-code">public/</code>។',
+    zh: '配置你的 Web 服务器（Nginx 或 Apache）指向 <code class="inline-code">public/</code> 目录。',
+  },
+  "blog.laravel.fullstack.deployTip5": {
+    en: "Set up SSL with Let's Encrypt for HTTPS.",
+    km: "ដំឡើង SSL ជាមួយ Let's Encrypt សម្រាប់ HTTPS។",
+    zh: "使用 Let's Encrypt 设置 SSL 以启用 HTTPS。",
+  },
+  "blog.laravel.fullstack.deployTip6": {
+    en: 'Restrict CORS <code class="inline-code">allowed_origins</code> to your actual domain in production.',
+    km: 'កំណត់ CORS <code class="inline-code">allowed_origins</code> ទៅ domain ពិតរបស់អ្នកនៅក្នុង production។',
+    zh: '在生产环境中将 CORS <code class="inline-code">allowed_origins</code> 限制为你的实际域名。',
+  },
+  "blog.laravel.fullstack.summaryIntro": {
+    en: "In this guide, we built a complete full-stack application using Laravel as the API backend and Vue.js as the reactive frontend. Here is what we covered:",
+    km: "ក្នុងមគ្គុទ្ទេសក៍នេះ យើងបានបង្កើតកម្មវិធី full-stack ពេញលេញដោយប្រើ Laravel ជា API backend និង Vue.js ជា frontend ប្រតិកម្ម។ នេះគឺជាអ្វីដែលយើងបានគ្របដណ្តប់:",
+    zh: "在本指南中，我们使用 Laravel 作为 API 后端、Vue.js 作为响应式前端，构建了一个完整的全栈应用程序。以下是我们涵盖的内容：",
+  },
+  "blog.laravel.fullstack.sum1": {
+    en: "Set up a Laravel project with Vue.js via Vite for modern frontend tooling.",
+    km: "ដំឡើងគម្រោង Laravel ជាមួយ Vue.js តាមរយៈ Vite សម្រាប់ឧបករណ៍ frontend ទំនើប។",
+    zh: "通过 Vite 使用 Vue.js 设置 Laravel 项目，实现现代前端工具链。",
+  },
+  "blog.laravel.fullstack.sum2": {
+    en: "Created RESTful API routes and a resource controller for CRUD operations.",
+    km: "បង្កើត RESTful API routes និង resource controller សម្រាប់ប្រតិបត្តិការ CRUD។",
+    zh: "创建了 RESTful API 路由和用于 CRUD 操作的资源控制器。",
+  },
+  "blog.laravel.fullstack.sum3": {
+    en: "Defined an Eloquent model and database migration for the tasks table.",
+    km: "កំណត់ Eloquent model និង database migration សម្រាប់តារាង tasks។",
+    zh: "定义了 Eloquent 模型和 tasks 表的数据库迁移。",
+  },
+  "blog.laravel.fullstack.sum4": {
+    en: "Configured CORS to allow the Vue frontend to communicate with the Laravel API.",
+    km: "កំណត់រចនាសម្ព័ន្ធ CORS ដើម្បីអនុញ្ញាតឱ្យ Vue frontend ទំនាក់ទំនងជាមួយ Laravel API។",
+    zh: "配置 CORS 以允许 Vue 前端与 Laravel API 通信。",
+  },
+  "blog.laravel.fullstack.sum5": {
+    en: "Built Vue components using the Composition API to consume the API with Axios.",
+    km: "បង្កើត Vue components ដោយប្រើ Composition API ដើម្បីប្រើ API ជាមួយ Axios។",
+    zh: "使用 Composition API 构建 Vue 组件，通过 Axios 调用 API。",
+  },
+  "blog.laravel.fullstack.sum6": {
+    en: "Implemented full CRUD operations (Create, Read, Update, Delete) in a TaskManager component.",
+    km: "អនុវត្តប្រតិបត្តិការ CRUD ពេញលេញ (បង្កើត អាន ធ្វើបច្ចុប្បន្នភាព លុប) នៅក្នុង TaskManager component។",
+    zh: "在 TaskManager 组件中实现了完整的 CRUD 操作（创建、读取、更新、删除）。",
+  },
+  "blog.laravel.fullstack.sum7": {
+    en: "Added authentication using Laravel Sanctum with token-based API protection.",
+    km: "បន្ថែមការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវដោយប្រើ Laravel Sanctum ជាមួយការការពារ API ដោយ token។",
+    zh: "使用 Laravel Sanctum 添加了基于令牌的 API 身份验证保护。",
+  },
+  "blog.laravel.fullstack.sum8": {
+    en: "Covered deployment best practices for production environments.",
+    km: "គ្របដណ្តប់ការអនុវត្តល្អបំផុតសម្រាប់ការដាក់ឱ្យប្រើប្រាស់ក្នុង production។",
+    zh: "介绍了生产环境的部署最佳实践。",
+  },
+  "blog.ts.bestPractices.title": {
+    en: "TypeScript Best Practices for 2026",
+    km: "ការអនុវត្តល្អបំផុតរបស់ TypeScript សម្រាប់ឆ្នាំ 2026",
+    zh: "2026 年 TypeScript 最佳实践",
+  },
+  "blog.ts.bestPractices.intro": {
+    en: "TypeScript has become the standard for building robust, scalable JavaScript applications. Whether you are working on a frontend framework like Vue or React, or a backend with Node.js, following best practices ensures your codebase stays maintainable and type-safe. Here are the top TypeScript best practices you should adopt in 2026.",
+    km: "TypeScript បានក្លាយជាស្តង់ដារសម្រាប់បង្កើតកម្មវិធី JavaScript ដែលរឹងមាំ និងអាចពង្រីកបាន។ មិនថាអ្នកកំពុងធ្វើការលើ frontend framework ដូចជា Vue ឬ React ឬ backend ជាមួយ Node.js ទេ ការអនុវត្តល្អបំផុតធានាថា codebase របស់អ្នកនៅតែអាចថែទាំបាន និងមានសុវត្ថិភាពប្រភេទ។ នេះគឺជាការអនុវត្តល្អបំផុតរបស់ TypeScript ដែលអ្នកគួរអនុវត្តក្នុងឆ្នាំ 2026។",
+    zh: "TypeScript 已成为构建健壮、可扩展的 JavaScript 应用程序的标准。无论你是在使用 Vue 或 React 等前端框架，还是使用 Node.js 的后端，遵循最佳实践可以确保你的代码库保持可维护性和类型安全。以下是你在 2026 年应该采用的 TypeScript 最佳实践。",
+  },
+  "blog.ts.bestPractices.s1Title": {
+    en: "1. Use Strict TypeScript Configuration",
+    km: "1. ប្រើការកំណត់រចនាសម្ព័ន្ធ TypeScript យ៉ាងតឹងរ៉ឹង",
+    zh: "1. 使用严格的 TypeScript 配置",
+  },
+  "blog.ts.bestPractices.s1Desc": {
+    en: 'Always enable <code class="inline-code">strict: true</code> in your <code class="inline-code">tsconfig.json</code>. This enables a suite of strict checks including <code class="inline-code">noImplicitAny</code>, <code class="inline-code">strictNullChecks</code>, and <code class="inline-code">strictFunctionTypes</code>. Additionally, consider enabling <code class="inline-code">noUncheckedIndexedAccess</code> to catch potential undefined values when accessing arrays or objects by index.',
+    km: 'តែងតែបើក <code class="inline-code">strict: true</code> នៅក្នុង <code class="inline-code">tsconfig.json</code> របស់អ្នក។ វាបើកការត្រួតពិនិត្យយ៉ាងតឹងរ៉ឹងរួមទាំង <code class="inline-code">noImplicitAny</code>, <code class="inline-code">strictNullChecks</code>, និង <code class="inline-code">strictFunctionTypes</code>។ លើសពីនេះ សូមពិចារណាបើក <code class="inline-code">noUncheckedIndexedAccess</code> ដើម្បីចាប់តម្លៃ undefined ដែលអាចកើតឡើងនៅពេលចូលប្រើ arrays ឬ objects តាម index។',
+    zh: '始终在你的 <code class="inline-code">tsconfig.json</code> 中启用 <code class="inline-code">strict: true</code>。这将启用一套严格检查，包括 <code class="inline-code">noImplicitAny</code>、<code class="inline-code">strictNullChecks</code> 和 <code class="inline-code">strictFunctionTypes</code>。此外，考虑启用 <code class="inline-code">noUncheckedIndexedAccess</code> 来捕获通过索引访问数组或对象时可能出现的 undefined 值。',
+  },
+  "blog.ts.bestPractices.s1Code": {
+    en: "tsconfig.json — Strict Configuration",
+    km: "tsconfig.json — ការកំណត់រចនាសម្ព័ន្ធយ៉ាងតឹងរ៉ឹង",
+    zh: "tsconfig.json — 严格配置",
+  },
+  "blog.ts.bestPractices.s2Title": {
+    en: "2. Prefer Interfaces over Types for Object Shapes",
+    km: "2. ប្រើ Interfaces ជាជាង Types សម្រាប់រូបរាង Object",
+    zh: "2. 对象形状优先使用 Interface 而非 Type",
+  },
+  "blog.ts.bestPractices.s2Desc": {
+    en: 'When defining object shapes, prefer <code class="inline-code">interface</code> over <code class="inline-code">type</code>. Interfaces support declaration merging, produce better error messages, and are more performant for the compiler. Use <code class="inline-code">type</code> for unions, intersections, mapped types, and other advanced constructs.',
+    km: 'នៅពេលកំណត់រូបរាង object សូមប្រើ <code class="inline-code">interface</code> ជាជាង <code class="inline-code">type</code>។ Interfaces គាំទ្រការបញ្ចូលគ្នានៃការប្រកាស បង្កើតសារកំហុសប្រសើរជាង និងមានប្រសិទ្ធភាពជាងសម្រាប់ compiler។ ប្រើ <code class="inline-code">type</code> សម្រាប់ unions, intersections, mapped types និង constructs កម្រិតខ្ពស់ផ្សេងទៀត។',
+    zh: '定义对象形状时，优先使用 <code class="inline-code">interface</code> 而非 <code class="inline-code">type</code>。接口支持声明合并，产生更好的错误消息，并且对编译器更高效。使用 <code class="inline-code">type</code> 来处理联合类型、交叉类型、映射类型和其他高级构造。',
+  },
+  "blog.ts.bestPractices.s2Code": {
+    en: "Interface vs Type for Objects",
+    km: "Interface ទល់នឹង Type សម្រាប់ Objects",
+    zh: "对象的 Interface 与 Type 对比",
+  },
+  "blog.ts.bestPractices.s3Title": {
+    en: "3. Use Type Inference — Don't Over-Annotate",
+    km: "3. ប្រើ Type Inference — កុំ Annotate ច្រើនពេក",
+    zh: "3. 使用类型推断 - 不要过度注解",
+  },
+  "blog.ts.bestPractices.s3Desc": {
+    en: "TypeScript has powerful type inference. You do not need to annotate every variable or return type. Let the compiler infer types when the value makes the type obvious. Annotate function parameters and public API boundaries, but avoid redundant annotations on simple assignments.",
+    km: "TypeScript មាន type inference ដ៏មានអានុភាព។ អ្នកមិនចាំបាច់ annotate គ្រប់ variable ឬ return type ទេ។ អនុញ្ញាតឱ្យ compiler បកស្រាយប្រភេទនៅពេលតម្លៃធ្វើឱ្យប្រភេទច្បាស់។ Annotate function parameters និង public API boundaries ប៉ុន្តែជៀសវាង annotations ដែលមិនចាំបាច់លើ assignments ធម្មតា។",
+    zh: "TypeScript 具有强大的类型推断功能。你不需要为每个变量或返回类型添加注解。当值使类型显而易见时，让编译器推断类型。为函数参数和公共 API 边界添加注解，但避免在简单赋值上添加冗余注解。",
+  },
+  "blog.ts.bestPractices.s3Code": {
+    en: "Let TypeScript Infer Types",
+    km: "អនុញ្ញាតឱ្យ TypeScript បកស្រាយប្រភេទ",
+    zh: "让 TypeScript 推断类型",
+  },
+  "blog.ts.bestPractices.s4Title": {
+    en: "4. Use Discriminated Unions for State",
+    km: "4. ប្រើ Discriminated Unions សម្រាប់ State",
+    zh: "4. 使用可辨识联合类型管理状态",
+  },
+  "blog.ts.bestPractices.s4Desc": {
+    en: 'Discriminated unions are one of TypeScript\'s most powerful patterns. Use a shared literal property (the discriminant) to model different states. This allows TypeScript to narrow types automatically in <code class="inline-code">switch</code> or <code class="inline-code">if</code> blocks, making impossible states unrepresentable.',
+    km: 'Discriminated unions គឺជាគំរូដ៏មានអានុភាពបំផុតមួយរបស់ TypeScript។ ប្រើ shared literal property (the discriminant) ដើម្បីធ្វើគំរូស្ថានភាពផ្សេងៗ។ វាអនុញ្ញាតឱ្យ TypeScript បង្រួម types ដោយស្វ័យប្រវត្តិនៅក្នុង <code class="inline-code">switch</code> ឬ <code class="inline-code">if</code> blocks ដែលធ្វើឱ្យស្ថានភាពមិនអាចកើតឡើងមិនអាចតំណាងបាន។',
+    zh: '可辨识联合是 TypeScript 最强大的模式之一。使用共享的字面量属性（辨识符）来建模不同的状态。这允许 TypeScript 在 <code class="inline-code">switch</code> 或 <code class="inline-code">if</code> 块中自动缩窄类型，使不可能的状态无法表示。',
+  },
+  "blog.ts.bestPractices.s4Code": {
+    en: "Discriminated Unions for State Management",
+    km: "Discriminated Unions សម្រាប់ការគ្រប់គ្រង State",
+    zh: "用于状态管理的可辨识联合",
+  },
+  "blog.ts.bestPractices.s5Title": {
+    en: "5. Use Zod or Valibot for Runtime Validation",
+    km: "5. ប្រើ Zod ឬ Valibot សម្រាប់ Runtime Validation",
+    zh: "5. 使用 Zod 或 Valibot 进行运行时验证",
+  },
+  "blog.ts.bestPractices.s5Desc": {
+    en: 'TypeScript types are erased at runtime. When dealing with external data (API responses, form inputs, environment variables), use a runtime validation library like <code class="inline-code">Zod</code> or <code class="inline-code">Valibot</code> to validate and parse data, ensuring your runtime types match your compile-time types.',
+    km: 'ប្រភេទ TypeScript ត្រូវបានលុបចោលនៅ runtime។ នៅពេលដោះស្រាយជាមួយទិន្នន័យខាងក្រៅ (API responses, form inputs, environment variables) សូមប្រើបណ្ណាល័យ runtime validation ដូចជា <code class="inline-code">Zod</code> ឬ <code class="inline-code">Valibot</code> ដើម្បីផ្ទៀងផ្ទាត់ និងវិភាគទិន្នន័យ ធានាថាប្រភេទ runtime របស់អ្នកត្រូវគ្នានឹងប្រភេទ compile-time។',
+    zh: 'TypeScript 类型在运行时会被擦除。处理外部数据（API 响应、表单输入、环境变量）时，使用运行时验证库如 <code class="inline-code">Zod</code> 或 <code class="inline-code">Valibot</code> 来验证和解析数据，确保运行时类型与编译时类型匹配。',
+  },
+  "blog.ts.bestPractices.s5Code": {
+    en: "Runtime Validation with Zod",
+    km: "Runtime Validation ជាមួយ Zod",
+    zh: "使用 Zod 进行运行时验证",
+  },
+  "blog.ts.bestPractices.s6Title": {
+    en: "6. Use const Assertions (as const)",
+    km: "6. ប្រើ const Assertions (as const)",
+    zh: "6. 使用 const 断言 (as const)",
+  },
+  "blog.ts.bestPractices.s6Desc": {
+    en: 'The <code class="inline-code">as const</code> assertion tells TypeScript to infer the narrowest possible type for a value. This is especially useful for configuration objects, lookup tables, and anywhere you want literal types instead of widened primitives.',
+    km: '<code class="inline-code">as const</code> assertion ប្រាប់ TypeScript ឱ្យបកស្រាយប្រភេទតូចបំផុតដែលអាចធ្វើបានសម្រាប់តម្លៃមួយ។ វាមានប្រយោជន៍ជាពិសេសសម្រាប់ configuration objects, lookup tables និងគ្រប់កន្លែងដែលអ្នកចង់បាន literal types ជំនួសឱ្យ widened primitives។',
+    zh: '<code class="inline-code">as const</code> 断言告诉 TypeScript 为值推断尽可能窄的类型。这对于配置对象、查找表以及任何你需要字面量类型而非扩展原始类型的地方特别有用。',
+  },
+  "blog.ts.bestPractices.s6Code": {
+    en: "const Assertions",
+    km: "const Assertions",
+    zh: "const 断言",
+  },
+  "blog.ts.bestPractices.s7Title": {
+    en: "7. Generics — Write Reusable, Type-Safe Functions",
+    km: "7. Generics — សរសេរ Functions ដែលអាចប្រើឡើងវិញ និងមានសុវត្ថិភាពប្រភេទ",
+    zh: "7. 泛型 - 编写可复用、类型安全的函数",
+  },
+  "blog.ts.bestPractices.s7Desc": {
+    en: 'Generics allow you to write functions, classes, and interfaces that work with any type while preserving type safety. Use constraints with <code class="inline-code">extends</code> to limit what types are accepted. Avoid over-using generics — only add them when you need to preserve a relationship between input and output types.',
+    km: 'Generics អនុញ្ញាតឱ្យអ្នកសរសេរ functions, classes និង interfaces ដែលដំណើរការជាមួយប្រភេទណាមួយខណៈពេលរក្សាសុវត្ថិភាពប្រភេទ។ ប្រើ constraints ជាមួយ <code class="inline-code">extends</code> ដើម្បីកំណត់ប្រភេទដែលត្រូវបានទទួល។ ជៀសវាងការប្រើ generics ច្រើនពេក — បន្ថែមពួកវាតែនៅពេលដែលអ្នកត្រូវការរក្សាទំនាក់ទំនងរវាង input និង output types។',
+    zh: '泛型允许你编写适用于任何类型的函数、类和接口，同时保持类型安全。使用 <code class="inline-code">extends</code> 约束来限制接受的类型。避免过度使用泛型 - 只在需要保持输入和输出类型之间的关系时才添加。',
+  },
+  "blog.ts.bestPractices.s7Code": {
+    en: "Generics with Constraints",
+    km: "Generics ជាមួយ Constraints",
+    zh: "带约束的泛型",
+  },
+  "blog.ts.bestPractices.s8Title": {
+    en: "8. Use Utility Types (Partial, Pick, Omit, Record, Required)",
+    km: "8. ប្រើ Utility Types (Partial, Pick, Omit, Record, Required)",
+    zh: "8. 使用工具类型 (Partial, Pick, Omit, Record, Required)",
+  },
+  "blog.ts.bestPractices.s8Desc": {
+    en: "TypeScript provides built-in utility types that let you transform existing types without redefining them. Master these to keep your code DRY and avoid duplicating type definitions across your codebase.",
+    km: "TypeScript ផ្តល់ utility types ដែលភ្ជាប់មកជាមួយដែលអនុញ្ញាតឱ្យអ្នកបំប្លែង types ដែលមានស្រាប់ដោយមិនចាំបាច់កំណត់ឡើងវិញ។ ស្ទាត់ជំនាញទាំងនេះដើម្បីរក្សា code របស់អ្នក DRY និងជៀសវាងការចម្លង type definitions នៅទូទាំង codebase របស់អ្នក។",
+    zh: "TypeScript 提供了内置的工具类型，让你无需重新定义即可转换现有类型。掌握这些工具类型，保持代码 DRY，避免在代码库中重复类型定义。",
+  },
+  "blog.ts.bestPractices.s8Code": {
+    en: "Built-in Utility Types",
+    km: "Utility Types ដែលភ្ជាប់មកជាមួយ",
+    zh: "内置工具类型",
+  },
+  "blog.ts.bestPractices.s9Title": {
+    en: "9. Narrow Types with Type Guards",
+    km: "9. បង្រួម Types ជាមួយ Type Guards",
+    zh: "9. 使用类型守卫缩窄类型",
+  },
+  "blog.ts.bestPractices.s9Desc": {
+    en: 'Type guards let you narrow a union type to a more specific type within a conditional block. Use <code class="inline-code">typeof</code>, <code class="inline-code">instanceof</code>, the <code class="inline-code">in</code> operator, or custom type predicates to safely handle different type variants.',
+    km: 'Type guards អនុញ្ញាតឱ្យអ្នកបង្រួម union type ទៅជាប្រភេទជាក់លាក់ជាងនៅក្នុង conditional block។ ប្រើ <code class="inline-code">typeof</code>, <code class="inline-code">instanceof</code>, operator <code class="inline-code">in</code>, ឬ custom type predicates ដើម្បីដោះស្រាយ type variants ផ្សេងៗដោយសុវត្ថិភាព។',
+    zh: '类型守卫让你在条件块中将联合类型缩窄为更具体的类型。使用 <code class="inline-code">typeof</code>、<code class="inline-code">instanceof</code>、<code class="inline-code">in</code> 运算符或自定义类型谓词来安全地处理不同的类型变体。',
+  },
+  "blog.ts.bestPractices.s9Code": {
+    en: "Type Guards and Narrowing",
+    km: "Type Guards និងការបង្រួម",
+    zh: "类型守卫与缩窄",
+  },
+  "blog.ts.bestPractices.s10Title": {
+    en: "10. Use Template Literal Types",
+    km: "10. ប្រើ Template Literal Types",
+    zh: "10. 使用模板字面量类型",
+  },
+  "blog.ts.bestPractices.s10Desc": {
+    en: "Template literal types let you create string types from combinations of other string literals. They are powerful for typing event names, CSS values, API routes, and any scenario where strings follow a predictable pattern.",
+    km: "Template literal types អនុញ្ញាតឱ្យអ្នកបង្កើតប្រភេទ string ពីការផ្សំនៃ string literals ផ្សេងទៀត។ ពួកវាមានអានុភាពសម្រាប់ typing event names, CSS values, API routes និងស្ថានភាពណាមួយដែល strings ធ្វើតាមគំរូដែលអាចព្យាករណ៍បាន។",
+    zh: "模板字面量类型让你从其他字符串字面量的组合中创建字符串类型。它们对于类型化事件名称、CSS 值、API 路由以及字符串遵循可预测模式的任何场景都很有用。",
+  },
+  "blog.ts.bestPractices.s10Code": {
+    en: "Template Literal Types",
+    km: "Template Literal Types",
+    zh: "模板字面量类型",
+  },
+  "blog.ts.bestPractices.s11Title": {
+    en: '11. Avoid <code class="inline-code">any</code> — Use <code class="inline-code">unknown</code> Instead',
+    km: '11. ជៀសវាង <code class="inline-code">any</code> — ប្រើ <code class="inline-code">unknown</code> ជំនួសវិញ',
+    zh: '11. 避免使用 <code class="inline-code">any</code> — 改用 <code class="inline-code">unknown</code>',
+  },
+  "blog.ts.bestPractices.s11Desc": {
+    en: 'Using <code class="inline-code">any</code> disables all type checking and defeats the purpose of TypeScript. When you truly do not know a type, use <code class="inline-code">unknown</code> instead. It forces you to perform type checks before using the value, keeping your code safe.',
+    km: 'ការប្រើ <code class="inline-code">any</code> បិទការត្រួតពិនិត្យប្រភេទទាំងអស់ និងបំបាក់គោលបំណងរបស់ TypeScript។ នៅពេលដែលអ្នកពិតជាមិនដឹងប្រភេទមួយ សូមប្រើ <code class="inline-code">unknown</code> ជំនួសវិញ។ វាបង្ខំឱ្យអ្នកអនុវត្តការត្រួតពិនិត្យប្រភេទមុនពេលប្រើតម្លៃ ដែលរក្សាកូដរបស់អ្នកមានសុវត្ថិភាព។',
+    zh: '使用 <code class="inline-code">any</code> 会禁用所有类型检查，违背了 TypeScript 的初衷。当你确实不知道类型时，请改用 <code class="inline-code">unknown</code>。它强制你在使用值之前执行类型检查，保持代码安全。',
+  },
+  "blog.ts.bestPractices.s11Code": {
+    en: "unknown vs any",
+    km: "unknown ទល់នឹង any",
+    zh: "unknown 与 any",
+  },
+  "blog.ts.bestPractices.s12Title": {
+    en: "12. Use Enums Carefully (Prefer const Objects)",
+    km: "12. ប្រើ Enums ដោយប្រុងប្រយ័ត្ន (ប្រើ const Objects ជាជាង)",
+    zh: "12. 谨慎使用枚举（优先使用 const 对象）",
+  },
+  "blog.ts.bestPractices.s12Desc": {
+    en: 'TypeScript enums have quirks — numeric enums allow reverse mapping and can accept any number, and regular enums generate runtime code. In most cases, prefer <code class="inline-code">as const</code> objects or union types for a simpler, more predictable, and tree-shakeable alternative.',
+    km: 'TypeScript enums មានលក្ខណៈចម្លែក — numeric enums អនុញ្ញាតការ reverse mapping និងអាចទទួលលេខណាមួយ ហើយ regular enums បង្កើត runtime code។ ក្នុងករណីភាគច្រើន សូមប្រើ <code class="inline-code">as const</code> objects ឬ union types សម្រាប់ជម្រើសដែលសាមញ្ញជាង អាចព្យាករណ៍បានជាង និង tree-shakeable។',
+    zh: 'TypeScript 枚举有一些怪癖 - 数值枚举允许反向映射并且可以接受任何数字，常规枚举会生成运行时代码。在大多数情况下，优先使用 <code class="inline-code">as const</code> 对象或联合类型，作为更简单、更可预测且可 tree-shake 的替代方案。',
+  },
+  "blog.ts.bestPractices.s12Code": {
+    en: "Enums vs const Objects",
+    km: "Enums ទល់នឹង const Objects",
+    zh: "枚举与 const 对象",
+  },
+  "blog.ts.bestPractices.sum1": {
+    en: 'Enable <code class="inline-code">strict: true</code> and <code class="inline-code">noUncheckedIndexedAccess</code> for maximum type safety.',
+    km: 'បើក <code class="inline-code">strict: true</code> និង <code class="inline-code">noUncheckedIndexedAccess</code> សម្រាប់សុវត្ថិភាពប្រភេទអតិបរមា។',
+    zh: '启用 <code class="inline-code">strict: true</code> 和 <code class="inline-code">noUncheckedIndexedAccess</code> 以获得最大类型安全。',
+  },
+  "blog.ts.bestPractices.sum2": {
+    en: 'Prefer <code class="inline-code">interface</code> for object shapes and <code class="inline-code">type</code> for unions and complex types.',
+    km: 'ប្រើ <code class="inline-code">interface</code> សម្រាប់រូបរាង object និង <code class="inline-code">type</code> សម្រាប់ unions និង complex types។',
+    zh: '对象形状优先使用 <code class="inline-code">interface</code>，联合类型和复杂类型使用 <code class="inline-code">type</code>。',
+  },
+  "blog.ts.bestPractices.sum3": {
+    en: "Let TypeScript infer types — annotate parameters and public APIs, not obvious assignments.",
+    km: "អនុញ្ញាតឱ្យ TypeScript បកស្រាយប្រភេទ — annotate parameters និង public APIs មិនមែន assignments ដែលច្បាស់ទេ។",
+    zh: "让 TypeScript 推断类型 - 注解参数和公共 API，而非明显的赋值。",
+  },
+  "blog.ts.bestPractices.sum4": {
+    en: "Model state with discriminated unions to make impossible states unrepresentable.",
+    km: "ធ្វើគំរូ state ជាមួយ discriminated unions ដើម្បីធ្វើឱ្យស្ថានភាពមិនអាចកើតឡើងមិនអាចតំណាងបាន។",
+    zh: "使用可辨识联合建模状态，使不可能的状态无法表示。",
+  },
+  "blog.ts.bestPractices.sum5": {
+    en: "Use Zod or Valibot for runtime validation of external data.",
+    km: "ប្រើ Zod ឬ Valibot សម្រាប់ runtime validation នៃទិន្នន័យខាងក្រៅ។",
+    zh: "使用 Zod 或 Valibot 对外部数据进行运行时验证。",
+  },
+  "blog.ts.bestPractices.sum6": {
+    en: 'Use <code class="inline-code">as const</code>, generics, and utility types to write DRY, type-safe code.',
+    km: 'ប្រើ <code class="inline-code">as const</code>, generics និង utility types ដើម្បីសរសេរកូដ DRY និងមានសុវត្ថិភាពប្រភេទ។',
+    zh: '使用 <code class="inline-code">as const</code>、泛型和工具类型编写 DRY、类型安全的代码。',
+  },
+  "blog.ts.bestPractices.sum7": {
+    en: "Narrow types with type guards and template literal types for precise control.",
+    km: "បង្រួម types ជាមួយ type guards និង template literal types សម្រាប់ការគ្រប់គ្រងយ៉ាងច្បាស់លាស់។",
+    zh: "使用类型守卫和模板字面量类型缩窄类型，实现精确控制。",
+  },
+  "blog.ts.bestPractices.sum8": {
+    en: 'Avoid <code class="inline-code">any</code> — use <code class="inline-code">unknown</code>. Prefer const objects over enums.',
+    km: 'ជៀសវាង <code class="inline-code">any</code> — ប្រើ <code class="inline-code">unknown</code>។ ប្រើ const objects ជាជាង enums។',
+    zh: '避免使用 <code class="inline-code">any</code> — 改用 <code class="inline-code">unknown</code>。优先使用 const 对象而非枚举。',
+  },
 };
 
 export const useI18n = () => {
