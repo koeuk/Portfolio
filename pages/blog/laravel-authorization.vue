@@ -11,92 +11,82 @@
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">Laravel Authorization</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.authorization.title') }}</h1>
         <p class="text-gray-500 dark:text-gray-400">Dec 1, 2025</p>
       </div>
 
       <article class="prose-content">
 
         <section class="mb-12">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Authentication answers "Who are you?" — Authorization answers "What are you allowed to do?" Laravel provides two ways to authorize actions: <strong>Gates</strong> (simple closures) and <strong>Policies</strong> (organized by model). Think of Gates for quick checks and Policies for model-specific permissions.
-          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="t('blog.laravel.authorization.intro')"></p>
         </section>
 
         <!-- Gates -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Gates</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Gates are simple closures that determine if a user can perform an action. Define them in <code class="inline-code">AppServiceProvider</code>.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.authorization.gatesTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.authorization.gatesDesc')"></p>
           <CodeBlock
             title="app/Providers/AppServiceProvider.php" :code="codes[0]" />
           <CodeBlock class="mt-4"
-            title="Using Gates" :code="codes[1]" />
+            :title="t('blog.laravel.authorization.gatesCodeTitle')" :code="codes[1]" />
         </section>
 
         <!-- Policies -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Policies</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Policies organize authorization logic around a specific model. Each method in a policy corresponds to an action (view, create, update, delete).
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.authorization.policiesTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.laravel.authorization.policiesDesc') }}</p>
           <CodeBlock
             title="Terminal" :code="codes[2]" />
           <CodeBlock class="mt-4"
             title="app/Policies/PostPolicy.php" :code="codes[3]" />
-          <div class="tip-box mt-4">
-            <strong>Auto-discovery:</strong> Laravel automatically discovers policies if you follow naming conventions: <code class="inline-code">Post</code> model → <code class="inline-code">PostPolicy</code>. No manual registration needed.
-          </div>
+          <div class="tip-box mt-4" v-html="t('blog.laravel.authorization.policiesTip')"></div>
         </section>
 
         <!-- Using Policies -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Using Policies</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.authorization.usingPoliciesTitle') }}</h2>
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">In Controllers</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.laravel.authorization.inControllers') }}</h3>
           <CodeBlock
             title="app/Http/Controllers/PostController.php" :code="codes[4]" />
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Via User Model</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.laravel.authorization.viaUserModel') }}</h3>
           <CodeBlock
-            title="Using on User model" :code="codes[5]" />
+            :title="t('blog.laravel.authorization.viaUserModelCodeTitle')" :code="codes[5]" />
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">In Blade Templates</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.laravel.authorization.inBladeTemplates') }}</h3>
           <CodeBlock
-            title="Blade" :code="codes[6]" />
+            :title="t('blog.laravel.authorization.bladeCodeTitle')" :code="codes[6]" />
         </section>
 
         <!-- Middleware -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Authorization in Routes</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.authorization.routesTitle') }}</h2>
           <CodeBlock
             title="routes/web.php" :code="codes[7]" />
         </section>
 
         <!-- Roles Example -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Simple Role-Based Access</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A practical example combining Gates for role-based access:
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.authorization.roleTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.laravel.authorization.roleDesc') }}</p>
           <CodeBlock
-            title="Migration: add role to users" :code="codes[8]" />
+            :title="t('blog.laravel.authorization.migrationCodeTitle')" :code="codes[8]" />
           <CodeBlock class="mt-4"
-            title="AppServiceProvider — define role gates" :code="codes[9]" />
+            :title="t('blog.laravel.authorization.providerCodeTitle')" :code="codes[9]" />
           <CodeBlock class="mt-4"
-            title="Usage" :code="codes[10]" />
+            :title="t('blog.laravel.authorization.usageCodeTitle')" :code="codes[10]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Gates</strong> — simple closure-based authorization checks</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Policies</strong> — model-specific authorization organized by actions</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>$this->authorize()</strong> — check in controllers (throws 403)</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>@can / @cannot</strong> — conditional rendering in Blade</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>can: middleware</strong> — protect routes with authorization</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.authorization.summary1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.authorization.summary2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.authorization.summary3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.authorization.summary4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.authorization.summary5')"></span></li>
           </ul>
         </section>
       </article>

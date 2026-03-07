@@ -14,7 +14,7 @@
           <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs rounded-full font-medium">SQL</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          Database Basics: From Zero to Real Tables
+          {{ t('blog.db.basics.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Mar 6, 2026</p>
       </div>
@@ -24,199 +24,174 @@
         <!-- Introduction -->
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            A database is a structured way to store, organize, and retrieve data. Think of it like a collection of spreadsheets (tables) that are connected to each other. In this guide, we'll learn database fundamentals with real-world examples — creating tables for an e-commerce system step by step.
+            {{ t('blog.db.basics.intro') }}
           </p>
         </section>
 
         <!-- What is a Database -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. What is a Database?</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A <strong>database</strong> is an organized collection of data stored electronically. A <strong>relational database</strong> stores data in <strong>tables</strong> (rows and columns), and tables can be related to each other.
-          </p>
-          <div class="tip-box mb-4">
-            <strong>Real-world analogy:</strong> Imagine a school filing cabinet. Each drawer is a <strong>table</strong> (Students, Teachers, Classes). Each folder in a drawer is a <strong>row</strong> (one student). Each piece of info on the folder is a <strong>column</strong> (name, age, grade).
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">Key terms to know:</p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.whatIsDb') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.db.basics.whatIsDbDesc')"></p>
+          <div class="tip-box mb-4" v-html="t('blog.db.basics.whatIsDbTip')"></div>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.db.basics.keyTerms') }}</p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">
               <span class="text-blue-500 mt-1 font-bold">*</span>
-              <span><strong>Table</strong> — A collection of related data (like a spreadsheet)</span>
+              <span v-html="t('blog.db.basics.termTable')"></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-blue-500 mt-1 font-bold">*</span>
-              <span><strong>Row (Record)</strong> — A single entry in the table</span>
+              <span v-html="t('blog.db.basics.termRow')"></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-blue-500 mt-1 font-bold">*</span>
-              <span><strong>Column (Field)</strong> — A specific attribute (name, email, price)</span>
+              <span v-html="t('blog.db.basics.termColumn')"></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-blue-500 mt-1 font-bold">*</span>
-              <span><strong>Primary Key (PK)</strong> — A unique identifier for each row</span>
+              <span v-html="t('blog.db.basics.termPK')"></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-blue-500 mt-1 font-bold">*</span>
-              <span><strong>Foreign Key (FK)</strong> — A column that links to another table's primary key</span>
+              <span v-html="t('blog.db.basics.termFK')"></span>
             </li>
           </ul>
         </section>
 
         <!-- Common Data Types -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Common Data Types</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.dataTypes') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Every column in a table has a data type that defines what kind of data it can hold:
+            {{ t('blog.db.basics.dataTypesDesc') }}
           </p>
-          <CodeBlock title="Common SQL Data Types" :code="codes[0]" />
+          <CodeBlock :title="t('blog.db.basics.dataTypesTitle')" :code="codes[0]" />
         </section>
 
         <!-- Create Database -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Create a Database</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.createDb') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Let's build a real e-commerce database from scratch. First, create the database:
+            {{ t('blog.db.basics.createDbDesc') }}
           </p>
-          <CodeBlock title="SQL" :code="codes[1]" />
+          <CodeBlock :title="t('blog.db.basics.createDbTitle')" :code="codes[1]" />
         </section>
 
         <!-- Users Table -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Create Users Table</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Every e-commerce app needs users. Let's create a <code class="inline-code">users</code> table to store customer information:
-          </p>
-          <CodeBlock title="SQL - Users Table" :code="codes[2]" />
-          <div class="tip-box mt-4">
-            <strong>Explanation:</strong>
-            <code class="inline-code">id</code> is the primary key and auto-increments.
-            <code class="inline-code">NOT NULL</code> means the field is required.
-            <code class="inline-code">UNIQUE</code> ensures no duplicate emails.
-            <code class="inline-code">DEFAULT CURRENT_TIMESTAMP</code> automatically sets the date when a row is created.
-          </div>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.usersTable') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.db.basics.usersTableDesc')"></p>
+          <CodeBlock :title="t('blog.db.basics.usersTableTitle')" :code="codes[2]" />
+          <div class="tip-box mt-4" v-html="t('blog.db.basics.usersTableTip')"></div>
         </section>
 
         <!-- Categories Table -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Create Categories Table</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.categoriesTable') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Products belong to categories. Let's create a simple categories table:
+            {{ t('blog.db.basics.categoriesTableDesc') }}
           </p>
-          <CodeBlock title="SQL - Categories Table" :code="codes[3]" />
+          <CodeBlock :title="t('blog.db.basics.categoriesTableTitle')" :code="codes[3]" />
         </section>
 
         <!-- Products Table -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. Create Products Table</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Now the main products table. Notice how it references the <code class="inline-code">categories</code> table using a <strong>foreign key</strong>:
-          </p>
-          <CodeBlock title="SQL - Products Table" :code="codes[4]" />
-          <div class="tip-box mt-4">
-            <strong>Foreign Key:</strong> <code class="inline-code">category_id</code> links each product to a category.
-            <code class="inline-code">ON DELETE SET NULL</code> means if a category is deleted, the product's category becomes NULL instead of being deleted too.
-          </div>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.productsTable') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.db.basics.productsTableDesc')"></p>
+          <CodeBlock :title="t('blog.db.basics.productsTableTitle')" :code="codes[4]" />
+          <div class="tip-box mt-4" v-html="t('blog.db.basics.productsTableTip')"></div>
         </section>
 
         <!-- Orders Table -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">7. Create Orders Table</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            When a user buys something, we create an order. The orders table links to the <code class="inline-code">users</code> table:
-          </p>
-          <CodeBlock title="SQL - Orders Table" :code="codes[5]" />
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.ordersTable') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.db.basics.ordersTableDesc')"></p>
+          <CodeBlock :title="t('blog.db.basics.ordersTableTitle')" :code="codes[5]" />
         </section>
 
         <!-- Order Items Table -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">8. Create Order Items Table</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Each order can have multiple products. The <code class="inline-code">order_items</code> table connects orders and products (this is a <strong>many-to-many</strong> relationship):
-          </p>
-          <CodeBlock title="SQL - Order Items Table" :code="codes[6]" />
-          <div class="tip-box mt-4">
-            <strong>Why a separate table?</strong> One order can have many products, and one product can appear in many orders. The <code class="inline-code">order_items</code> table (junction table) connects them.
-          </div>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.orderItemsTable') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.db.basics.orderItemsTableDesc')"></p>
+          <CodeBlock :title="t('blog.db.basics.orderItemsTableTitle')" :code="codes[6]" />
+          <div class="tip-box mt-4" v-html="t('blog.db.basics.orderItemsTableTip')"></div>
         </section>
 
         <!-- Insert Data -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">9. Insert Real Data</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.insertData') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Let's populate our tables with real data:
+            {{ t('blog.db.basics.insertDataDesc') }}
           </p>
-          <CodeBlock title="SQL - Insert Data" :code="codes[7]" />
+          <CodeBlock :title="t('blog.db.basics.insertDataTitle')" :code="codes[7]" />
         </section>
 
         <!-- Query Data -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">10. Query Data (SELECT)</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.queryData') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Now let's retrieve data using common queries:
+            {{ t('blog.db.basics.queryDataDesc') }}
           </p>
-          <CodeBlock title="SQL - Queries" :code="codes[8]" />
+          <CodeBlock :title="t('blog.db.basics.queryDataTitle')" :code="codes[8]" />
         </section>
 
         <!-- JOIN Queries -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">11. JOIN — Combine Tables</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.joinData') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            JOINs let you combine data from multiple tables. This is the real power of relational databases:
+            {{ t('blog.db.basics.joinDataDesc') }}
           </p>
-          <CodeBlock title="SQL - JOIN Queries" :code="codes[9]" />
+          <CodeBlock :title="t('blog.db.basics.joinDataTitle')" :code="codes[9]" />
         </section>
 
         <!-- Update and Delete -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">12. Update & Delete Data</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.updateDelete') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Modify and remove data from tables:
+            {{ t('blog.db.basics.updateDeleteDesc') }}
           </p>
-          <CodeBlock title="SQL - Update & Delete" :code="codes[10]" />
-          <div class="warning-box mt-4">
-            <strong>Warning:</strong> Always use a <code class="inline-code">WHERE</code> clause with UPDATE and DELETE! Without it, ALL rows will be affected.
-          </div>
+          <CodeBlock :title="t('blog.db.basics.updateDeleteTitle')" :code="codes[10]" />
+          <div class="warning-box mt-4" v-html="t('blog.db.basics.updateDeleteWarning')"></div>
         </section>
 
         <!-- Database Diagram -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">13. Our Database Diagram</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.db.basics.diagram') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Here's how all our tables relate to each other:
+            {{ t('blog.db.basics.diagramDesc') }}
           </p>
-          <CodeBlock title="E-Commerce Database Relationships" :code="codes[11]" />
+          <CodeBlock :title="t('blog.db.basics.diagramTitle')" :code="codes[11]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            You now understand the fundamentals of relational databases:
+            {{ t('blog.db.basics.summaryIntro') }}
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>What databases, tables, rows, and columns are</span>
+              <span>{{ t('blog.db.basics.summary1') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Common data types (INT, VARCHAR, DECIMAL, TEXT, etc.)</span>
+              <span>{{ t('blog.db.basics.summary2') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Creating tables with PRIMARY KEY and FOREIGN KEY</span>
+              <span>{{ t('blog.db.basics.summary3') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>INSERT, SELECT, UPDATE, DELETE operations</span>
+              <span>{{ t('blog.db.basics.summary4') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>JOIN queries to combine data from multiple tables</span>
+              <span>{{ t('blog.db.basics.summary5') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Building a real e-commerce database schema</span>
+              <span>{{ t('blog.db.basics.summary6') }}</span>
             </li>
           </ul>
         </section>

@@ -31,7 +31,7 @@
         <NuxtLink
           v-for="post in filteredPosts"
           :key="post.id"
-          :to="post.slug || '#'"
+          :to="post.slug"
           :external="post.external || false"
           :target="post.external ? '_blank' : undefined"
           class="card p-6 group cursor-pointer block"
@@ -110,7 +110,7 @@ const posts = [
     date: 'Jan 10, 2026',
     category: 'CSS',
     tags: ['Tailwind', 'CSS'],
-    slug: '#'
+    slug: '/blog/tailwind-responsive'
   },
   {
     id: 3,
@@ -119,7 +119,7 @@ const posts = [
     date: 'Jan 5, 2026',
     category: 'TypeScript',
     tags: ['TypeScript', 'JavaScript'],
-    slug: '#'
+    slug: '/blog/typescript-best-practices'
   },
   {
     id: 4,
@@ -137,7 +137,7 @@ const posts = [
     date: 'Dec 20, 2025',
     category: 'Laravel & Vue',
     tags: ['Laravel', 'Vue'],
-    slug: '#'
+    slug: '/blog/laravel-vue-fullstack'
   },
   {
     id: 7,

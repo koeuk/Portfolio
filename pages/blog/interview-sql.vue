@@ -12,7 +12,7 @@
           <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full font-medium">Database</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          SQL Database Interview Questions
+          {{ t('blog.itvw.sql.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Feb 15, 2026</p>
       </div>
@@ -21,291 +21,249 @@
 
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            SQL (Structured Query Language) is the standard language for managing and manipulating relational databases. Whether you are preparing for a junior or senior database role, mastering these 20 commonly asked SQL interview questions will help you build a solid foundation and ace your next interview.
+            {{ t('blog.itvw.sql.intro') }}
           </p>
         </section>
 
         <!-- Q1 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">1. What is SQL? What are the types of SQL commands?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            SQL stands for <strong>Structured Query Language</strong>. It is used to communicate with relational databases to create, read, update, and delete data. SQL commands are grouped into five categories:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q1') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a1')"></p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-1">
-            <li><code class="inline-code">DDL</code> (Data Definition Language) — CREATE, ALTER, DROP, TRUNCATE</li>
-            <li><code class="inline-code">DML</code> (Data Manipulation Language) — SELECT, INSERT, UPDATE, DELETE</li>
-            <li><code class="inline-code">DCL</code> (Data Control Language) — GRANT, REVOKE</li>
-            <li><code class="inline-code">TCL</code> (Transaction Control Language) — COMMIT, ROLLBACK, SAVEPOINT</li>
-            <li><code class="inline-code">DQL</code> (Data Query Language) — SELECT (sometimes categorized separately)</li>
+            <li v-html="t('blog.itvw.sql.a1l1')"></li>
+            <li v-html="t('blog.itvw.sql.a1l2')"></li>
+            <li v-html="t('blog.itvw.sql.a1l3')"></li>
+            <li v-html="t('blog.itvw.sql.a1l4')"></li>
+            <li v-html="t('blog.itvw.sql.a1l5')"></li>
           </ul>
-          <CodeBlock title="SQL Command Types" :code="codes[0]" />
+          <CodeBlock :title="t('blog.itvw.sql.q1c1')" :code="codes[0]" />
         </section>
 
         <!-- Q2 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">2. What is the difference between SQL and NoSQL?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            SQL databases are <strong>relational</strong> (table-based) while NoSQL databases are <strong>non-relational</strong> and can store data in documents, key-value pairs, graphs, or wide-column formats.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q2') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a2')"></p>
           <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm text-left">
               <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">Feature</th>
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">SQL</th>
-                  <th class="py-3 text-primary dark:text-white font-semibold">NoSQL</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.itvw.sql.q2th1') }}</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.itvw.sql.q2th2') }}</th>
+                  <th class="py-3 text-primary dark:text-white font-semibold">{{ t('blog.itvw.sql.q2th3') }}</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 dark:text-gray-300">
                 <tr class="border-b border-gray-100 dark:border-gray-800">
-                  <td class="py-3 pr-4 font-medium">Structure</td>
-                  <td class="py-3 pr-4">Fixed schema, tables</td>
-                  <td class="py-3">Flexible schema, documents</td>
+                  <td class="py-3 pr-4 font-medium">{{ t('blog.itvw.sql.q2td1') }}</td>
+                  <td class="py-3 pr-4">{{ t('blog.itvw.sql.q2td2') }}</td>
+                  <td class="py-3">{{ t('blog.itvw.sql.q2td3') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
-                  <td class="py-3 pr-4 font-medium">Scalability</td>
-                  <td class="py-3 pr-4">Vertical</td>
-                  <td class="py-3">Horizontal</td>
+                  <td class="py-3 pr-4 font-medium">{{ t('blog.itvw.sql.q2td4') }}</td>
+                  <td class="py-3 pr-4">{{ t('blog.itvw.sql.q2td5') }}</td>
+                  <td class="py-3">{{ t('blog.itvw.sql.q2td6') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
-                  <td class="py-3 pr-4 font-medium">ACID</td>
-                  <td class="py-3 pr-4">Strong ACID compliance</td>
-                  <td class="py-3">Eventual consistency (usually)</td>
+                  <td class="py-3 pr-4 font-medium">{{ t('blog.itvw.sql.q2td7') }}</td>
+                  <td class="py-3 pr-4">{{ t('blog.itvw.sql.q2td8') }}</td>
+                  <td class="py-3">{{ t('blog.itvw.sql.q2td9') }}</td>
                 </tr>
                 <tr>
-                  <td class="py-3 pr-4 font-medium">Examples</td>
-                  <td class="py-3 pr-4">MySQL, PostgreSQL, SQL Server</td>
-                  <td class="py-3">MongoDB, Redis, Cassandra</td>
+                  <td class="py-3 pr-4 font-medium">{{ t('blog.itvw.sql.q2td10') }}</td>
+                  <td class="py-3 pr-4">{{ t('blog.itvw.sql.q2td11') }}</td>
+                  <td class="py-3">{{ t('blog.itvw.sql.q2td12') }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <CodeBlock title="SQL vs NoSQL Examples" :code="codes[1]" />
+          <CodeBlock :title="t('blog.itvw.sql.q2c1')" :code="codes[1]" />
         </section>
 
         <!-- Q3 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">3. What is a Primary Key vs Foreign Key?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A <strong>Primary Key</strong> uniquely identifies each record in a table. It must be unique and cannot be NULL. A <strong>Foreign Key</strong> is a column that creates a relationship between two tables by referencing the primary key of another table.
-          </p>
-          <CodeBlock title="Primary Key & Foreign Key" :code="codes[2]" />
-          <div class="tip-box mt-4">
-            <strong>Key difference:</strong> A table can have only one primary key but can have multiple foreign keys. Foreign keys enforce referential integrity between tables.
-          </div>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q3') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a3')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q3c1')" :code="codes[2]" />
+          <div class="tip-box mt-4" v-html="t('blog.itvw.sql.q3tip')"></div>
         </section>
 
         <!-- Q4 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">4. What are Constraints in SQL?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q4') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Constraints are rules enforced on data columns to ensure accuracy and reliability. The most common constraints are:
+            {{ t('blog.itvw.sql.a4') }}
           </p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-1">
-            <li><code class="inline-code">NOT NULL</code> — Column cannot have NULL values</li>
-            <li><code class="inline-code">UNIQUE</code> — All values in a column must be different</li>
-            <li><code class="inline-code">CHECK</code> — Values must satisfy a specific condition</li>
-            <li><code class="inline-code">DEFAULT</code> — Sets a default value when none is specified</li>
-            <li><code class="inline-code">PRIMARY KEY</code> — Combination of NOT NULL and UNIQUE</li>
-            <li><code class="inline-code">FOREIGN KEY</code> — References a primary key in another table</li>
+            <li v-html="t('blog.itvw.sql.a4l1')"></li>
+            <li v-html="t('blog.itvw.sql.a4l2')"></li>
+            <li v-html="t('blog.itvw.sql.a4l3')"></li>
+            <li v-html="t('blog.itvw.sql.a4l4')"></li>
+            <li v-html="t('blog.itvw.sql.a4l5')"></li>
+            <li v-html="t('blog.itvw.sql.a4l6')"></li>
           </ul>
-          <CodeBlock title="SQL Constraints" :code="codes[3]" />
+          <CodeBlock :title="t('blog.itvw.sql.q4c1')" :code="codes[3]" />
         </section>
 
         <!-- Q5 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">5. What is the SELECT statement? How do ORDER BY and LIMIT work?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">SELECT</code> retrieves data from one or more tables. <code class="inline-code">ORDER BY</code> sorts the results in ascending (ASC) or descending (DESC) order. <code class="inline-code">LIMIT</code> restricts the number of rows returned.
-          </p>
-          <CodeBlock title="SELECT, ORDER BY, LIMIT" :code="codes[4]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q5') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a5')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q5c1')" :code="codes[4]" />
         </section>
 
         <!-- Q6 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">6. What are Aggregate Functions?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Aggregate functions perform a calculation on a set of values and return a single result. The most commonly used ones are <code class="inline-code">COUNT</code>, <code class="inline-code">SUM</code>, <code class="inline-code">AVG</code>, <code class="inline-code">MIN</code>, and <code class="inline-code">MAX</code>.
-          </p>
-          <CodeBlock title="Aggregate Functions" :code="codes[5]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q6') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a6')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q6c1')" :code="codes[5]" />
         </section>
 
         <!-- Q7 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">7. What is GROUP BY and HAVING?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">GROUP BY</code> groups rows that share the same values into summary rows. <code class="inline-code">HAVING</code> filters groups after aggregation (unlike <code class="inline-code">WHERE</code>, which filters rows before aggregation).
-          </p>
-          <CodeBlock title="GROUP BY & HAVING" :code="codes[6]" />
-          <div class="tip-box mt-4">
-            <strong>WHERE vs HAVING:</strong> Use <code class="inline-code">WHERE</code> to filter individual rows before grouping. Use <code class="inline-code">HAVING</code> to filter groups after aggregation.
-          </div>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q7') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a7')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q7c1')" :code="codes[6]" />
+          <div class="tip-box mt-4" v-html="t('blog.itvw.sql.q7tip')"></div>
         </section>
 
         <!-- Q8 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">8. What are the different types of JOINs?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q8') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            JOINs combine rows from two or more tables based on a related column. The main types are:
+            {{ t('blog.itvw.sql.a8') }}
           </p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-1">
-            <li><strong>INNER JOIN</strong> — Returns only matching rows from both tables</li>
-            <li><strong>LEFT JOIN</strong> — Returns all rows from the left table, with matches from the right</li>
-            <li><strong>RIGHT JOIN</strong> — Returns all rows from the right table, with matches from the left</li>
-            <li><strong>FULL OUTER JOIN</strong> — Returns all rows when there is a match in either table</li>
-            <li><strong>CROSS JOIN</strong> — Returns the Cartesian product of both tables</li>
+            <li v-html="t('blog.itvw.sql.a8l1')"></li>
+            <li v-html="t('blog.itvw.sql.a8l2')"></li>
+            <li v-html="t('blog.itvw.sql.a8l3')"></li>
+            <li v-html="t('blog.itvw.sql.a8l4')"></li>
+            <li v-html="t('blog.itvw.sql.a8l5')"></li>
           </ul>
-          <CodeBlock title="Types of JOINs" :code="codes[7]" />
+          <CodeBlock :title="t('blog.itvw.sql.q8c1')" :code="codes[7]" />
         </section>
 
         <!-- Q9 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">9. What are Subqueries?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A subquery is a query nested inside another query. There are three types: <strong>Scalar</strong> (returns a single value), <strong>Row</strong> (returns a single row), and <strong>Table</strong> (returns a result set that acts as a virtual table).
-          </p>
-          <CodeBlock title="Subqueries" :code="codes[8]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q9') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a9')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q9c1')" :code="codes[8]" />
         </section>
 
         <!-- Q10 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">10. What is a Self Join?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q10') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A self join is when a table is joined with itself. This is useful for finding relationships within the same table, such as employees and their managers.
+            {{ t('blog.itvw.sql.a10') }}
           </p>
-          <CodeBlock title="Self Join" :code="codes[9]" />
+          <CodeBlock :title="t('blog.itvw.sql.q10c1')" :code="codes[9]" />
         </section>
 
         <!-- Q11 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">11. What is CASE WHEN?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">CASE WHEN</code> is SQL's conditional expression, similar to if-else statements in programming. It allows you to add conditional logic directly in your queries.
-          </p>
-          <CodeBlock title="CASE WHEN" :code="codes[10]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q11') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a11')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q11c1')" :code="codes[10]" />
         </section>
 
         <!-- Q12 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">12. What are Window Functions?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Window functions perform calculations across a set of rows related to the current row without collapsing them into a single output. Common window functions include <code class="inline-code">ROW_NUMBER()</code>, <code class="inline-code">RANK()</code>, and <code class="inline-code">DENSE_RANK()</code>.
-          </p>
-          <CodeBlock title="Window Functions" :code="codes[11]" />
-          <div class="tip-box mt-4">
-            <strong>RANK vs DENSE_RANK:</strong> <code class="inline-code">RANK()</code> skips numbers after ties (1, 1, 3), while <code class="inline-code">DENSE_RANK()</code> does not skip (1, 1, 2).
-          </div>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q12') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a12')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q12c1')" :code="codes[11]" />
+          <div class="tip-box mt-4" v-html="t('blog.itvw.sql.q12tip')"></div>
         </section>
 
         <!-- Q13 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">13. What is a CTE (Common Table Expression)?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A CTE is a temporary named result set defined using the <code class="inline-code">WITH</code> keyword. It makes complex queries more readable and can be referenced multiple times within the same query. CTEs can also be recursive.
-          </p>
-          <CodeBlock title="Common Table Expression" :code="codes[12]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q13') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a13')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q13c1')" :code="codes[12]" />
         </section>
 
         <!-- Q14 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">14. What is the difference between UNION and INTERSECT?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">UNION</code> combines results from two queries and removes duplicates (<code class="inline-code">UNION ALL</code> keeps duplicates). <code class="inline-code">INTERSECT</code> returns only the rows that appear in both result sets. <code class="inline-code">EXCEPT</code> (or <code class="inline-code">MINUS</code>) returns rows from the first query that are not in the second.
-          </p>
-          <CodeBlock title="UNION, INTERSECT, EXCEPT" :code="codes[13]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q14') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a14')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q14c1')" :code="codes[13]" />
         </section>
 
         <!-- Q15 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">15. What is an Index? Clustered vs Non-clustered?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            An index improves the speed of data retrieval on a table at the cost of additional storage and slower writes. A <strong>Clustered Index</strong> sorts and stores data rows physically in order (one per table). A <strong>Non-clustered Index</strong> creates a separate structure with pointers to the data rows (multiple per table).
-          </p>
-          <CodeBlock title="Indexes" :code="codes[14]" />
-          <div class="tip-box mt-4">
-            <strong>When to use indexes:</strong> Add indexes on columns frequently used in WHERE, JOIN, and ORDER BY clauses. Avoid over-indexing as it slows down INSERT/UPDATE/DELETE operations.
-          </div>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q15') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a15')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q15c1')" :code="codes[14]" />
+          <div class="tip-box mt-4" v-html="t('blog.itvw.sql.q15tip')"></div>
         </section>
 
         <!-- Q16 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">16. What is a View? What is a Materialized View?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A <strong>View</strong> is a virtual table based on the result of a SQL query. It does not store data itself. A <strong>Materialized View</strong> physically stores the result set and must be refreshed to reflect changes in the underlying data.
-          </p>
-          <CodeBlock title="Views" :code="codes[15]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q16') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a16')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q16c1')" :code="codes[15]" />
         </section>
 
         <!-- Q17 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">17. What are Transactions and Isolation Levels?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A <strong>transaction</strong> is a sequence of SQL operations treated as a single unit of work. Transactions follow ACID properties (Atomicity, Consistency, Isolation, Durability). Isolation levels control how transactions interact with each other:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q17') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a17')"></p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-1">
-            <li><code class="inline-code">READ UNCOMMITTED</code> — Can read uncommitted changes (dirty reads)</li>
-            <li><code class="inline-code">READ COMMITTED</code> — Only reads committed data</li>
-            <li><code class="inline-code">REPEATABLE READ</code> — Guarantees same data if read again</li>
-            <li><code class="inline-code">SERIALIZABLE</code> — Full isolation, transactions run sequentially</li>
+            <li v-html="t('blog.itvw.sql.a17l1')"></li>
+            <li v-html="t('blog.itvw.sql.a17l2')"></li>
+            <li v-html="t('blog.itvw.sql.a17l3')"></li>
+            <li v-html="t('blog.itvw.sql.a17l4')"></li>
           </ul>
-          <CodeBlock title="Transactions" :code="codes[16]" />
+          <CodeBlock :title="t('blog.itvw.sql.q17c1')" :code="codes[16]" />
         </section>
 
         <!-- Q18 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">18. What is a Stored Procedure vs Function?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both are reusable SQL code blocks, but they differ in usage. A <strong>Stored Procedure</strong> can perform actions (INSERT, UPDATE, DELETE) and does not need to return a value. A <strong>Function</strong> must return a value and can be used inside SQL statements.
-          </p>
-          <CodeBlock title="Stored Procedure vs Function" :code="codes[17]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q18') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a18')"></p>
+          <CodeBlock :title="t('blog.itvw.sql.q18c1')" :code="codes[17]" />
         </section>
 
         <!-- Q19 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">19. What is Database Normalization?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q19') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Normalization is the process of organizing data to reduce redundancy and improve data integrity. The main normal forms are:
+            {{ t('blog.itvw.sql.a19') }}
           </p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-1">
-            <li><strong>1NF</strong> — Each column contains atomic (indivisible) values; no repeating groups</li>
-            <li><strong>2NF</strong> — 1NF + every non-key column depends on the entire primary key</li>
-            <li><strong>3NF</strong> — 2NF + no transitive dependencies (non-key depends only on key)</li>
-            <li><strong>BCNF</strong> — 3NF + every determinant is a candidate key</li>
+            <li v-html="t('blog.itvw.sql.a19l1')"></li>
+            <li v-html="t('blog.itvw.sql.a19l2')"></li>
+            <li v-html="t('blog.itvw.sql.a19l3')"></li>
+            <li v-html="t('blog.itvw.sql.a19l4')"></li>
           </ul>
-          <CodeBlock title="Normalization Example" :code="codes[18]" />
+          <CodeBlock :title="t('blog.itvw.sql.q19c1')" :code="codes[18]" />
         </section>
 
         <!-- Q20 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">20. What is an ER Diagram?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            An <strong>ER (Entity-Relationship) Diagram</strong> is a visual representation of the entities (tables), their attributes (columns), and the relationships between them in a database. It is used during the database design phase to plan the structure before writing SQL.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.sql.q20') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.sql.a20')"></p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-4 space-y-1">
-            <li><strong>Entity</strong> — A table (e.g., Users, Orders, Products)</li>
-            <li><strong>Attribute</strong> — A column (e.g., id, name, email)</li>
-            <li><strong>Relationship</strong> — How entities relate (one-to-one, one-to-many, many-to-many)</li>
+            <li v-html="t('blog.itvw.sql.a20l1')"></li>
+            <li v-html="t('blog.itvw.sql.a20l2')"></li>
+            <li v-html="t('blog.itvw.sql.a20l3')"></li>
           </ul>
-          <CodeBlock title="ER Diagram as SQL" :code="codes[19]" />
-          <div class="tip-box mt-4">
-            <strong>ER Diagram tools:</strong> You can create ER diagrams using tools like dbdiagram.io, MySQL Workbench, Lucidchart, or draw.io. The diagram helps visualize relationships before writing CREATE TABLE statements.
-          </div>
+          <CodeBlock :title="t('blog.itvw.sql.q20c1')" :code="codes[19]" />
+          <div class="tip-box mt-4" v-html="t('blog.itvw.sql.q20tip')"></div>
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>SQL Basics</strong> — DDL, DML, DCL, TCL command categories</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Keys & Constraints</strong> — Primary Key, Foreign Key, NOT NULL, UNIQUE, CHECK, DEFAULT</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Querying</strong> — SELECT, ORDER BY, LIMIT, Aggregate Functions, GROUP BY, HAVING</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>JOINs</strong> — INNER, LEFT, RIGHT, FULL OUTER, CROSS, Self Join</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Advanced Queries</strong> — Subqueries, CASE WHEN, Window Functions, CTEs</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Set Operations</strong> — UNION, INTERSECT, EXCEPT</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Performance</strong> — Indexes (Clustered vs Non-clustered)</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Database Objects</strong> — Views, Materialized Views, Stored Procedures, Functions</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Transactions</strong> — ACID properties, Isolation Levels</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Design</strong> — Normalization (1NF to BCNF), ER Diagrams</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum6')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum7')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum8')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum9')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.sql.sum10')"></span></li>
           </ul>
         </section>
       </article>
@@ -316,7 +274,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-useHead({ title: 'SQL Database Interview Questions - Koeuk Dev' })
+useHead({ title: `${t('blog.itvw.sql.title')} - Koeuk Dev` })
 
 const codes = [
   `-- DDL (Data Definition Language)
@@ -982,7 +940,7 @@ CREATE TABLE order_items (
 </script>
 
 <style scoped>
-.inline-code {
+:deep(.inline-code) {
   @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-blue-500 dark:text-blue-400;
 }
 .tip-box {

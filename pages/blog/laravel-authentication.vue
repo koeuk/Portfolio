@@ -11,32 +11,31 @@
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">Laravel Authentication</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.title') }}</h1>
         <p class="text-gray-500 dark:text-gray-400">Dec 5, 2025</p>
       </div>
 
       <article class="prose-content">
 
         <section class="mb-12">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Authentication is how your application knows <strong>who</strong> is using it. Laravel makes authentication very simple out of the box — it provides login, registration, session management, and API token authentication with minimal setup.
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="t('blog.laravel.auth.intro')">
           </p>
         </section>
 
         <!-- How Auth Works -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">How Authentication Works</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.howTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel authentication has two core concepts:
+            {{ t('blog.laravel.auth.howDesc') }}
           </p>
           <ul class="space-y-3 text-gray-600 dark:text-gray-300 mb-4">
             <li class="flex items-start gap-2">
               <span class="text-blue-500 mt-1 font-bold">1.</span>
-              <span><strong>Guards</strong> — define <em>how</em> users are authenticated (session, token, etc.)</span>
+              <span v-html="t('blog.laravel.auth.howGuards')"></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-blue-500 mt-1 font-bold">2.</span>
-              <span><strong>Providers</strong> — define <em>where</em> users are stored (database table, Eloquent model)</span>
+              <span v-html="t('blog.laravel.auth.howProviders')"></span>
             </li>
           </ul>
           <CodeBlock
@@ -45,84 +44,82 @@
 
         <!-- Starter Kits -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Quick Setup with Starter Kits</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.starterTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            The fastest way to add authentication is using Laravel Breeze or Jetstream. They scaffold login, register, password reset, and email verification for you.
+            {{ t('blog.laravel.auth.starterDesc') }}
           </p>
           <CodeBlock
-            title="Terminal — Laravel Breeze" :code="codes[1]" />
-          <div class="tip-box mt-4">
-            <strong>Breeze vs Jetstream:</strong> Use <strong>Breeze</strong> for simple authentication. Use <strong>Jetstream</strong> if you need teams, two-factor auth, API tokens, and profile management.
+            :title="t('blog.laravel.auth.starterTerminal')" :code="codes[1]" />
+          <div class="tip-box mt-4" v-html="t('blog.laravel.auth.starterTip')">
           </div>
         </section>
 
         <!-- Manual Auth -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Manual Authentication</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.manualTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            If you want full control, you can implement authentication manually.
+            {{ t('blog.laravel.auth.manualDesc') }}
           </p>
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-6">Registration</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-6">{{ t('blog.laravel.auth.registration') }}</h3>
           <CodeBlock
             title="app/Http/Controllers/RegisterController.php" :code="codes[2]" />
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Login</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.laravel.auth.login') }}</h3>
           <CodeBlock
             title="app/Http/Controllers/LoginController.php" :code="codes[3]" />
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Logout</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.laravel.auth.logout') }}</h3>
           <CodeBlock
-            title="Logout" :code="codes[4]" />
+            :title="t('blog.laravel.auth.logout')" :code="codes[4]" />
         </section>
 
         <!-- Routes -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Auth Routes</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.routesTitle') }}</h2>
           <CodeBlock
             title="routes/web.php" :code="codes[5]" />
         </section>
 
         <!-- Protecting Routes -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Protecting Routes</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Use the <code class="inline-code">auth</code> middleware to require authentication:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.protectTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.auth.protectDesc')">
           </p>
           <CodeBlock
-            title="Different ways to protect routes" :code="codes[6]" />
+            :title="t('blog.laravel.auth.protectCodeTitle')" :code="codes[6]" />
         </section>
 
         <!-- Using Auth -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Using the Auth Helper</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.helperTitle') }}</h2>
           <CodeBlock
-            title="Getting Current User Info" :code="codes[7]" />
+            :title="t('blog.laravel.auth.helperCodeTitle')" :code="codes[7]" />
         </section>
 
         <!-- Sanctum API -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. API Authentication (Sanctum)</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.auth.sanctumTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            For API authentication (Vue/React SPA or mobile apps), use Laravel Sanctum:
+            {{ t('blog.laravel.auth.sanctumDesc') }}
           </p>
           <CodeBlock
             title="Terminal" :code="codes[8]" />
           <CodeBlock class="mt-4"
-            title="API Login — return token" :code="codes[9]" />
+            :title="t('blog.laravel.auth.sanctumLogin')" :code="codes[9]" />
           <CodeBlock class="mt-4"
-            title="Protect API routes" :code="codes[10]" />
+            :title="t('blog.laravel.auth.sanctumProtect')" :code="codes[10]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Guards & Providers</strong> — how and where users are authenticated</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Breeze / Jetstream</strong> — quick scaffolding for auth views</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Manual Auth</strong> — register, login, logout with full control</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Middleware</strong> — protect routes with <code class="inline-code">auth</code> middleware</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Sanctum</strong> — token-based API authentication</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.auth.sumGuards')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.auth.sumBreeze')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.auth.sumManual')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.auth.sumMiddleware')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.auth.sumSanctum')"></span></li>
           </ul>
         </section>
       </article>

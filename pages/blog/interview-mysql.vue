@@ -12,7 +12,7 @@
           <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs rounded-full font-medium">Interview</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          MySQL Interview Questions
+          {{ t('blog.itvw.mysql.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Feb 20, 2026</p>
       </div>
@@ -20,35 +20,29 @@
       <article class="prose-content">
 
         <section class="mb-12">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            MySQL is one of the most popular relational database management systems in the world. Whether you are preparing for a junior or senior developer interview, these <strong>20 commonly asked MySQL interview questions</strong> will help you solidify your understanding of core database concepts, SQL syntax, and performance optimization.
-          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="t('blog.itvw.mysql.intro')"></p>
         </section>
 
         <!-- Q1 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">1. What is MySQL? What are its key features?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            MySQL is an open-source relational database management system (RDBMS) that uses Structured Query Language (SQL) for managing data. It is developed and maintained by Oracle Corporation.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q1') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a1') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>Open-source</strong> and free to use (Community Edition)</li>
-            <li><strong>Cross-platform</strong> — runs on Linux, Windows, macOS</li>
-            <li><strong>High performance</strong> with query caching and indexing</li>
-            <li><strong>ACID compliant</strong> (with InnoDB engine)</li>
-            <li><strong>Replication support</strong> — Master-Slave and Master-Master</li>
-            <li><strong>Scalable</strong> — handles millions of rows efficiently</li>
-            <li><strong>Strong community</strong> and extensive documentation</li>
+            <li v-html="t('blog.itvw.mysql.a1l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a1l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a1l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a1l4')"></li>
+            <li v-html="t('blog.itvw.mysql.a1l5')"></li>
+            <li v-html="t('blog.itvw.mysql.a1l6')"></li>
+            <li v-html="t('blog.itvw.mysql.a1l7')"></li>
           </ul>
-          <CodeBlock title="Check MySQL Version" :code="codes[0]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q1c1')" :code="codes[0]" />
         </div>
 
         <!-- Q2 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">2. What is the difference between MySQL and SQL?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">SQL</code> (Structured Query Language) is a <strong>language</strong> used to communicate with relational databases. <code class="inline-code">MySQL</code> is a <strong>database management system</strong> that uses SQL as its query language.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q2') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.mysql.a2')"></p>
           <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm text-left">
               <thead>
@@ -73,15 +67,13 @@
               </tbody>
             </table>
           </div>
-          <CodeBlock title="SQL is the language, MySQL is the tool" :code="codes[1]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q2c1')" :code="codes[1]" />
         </div>
 
         <!-- Q3 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">3. What are Storage Engines? InnoDB vs MyISAM?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Storage engines are the underlying components that MySQL uses to handle SQL operations for different table types. The two most common are <code class="inline-code">InnoDB</code> (default) and <code class="inline-code">MyISAM</code>.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q3') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.mysql.a3')"></p>
           <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm text-left">
               <thead>
@@ -115,116 +107,100 @@
               </tbody>
             </table>
           </div>
-          <CodeBlock title="Storage Engine Commands" :code="codes[2]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q3c1')" :code="codes[2]" />
         </div>
 
         <!-- Q4 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">4. What are PRIMARY KEY, FOREIGN KEY, and UNIQUE KEY?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Keys are constraints that enforce data integrity in relational databases.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q4') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a4') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>PRIMARY KEY</strong> — Uniquely identifies each row. Cannot be NULL. Only one per table.</li>
-            <li><strong>FOREIGN KEY</strong> — References a PRIMARY KEY in another table. Enforces referential integrity.</li>
-            <li><strong>UNIQUE KEY</strong> — Ensures all values in a column are distinct. Allows one NULL. Multiple per table.</li>
+            <li v-html="t('blog.itvw.mysql.a4l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a4l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a4l3')"></li>
           </ul>
-          <CodeBlock title="Key Constraints Example" :code="codes[3]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q4c1')" :code="codes[3]" />
         </div>
 
         <!-- Q5 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">5. What are Indexes? What types exist?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            An index is a data structure that improves the speed of data retrieval on a table at the cost of additional storage and slower writes. Think of it like an index in a book.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q5') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a5') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>PRIMARY Index</strong> — Automatically created on PRIMARY KEY</li>
-            <li><strong>UNIQUE Index</strong> — Ensures uniqueness of values</li>
-            <li><strong>Composite Index</strong> — Index on multiple columns</li>
-            <li><strong>FULLTEXT Index</strong> — For full-text search on text columns</li>
-            <li><strong>SPATIAL Index</strong> — For geographic data types</li>
+            <li v-html="t('blog.itvw.mysql.a5l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a5l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a5l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a5l4')"></li>
+            <li v-html="t('blog.itvw.mysql.a5l5')"></li>
           </ul>
-          <CodeBlock title="Index Examples" :code="codes[4]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q5c1')" :code="codes[4]" />
         </div>
 
         <!-- Q6 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">6. What is the difference between WHERE and HAVING?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both filter rows, but they work at different stages of query execution.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q6') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a6') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><code class="inline-code">WHERE</code> — Filters rows <strong>before</strong> grouping (cannot use aggregate functions)</li>
-            <li><code class="inline-code">HAVING</code> — Filters groups <strong>after</strong> GROUP BY (can use aggregate functions)</li>
+            <li v-html="t('blog.itvw.mysql.a6l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a6l2')"></li>
           </ul>
-          <CodeBlock title="WHERE vs HAVING" :code="codes[5]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q6c1')" :code="codes[5]" />
         </div>
 
         <!-- Q7 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">7. What are JOINs? Explain each type.</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            JOINs combine rows from two or more tables based on a related column. MySQL supports several types of joins:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q7') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a7') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>INNER JOIN</strong> — Returns only matching rows from both tables</li>
-            <li><strong>LEFT JOIN</strong> — All rows from left table + matched rows from right (NULL if no match)</li>
-            <li><strong>RIGHT JOIN</strong> — All rows from right table + matched rows from left (NULL if no match)</li>
-            <li><strong>FULL OUTER JOIN</strong> — All rows from both tables (MySQL uses UNION to simulate)</li>
-            <li><strong>CROSS JOIN</strong> — Cartesian product of both tables (every combination)</li>
+            <li v-html="t('blog.itvw.mysql.a7l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a7l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a7l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a7l4')"></li>
+            <li v-html="t('blog.itvw.mysql.a7l5')"></li>
           </ul>
-          <CodeBlock title="JOIN Examples" :code="codes[6]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q7c1')" :code="codes[6]" />
         </div>
 
         <!-- Q8 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">8. What is a Subquery? Correlated vs Non-Correlated?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A subquery is a query nested inside another query. It can appear in SELECT, FROM, WHERE, or HAVING clauses.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q8') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a8') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>Non-correlated</strong> — The inner query runs independently. It executes once and passes the result to the outer query.</li>
-            <li><strong>Correlated</strong> — The inner query depends on the outer query. It executes once for each row of the outer query.</li>
+            <li v-html="t('blog.itvw.mysql.a8l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a8l2')"></li>
           </ul>
-          <CodeBlock title="Subquery Examples" :code="codes[7]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q8c1')" :code="codes[7]" />
         </div>
 
         <!-- Q9 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">9. What is Normalization? Explain 1NF, 2NF, 3NF.</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Normalization is the process of organizing data to reduce redundancy and improve data integrity. Each normal form builds on the previous one:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q9') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a9') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>1NF (First Normal Form)</strong> — Each column contains atomic (indivisible) values. No repeating groups.</li>
-            <li><strong>2NF (Second Normal Form)</strong> — Must be in 1NF + all non-key columns fully depend on the entire primary key (no partial dependency).</li>
-            <li><strong>3NF (Third Normal Form)</strong> — Must be in 2NF + no transitive dependency (non-key columns must not depend on other non-key columns).</li>
+            <li v-html="t('blog.itvw.mysql.a9l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a9l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a9l3')"></li>
           </ul>
-          <CodeBlock title="Normalization Example" :code="codes[8]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q9c1')" :code="codes[8]" />
         </div>
 
         <!-- Q10 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">10. What are Transactions? What are ACID properties?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A transaction is a sequence of SQL operations executed as a single unit of work. Either all operations succeed (COMMIT) or all fail (ROLLBACK).
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q10') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a10') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>Atomicity</strong> — All or nothing. If one part fails, the entire transaction is rolled back.</li>
-            <li><strong>Consistency</strong> — Database moves from one valid state to another.</li>
-            <li><strong>Isolation</strong> — Concurrent transactions do not interfere with each other.</li>
-            <li><strong>Durability</strong> — Once committed, changes are permanent even after a crash.</li>
+            <li v-html="t('blog.itvw.mysql.a10l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a10l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a10l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a10l4')"></li>
           </ul>
-          <CodeBlock title="Transaction Example" :code="codes[9]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q10c1')" :code="codes[9]" />
         </div>
 
         <!-- Q11 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">11. What is the difference between DELETE, TRUNCATE, and DROP?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            All three remove data, but they work differently:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q11') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a11') }}</p>
           <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm text-left">
               <thead>
@@ -263,46 +239,38 @@
               </tbody>
             </table>
           </div>
-          <CodeBlock title="DELETE vs TRUNCATE vs DROP" :code="codes[10]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q11c1')" :code="codes[10]" />
         </div>
 
         <!-- Q12 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">12. What are Views?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A view is a virtual table based on the result of a SQL query. It does not store data itself — it dynamically pulls data from the underlying tables each time it is queried. Views simplify complex queries, restrict data access, and provide abstraction.
-          </p>
-          <CodeBlock title="View Examples" :code="codes[11]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q12') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a12') }}</p>
+          <CodeBlock :title="t('blog.itvw.mysql.q12c1')" :code="codes[11]" />
         </div>
 
         <!-- Q13 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">13. What are Stored Procedures and Functions?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both are reusable blocks of SQL code stored in the database. The key difference:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q13') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a13') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>Stored Procedure</strong> — Can return zero or multiple values. Called with <code class="inline-code">CALL</code>. Can have IN, OUT, INOUT parameters.</li>
-            <li><strong>Function</strong> — Must return exactly one value. Can be used in SQL expressions (SELECT, WHERE, etc.).</li>
+            <li v-html="t('blog.itvw.mysql.a13l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a13l2')"></li>
           </ul>
-          <CodeBlock title="Stored Procedure and Function" :code="codes[12]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q13c1')" :code="codes[12]" />
         </div>
 
         <!-- Q14 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">14. What are Triggers?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A trigger is a stored program that automatically executes in response to an event (INSERT, UPDATE, DELETE) on a table. Triggers are useful for auditing, validation, and maintaining derived data.
-          </p>
-          <CodeBlock title="Trigger Example" :code="codes[13]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q14') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a14') }}</p>
+          <CodeBlock :title="t('blog.itvw.mysql.q14c1')" :code="codes[13]" />
         </div>
 
         <!-- Q15 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">15. What is the difference between CHAR and VARCHAR?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both store string data, but they handle storage differently:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q15') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a15') }}</p>
           <div class="overflow-x-auto mb-4">
             <table class="w-full text-sm text-left">
               <thead>
@@ -336,100 +304,90 @@
               </tbody>
             </table>
           </div>
-          <CodeBlock title="CHAR vs VARCHAR" :code="codes[14]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q15c1')" :code="codes[14]" />
         </div>
 
         <!-- Q16 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">16. What is UNION vs UNION ALL?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both combine results from multiple SELECT statements. The difference is how they handle duplicates:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q16') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a16') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><code class="inline-code">UNION</code> — Combines results and <strong>removes duplicates</strong> (slower, applies DISTINCT)</li>
-            <li><code class="inline-code">UNION ALL</code> — Combines results and <strong>keeps all rows</strong> including duplicates (faster)</li>
+            <li v-html="t('blog.itvw.mysql.a16l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a16l2')"></li>
           </ul>
-          <CodeBlock title="UNION vs UNION ALL" :code="codes[15]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q16c1')" :code="codes[15]" />
         </div>
 
         <!-- Q17 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">17. What is GROUP BY and aggregate functions?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">GROUP BY</code> groups rows that have the same values in specified columns into summary rows. It is used with aggregate functions:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q17') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.mysql.a17')"></p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><code class="inline-code">COUNT()</code> — Number of rows</li>
-            <li><code class="inline-code">SUM()</code> — Total of a numeric column</li>
-            <li><code class="inline-code">AVG()</code> — Average value</li>
-            <li><code class="inline-code">MAX()</code> / <code class="inline-code">MIN()</code> — Highest / lowest value</li>
+            <li v-html="t('blog.itvw.mysql.a17l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a17l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a17l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a17l4')"></li>
           </ul>
-          <CodeBlock title="GROUP BY and Aggregates" :code="codes[16]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q17c1')" :code="codes[16]" />
         </div>
 
         <!-- Q18 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">18. What is a Deadlock? How to prevent it?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A deadlock occurs when two or more transactions are waiting for each other to release locks, creating a circular dependency where none can proceed. MySQL automatically detects deadlocks and rolls back one transaction.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q18') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a18') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>Access tables in the same order</strong> across all transactions</li>
-            <li><strong>Keep transactions short</strong> and minimize lock time</li>
-            <li><strong>Use appropriate isolation levels</strong></li>
-            <li><strong>Add proper indexes</strong> to reduce lock scope</li>
+            <li v-html="t('blog.itvw.mysql.a18l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a18l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a18l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a18l4')"></li>
           </ul>
-          <CodeBlock title="Deadlock Scenario and Prevention" :code="codes[17]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q18c1')" :code="codes[17]" />
         </div>
 
         <!-- Q19 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">19. What is Replication? Master-Slave?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Replication is the process of copying data from one MySQL server (source/master) to one or more servers (replica/slave). This provides:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q19') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a19') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>High Availability</strong> — If master fails, a replica can take over</li>
-            <li><strong>Read Scaling</strong> — Distribute read queries across replicas</li>
-            <li><strong>Backup</strong> — Replicas serve as live backups</li>
-            <li><strong>Analytics</strong> — Run heavy reports on replicas without impacting the master</li>
+            <li v-html="t('blog.itvw.mysql.a19l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a19l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a19l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a19l4')"></li>
           </ul>
-          <CodeBlock title="Replication Configuration" :code="codes[18]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q19c1')" :code="codes[18]" />
         </div>
 
         <!-- Q20 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">20. How to optimize MySQL queries?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Query optimization is crucial for application performance. Here are the most effective strategies:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.mysql.q20') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.mysql.a20') }}</p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>Use EXPLAIN</strong> to analyze query execution plans</li>
-            <li><strong>Add proper indexes</strong> on columns used in WHERE, JOIN, ORDER BY</li>
-            <li><strong>Avoid SELECT *</strong> — only select needed columns</li>
-            <li><strong>Use LIMIT</strong> for pagination</li>
-            <li><strong>Optimize JOINs</strong> — ensure join columns are indexed</li>
-            <li><strong>Avoid functions on indexed columns</strong> in WHERE clauses</li>
-            <li><strong>Use query caching</strong> where appropriate</li>
-            <li><strong>Normalize data</strong> but denormalize for read-heavy workloads</li>
+            <li v-html="t('blog.itvw.mysql.a20l1')"></li>
+            <li v-html="t('blog.itvw.mysql.a20l2')"></li>
+            <li v-html="t('blog.itvw.mysql.a20l3')"></li>
+            <li v-html="t('blog.itvw.mysql.a20l4')"></li>
+            <li v-html="t('blog.itvw.mysql.a20l5')"></li>
+            <li v-html="t('blog.itvw.mysql.a20l6')"></li>
+            <li v-html="t('blog.itvw.mysql.a20l7')"></li>
+            <li v-html="t('blog.itvw.mysql.a20l8')"></li>
           </ul>
-          <CodeBlock title="Query Optimization Techniques" :code="codes[19]" />
+          <CodeBlock :title="t('blog.itvw.mysql.q20c1')" :code="codes[19]" />
         </div>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>MySQL Basics</strong> — Open-source RDBMS using SQL, with InnoDB as the default engine</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Keys and Indexes</strong> — PRIMARY, FOREIGN, UNIQUE keys enforce integrity; indexes boost query speed</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>JOINs</strong> — INNER, LEFT, RIGHT, FULL, CROSS for combining data from multiple tables</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Subqueries</strong> — Nested queries, correlated and non-correlated</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Normalization</strong> — 1NF, 2NF, 3NF to reduce redundancy</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Transactions</strong> — ACID properties guarantee data reliability</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Views, Procedures, Triggers</strong> — Database objects for abstraction and automation</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Performance</strong> — Use EXPLAIN, proper indexing, and query optimization techniques</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Replication</strong> — Master-Slave setup for high availability and read scaling</span></li>
-            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>Deadlocks</strong> — Prevent with consistent lock ordering and short transactions</span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum6')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum7')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum8')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum9')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.mysql.sum10')"></span></li>
           </ul>
         </section>
       </article>
@@ -1036,7 +994,7 @@ SHOW PROFILE FOR QUERY 1;`,
 </script>
 
 <style scoped>
-.inline-code {
+:deep(.inline-code) {
   @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-orange-500 dark:text-orange-400;
 }
 .tip-box {

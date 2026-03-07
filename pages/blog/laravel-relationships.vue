@@ -14,7 +14,7 @@
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          Laravel Eloquent Relationships
+          {{ t('blog.laravel.relationships.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Dec 10, 2025</p>
       </div>
@@ -25,47 +25,47 @@
         <!-- Introduction -->
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            In real applications, database tables are related to each other. A user has many posts, a post belongs to a user, a post has many tags. Eloquent Relationships let you define these connections directly in your models, so you can access related data easily without writing complex SQL joins.
+            {{ t('blog.laravel.relationships.intro') }}
           </p>
         </section>
 
         <!-- Overview -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Relationship Types Overview</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.relationships.overviewTitle') }}</h2>
           <div class="overflow-x-auto">
             <table class="w-full text-sm text-left">
               <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">Relationship</th>
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">Example</th>
-                  <th class="py-3 text-primary dark:text-white font-semibold">Foreign Key On</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.laravel.relationships.thRelationship') }}</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.laravel.relationships.thExample') }}</th>
+                  <th class="py-3 text-primary dark:text-white font-semibold">{{ t('blog.laravel.relationships.thForeignKey') }}</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 dark:text-gray-300">
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-medium">hasOne</td>
-                  <td class="py-3 pr-4">User has one Profile</td>
-                  <td class="py-3">profiles table</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.relationships.exHasOne') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.relationships.fkProfiles') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-medium">belongsTo</td>
-                  <td class="py-3 pr-4">Profile belongs to User</td>
-                  <td class="py-3">profiles table</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.relationships.exBelongsTo') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.relationships.fkProfiles') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-medium">hasMany</td>
-                  <td class="py-3 pr-4">User has many Posts</td>
-                  <td class="py-3">posts table</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.relationships.exHasMany') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.relationships.fkPosts') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-medium">belongsToMany</td>
-                  <td class="py-3 pr-4">Post has many Tags</td>
-                  <td class="py-3">pivot table</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.relationships.exBelongsToMany') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.relationships.fkPivot') }}</td>
                 </tr>
                 <tr>
                   <td class="py-3 pr-4 font-medium">hasOneThrough</td>
-                  <td class="py-3 pr-4">Country has one Capital through City</td>
-                  <td class="py-3">intermediate table</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.relationships.exHasOneThrough') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.relationships.fkIntermediate') }}</td>
                 </tr>
               </tbody>
             </table>
@@ -74,10 +74,8 @@
 
         <!-- One to One -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. One to One (hasOne / belongsTo)</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A User has one Profile. The <code class="inline-code">profiles</code> table stores a <code class="inline-code">user_id</code> foreign key.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.relationships.oneToOneTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.relationships.oneToOneDesc')"></p>
 
           <!-- Visual Tables -->
           <div class="grid md:grid-cols-2 gap-4 mb-6">
@@ -109,21 +107,19 @@
           </div>
 
           <CodeBlock
-            title="Migration: profiles table" :code="codes[0]" />
+            :title="t('blog.laravel.relationships.c_migration')" :code="codes[0]" />
           <CodeBlock class="mt-4"
             title="app/Models/User.php" :code="codes[1]" />
           <CodeBlock class="mt-4"
             title="app/Models/Profile.php" :code="codes[2]" />
           <CodeBlock class="mt-4"
-            title="Usage" :code="codes[3]" />
+            :title="t('blog.laravel.relationships.c_usage')" :code="codes[3]" />
         </section>
 
         <!-- One to Many -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. One to Many (hasMany / belongsTo)</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A User has many Posts. Each post stores a <code class="inline-code">user_id</code> to know who wrote it.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.relationships.oneToManyTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.relationships.oneToManyDesc')"></p>
 
           <!-- Visual Tables -->
           <div class="grid md:grid-cols-2 gap-4 mb-6">
@@ -156,21 +152,19 @@
           </div>
 
           <CodeBlock
-            title="Migration: posts table" :code="codes[4]" />
+            :title="t('blog.laravel.relationships.c_migrationPosts')" :code="codes[4]" />
           <CodeBlock class="mt-4"
             title="app/Models/User.php" :code="codes[5]" />
           <CodeBlock class="mt-4"
             title="app/Models/Post.php" :code="codes[6]" />
           <CodeBlock class="mt-4"
-            title="Usage" :code="codes[7]" />
+            :title="t('blog.laravel.relationships.c_usage')" :code="codes[7]" />
         </section>
 
         <!-- Many to Many -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Many to Many (belongsToMany)</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A Post can have many Tags, and a Tag can belong to many Posts. This requires a <strong>pivot table</strong> (a third table that connects them).
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.relationships.manyToManyTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.relationships.manyToManyDesc')"></p>
 
           <!-- Visual Tables -->
           <div class="grid md:grid-cols-3 gap-4 mb-6">
@@ -215,24 +209,20 @@
           </div>
 
           <CodeBlock
-            title="Migration: tags table + pivot table" :code="codes[8]" />
-          <div class="tip-box mt-4 mb-4">
-            <strong>Pivot table naming:</strong> Use both table names in singular form, in alphabetical order, separated by underscore. So <code class="inline-code">post</code> + <code class="inline-code">tag</code> = <code class="inline-code">post_tag</code>.
-          </div>
+            :title="t('blog.laravel.relationships.c_migrationTags')" :code="codes[8]" />
+          <div class="tip-box mt-4 mb-4" v-html="t('blog.laravel.relationships.tipPivot')"></div>
           <CodeBlock
             title="app/Models/Post.php" :code="codes[9]" />
           <CodeBlock class="mt-4"
             title="app/Models/Tag.php" :code="codes[10]" />
           <CodeBlock class="mt-4"
-            title="Usage" :code="codes[11]" />
+            :title="t('blog.laravel.relationships.c_usage')" :code="codes[11]" />
         </section>
 
         <!-- Has Many Through -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Has Many Through</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Access distant relations through an intermediate model. Example: A Country has many Posts <strong>through</strong> Users.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.relationships.hasManyThroughTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.relationships.hasManyThroughDesc')"></p>
 
           <!-- Visual Tables -->
           <div class="grid md:grid-cols-3 gap-4 mb-6">
@@ -278,63 +268,43 @@
           </div>
 
           <CodeBlock
-            title="Tables" :code="codes[12]" />
+            :title="t('blog.laravel.relationships.c_tables')" :code="codes[12]" />
           <CodeBlock class="mt-4"
             title="app/Models/Country.php" :code="codes[13]" />
           <CodeBlock class="mt-4"
-            title="Usage" :code="codes[14]" />
+            :title="t('blog.laravel.relationships.c_usage')" :code="codes[14]" />
         </section>
 
         <!-- Eager Loading -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Eager Loading (N+1 Problem)</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.relationships.eagerTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Without eager loading, accessing relations in a loop causes many extra database queries (the N+1 problem). Eager loading fixes this.
+            {{ t('blog.laravel.relationships.eagerDesc') }}
           </p>
           <CodeBlock
-            title="Bad: N+1 Problem (1 + N queries)" :code="codes[15]" />
+            :title="t('blog.laravel.relationships.c_badN1')" :code="codes[15]" />
           <CodeBlock class="mt-4"
-            title="Good: Eager Loading (2 queries total)" :code="codes[16]" />
-          <div class="tip-box mt-4">
-            <strong>Rule of thumb:</strong> Always use <code class="inline-code">with()</code> when you know you'll access a relation inside a loop. This is one of the most important performance optimizations in Laravel.
-          </div>
+            :title="t('blog.laravel.relationships.c_goodEager')" :code="codes[16]" />
+          <div class="tip-box mt-4" v-html="t('blog.laravel.relationships.tipEager')"></div>
         </section>
 
         <!-- Querying Relations -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. Querying Relationships</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.relationships.queryTitle') }}</h2>
           <CodeBlock
-            title="Useful Relationship Queries" :code="codes[17]" />
+            :title="t('blog.laravel.relationships.c_queryRelations')" :code="codes[17]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>hasOne / belongsTo</strong> — one-to-one (User → Profile)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>hasMany / belongsTo</strong> — one-to-many (User → Posts)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>belongsToMany</strong> — many-to-many with pivot table (Posts ↔ Tags)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>hasManyThrough</strong> — distant relations through intermediate model</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>Eager Loading</strong> — always use <code class="inline-code">with()</code> to avoid N+1 queries</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>has / whereHas</strong> — query based on relationship existence</span>
-            </li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.relationships.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.relationships.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.relationships.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.relationships.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.relationships.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.relationships.sum6')"></span></li>
           </ul>
         </section>
 

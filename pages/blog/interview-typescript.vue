@@ -12,7 +12,7 @@
           <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs rounded-full font-medium">Interview</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          TypeScript Interview Questions
+          {{ t('blog.itvw.ts.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Feb 10, 2026</p>
       </div>
@@ -21,205 +21,163 @@
 
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            TypeScript has become the standard for building large-scale JavaScript applications. Whether you are preparing for a frontend, backend, or full-stack interview, these 20 commonly asked TypeScript questions will help you solidify your understanding of the language and its type system.
+            {{ t('blog.itvw.ts.intro') }}
           </p>
         </section>
 
         <!-- Q1 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">1. What is TypeScript? Why use it over JavaScript?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            TypeScript is a <strong>statically typed superset of JavaScript</strong> developed by Microsoft. It compiles down to plain JavaScript and runs anywhere JavaScript runs. You use it over JavaScript because it catches errors at compile time, provides better IDE support with autocompletion, makes refactoring safer, and improves code readability with explicit types.
-          </p>
-          <CodeBlock title="TypeScript vs JavaScript" :code="codes[0]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q1') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a1')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q1c1')" :code="codes[0]" />
         </div>
 
         <!-- Q2 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">2. What are the basic types in TypeScript?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            TypeScript provides several primitive and structural types that form the foundation of its type system: <code class="inline-code">string</code>, <code class="inline-code">number</code>, <code class="inline-code">boolean</code>, <code class="inline-code">null</code>, <code class="inline-code">undefined</code>, <code class="inline-code">void</code>, <code class="inline-code">any</code>, <code class="inline-code">unknown</code>, <code class="inline-code">never</code>, arrays, tuples, and objects.
-          </p>
-          <CodeBlock title="Basic Types" :code="codes[1]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q2') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a2')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q2c1')" :code="codes[1]" />
         </div>
 
         <!-- Q3 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">3. What is the difference between interface and type?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both <code class="inline-code">interface</code> and <code class="inline-code">type</code> can describe object shapes, but they differ in flexibility. Interfaces support declaration merging and are extendable with <code class="inline-code">extends</code>. Types are more versatile and can represent unions, intersections, primitives, tuples, and mapped types.
-          </p>
-          <CodeBlock title="Interface vs Type" :code="codes[2]" />
-          <div class="tip-box mt-4">
-            <strong>Rule of thumb:</strong> Use <code class="inline-code">interface</code> for object shapes and class contracts. Use <code class="inline-code">type</code> when you need unions, intersections, or more complex type expressions.
-          </div>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q3') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a3')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q3c1')" :code="codes[2]" />
+          <div class="tip-box mt-4" v-html="t('blog.itvw.ts.q3tip')"></div>
         </div>
 
         <!-- Q4 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">4. What are Generics? How to use them?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Generics allow you to write reusable, type-safe code that works with multiple types. Instead of using <code class="inline-code">any</code>, generics preserve type information through parameters like <code class="inline-code">&lt;T&gt;</code>.
-          </p>
-          <CodeBlock title="Generics" :code="codes[3]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q4') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a4')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q4c1')" :code="codes[3]" />
         </div>
 
         <!-- Q5 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">5. What is the difference between any, unknown, and never?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">any</code> disables type checking entirely. <code class="inline-code">unknown</code> is the type-safe counterpart of <code class="inline-code">any</code> -- you must narrow the type before using it. <code class="inline-code">never</code> represents values that never occur, such as a function that always throws or an impossible type.
-          </p>
-          <CodeBlock title="any vs unknown vs never" :code="codes[4]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q5') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a5')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q5c1')" :code="codes[4]" />
         </div>
 
         <!-- Q6 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">6. What are Enums?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Enums define a set of named constants. TypeScript supports numeric enums, string enums, and const enums. They help make code more readable by giving meaningful names to sets of values.
-          </p>
-          <CodeBlock title="Enums" :code="codes[5]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q6') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.ts.a6') }}</p>
+          <CodeBlock :title="t('blog.itvw.ts.q6c1')" :code="codes[5]" />
         </div>
 
         <!-- Q7 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">7. What are Union and Intersection types?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A <strong>union type</strong> (<code class="inline-code">A | B</code>) means the value can be either type A or type B. An <strong>intersection type</strong> (<code class="inline-code">A &amp; B</code>) combines multiple types into one -- the value must satisfy all types simultaneously.
-          </p>
-          <CodeBlock title="Union & Intersection Types" :code="codes[6]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q7') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a7')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q7c1')" :code="codes[6]" />
         </div>
 
         <!-- Q8 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">8. What is Type Narrowing / Type Guards?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Type narrowing is the process of refining a broad type to a more specific one within a conditional block. TypeScript uses control flow analysis to narrow types automatically. Common guards include <code class="inline-code">typeof</code>, <code class="inline-code">instanceof</code>, <code class="inline-code">in</code>, and custom type predicates.
-          </p>
-          <CodeBlock title="Type Guards" :code="codes[7]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q8') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a8')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q8c1')" :code="codes[7]" />
         </div>
 
         <!-- Q9 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">9. What are Utility Types (Partial, Required, Pick, Omit, Record)?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            TypeScript ships with built-in utility types that transform existing types. These save you from writing repetitive type definitions and make your code more expressive.
-          </p>
-          <CodeBlock title="Utility Types" :code="codes[8]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q9') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.ts.a9') }}</p>
+          <CodeBlock :title="t('blog.itvw.ts.q9c1')" :code="codes[8]" />
         </div>
 
         <!-- Q10 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">10. What is the keyof operator?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            The <code class="inline-code">keyof</code> operator takes an object type and produces a union of its keys as string literal types. It is commonly used with generics to create type-safe property access patterns.
-          </p>
-          <CodeBlock title="keyof Operator" :code="codes[9]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q10') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a10')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q10c1')" :code="codes[9]" />
         </div>
 
         <!-- Q11 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">11. What are Mapped Types?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Mapped types let you create new types by transforming each property of an existing type. They iterate over keys using the <code class="inline-code">in</code> keyword and can modify property attributes like readonly or optionality.
-          </p>
-          <CodeBlock title="Mapped Types" :code="codes[10]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q11') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a11')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q11c1')" :code="codes[10]" />
         </div>
 
         <!-- Q12 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">12. What are Conditional Types?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Conditional types select one of two types based on a condition, using the syntax <code class="inline-code">T extends U ? X : Y</code>. They enable powerful type-level programming and are the foundation of many advanced type patterns.
-          </p>
-          <CodeBlock title="Conditional Types" :code="codes[11]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q12') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a12')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q12c1')" :code="codes[11]" />
         </div>
 
         <!-- Q13 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">13. What is the difference between abstract class and interface?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            An <strong>abstract class</strong> can contain both implemented methods and abstract method signatures. It exists at runtime as a JavaScript class. An <strong>interface</strong> is purely a compile-time construct with zero runtime footprint -- it only describes a shape.
-          </p>
-          <CodeBlock title="Abstract Class vs Interface" :code="codes[12]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q13') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a13')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q13c1')" :code="codes[12]" />
         </div>
 
         <!-- Q14 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">14. What are Decorators?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Decorators are special declarations that can be attached to classes, methods, properties, or parameters. They are functions that modify or annotate the target at design time. Decorators require enabling <code class="inline-code">experimentalDecorators</code> in tsconfig.
-          </p>
-          <CodeBlock title="Decorators" :code="codes[13]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q14') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a14')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q14c1')" :code="codes[13]" />
         </div>
 
         <!-- Q15 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">15. What is Declaration Merging?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Declaration merging is when the TypeScript compiler merges two or more separate declarations with the same name into a single definition. This works with interfaces, namespaces, and enums. It is commonly used to extend third-party library types.
-          </p>
-          <CodeBlock title="Declaration Merging" :code="codes[14]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q15') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.ts.a15') }}</p>
+          <CodeBlock :title="t('blog.itvw.ts.q15c1')" :code="codes[14]" />
         </div>
 
         <!-- Q16 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">16. What are Template Literal Types?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Template literal types build on string literal types by using template literal syntax to create new string types through concatenation. They allow you to model string patterns at the type level.
-          </p>
-          <CodeBlock title="Template Literal Types" :code="codes[15]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q16') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{{ t('blog.itvw.ts.a16') }}</p>
+          <CodeBlock :title="t('blog.itvw.ts.q16c1')" :code="codes[15]" />
         </div>
 
         <!-- Q17 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">17. What is the infer keyword?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            The <code class="inline-code">infer</code> keyword is used within conditional types to declare a type variable that TypeScript will infer from the context. It lets you extract and reuse parts of complex types.
-          </p>
-          <CodeBlock title="infer Keyword" :code="codes[16]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q17') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a17')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q17c1')" :code="codes[16]" />
         </div>
 
         <!-- Q18 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">18. What are Namespaces vs Modules?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Modules</strong> (ES modules) use <code class="inline-code">import</code>/<code class="inline-code">export</code> and are file-based -- each file is its own module. <strong>Namespaces</strong> are a TypeScript-specific way to organize code under a named scope. In modern TypeScript, modules are preferred over namespaces.
-          </p>
-          <CodeBlock title="Namespaces vs Modules" :code="codes[17]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q18') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a18')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q18c1')" :code="codes[17]" />
         </div>
 
         <!-- Q19 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">19. What is strict mode in TypeScript?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Enabling <code class="inline-code">"strict": true</code> in tsconfig.json turns on a family of strict type-checking options including <code class="inline-code">strictNullChecks</code>, <code class="inline-code">noImplicitAny</code>, <code class="inline-code">strictFunctionTypes</code>, and more. It is strongly recommended for all new projects.
-          </p>
-          <CodeBlock title="Strict Mode" :code="codes[18]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q19') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a19')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q19c1')" :code="codes[18]" />
         </div>
 
         <!-- Q20 -->
         <div class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">20. What is the difference between == and === in TypeScript?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            This is inherited from JavaScript. <code class="inline-code">==</code> (loose equality) performs type coercion before comparison, while <code class="inline-code">===</code> (strict equality) compares both value and type without coercion. TypeScript encourages using <code class="inline-code">===</code> for predictable comparisons.
-          </p>
-          <CodeBlock title="== vs ===" :code="codes[19]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.ts.q20') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.ts.a20')"></p>
+          <CodeBlock :title="t('blog.itvw.ts.q20c1')" :code="codes[19]" />
         </div>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>TypeScript</strong> adds static typing to JavaScript for safer, more maintainable code</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Interfaces &amp; Types</strong> define object shapes and complex type expressions</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Generics</strong> enable reusable, type-safe functions and classes</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Type Guards</strong> narrow broad types for safe property access</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Utility Types</strong> transform existing types without rewriting them</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Mapped &amp; Conditional Types</strong> power advanced type-level programming</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Strict mode</strong> catches more bugs at compile time and is recommended for all projects</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span><strong>Modules over Namespaces</strong> align with modern JavaScript standards</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum6')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum7')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.ts.sum8')"></span></li>
           </ul>
         </section>
       </article>
@@ -886,7 +844,7 @@ function isValid(value: string | null): boolean {
 </script>
 
 <style scoped>
-.inline-code { @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-blue-500 dark:text-blue-400; }
+:deep(.inline-code) { @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-blue-500 dark:text-blue-400; }
 .tip-box { @apply p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-sm text-blue-700 dark:text-blue-300; }
 .qa-section { @apply mb-8 p-6 rounded-xl bg-gray-50 dark:bg-primary-light/50 border border-gray-200 dark:border-gray-700; }
 </style>

@@ -14,7 +14,7 @@
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          Laravel Eloquent ORM
+          {{ t('blog.laravel.eloquent.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Dec 15, 2025</p>
       </div>
@@ -25,143 +25,115 @@
         <!-- Introduction -->
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Eloquent is Laravel's built-in ORM (Object-Relational Mapping). It lets you interact with your database using PHP classes and objects instead of writing raw SQL. Each database table has a corresponding "Model" that you use to query, insert, update, and delete data.
+            {{ t('blog.laravel.eloquent.intro') }}
           </p>
         </section>
 
         <!-- What is Eloquent -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">What is Eloquent?</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.eloquent.whatTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Think of Eloquent as a translator between your PHP code and the database. Instead of writing:
+            {{ t('blog.laravel.eloquent.whatDesc') }}
           </p>
           <CodeBlock
-            title="Raw SQL (without Eloquent)" :code="codes[0]" />
+            :title="t('blog.laravel.eloquent.c_rawSql')" :code="codes[0]" />
           <p class="text-gray-600 dark:text-gray-300 my-4">
-            You write this instead:
+            {{ t('blog.laravel.eloquent.whatInstead') }}
           </p>
           <CodeBlock
-            title="Eloquent (clean PHP)" :code="codes[1]" />
+            :title="t('blog.laravel.eloquent.c_eloquent')" :code="codes[1]" />
           <p class="text-gray-600 dark:text-gray-300 mt-4">
-            Much cleaner, safer (prevents SQL injection), and easier to maintain.
+            {{ t('blog.laravel.eloquent.whatClean') }}
           </p>
         </section>
 
         <!-- Creating a Model -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Creating a Model</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Every Eloquent model represents one database table. By convention, a <code class="inline-code">Post</code> model maps to a <code class="inline-code">posts</code> table.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.eloquent.modelTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.eloquent.modelDesc')"></p>
           <CodeBlock
             title="Terminal" :code="codes[2]" />
           <CodeBlock class="mt-4"
             title="app/Models/Post.php" :code="codes[3]" />
-          <div class="tip-box mt-4">
-            <strong>$fillable vs $guarded:</strong>
-            <code class="inline-code">$fillable</code> = whitelist (only these fields can be mass assigned).
-            <code class="inline-code">$guarded</code> = blacklist (all fields except these can be mass assigned). Use <code class="inline-code">$guarded = []</code> to allow all fields.
-          </div>
+          <div class="tip-box mt-4" v-html="t('blog.laravel.eloquent.tipFillable')"></div>
         </section>
 
         <!-- CRUD Operations -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. CRUD Operations</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.eloquent.crudTitle') }}</h2>
 
           <!-- Create -->
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-6">Create (Insert Data)</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-6">{{ t('blog.laravel.eloquent.crudCreate') }}</h3>
           <CodeBlock
-            title="Creating Records" :code="codes[4]" />
+            :title="t('blog.laravel.eloquent.c_creating')" :code="codes[4]" />
 
           <!-- Read -->
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Read (Fetch Data)</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.laravel.eloquent.crudRead') }}</h3>
           <CodeBlock
-            title="Reading Records" :code="codes[5]" />
+            :title="t('blog.laravel.eloquent.c_reading')" :code="codes[5]" />
 
           <!-- Update -->
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Update (Modify Data)</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.laravel.eloquent.crudUpdate') }}</h3>
           <CodeBlock
-            title="Updating Records" :code="codes[6]" />
+            :title="t('blog.laravel.eloquent.c_updating')" :code="codes[6]" />
 
           <!-- Delete -->
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Delete (Remove Data)</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.laravel.eloquent.crudDelete') }}</h3>
           <CodeBlock
-            title="Deleting Records" :code="codes[7]" />
+            :title="t('blog.laravel.eloquent.c_deleting')" :code="codes[7]" />
         </section>
 
         <!-- Query Scopes -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Query Scopes</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.eloquent.scopeTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Scopes let you define reusable query conditions inside your model. This keeps your controllers clean.
+            {{ t('blog.laravel.eloquent.scopeDesc') }}
           </p>
           <CodeBlock
             title="app/Models/Post.php" :code="codes[8]" />
           <CodeBlock class="mt-4"
-            title="Usage in Controller" :code="codes[9]" />
+            :title="t('blog.laravel.eloquent.c_usageCtrl')" :code="codes[9]" />
         </section>
 
         <!-- Accessors & Mutators -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Accessors & Mutators</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Accessors format data when you <strong>read</strong> it. Mutators format data when you <strong>save</strong> it.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.eloquent.accessorTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.eloquent.accessorDesc')"></p>
           <CodeBlock
             title="app/Models/User.php" :code="codes[10]" />
           <CodeBlock class="mt-4"
-            title="Usage" :code="codes[11]" />
+            :title="t('blog.laravel.eloquent.c_usage')" :code="codes[11]" />
         </section>
 
         <!-- Soft Deletes -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Soft Deletes</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Instead of permanently removing records, soft deletes mark them as "deleted" by setting a <code class="inline-code">deleted_at</code> timestamp. The data stays in the database.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.eloquent.softTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.eloquent.softDesc')"></p>
           <CodeBlock
             title="Migration" :code="codes[12]" />
           <CodeBlock class="mt-4"
             title="app/Models/Post.php" :code="codes[13]" />
           <CodeBlock class="mt-4"
-            title="Usage" :code="codes[14]" />
+            :title="t('blog.laravel.eloquent.c_usage')" :code="codes[14]" />
         </section>
 
         <!-- Common Queries -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. Common Query Patterns</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.eloquent.queryTitle') }}</h2>
           <CodeBlock
-            title="Useful Eloquent Queries" :code="codes[15]" />
+            :title="t('blog.laravel.eloquent.c_queries')" :code="codes[15]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>Models</strong> — PHP classes that represent database tables</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>CRUD</strong> — create, read, update, delete with simple methods</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>Scopes</strong> — reusable query conditions inside models</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>Accessors & Mutators</strong> — auto-format data on read/write</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>Soft Deletes</strong> — safe deletion without losing data</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-green-500 mt-1">&#10003;</span>
-              <span><strong>Query Patterns</strong> — pagination, search, aggregates, chunking</span>
-            </li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.eloquent.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.eloquent.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.eloquent.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.eloquent.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.eloquent.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.eloquent.sum6')"></span></li>
           </ul>
         </section>
 

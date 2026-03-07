@@ -12,7 +12,7 @@
           <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs rounded-full font-medium">Interview</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          Vue.js Interview Questions
+          {{ t('blog.itvw.vue.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Feb 25, 2026</p>
       </div>
@@ -20,217 +20,175 @@
       <article class="prose-content">
 
         <section class="mb-12">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Preparing for a Vue.js interview? This guide covers <strong>20 commonly asked questions</strong> with clear answers and practical code examples. Whether you're a beginner or an experienced developer, these questions will help you solidify your understanding of Vue.js core concepts.
-          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="t('blog.itvw.vue.intro')"></p>
         </section>
 
         <!-- Q1 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">1. What is Vue.js? What are its key features?</h3>
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q1') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Vue.js is a progressive JavaScript framework for building user interfaces. It is designed to be incrementally adoptable, meaning you can use as little or as much of it as you need. Key features include:
+            {{ t('blog.itvw.vue.a1') }}
           </p>
           <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-1 mb-4">
-            <li><strong>Reactive data binding</strong> — the DOM automatically updates when data changes</li>
-            <li><strong>Component-based architecture</strong> — build UIs with reusable, self-contained components</li>
-            <li><strong>Virtual DOM</strong> — efficient rendering through a virtual representation of the DOM</li>
-            <li><strong>Directives</strong> — special attributes like <code class="inline-code">v-if</code>, <code class="inline-code">v-for</code>, <code class="inline-code">v-bind</code></li>
-            <li><strong>Single File Components</strong> — template, script, and style in one <code class="inline-code">.vue</code> file</li>
-            <li><strong>Composition API</strong> — modern way to organize component logic</li>
+            <li v-html="t('blog.itvw.vue.a1l1')"></li>
+            <li v-html="t('blog.itvw.vue.a1l2')"></li>
+            <li v-html="t('blog.itvw.vue.a1l3')"></li>
+            <li v-html="t('blog.itvw.vue.a1l4')"></li>
+            <li v-html="t('blog.itvw.vue.a1l5')"></li>
+            <li v-html="t('blog.itvw.vue.a1l6')"></li>
           </ul>
-          <CodeBlock title="A simple Vue component" :code="codes[0]" />
+          <CodeBlock :title="t('blog.itvw.vue.q1c1')" :code="codes[0]" />
         </section>
 
         <!-- Q2 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">2. What is the Virtual DOM?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            The Virtual DOM is a lightweight JavaScript representation of the real DOM. When data changes, Vue creates a new virtual DOM tree and compares it with the previous one (a process called <strong>diffing</strong>). Only the differences are applied to the real DOM, making updates much faster than manipulating the DOM directly.
-          </p>
-          <CodeBlock title="Virtual DOM concept" :code="codes[1]" />
-          <div class="tip-box mt-4">
-            <strong>Key benefit:</strong> The Virtual DOM batches multiple changes together and performs a single, optimized DOM update, avoiding costly reflows and repaints.
-          </div>
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q2') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a2')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q2c1')" :code="codes[1]" />
+          <div class="tip-box mt-4" v-html="t('blog.itvw.vue.q2tip')"></div>
         </section>
 
         <!-- Q3 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">3. What are Vue lifecycle hooks?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Lifecycle hooks are functions that let you run code at specific stages of a component's life. In the Composition API, they are imported from Vue and called inside <code class="inline-code">&lt;script setup&gt;</code>.
-          </p>
-          <CodeBlock title="Lifecycle hooks" :code="codes[2]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q3') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a3')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q3c1')" :code="codes[2]" />
         </section>
 
         <!-- Q4 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">4. What is the difference between v-show and v-if?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both conditionally display elements, but they work differently. <code class="inline-code">v-if</code> completely adds or removes the element from the DOM, while <code class="inline-code">v-show</code> toggles the CSS <code class="inline-code">display</code> property. Use <code class="inline-code">v-show</code> for frequent toggling and <code class="inline-code">v-if</code> for conditions that rarely change.
-          </p>
-          <CodeBlock title="v-show vs v-if" :code="codes[3]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q4') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a4')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q4c1')" :code="codes[3]" />
         </section>
 
         <!-- Q5 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">5. What are computed properties vs methods?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Computed properties</strong> are cached and only re-evaluate when their reactive dependencies change. <strong>Methods</strong> run every time they are called. Use computed for derived data and methods for actions or event handlers.
-          </p>
-          <CodeBlock title="Computed vs Methods" :code="codes[4]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q5') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a5')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q5c1')" :code="codes[4]" />
         </section>
 
         <!-- Q6 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">6. What is two-way data binding (v-model)?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">v-model</code> creates a two-way binding between a form input and reactive data. When the user types, the data updates. When the data changes, the input updates. It is syntactic sugar for a <code class="inline-code">:value</code> binding and an <code class="inline-code">@input</code> event listener.
-          </p>
-          <CodeBlock title="v-model usage" :code="codes[5]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q6') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a6')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q6c1')" :code="codes[5]" />
         </section>
 
         <!-- Q7 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">7. What are Vue components? How to pass data between them?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Components are reusable, self-contained pieces of UI. Data flows <strong>down</strong> from parent to child via <strong>props</strong>, and <strong>up</strong> from child to parent via <strong>emits</strong> (custom events). For deeply nested components, use <code class="inline-code">provide/inject</code> or a state management library.
-          </p>
-          <CodeBlock title="Parent-Child communication" :code="codes[6]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q7') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a7')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q7c1')" :code="codes[6]" />
         </section>
 
         <!-- Q8 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">8. What are props and emits?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Props</strong> are custom attributes used to pass data from a parent to a child component. <strong>Emits</strong> are custom events that a child component sends to its parent. In the Composition API, you define them with <code class="inline-code">defineProps()</code> and <code class="inline-code">defineEmits()</code>.
-          </p>
-          <CodeBlock title="Props and Emits" :code="codes[7]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q8') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a8')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q8c1')" :code="codes[7]" />
         </section>
 
         <!-- Q9 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">9. What is Vuex/Pinia? When to use state management?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Pinia</strong> (the recommended state management for Vue 3) and <strong>Vuex</strong> are centralized stores for managing shared state across components. Use state management when multiple components need to access or modify the same data and prop drilling becomes unwieldy.
-          </p>
-          <CodeBlock title="Pinia store example" :code="codes[8]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q9') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a9')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q9c1')" :code="codes[8]" />
         </section>
 
         <!-- Q10 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">10. What is Vue Router? How do dynamic routes work?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Vue Router is the official routing library for Vue.js. It maps URLs to components. <strong>Dynamic routes</strong> use parameters (e.g., <code class="inline-code">/user/:id</code>) to match variable URL segments and pass them as route params.
-          </p>
-          <CodeBlock title="Vue Router with dynamic routes" :code="codes[9]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q10') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a10')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q10c1')" :code="codes[9]" />
         </section>
 
         <!-- Q11 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">11. What are watchers? watch vs watchEffect?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Watchers let you perform side effects when reactive data changes. <code class="inline-code">watch()</code> explicitly specifies which sources to watch and gives you old/new values. <code class="inline-code">watchEffect()</code> automatically tracks all reactive dependencies used inside it and runs immediately.
-          </p>
-          <CodeBlock title="watch vs watchEffect" :code="codes[10]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q11') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a11')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q11c1')" :code="codes[10]" />
         </section>
 
         <!-- Q12 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">12. What is the Composition API vs Options API?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            The <strong>Options API</strong> organizes code by option type (data, methods, computed, watch) while the <strong>Composition API</strong> organizes code by logical concern. The Composition API is recommended for Vue 3 as it offers better TypeScript support, code reuse via composables, and more flexible code organization.
-          </p>
-          <CodeBlock title="Options API vs Composition API" :code="codes[11]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q12') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a12')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q12c1')" :code="codes[11]" />
         </section>
 
         <!-- Q13 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">13. What are slots (default, named, scoped)?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Slots allow a parent component to inject content into a child component's template. <strong>Default slots</strong> provide a single content area, <strong>named slots</strong> allow multiple content areas, and <strong>scoped slots</strong> let the child pass data back to the parent's slot content.
-          </p>
-          <CodeBlock title="Slots example" :code="codes[12]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q13') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a13')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q13c1')" :code="codes[12]" />
         </section>
 
         <!-- Q14 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">14. What are custom directives?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Custom directives let you apply low-level DOM manipulations to elements. They are useful for reusable behaviors like auto-focus, tooltips, or click-outside detection. Register them globally or locally using the <code class="inline-code">v-</code> prefix.
-          </p>
-          <CodeBlock title="Custom directive" :code="codes[13]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q14') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a14')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q14c1')" :code="codes[13]" />
         </section>
 
         <!-- Q15 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">15. What is provide/inject?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">provide</code> and <code class="inline-code">inject</code> allow an ancestor component to serve as a dependency provider for all its descendants. This avoids prop drilling through multiple component layers.
-          </p>
-          <CodeBlock title="Provide / Inject" :code="codes[14]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q15') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a15')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q15c1')" :code="codes[14]" />
         </section>
 
         <!-- Q16 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">16. What are mixins vs composables?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Mixins</strong> (Options API) merge options into a component but can cause naming conflicts and unclear data sources. <strong>Composables</strong> (Composition API) are plain functions that return reactive state, offering explicit imports, no naming conflicts, and better TypeScript support. Composables are the recommended pattern in Vue 3.
-          </p>
-          <CodeBlock title="Mixin vs Composable" :code="codes[15]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q16') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a16')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q16c1')" :code="codes[15]" />
         </section>
 
         <!-- Q17 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">17. What is nextTick?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">nextTick()</code> lets you run code after the DOM has been updated following a reactive state change. Vue batches DOM updates, so if you need to access the updated DOM immediately after changing data, use <code class="inline-code">nextTick()</code>.
-          </p>
-          <CodeBlock title="nextTick usage" :code="codes[16]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q17') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a17')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q17c1')" :code="codes[16]" />
         </section>
 
         <!-- Q18 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">18. What are async components and Suspense?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Async components</strong> are loaded lazily (on demand) to reduce the initial bundle size. <strong>Suspense</strong> is a built-in component that renders fallback content while waiting for async components or async setup functions to resolve.
-          </p>
-          <CodeBlock title="Async components and Suspense" :code="codes[17]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q18') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a18')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q18c1')" :code="codes[17]" />
         </section>
 
         <!-- Q19 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">19. What is the key attribute used for?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            The <code class="inline-code">key</code> attribute gives Vue a hint to identify each node uniquely during the diffing process. It is essential when rendering lists with <code class="inline-code">v-for</code> to ensure correct element reuse and ordering. It can also be used to force a component to re-render by changing its key.
-          </p>
-          <CodeBlock title="Key attribute" :code="codes[18]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q19') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a19')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q19c1')" :code="codes[18]" />
         </section>
 
         <!-- Q20 -->
         <section class="qa-section">
-          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">20. What are template refs?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Template refs give you direct access to a DOM element or child component instance. Declare a <code class="inline-code">ref()</code> with the same name as the <code class="inline-code">ref</code> attribute in the template. The ref is populated after the component is mounted.
-          </p>
-          <CodeBlock title="Template refs" :code="codes[19]" />
+          <h3 class="text-xl font-bold text-primary dark:text-white mb-3">{{ t('blog.itvw.vue.q20') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.vue.a20')"></p>
+          <CodeBlock :title="t('blog.itvw.vue.q20c1')" :code="codes[19]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            These 20 questions cover the most important Vue.js concepts you should know for an interview. Here is a quick recap:
+            {{ t('blog.itvw.vue.sumIntro') }}
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Core concepts</strong> — Virtual DOM, reactivity, lifecycle hooks</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Directives</strong> — v-if, v-show, v-model, v-for with key</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Component communication</strong> — props, emits, provide/inject, slots</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Reactivity</strong> — computed, watch, watchEffect, nextTick</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Composition API</strong> — script setup, composables, template refs</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>State management</strong> — Pinia stores for shared state</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Routing</strong> — Vue Router with dynamic routes</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Advanced</strong> — async components, Suspense, custom directives</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum6')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum7')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.vue.sum8')"></span></li>
           </ul>
         </section>
       </article>
@@ -845,7 +803,7 @@ function scrollToBottom() {
 </script>
 
 <style scoped>
-.inline-code {
+:deep(.inline-code) {
   @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-green-600 dark:text-green-400;
 }
 .tip-box {

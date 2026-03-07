@@ -11,7 +11,7 @@
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">Laravel Password Reset</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.title') }}</h1>
         <p class="text-gray-500 dark:text-gray-400">Nov 20, 2025</p>
       </div>
 
@@ -19,34 +19,34 @@
 
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Users forget passwords — it happens all the time. Laravel provides a complete password reset system out of the box: send a reset link via email, verify the token, and let the user set a new password. Here's how to implement it step by step.
+            {{ t('blog.laravel.passwords.intro') }}
           </p>
         </section>
 
         <!-- How it Works -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">How Password Reset Works</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.howItWorksTitle') }}</h2>
           <div class="p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
             <ol class="space-y-3 text-gray-600 dark:text-gray-300">
               <li class="flex items-start gap-3">
                 <span class="bg-primary text-white dark:bg-white dark:text-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
-                <span>User clicks "Forgot Password?" and enters their email</span>
+                <span>{{ t('blog.laravel.passwords.step1') }}</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="bg-primary text-white dark:bg-white dark:text-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
-                <span>Laravel generates a unique token and stores it in the <code class="inline-code">password_reset_tokens</code> table</span>
+                <span v-html="t('blog.laravel.passwords.step2')"></span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="bg-primary text-white dark:bg-white dark:text-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
-                <span>Laravel sends an email with a reset link containing the token</span>
+                <span>{{ t('blog.laravel.passwords.step3') }}</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="bg-primary text-white dark:bg-white dark:text-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</span>
-                <span>User clicks the link, enters a new password</span>
+                <span>{{ t('blog.laravel.passwords.step4') }}</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="bg-primary text-white dark:bg-white dark:text-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">5</span>
-                <span>Laravel verifies the token, updates the password, and deletes the token</span>
+                <span>{{ t('blog.laravel.passwords.step5') }}</span>
               </li>
             </ol>
           </div>
@@ -54,67 +54,64 @@
 
         <!-- Database Setup -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Database Setup</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel's default migration already creates the <code class="inline-code">password_reset_tokens</code> table. Make sure you've run migrations:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.dbSetupTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.passwords.dbSetupDesc')">
           </p>
           <CodeBlock
             title="Terminal" :code="codes[0]" />
           <CodeBlock class="mt-4"
-            title="The migration looks like this" :code="codes[1]" />
+            :title="t('blog.laravel.passwords.migrationTitle')" :code="codes[1]" />
         </section>
 
         <!-- Step 1: Request Reset Link -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Request Password Reset Link</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.requestLinkTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            First, create the form where users enter their email, and the controller that sends the reset link:
+            {{ t('blog.laravel.passwords.requestLinkDesc') }}
           </p>
           <CodeBlock
             title="routes/web.php" :code="codes[2]" />
           <CodeBlock class="mt-4"
             title="resources/views/auth/forgot-password.blade.php" :code="codes[3]" />
           <CodeBlock class="mt-4"
-            title="Controller — Send the link" :code="codes[4]" />
+            :title="t('blog.laravel.passwords.sendLinkTitle')" :code="codes[4]" />
         </section>
 
         <!-- Step 2: Reset Password -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Reset the Password</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.resetPasswordTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            When the user clicks the link in the email, they land on the reset form:
+            {{ t('blog.laravel.passwords.resetPasswordDesc') }}
           </p>
           <CodeBlock
             title="routes/web.php" :code="codes[5]" />
           <CodeBlock class="mt-4"
             title="resources/views/auth/reset-password.blade.php" :code="codes[6]" />
           <CodeBlock class="mt-4"
-            title="Controller — Reset password" :code="codes[7]" />
+            :title="t('blog.laravel.passwords.resetControllerTitle')" :code="codes[7]" />
         </section>
 
         <!-- Configuration -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Configuration</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.configTitle') }}</h2>
           <CodeBlock
             title="config/auth.php" :code="codes[8]" />
-          <div class="tip-box mt-4">
-            <strong>expire:</strong> How many minutes a reset token is valid. After this, the user must request a new link.<br>
-            <strong>throttle:</strong> How many seconds a user must wait before requesting another reset email (prevents spam).
+          <div class="tip-box mt-4" v-html="t('blog.laravel.passwords.configTip')">
           </div>
         </section>
 
         <!-- Customize Email -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Customize the Reset Email</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.customizeEmailTitle') }}</h2>
           <CodeBlock
             title="app/Providers/AppServiceProvider.php" :code="codes[9]" />
         </section>
 
         <!-- API Password Reset -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. API Password Reset (for SPA / Mobile)</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.apiResetTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            For Vue/React SPA or mobile apps, return JSON instead of redirects:
+            {{ t('blog.laravel.passwords.apiResetDesc') }}
           </p>
           <CodeBlock
             title="routes/api.php" :code="codes[10]" />
@@ -122,16 +119,15 @@
 
         <!-- Password Confirmation -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">7. Password Confirmation (for Sensitive Actions)</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.passwords.confirmTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Require users to re-enter their password before performing sensitive actions (like changing email or deleting account):
+            {{ t('blog.laravel.passwords.confirmDesc') }}
           </p>
           <CodeBlock
-            title="routes/web.php" :code="codes[11]" />
+            :title="t('blog.laravel.passwords.protectApiTitle')" :code="codes[11]" />
           <CodeBlock class="mt-4"
             title="resources/views/auth/confirm-password.blade.php" :code="codes[12]" />
-          <div class="tip-box mt-4">
-            <strong>Timeout:</strong> By default, once confirmed, the user won't be asked again for 3 hours. Configure this with <code class="inline-code">password_timeout</code> in <code class="inline-code">config/auth.php</code>.
+          <div class="tip-box mt-4" v-html="t('blog.laravel.passwords.confirmTip')">
           </div>
         </section>
 
@@ -139,12 +135,12 @@
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Password::sendResetLink()</strong> — sends reset email with token</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Password::reset()</strong> — validates token and updates password</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Token expiry</strong> — configurable, default 60 minutes</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Customizable email</strong> — modify content and URL</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>API support</strong> — return JSON for SPA/mobile apps</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Password confirmation</strong> — re-verify for sensitive actions</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.passwords.summary1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.passwords.summary2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.passwords.summary3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.passwords.summary4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.passwords.summary5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.passwords.summary6')"></span></li>
           </ul>
         </section>
       </article>

@@ -11,77 +11,74 @@
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">Laravel Hashing</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.hashing.title') }}</h1>
         <p class="text-gray-500 dark:text-gray-400">Nov 22, 2025</p>
       </div>
 
       <article class="prose-content">
 
         <section class="mb-12">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Hashing is a <strong>one-way</strong> process that turns a password (or any data) into a fixed-length scrambled string. Unlike encryption, you <strong>cannot reverse</strong> a hash — you can only check if a given value matches the hash. This is exactly what you want for passwords: store the hash, and verify against it on login.
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="t('blog.laravel.hashing.intro')">
           </p>
         </section>
 
         <!-- Why Hashing -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Why Hash Passwords?</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.hashing.whyTitle') }}</h2>
           <CodeBlock
-            title="Never do this" :code="codes[0]" />
+            :title="t('blog.laravel.hashing.codeNeverDoThis')" :code="codes[0]" />
           <CodeBlock class="mt-4"
-            title="Always do this" :code="codes[1]" />
+            :title="t('blog.laravel.hashing.codeAlwaysDoThis')" :code="codes[1]" />
           <p class="text-gray-600 dark:text-gray-300 mt-4">
-            If your database is ever compromised, hackers get useless hash strings instead of real passwords.
+            {{ t('blog.laravel.hashing.compromised') }}
           </p>
         </section>
 
         <!-- Bcrypt -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Bcrypt (Default)</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel uses <strong>Bcrypt</strong> by default. It's slow on purpose — this makes brute-force attacks impractical.
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.hashing.bcryptTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.hashing.bcryptDesc')">
           </p>
           <CodeBlock
-            title="Using Hash facade" :code="codes[2]" />
-          <div class="tip-box mt-4">
-            <strong>Why different hashes?</strong> Bcrypt adds a random "salt" each time. This prevents attackers from using pre-computed hash tables (rainbow tables). Both hashes still verify correctly against the original password.
+            :title="t('blog.laravel.hashing.codeUsingHash')" :code="codes[2]" />
+          <div class="tip-box mt-4" v-html="t('blog.laravel.hashing.tipDifferentHashes')">
           </div>
         </section>
 
         <!-- Bcrypt Rounds -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Configuring Bcrypt Rounds</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.hashing.roundsTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            "Rounds" control how slow hashing is. More rounds = more secure but slower. Default is 12.
+            {{ t('blog.laravel.hashing.roundsDesc') }}
           </p>
           <CodeBlock
             title="config/hashing.php" :code="codes[3]" />
           <CodeBlock class="mt-4"
-            title="Custom rounds per hash" :code="codes[4]" />
+            :title="t('blog.laravel.hashing.codeCustomRounds')" :code="codes[4]" />
           <div class="overflow-x-auto mt-4">
             <table class="w-full text-sm text-left">
               <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">Rounds</th>
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">Speed</th>
-                  <th class="py-3 text-primary dark:text-white font-semibold">Use case</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.laravel.hashing.thRounds') }}</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.laravel.hashing.thSpeed') }}</th>
+                  <th class="py-3 text-primary dark:text-white font-semibold">{{ t('blog.laravel.hashing.thUseCase') }}</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 dark:text-gray-300">
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4">10</td>
                   <td class="py-3 pr-4">~65ms</td>
-                  <td class="py-3">Testing / development</td>
+                  <td class="py-3">{{ t('blog.laravel.hashing.useCaseTesting') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4">12</td>
                   <td class="py-3 pr-4">~250ms</td>
-                  <td class="py-3">Default — good balance</td>
+                  <td class="py-3">{{ t('blog.laravel.hashing.useCaseDefault') }}</td>
                 </tr>
                 <tr>
                   <td class="py-3 pr-4">14</td>
                   <td class="py-3 pr-4">~1s</td>
-                  <td class="py-3">High security applications</td>
+                  <td class="py-3">{{ t('blog.laravel.hashing.useCaseHigh') }}</td>
                 </tr>
               </tbody>
             </table>
@@ -90,49 +87,49 @@
 
         <!-- Argon2 -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Argon2 (Alternative)</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.hashing.argon2Title') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Argon2 is a newer algorithm that won the Password Hashing Competition. It's more resistant to GPU-based attacks.
+            {{ t('blog.laravel.hashing.argon2Desc') }}
           </p>
           <CodeBlock
             title="config/hashing.php" :code="codes[5]" />
           <CodeBlock class="mt-4"
-            title="Usage (same API!)" :code="codes[6]" />
+            :title="t('blog.laravel.hashing.codeUsageSameApi')" :code="codes[6]" />
         </section>
 
         <!-- Rehashing -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Auto-Rehashing</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.hashing.rehashTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            If you change your hashing configuration (e.g., increase rounds), old hashes still work. Laravel can automatically rehash on login:
+            {{ t('blog.laravel.hashing.rehashDesc') }}
           </p>
           <CodeBlock
-            title="Check if rehash is needed" :code="codes[7]" />
+            :title="t('blog.laravel.hashing.codeCheckRehash')" :code="codes[7]" />
           <CodeBlock class="mt-4"
-            title="Common pattern in login" :code="codes[8]" />
+            :title="t('blog.laravel.hashing.codeCommonLogin')" :code="codes[8]" />
         </section>
 
         <!-- Practical Usage -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Common Patterns</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.hashing.patternsTitle') }}</h2>
           <CodeBlock
-            title="Registration" :code="codes[9]" />
+            :title="t('blog.laravel.hashing.codeRegistration')" :code="codes[9]" />
           <CodeBlock class="mt-4"
-            title="Change Password" :code="codes[10]" />
+            :title="t('blog.laravel.hashing.codeChangePassword')" :code="codes[10]" />
           <CodeBlock class="mt-4"
-            title="Auto-hash with Eloquent mutator" :code="codes[11]" />
+            :title="t('blog.laravel.hashing.codeAutoHash')" :code="codes[11]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>One-way</strong> — hashes cannot be reversed (unlike encryption)</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Hash::make()</strong> — create a hash from a password</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Hash::check()</strong> — verify a password matches a hash</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Bcrypt</strong> — default, 12 rounds, good for most apps</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Argon2</strong> — alternative, more resistant to GPU attacks</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>needsRehash()</strong> — auto-upgrade hashes when config changes</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.hashing.summary1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.hashing.summary2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.hashing.summary3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.hashing.summary4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.hashing.summary5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.hashing.summary6')"></span></li>
           </ul>
         </section>
       </article>

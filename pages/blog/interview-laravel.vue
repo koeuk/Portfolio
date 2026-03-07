@@ -11,7 +11,7 @@
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs rounded-full font-medium">Interview</span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">Laravel Interview Questions</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">{{ t('blog.itvw.laravel.title') }}</h1>
         <p class="text-gray-500 dark:text-gray-400">Mar 6, 2026</p>
       </div>
 
@@ -19,224 +19,202 @@
 
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Preparing for a Laravel interview? This guide covers 20+ commonly asked questions with clear explanations and code examples. Whether you are a junior or senior developer, these questions will help you solidify your understanding of the framework.
+            {{ t('blog.itvw.laravel.intro') }}
           </p>
         </section>
 
         <!-- Q1 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">1. What is Laravel? Why use it?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q1') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel is a free, open-source PHP web framework created by Taylor Otwell. It follows the MVC (Model-View-Controller) architectural pattern and provides an elegant syntax that aims to make development enjoyable and expressive. Key reasons to use Laravel include:
+            {{ t('blog.itvw.laravel.a1') }}
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300 mb-4">
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span><strong>Eloquent ORM</strong> for intuitive database interactions</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span><strong>Blade templating engine</strong> for clean, reusable views</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span><strong>Built-in authentication and authorization</strong></span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span><strong>Artisan CLI</strong> for code generation and task automation</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span><strong>Rich ecosystem</strong> (Forge, Vapor, Nova, Sanctum, etc.)</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span v-html="t('blog.itvw.laravel.a1l1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span v-html="t('blog.itvw.laravel.a1l2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span v-html="t('blog.itvw.laravel.a1l3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span v-html="t('blog.itvw.laravel.a1l4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">-</span><span v-html="t('blog.itvw.laravel.a1l5')"></span></li>
           </ul>
-          <CodeBlock title="Creating a new Laravel project" :code="codes[0]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q1c1')" :code="codes[0]" />
         </section>
 
         <!-- Q2 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">2. What is the MVC pattern in Laravel?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            MVC stands for <strong>Model-View-Controller</strong>. It separates the application into three interconnected components:
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q2') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a2')"></p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300 mb-4">
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">1.</span><span><strong>Model</strong> — handles data logic and database interaction (Eloquent models)</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">2.</span><span><strong>View</strong> — presents data to the user (Blade templates)</span></li>
-            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">3.</span><span><strong>Controller</strong> — handles user requests and acts as a bridge between Model and View</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">1.</span><span v-html="t('blog.itvw.laravel.a2l1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">2.</span><span v-html="t('blog.itvw.laravel.a2l2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-1 font-bold">3.</span><span v-html="t('blog.itvw.laravel.a2l3')"></span></li>
           </ul>
-          <CodeBlock title="MVC Example" :code="codes[1]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q2c1')" :code="codes[1]" />
         </section>
 
         <!-- Q3 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">3. What are Service Providers?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Service Providers are the central place where all Laravel application bootstrapping happens. They are responsible for binding services into the service container, registering event listeners, middleware, routes, and more. Every Laravel application has an <code class="inline-code">AppServiceProvider</code> by default. Service providers have two key methods: <code class="inline-code">register()</code> for binding things into the container, and <code class="inline-code">boot()</code> for actions after all providers are registered.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q3') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a3')"></p>
           <CodeBlock title="app/Providers/AppServiceProvider.php" :code="codes[2]" />
         </section>
 
         <!-- Q4 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">4. What is Middleware? How to create one?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q4') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Middleware provides a mechanism for filtering HTTP requests entering your application. For example, Laravel includes middleware that verifies if the user is authenticated. If not, the middleware redirects the user to the login screen. You can create custom middleware using Artisan.
+            {{ t('blog.itvw.laravel.a4') }}
           </p>
           <CodeBlock title="Terminal" :code="codes[3]" />
           <CodeBlock class="mt-4" title="app/Http/Middleware/CheckAge.php" :code="codes[4]" />
-          <CodeBlock class="mt-4" title="Applying middleware to a route" :code="codes[5]" />
+          <CodeBlock class="mt-4" :title="t('blog.itvw.laravel.q4c1')" :code="codes[5]" />
         </section>
 
         <!-- Q5 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">5. What are Route Groups and Route Model Binding?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Route Groups</strong> allow you to share route attributes (middleware, prefixes, namespaces) across multiple routes without repeating them. <strong>Route Model Binding</strong> automatically injects model instances into your routes based on the URI segment.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q5') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a5')"></p>
           <CodeBlock title="Route Groups" :code="codes[6]" />
           <CodeBlock class="mt-4" title="Route Model Binding" :code="codes[7]" />
         </section>
 
         <!-- Q6 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">6. What is Eloquent ORM? How does it differ from Query Builder?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Eloquent ORM</strong> is Laravel's ActiveRecord implementation. Each database table has a corresponding Model that interacts with it. <strong>Query Builder</strong> provides a fluent interface for building SQL queries directly. Eloquent is more expressive and supports relationships, while Query Builder is lighter and can be faster for complex queries.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q6') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a6')"></p>
           <CodeBlock title="Eloquent ORM" :code="codes[8]" />
           <CodeBlock class="mt-4" title="Query Builder" :code="codes[9]" />
         </section>
 
         <!-- Q7 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">7. What are Eloquent Relationships?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Eloquent relationships define how models are connected. Laravel supports several relationship types: <code class="inline-code">hasOne</code>, <code class="inline-code">hasMany</code>, <code class="inline-code">belongsTo</code>, <code class="inline-code">belongsToMany</code>, <code class="inline-code">hasManyThrough</code>, and polymorphic relations.
-          </p>
-          <CodeBlock title="Defining Relationships" :code="codes[10]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q7') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a7')"></p>
+          <CodeBlock :title="t('blog.itvw.laravel.q7c1')" :code="codes[10]" />
         </section>
 
         <!-- Q8 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">8. What are Migrations and Seeders?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Migrations</strong> are version control for your database, allowing you to define and share the application's database schema. <strong>Seeders</strong> populate your database with test or default data. Together they ensure a consistent development environment across teams.
-          </p>
-          <CodeBlock title="Migration Example" :code="codes[11]" />
-          <CodeBlock class="mt-4" title="Seeder Example" :code="codes[12]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q8') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a8')"></p>
+          <CodeBlock :title="t('blog.itvw.laravel.q8c1')" :code="codes[11]" />
+          <CodeBlock class="mt-4" :title="t('blog.itvw.laravel.q8c2')" :code="codes[12]" />
         </section>
 
         <!-- Q9 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">9. What is the difference between hasOne and belongsTo?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">hasOne</code> is defined on the parent model and indicates it owns one instance of another model. <code class="inline-code">belongsTo</code> is defined on the child model (the one that holds the foreign key) and indicates it belongs to the parent. The foreign key always lives on the <code class="inline-code">belongsTo</code> side.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q9') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a9')"></p>
           <CodeBlock title="hasOne vs belongsTo" :code="codes[13]" />
         </section>
 
         <!-- Q10 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">10. What are Laravel Collections?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q10') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Collections are a powerful wrapper around arrays, providing a fluent, chainable interface for common data operations like filtering, mapping, sorting, and reducing. Eloquent queries always return results as Collection instances.
+            {{ t('blog.itvw.laravel.a10') }}
           </p>
-          <CodeBlock title="Collection Examples" :code="codes[14]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q10c1')" :code="codes[14]" />
         </section>
 
         <!-- Q11 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">11. What is the Service Container (IoC)?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q11') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            The Service Container (Inversion of Control container) is a powerful tool for managing class dependencies and performing dependency injection. It is the backbone of the Laravel framework — almost all service bindings are registered within service providers and resolved from the container automatically.
+            {{ t('blog.itvw.laravel.a11') }}
           </p>
-          <CodeBlock title="Service Container Binding" :code="codes[15]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q11c1')" :code="codes[15]" />
         </section>
 
         <!-- Q12 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">12. What is Dependency Injection in Laravel?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q12') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Dependency Injection (DI) is a design pattern where a class receives its dependencies from external sources rather than creating them internally. Laravel's service container automatically resolves dependencies type-hinted in constructors and controller methods.
+            {{ t('blog.itvw.laravel.a12') }}
           </p>
-          <CodeBlock title="Dependency Injection Example" :code="codes[16]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q12c1')" :code="codes[16]" />
         </section>
 
         <!-- Q13 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">13. What are Facades?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Facades provide a static-like interface to classes available in the service container. They act as a proxy to the underlying implementation, offering a terse, expressive syntax while maintaining testability. Common facades include <code class="inline-code">Cache</code>, <code class="inline-code">DB</code>, <code class="inline-code">Auth</code>, <code class="inline-code">Route</code>, and <code class="inline-code">Log</code>.
-          </p>
-          <CodeBlock title="Facade Usage" :code="codes[17]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q13') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a13')"></p>
+          <CodeBlock :title="t('blog.itvw.laravel.q13c1')" :code="codes[17]" />
         </section>
 
         <!-- Q14 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">14. What are Laravel Events and Listeners?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q14') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Events provide a simple observer pattern implementation. Events represent something that happened in your application (e.g., an order was placed), and Listeners handle the response to that event (e.g., send a confirmation email). This decouples different concerns in your codebase.
+            {{ t('blog.itvw.laravel.a14') }}
           </p>
           <CodeBlock title="Terminal" :code="codes[18]" />
-          <CodeBlock class="mt-4" title="Event & Listener" :code="codes[19]" />
+          <CodeBlock class="mt-4" :title="t('blog.itvw.laravel.q14c1')" :code="codes[19]" />
         </section>
 
         <!-- Q15 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">15. What is Laravel Queue?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q15') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel Queues allow you to defer time-consuming tasks (like sending emails or processing uploads) to be handled in the background. This significantly improves response times. Laravel supports multiple queue backends including Redis, Amazon SQS, Beanstalkd, and database.
+            {{ t('blog.itvw.laravel.a15') }}
           </p>
-          <CodeBlock title="Queue Job Example" :code="codes[20]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q15c1')" :code="codes[20]" />
         </section>
 
         <!-- Q16 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">16. What is CSRF Protection?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q16') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            CSRF (Cross-Site Request Forgery) protection prevents malicious websites from performing actions on behalf of authenticated users. Laravel automatically generates a CSRF token for each active session and verifies it on every POST, PUT, PATCH, and DELETE request.
+            {{ t('blog.itvw.laravel.a16') }}
           </p>
-          <CodeBlock title="CSRF in Blade Forms" :code="codes[21]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q16c1')" :code="codes[21]" />
         </section>
 
         <!-- Q17 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">17. What is Rate Limiting?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q17') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Rate Limiting restricts the number of requests a user can make to your application within a given time frame. It helps prevent abuse and protects your API from being overwhelmed. Laravel provides a clean way to define rate limiters.
+            {{ t('blog.itvw.laravel.a17') }}
           </p>
           <CodeBlock title="Rate Limiting" :code="codes[22]" />
         </section>
 
         <!-- Q18 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">18. What are Form Requests?</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q18') }}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Form Requests are custom request classes that encapsulate validation logic and authorization checks. They keep your controllers clean by moving validation rules into a dedicated class.
+            {{ t('blog.itvw.laravel.a18') }}
           </p>
-          <CodeBlock title="Form Request Example" :code="codes[23]" />
+          <CodeBlock :title="t('blog.itvw.laravel.q18c1')" :code="codes[23]" />
         </section>
 
         <!-- Q19 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">19. What is Eager Loading vs Lazy Loading?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <strong>Lazy Loading</strong> loads related models only when you access the relationship property, which can cause the N+1 query problem. <strong>Eager Loading</strong> loads relationships at the time of the initial query using <code class="inline-code">with()</code>, drastically reducing the number of queries.
-          </p>
-          <CodeBlock title="Eager Loading vs Lazy Loading" :code="codes[24]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q19') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a19')"></p>
+          <CodeBlock :title="t('blog.itvw.laravel.q19c1')" :code="codes[24]" />
         </section>
 
         <!-- Q20 -->
         <section class="qa-section">
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">20. What is Laravel Sanctum vs Passport?</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Both provide API authentication, but they serve different purposes. <strong>Sanctum</strong> is a lightweight package ideal for SPAs, mobile apps, and simple token-based APIs. <strong>Passport</strong> is a full OAuth2 server implementation for when you need to issue access tokens with scopes, support third-party applications, and implement the full OAuth2 specification.
-          </p>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.itvw.laravel.q20') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.itvw.laravel.a20')"></p>
           <CodeBlock title="Sanctum (Simple Token API)" :code="codes[25]" />
           <CodeBlock class="mt-4" title="Passport (OAuth2)" :code="codes[26]" />
-          <div class="tip-box mt-4">
-            <strong>When to use which?</strong> Use <strong>Sanctum</strong> for first-party SPAs and simple API tokens. Use <strong>Passport</strong> when you need full OAuth2 support with third-party client credentials, authorization codes, and token scopes.
-          </div>
+          <div class="tip-box mt-4" v-html="t('blog.itvw.laravel.q20tip')"></div>
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>MVC Pattern</strong> — separates concerns into Model, View, and Controller</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Service Providers & Container</strong> — the backbone of Laravel's bootstrapping and dependency management</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Eloquent ORM</strong> — expressive ActiveRecord implementation with relationships and collections</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Middleware & CSRF</strong> — filter requests and protect against cross-site attacks</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Events, Queues & Jobs</strong> — decouple logic and handle tasks in the background</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Eager Loading</strong> — avoid N+1 query problems with <code class="inline-code">with()</code></span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Sanctum vs Passport</strong> — choose the right API authentication for your use case</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Form Requests & Rate Limiting</strong> — validate input and protect your API from abuse</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum6')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum7')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.itvw.laravel.sum8')"></span></li>
           </ul>
         </section>
       </article>
@@ -825,7 +803,7 @@ Route::middleware(['auth:api', 'scope:read-posts'])->group(function () {
 </script>
 
 <style scoped>
-.inline-code { @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-red-500 dark:text-red-400; }
+:deep(.inline-code) { @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-red-500 dark:text-red-400; }
 .tip-box { @apply p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-sm text-blue-700 dark:text-blue-300; }
 .qa-section { @apply mb-8 p-6 rounded-xl bg-gray-50 dark:bg-primary-light/50 border border-gray-200 dark:border-gray-700; }
 </style>

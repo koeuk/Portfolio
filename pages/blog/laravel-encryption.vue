@@ -11,45 +11,44 @@
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">Laravel Encryption</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.encryption.title') }}</h1>
         <p class="text-gray-500 dark:text-gray-400">Nov 25, 2025</p>
       </div>
 
       <article class="prose-content">
 
         <section class="mb-12">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Encryption turns readable data into scrambled text that can only be read back with a secret key. Laravel uses <strong>AES-256-CBC</strong> encryption — one of the strongest encryption standards. It's two-way: you can encrypt data and later decrypt it back to the original value.
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="t('blog.laravel.encryption.intro')">
           </p>
         </section>
 
         <!-- Encryption vs Hashing -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Encryption vs Hashing</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.encryption.vsHashingTitle') }}</h2>
           <div class="overflow-x-auto">
             <table class="w-full text-sm text-left">
               <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
                   <th class="py-3 pr-4 text-primary dark:text-white font-semibold"></th>
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">Encryption</th>
-                  <th class="py-3 text-primary dark:text-white font-semibold">Hashing</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.laravel.encryption.thEncryption') }}</th>
+                  <th class="py-3 text-primary dark:text-white font-semibold">{{ t('blog.laravel.encryption.thHashing') }}</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 dark:text-gray-300">
                 <tr class="border-b border-gray-100 dark:border-gray-800">
-                  <td class="py-3 pr-4 font-medium">Direction</td>
-                  <td class="py-3 pr-4">Two-way (encrypt & decrypt)</td>
-                  <td class="py-3">One-way (cannot reverse)</td>
+                  <td class="py-3 pr-4 font-medium">{{ t('blog.laravel.encryption.direction') }}</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.encryption.directionEncrypt') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.encryption.directionHash') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
-                  <td class="py-3 pr-4 font-medium">Use for</td>
-                  <td class="py-3 pr-4">Data you need to read back (API keys, personal data)</td>
-                  <td class="py-3">Data you never need to read (passwords)</td>
+                  <td class="py-3 pr-4 font-medium">{{ t('blog.laravel.encryption.useFor') }}</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.encryption.useForEncrypt') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.encryption.useForHash') }}</td>
                 </tr>
                 <tr>
-                  <td class="py-3 pr-4 font-medium">Example</td>
-                  <td class="py-3 pr-4">"hello" → "eyJpdiI6..." → "hello"</td>
-                  <td class="py-3">"hello" → "$2y$12$..." (cannot get "hello" back)</td>
+                  <td class="py-3 pr-4 font-medium">{{ t('blog.laravel.encryption.example') }}</td>
+                  <td class="py-3 pr-4">{{ t('blog.laravel.encryption.exampleEncrypt') }}</td>
+                  <td class="py-3">{{ t('blog.laravel.encryption.exampleHash') }}</td>
                 </tr>
               </tbody>
             </table>
@@ -58,61 +57,56 @@
 
         <!-- APP_KEY -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. The Encryption Key (APP_KEY)</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel uses the <code class="inline-code">APP_KEY</code> in your <code class="inline-code">.env</code> file as the encryption key. This is generated when you create a Laravel project.
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.encryption.appKeyTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.encryption.appKeyDesc')">
           </p>
           <CodeBlock
             title="Terminal" :code="codes[0]" />
           <CodeBlock class="mt-4"
             title=".env" :code="codes[1]" />
-          <div class="warning-box mt-4">
-            <strong>Warning:</strong> Never share or expose your APP_KEY. If someone gets it, they can decrypt all your encrypted data. If you change it, all previously encrypted data becomes unreadable.
+          <div class="warning-box mt-4" v-html="t('blog.laravel.encryption.warning')">
           </div>
         </section>
 
         <!-- Basic Usage -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Encrypting & Decrypting</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.encryption.encryptDecryptTitle') }}</h2>
           <CodeBlock
-            title="Basic Encryption" :code="codes[2]" />
+            :title="t('blog.laravel.encryption.codeBasicEncryption')" :code="codes[2]" />
           <CodeBlock class="mt-4"
-            title="Encrypt any data type (not just strings)" :code="codes[3]" />
+            :title="t('blog.laravel.encryption.codeEncryptAny')" :code="codes[3]" />
         </section>
 
         <!-- Error Handling -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Handling Decryption Errors</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            If decryption fails (wrong key, corrupted data), Laravel throws a <code class="inline-code">DecryptException</code>. Always handle this:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.encryption.errorTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.encryption.errorDesc')">
           </p>
           <CodeBlock
-            title="Safe decryption" :code="codes[4]" />
+            :title="t('blog.laravel.encryption.codeSafeDecryption')" :code="codes[4]" />
         </section>
 
         <!-- Encrypted Casts -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Auto-Encrypt Model Fields</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Use Eloquent's <code class="inline-code">encrypted</code> cast to automatically encrypt/decrypt fields when saving/reading from the database:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.encryption.autoEncryptTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.encryption.autoEncryptDesc')">
           </p>
           <CodeBlock
             title="app/Models/User.php" :code="codes[5]" />
           <CodeBlock class="mt-4"
-            title="Usage — automatic, no extra code needed" :code="codes[6]" />
-          <div class="tip-box mt-4">
-            <strong>Best practice:</strong> Use encrypted casts for sensitive data like SSNs, API keys, personal medical data, payment info — anything you need to store but must protect.
+            :title="t('blog.laravel.encryption.codeAutoUsage')" :code="codes[6]" />
+          <div class="tip-box mt-4" v-html="t('blog.laravel.encryption.tip')">
           </div>
         </section>
 
         <!-- Practical Example -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Practical Example</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.encryption.practicalTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Storing third-party API credentials securely:
+            {{ t('blog.laravel.encryption.practicalDesc') }}
           </p>
           <CodeBlock
-            title="Migration" :code="codes[7]" />
+            :title="t('blog.laravel.encryption.codeMigration')" :code="codes[7]" />
           <CodeBlock class="mt-4"
             title="app/Models/Integration.php" :code="codes[8]" />
         </section>
@@ -121,11 +115,11 @@
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>AES-256-CBC</strong> — Laravel uses strong encryption by default</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>APP_KEY</strong> — the secret key that encrypts everything</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Crypt facade</strong> — encrypt() / decrypt() for manual use</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Encrypted casts</strong> — auto-encrypt model fields in database</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Two-way</strong> — use for data you need to read back (not passwords)</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.encryption.summary1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.encryption.summary2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.encryption.summary3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.encryption.summary4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.encryption.summary5')"></span></li>
           </ul>
         </section>
       </article>

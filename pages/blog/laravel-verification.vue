@@ -11,7 +11,7 @@
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">Laravel Email Verification</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.title') }}</h1>
         <p class="text-gray-500 dark:text-gray-400">Nov 28, 2025</p>
       </div>
 
@@ -19,28 +19,26 @@
 
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Email verification ensures that users provide a valid email address when they register. Laravel makes this easy — it sends a verification email with a signed link, and you can restrict certain routes to only verified users.
+            {{ t('blog.laravel.verification.intro') }}
           </p>
         </section>
 
         <!-- Step 1: Model Setup -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Prepare the User Model</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Your User model must implement the <code class="inline-code">MustVerifyEmail</code> interface:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.step1Title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.verification.step1Desc')">
           </p>
           <CodeBlock
             title="app/Models/User.php" :code="codes[0]" />
-          <div class="tip-box mt-4">
-            <strong>Important:</strong> The <code class="inline-code">users</code> table must have an <code class="inline-code">email_verified_at</code> column. Laravel's default migration already includes this.
+          <div class="tip-box mt-4" v-html="t('blog.laravel.verification.step1Tip')">
           </div>
         </section>
 
         <!-- Step 2: Routes -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Verification Routes</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.step2Title') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            You need 3 routes: show the verification notice, handle the verification link, and resend the email.
+            {{ t('blog.laravel.verification.step2Desc') }}
           </p>
           <CodeBlock
             title="routes/web.php" :code="codes[1]" />
@@ -48,29 +46,26 @@
 
         <!-- Step 3: Protect Routes -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Protect Routes (Verified Users Only)</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Use the <code class="inline-code">verified</code> middleware to restrict routes to verified users:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.step3Title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.verification.step3Desc')">
           </p>
           <CodeBlock
             title="routes/web.php" :code="codes[2]" />
-          <div class="tip-box mt-4">
-            <strong>How it works:</strong> If an unverified user tries to access a <code class="inline-code">verified</code> route, they get automatically redirected to the <code class="inline-code">verification.notice</code> route.
+          <div class="tip-box mt-4" v-html="t('blog.laravel.verification.step3Tip')">
           </div>
         </section>
 
         <!-- Step 4: View -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Verification Notice View</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.step4Title') }}</h2>
           <CodeBlock
             title="resources/views/auth/verify-email.blade.php" :code="codes[3]" />
         </section>
 
         <!-- Step 5: Send on Registration -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Send Verification After Registration</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel automatically sends the verification email when a user registers, thanks to the <code class="inline-code">MustVerifyEmail</code> interface. But if you handle registration manually:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.step5Title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.verification.step5Desc')">
           </p>
           <CodeBlock
             title="RegisterController.php" :code="codes[4]" />
@@ -78,27 +73,27 @@
 
         <!-- Customize -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. Customize the Verification Email</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.step6Title') }}</h2>
           <CodeBlock
             title="app/Models/User.php" :code="codes[5]" />
         </section>
 
         <!-- Check in Code -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">7. Check Verification Status</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.verification.step7Title') }}</h2>
           <CodeBlock
-            title="Checking verification in code" :code="codes[6]" />
+            :title="t('blog.laravel.verification.step7CodeTitle')" :code="codes[6]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>MustVerifyEmail</strong> — add interface to User model</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>3 routes</strong> — notice page, verify link handler, resend</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>verified middleware</strong> — restrict routes to verified users</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Registered event</strong> — auto-sends verification email</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Customizable</strong> — modify the email template and content</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.verification.summary1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.verification.summary2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.verification.summary3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.verification.summary4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.laravel.verification.summary5')"></span></li>
           </ul>
         </section>
       </article>

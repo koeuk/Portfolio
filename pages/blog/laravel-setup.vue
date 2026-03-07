@@ -14,7 +14,7 @@
           <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">PHP</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          Laravel Basic Setup Project
+          {{ t('blog.laravel.setup.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Dec 28, 2025</p>
       </div>
@@ -24,92 +24,87 @@
         <!-- Introduction -->
         <section class="mb-12">
           <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            Laravel is one of the most popular PHP frameworks for building modern web applications. In this guide, we'll walk through setting up a Laravel project from scratch, covering installation, configuration, routing, controllers, models, migrations, and building your first CRUD application.
+            {{ t('blog.laravel.setup.intro') }}
           </p>
         </section>
 
         <!-- Prerequisites -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Prerequisites</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.prerequisites') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>PHP 8.2 or higher installed</span>
+              <span>{{ t('blog.laravel.setup.prereq1') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Composer (PHP dependency manager)</span>
+              <span>{{ t('blog.laravel.setup.prereq2') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Node.js & npm (for frontend assets)</span>
+              <span>{{ t('blog.laravel.setup.prereq3') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>A database (MySQL, PostgreSQL, or SQLite)</span>
+              <span>{{ t('blog.laravel.setup.prereq4') }}</span>
             </li>
           </ul>
         </section>
 
         <!-- Step 1: Installation -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. Installation</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.installTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            First, install the Laravel installer globally via Composer, then create a new project:
+            {{ t('blog.laravel.setup.installDesc') }}
           </p>
           <CodeBlock
             title="Terminal" :code="codes[0]" />
-          <p class="text-gray-600 dark:text-gray-300 mt-4">
-            Your application will be available at <code class="inline-code">http://localhost:8000</code>.
+          <p class="text-gray-600 dark:text-gray-300 mt-4" v-html="t('blog.laravel.setup.installAfter')">
           </p>
         </section>
 
         <!-- Step 2: Configuration -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Environment Configuration</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Laravel uses a <code class="inline-code">.env</code> file for environment-specific configuration. Update your database settings:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.envTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.setup.envDesc')">
           </p>
           <CodeBlock
             title=".env" :code="codes[1]" />
-          <div class="tip-box mt-4">
-            <strong>Tip:</strong> For quick local development, you can use SQLite. Set <code class="inline-code">DB_CONNECTION=sqlite</code> and remove the other DB_ lines. Laravel will create the database file automatically.
+          <div class="tip-box mt-4" v-html="t('blog.laravel.setup.tip')">
           </div>
         </section>
 
         <!-- Step 3: Project Structure -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Project Structure</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.structureTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Here are the key directories you'll work with:
+            {{ t('blog.laravel.setup.structureDesc') }}
           </p>
           <CodeBlock
-            title="Project Structure" :code="codes[2]" />
+            :title="t('blog.laravel.setup.structureCodeTitle')" :code="codes[2]" />
         </section>
 
         <!-- Step 4: Routing -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Routing</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Define your application routes in <code class="inline-code">routes/web.php</code>:
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.routingTitle') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.laravel.setup.routingDesc')">
           </p>
           <CodeBlock
             title="routes/web.php" :code="codes[3]" />
-          <p class="text-gray-600 dark:text-gray-300 mt-4">
-            Run <code class="inline-code">php artisan route:list</code> to see all registered routes.
+          <p class="text-gray-600 dark:text-gray-300 mt-4" v-html="t('blog.laravel.setup.routingAfter')">
           </p>
         </section>
 
         <!-- Step 5: Migration -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Database Migration</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.migrationTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Create a migration for a posts table:
+            {{ t('blog.laravel.setup.migrationDesc1') }}
           </p>
           <CodeBlock
             title="Terminal" :code="codes[4]" />
           <p class="text-gray-600 dark:text-gray-300 my-4">
-            Edit the generated migration file:
+            {{ t('blog.laravel.setup.migrationDesc2') }}
           </p>
           <CodeBlock
             title="database/migrations/xxxx_create_posts_table.php" :code="codes[5]" />
@@ -119,9 +114,9 @@
 
         <!-- Step 6: Model -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. Eloquent Model</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.modelTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Create a model for the posts table:
+            {{ t('blog.laravel.setup.modelDesc') }}
           </p>
           <CodeBlock
             title="Terminal" :code="codes[7]" />
@@ -131,9 +126,9 @@
 
         <!-- Step 7: Controller -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">7. Controller (CRUD)</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.controllerTitle') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Generate a resource controller:
+            {{ t('blog.laravel.setup.controllerDesc') }}
           </p>
           <CodeBlock
             title="Terminal" :code="codes[9]" />
@@ -143,7 +138,7 @@
 
         <!-- Step 8: Useful Commands -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">8. Useful Artisan Commands</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.laravel.setup.artisanTitle') }}</h2>
           <CodeBlock
             title="Terminal" :code="codes[11]" />
         </section>
@@ -152,28 +147,28 @@
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            You now have a working Laravel project with:
+            {{ t('blog.laravel.setup.summaryDesc') }}
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Project installation and environment setup</span>
+              <span>{{ t('blog.laravel.setup.sum1') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Database configuration and migrations</span>
+              <span>{{ t('blog.laravel.setup.sum2') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Eloquent models with fillable attributes</span>
+              <span>{{ t('blog.laravel.setup.sum3') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>Resource controller with full CRUD operations</span>
+              <span>{{ t('blog.laravel.setup.sum4') }}</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-green-500 mt-1">&#10003;</span>
-              <span>RESTful routing with validation</span>
+              <span>{{ t('blog.laravel.setup.sum5') }}</span>
             </li>
           </ul>
         </section>
