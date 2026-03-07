@@ -12,7 +12,7 @@
           <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs rounded-full font-medium">JavaScript</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
-          Getting Started with Vue 3 Composition API
+          {{ t('blog.vue.title') }}
         </h1>
         <p class="text-gray-500 dark:text-gray-400">Jan 15, 2026</p>
       </div>
@@ -20,32 +20,30 @@
       <article class="prose-content">
 
         <section class="mb-12">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            The Composition API is the modern way to write Vue components. Instead of organizing code by options (data, methods, computed, watch), you organize code by <strong>logical concern</strong> — keeping related logic together. This makes components easier to read, reuse, and maintain.
-          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" v-html="t('blog.vue.intro')"></p>
         </section>
 
         <!-- Options vs Composition -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Options API vs Composition API</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.optionsVsComposition') }}</h2>
 
           <div class="grid md:grid-cols-2 gap-4 mb-6">
             <div class="compare-box border-red-200 dark:border-red-800">
-              <div class="compare-header text-red-600 dark:text-red-400">Options API (old way)</div>
+              <div class="compare-header text-red-600 dark:text-red-400">{{ t('blog.vue.optionsOld') }}</div>
               <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                <li>Code split by <em>type</em> (data, methods, computed)</li>
-                <li>Related logic scattered across sections</li>
-                <li>Hard to extract reusable logic</li>
-                <li>Uses <code class="inline-code">this</code> keyword</li>
+                <li v-html="t('blog.vue.options1')"></li>
+                <li>{{ t('blog.vue.options2') }}</li>
+                <li>{{ t('blog.vue.options3') }}</li>
+                <li v-html="t('blog.vue.options4')"></li>
               </ul>
             </div>
             <div class="compare-box border-green-200 dark:border-green-800">
-              <div class="compare-header text-green-600 dark:text-green-400">Composition API (new way)</div>
+              <div class="compare-header text-green-600 dark:text-green-400">{{ t('blog.vue.compositionNew') }}</div>
               <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                <li>Code grouped by <em>feature</em></li>
-                <li>Related logic stays together</li>
-                <li>Easy to extract into composables</li>
-                <li>No <code class="inline-code">this</code> — plain variables</li>
+                <li v-html="t('blog.vue.composition1')"></li>
+                <li>{{ t('blog.vue.composition2') }}</li>
+                <li>{{ t('blog.vue.composition3') }}</li>
+                <li v-html="t('blog.vue.composition4')"></li>
               </ul>
             </div>
           </div>
@@ -53,49 +51,41 @@
 
         <!-- script setup -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">1. script setup</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">&lt;script setup&gt;</code> is the recommended way to use the Composition API in Single File Components. Everything declared at the top level is automatically available in the template.
-          </p>
-          <CodeBlock title="Basic Component" :code="codes[0]" />
-          <div class="tip-box mt-4">
-            <strong>No return needed!</strong> With <code class="inline-code">&lt;script setup&gt;</code>, all variables, functions, and imports are automatically exposed to the template. No need for <code class="inline-code">export default</code> or <code class="inline-code">return</code>.
-          </div>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s1.title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.vue.s1.desc')"></p>
+          <CodeBlock :title="t('blog.vue.s1.codeTitle')" :code="codes[0]" />
+          <div class="tip-box mt-4" v-html="t('blog.vue.s1.tip')"></div>
         </section>
 
         <!-- ref & reactive -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">2. Reactive State: ref() & reactive()</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s2.title') }}</h2>
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-6">ref() — for primitives & any value</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">ref()</code> wraps a value in a reactive object. Access it with <code class="inline-code">.value</code> in script, but directly in template.
-          </p>
-          <CodeBlock title="ref() usage" :code="codes[1]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-6">{{ t('blog.vue.s2.refTitle') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.vue.s2.refDesc')"></p>
+          <CodeBlock :title="t('blog.vue.s2.refCodeTitle')" :code="codes[1]" />
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">reactive() — for objects</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">reactive()</code> makes an entire object reactive. No <code class="inline-code">.value</code> needed, but it only works with objects.
-          </p>
-          <CodeBlock title="reactive() usage" :code="codes[2]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.vue.s2.reactiveTitle') }}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.vue.s2.reactiveDesc')"></p>
+          <CodeBlock :title="t('blog.vue.s2.reactiveCodeTitle')" :code="codes[2]" />
 
           <div class="grid md:grid-cols-2 gap-4 mt-6">
             <div class="compare-box border-blue-200 dark:border-blue-800">
               <div class="compare-header text-blue-600 dark:text-blue-400">ref()</div>
               <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                <li>Works with any type</li>
-                <li>Need <code class="inline-code">.value</code> in script</li>
-                <li>Can reassign entirely</li>
-                <li>Recommended for most cases</li>
+                <li>{{ t('blog.vue.s2.refCompare1') }}</li>
+                <li v-html="t('blog.vue.s2.refCompare2')"></li>
+                <li>{{ t('blog.vue.s2.refCompare3') }}</li>
+                <li>{{ t('blog.vue.s2.refCompare4') }}</li>
               </ul>
             </div>
             <div class="compare-box border-blue-200 dark:border-blue-800">
               <div class="compare-header text-blue-600 dark:text-blue-400">reactive()</div>
               <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                <li>Only objects/arrays</li>
-                <li>No <code class="inline-code">.value</code> needed</li>
-                <li>Cannot reassign the whole object</li>
-                <li>Good for complex state objects</li>
+                <li>{{ t('blog.vue.s2.reactiveCompare1') }}</li>
+                <li v-html="t('blog.vue.s2.reactiveCompare2')"></li>
+                <li>{{ t('blog.vue.s2.reactiveCompare3') }}</li>
+                <li>{{ t('blog.vue.s2.reactiveCompare4') }}</li>
               </ul>
             </div>
           </div>
@@ -103,138 +93,128 @@
 
         <!-- computed -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">3. Computed Properties</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">computed()</code> creates a cached value that automatically updates when its dependencies change. Use it for derived data.
-          </p>
-          <CodeBlock title="computed() usage" :code="codes[3]" />
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s3.title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.vue.s3.desc')"></p>
+          <CodeBlock :title="t('blog.vue.s3.codeTitle')" :code="codes[3]" />
         </section>
 
         <!-- watch -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">4. Watchers</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            <code class="inline-code">watch()</code> runs a callback when a reactive value changes. Use it for side effects (API calls, logging, etc).
-          </p>
-          <CodeBlock title="watch() usage" :code="codes[4]" />
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s4.title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.vue.s4.desc')"></p>
+          <CodeBlock :title="t('blog.vue.s4.codeTitle')" :code="codes[4]" />
         </section>
 
         <!-- Lifecycle Hooks -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">5. Lifecycle Hooks</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s5.title') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Lifecycle hooks let you run code at specific points in a component's life.
+            {{ t('blog.vue.s5.desc') }}
           </p>
 
           <div class="overflow-x-auto mb-6">
             <table class="w-full text-sm text-left">
               <thead>
                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">Hook</th>
-                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">When it runs</th>
-                  <th class="py-3 text-primary dark:text-white font-semibold">Common use</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.vue.s5.thHook') }}</th>
+                  <th class="py-3 pr-4 text-primary dark:text-white font-semibold">{{ t('blog.vue.s5.thWhen') }}</th>
+                  <th class="py-3 text-primary dark:text-white font-semibold">{{ t('blog.vue.s5.thUse') }}</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 dark:text-gray-300">
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-mono text-sm text-green-600 dark:text-green-400">onMounted</td>
-                  <td class="py-3 pr-4">After DOM is rendered</td>
-                  <td class="py-3">Fetch data, init libraries</td>
+                  <td class="py-3 pr-4">{{ t('blog.vue.s5.mounted.when') }}</td>
+                  <td class="py-3">{{ t('blog.vue.s5.mounted.use') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-mono text-sm text-green-600 dark:text-green-400">onUpdated</td>
-                  <td class="py-3 pr-4">After reactive state change causes re-render</td>
-                  <td class="py-3">DOM-dependent operations</td>
+                  <td class="py-3 pr-4">{{ t('blog.vue.s5.updated.when') }}</td>
+                  <td class="py-3">{{ t('blog.vue.s5.updated.use') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-mono text-sm text-green-600 dark:text-green-400">onUnmounted</td>
-                  <td class="py-3 pr-4">Component is removed</td>
-                  <td class="py-3">Cleanup (timers, listeners)</td>
+                  <td class="py-3 pr-4">{{ t('blog.vue.s5.unmounted.when') }}</td>
+                  <td class="py-3">{{ t('blog.vue.s5.unmounted.use') }}</td>
                 </tr>
                 <tr class="border-b border-gray-100 dark:border-gray-800">
                   <td class="py-3 pr-4 font-mono text-sm text-green-600 dark:text-green-400">onBeforeMount</td>
-                  <td class="py-3 pr-4">Before DOM is rendered</td>
-                  <td class="py-3">Pre-render logic</td>
+                  <td class="py-3 pr-4">{{ t('blog.vue.s5.beforeMount.when') }}</td>
+                  <td class="py-3">{{ t('blog.vue.s5.beforeMount.use') }}</td>
                 </tr>
                 <tr>
                   <td class="py-3 pr-4 font-mono text-sm text-green-600 dark:text-green-400">onBeforeUnmount</td>
-                  <td class="py-3 pr-4">Before component is removed</td>
-                  <td class="py-3">Save state, cleanup</td>
+                  <td class="py-3 pr-4">{{ t('blog.vue.s5.beforeUnmount.when') }}</td>
+                  <td class="py-3">{{ t('blog.vue.s5.beforeUnmount.use') }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <CodeBlock title="Lifecycle Hooks" :code="codes[5]" />
+          <CodeBlock :title="t('blog.vue.s5.codeTitle')" :code="codes[5]" />
         </section>
 
         <!-- Props & Emits -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">6. Props & Emits</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s6.title') }}</h2>
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">Props — receive data from parent</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3">{{ t('blog.vue.s6.propsTitle') }}</h3>
           <CodeBlock title="defineProps" :code="codes[6]" />
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Emits — send events to parent</h3>
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.vue.s6.emitsTitle') }}</h3>
           <CodeBlock title="defineEmits" :code="codes[7]" />
 
-          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">Using the component</h3>
-          <CodeBlock title="Parent component" :code="codes[8]" />
+          <h3 class="text-xl font-semibold text-primary dark:text-white mb-3 mt-8">{{ t('blog.vue.s6.usingTitle') }}</h3>
+          <CodeBlock :title="t('blog.vue.s6.parentCodeTitle')" :code="codes[8]" />
         </section>
 
         <!-- Composables -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">7. Composables (Reusable Logic)</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Composables are functions that encapsulate and reuse stateful logic. Convention: name them <code class="inline-code">use[Something]</code>.
-          </p>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s7.title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.vue.s7.desc')"></p>
           <CodeBlock title="composables/useCounter.ts" :code="codes[9]" />
-          <CodeBlock class="mt-4" title="Using the composable" :code="codes[10]" />
-          <div class="tip-box mt-4">
-            <strong>Real-world examples:</strong> <code class="inline-code">useFetch()</code>, <code class="inline-code">useAuth()</code>, <code class="inline-code">useTheme()</code>, <code class="inline-code">useLocalStorage()</code>. Composables are Vue's answer to React hooks.
-          </div>
+          <CodeBlock class="mt-4" :title="t('blog.vue.s7.codeTitle2')" :code="codes[10]" />
+          <div class="tip-box mt-4" v-html="t('blog.vue.s7.tip')"></div>
         </section>
 
         <!-- Template Refs -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">8. Template Refs</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Access DOM elements directly using <code class="inline-code">ref</code> + template <code class="inline-code">ref</code> attribute.
-          </p>
-          <CodeBlock title="Template Refs" :code="codes[11]" />
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s8.title') }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 mb-4" v-html="t('blog.vue.s8.desc')"></p>
+          <CodeBlock :title="t('blog.vue.s8.codeTitle')" :code="codes[11]" />
         </section>
 
         <!-- provide / inject -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">9. Provide / Inject</h2>
+          <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.vue.s9.title') }}</h2>
           <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Pass data deep through component trees without prop drilling.
+            {{ t('blog.vue.s9.desc') }}
           </p>
 
           <div class="flow-diagram mb-6">
-            <div class="flow-node flow-parent">Parent (provide)</div>
+            <div class="flow-node flow-parent">{{ t('blog.vue.s9.flowParent') }}</div>
             <div class="flow-line"></div>
-            <div class="flow-node flow-child">Child</div>
+            <div class="flow-node flow-child">{{ t('blog.vue.s9.flowChild') }}</div>
             <div class="flow-line"></div>
-            <div class="flow-node flow-grandchild">Grandchild (inject)</div>
+            <div class="flow-node flow-grandchild">{{ t('blog.vue.s9.flowGrandchild') }}</div>
           </div>
 
-          <CodeBlock title="Parent — provide" :code="codes[12]" />
-          <CodeBlock class="mt-4" title="Any descendant — inject" :code="codes[13]" />
+          <CodeBlock :title="t('blog.vue.s9.provideCodeTitle')" :code="codes[12]" />
+          <CodeBlock class="mt-4" :title="t('blog.vue.s9.injectCodeTitle')" :code="codes[13]" />
         </section>
 
         <!-- Summary -->
         <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>script setup</strong> — cleaner syntax, auto-exposed variables</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>ref() / reactive()</strong> — make data reactive</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>computed()</strong> — cached derived values</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>watch()</strong> — react to changes with side effects</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Lifecycle hooks</strong> — onMounted, onUnmounted, etc.</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>defineProps / defineEmits</strong> — component communication</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Composables</strong> — reusable stateful logic (use[Something])</span></li>
-            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>provide / inject</strong> — pass data without prop drilling</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum1')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum2')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum3')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum4')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum5')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum6')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum7')"></span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span v-html="t('blog.vue.sum8')"></span></li>
           </ul>
         </section>
       </article>
@@ -539,11 +519,14 @@ const lang = inject('lang', 'en')
 </script>
 
 <style scoped>
-.inline-code {
+:deep(.inline-code) {
   @apply px-1.5 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-green-600 dark:text-green-400;
 }
 .tip-box {
   @apply p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-sm text-green-700 dark:text-green-300;
+}
+:deep(.tip-box strong) {
+  @apply text-green-800 dark:text-green-200;
 }
 .compare-box {
   @apply p-4 rounded-xl border-2 space-y-2;

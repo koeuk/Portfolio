@@ -322,6 +322,129 @@ const translations: Translations = {
   "blog.backToBlog": { en: "Back to Blog", km: "ត្រឡប់ទៅប្លក់", zh: "返回博客" },
   "blog.summary": { en: "Summary", km: "សេចក្តីសង្ខេប", zh: "总结" },
 
+  // Blog - Vue Composition API
+  "blog.vue.title": { en: "Getting Started with Vue 3 Composition API", km: "ការចាប់ផ្ដើមជាមួយ Vue 3 Composition API", zh: "Vue 3 Composition API 入门" },
+  "blog.vue.intro": {
+    en: "The Composition API is the modern way to write Vue components. Instead of organizing code by options (data, methods, computed, watch), you organize code by <strong>logical concern</strong> — keeping related logic together. This makes components easier to read, reuse, and maintain.",
+    km: "Composition API គឺជាវិធីទំនើបក្នុងការសរសេរ Vue components។ ជំនួសឱ្យការរៀបចំកូដតាម options (data, methods, computed, watch) អ្នករៀបចំកូដតាម<strong>ផ្នែកឡូជីខល</strong> — រក្សាឡូជីខលដែលទាក់ទងគ្នាឱ្យនៅជាមួយគ្នា។ នេះធ្វើឱ្យ components ងាយស្រួលអាន ប្រើឡើងវិញ និងថែទាំ។",
+    zh: "Composition API 是编写 Vue 组件的现代方式。与其按选项（data、methods、computed、watch）组织代码，不如按<strong>逻辑关注点</strong>组织代码——将相关逻辑放在一起。这使组件更易于阅读、复用和维护。"
+  },
+  "blog.vue.optionsVsComposition": { en: "Options API vs Composition API", km: "Options API ធៀបនឹង Composition API", zh: "Options API 与 Composition API 对比" },
+  "blog.vue.optionsOld": { en: "Options API (old way)", km: "Options API (វិធីចាស់)", zh: "Options API（旧方式）" },
+  "blog.vue.options1": { en: "Code split by <em>type</em> (data, methods, computed)", km: "កូដបែងចែកតាម<em>ប្រភេទ</em> (data, methods, computed)", zh: "代码按<em>类型</em>拆分（data、methods、computed）" },
+  "blog.vue.options2": { en: "Related logic scattered across sections", km: "ឡូជីខលដែលទាក់ទងគ្នាខ្ចាត់ខ្ចាយពេញផ្នែកផ្សេងៗ", zh: "相关逻辑分散在各个部分" },
+  "blog.vue.options3": { en: "Hard to extract reusable logic", km: "ពិបាកក្នុងការដកយកឡូជីខលដែលអាចប្រើឡើងវិញ", zh: "难以提取可复用逻辑" },
+  "blog.vue.options4": { en: "Uses <code class=\"inline-code\">this</code> keyword", km: "ប្រើពាក្យគន្លឹះ <code class=\"inline-code\">this</code>", zh: "使用 <code class=\"inline-code\">this</code> 关键字" },
+  "blog.vue.compositionNew": { en: "Composition API (new way)", km: "Composition API (វិធីថ្មី)", zh: "Composition API（新方式）" },
+  "blog.vue.composition1": { en: "Code grouped by <em>feature</em>", km: "កូដដាក់ជាក្រុមតាម<em>មុខងារ</em>", zh: "代码按<em>功能</em>分组" },
+  "blog.vue.composition2": { en: "Related logic stays together", km: "ឡូជីខលដែលទាក់ទងគ្នានៅជាមួយគ្នា", zh: "相关逻辑放在一起" },
+  "blog.vue.composition3": { en: "Easy to extract into composables", km: "ងាយស្រួលដកចេញទៅជា composables", zh: "容易提取为 composables" },
+  "blog.vue.composition4": { en: "No <code class=\"inline-code\">this</code> — plain variables", km: "គ្មាន <code class=\"inline-code\">this</code> — អថេរធម្មតា", zh: "无需 <code class=\"inline-code\">this</code>——普通变量" },
+  "blog.vue.s1.title": { en: "1. script setup", km: "1. script setup", zh: "1. script setup" },
+  "blog.vue.s1.desc": {
+    en: "<code class=\"inline-code\">&lt;script setup&gt;</code> is the recommended way to use the Composition API in Single File Components. Everything declared at the top level is automatically available in the template.",
+    km: "<code class=\"inline-code\">&lt;script setup&gt;</code> គឺជាវិធីដែលត្រូវបានផ្ដល់អនុសាសន៍ក្នុងការប្រើ Composition API ក្នុង Single File Components។ អ្វីទាំងអស់ដែលប្រកាសនៅកម្រិតកំពូលនឹងអាចប្រើបានដោយស្វ័យប្រវត្តិក្នុង template។",
+    zh: "<code class=\"inline-code\">&lt;script setup&gt;</code> 是在单文件组件中使用 Composition API 的推荐方式。在顶层声明的所有内容都会自动在模板中可用。"
+  },
+  "blog.vue.s1.codeTitle": { en: "Basic Component", km: "Component មូលដ្ឋាន", zh: "基础组件" },
+  "blog.vue.s1.tip": {
+    en: "<strong>No return needed!</strong> With <code class=\"inline-code\">&lt;script setup&gt;</code>, all variables, functions, and imports are automatically exposed to the template. No need for <code class=\"inline-code\">export default</code> or <code class=\"inline-code\">return</code>.",
+    km: "<strong>មិនត្រូវការ return ទេ!</strong> ជាមួយ <code class=\"inline-code\">&lt;script setup&gt;</code> អថេរ functions និង imports ទាំងអស់ត្រូវបានបង្ហាញដោយស្វ័យប្រវត្តិទៅ template។ មិនត្រូវការ <code class=\"inline-code\">export default</code> ឬ <code class=\"inline-code\">return</code> ទេ។",
+    zh: "<strong>无需 return！</strong>使用 <code class=\"inline-code\">&lt;script setup&gt;</code> 后，所有变量、函数和导入都会自动暴露给模板。不需要 <code class=\"inline-code\">export default</code> 或 <code class=\"inline-code\">return</code>。"
+  },
+  "blog.vue.s2.title": { en: "2. Reactive State: ref() & reactive()", km: "2. ស្ថានភាព Reactive: ref() & reactive()", zh: "2. 响应式状态：ref() 与 reactive()" },
+  "blog.vue.s2.refTitle": { en: "ref() — for primitives & any value", km: "ref() — សម្រាប់ primitives និងតម្លៃណាមួយ", zh: "ref()——用于基本类型和任意值" },
+  "blog.vue.s2.refDesc": {
+    en: "<code class=\"inline-code\">ref()</code> wraps a value in a reactive object. Access it with <code class=\"inline-code\">.value</code> in script, but directly in template.",
+    km: "<code class=\"inline-code\">ref()</code> រុំតម្លៃមួយក្នុង reactive object។ ចូលប្រើវាដោយ <code class=\"inline-code\">.value</code> ក្នុង script ប៉ុន្តែដោយផ្ទាល់ក្នុង template។",
+    zh: "<code class=\"inline-code\">ref()</code> 将值包装在响应式对象中。在 script 中通过 <code class=\"inline-code\">.value</code> 访问，但在模板中直接使用。"
+  },
+  "blog.vue.s2.refCodeTitle": { en: "ref() usage", km: "ការប្រើ ref()", zh: "ref() 用法" },
+  "blog.vue.s2.reactiveTitle": { en: "reactive() — for objects", km: "reactive() — សម្រាប់ objects", zh: "reactive()——用于对象" },
+  "blog.vue.s2.reactiveDesc": {
+    en: "<code class=\"inline-code\">reactive()</code> makes an entire object reactive. No <code class=\"inline-code\">.value</code> needed, but it only works with objects.",
+    km: "<code class=\"inline-code\">reactive()</code> ធ្វើឱ្យ object ទាំងមូលក្លាយជា reactive។ មិនត្រូវការ <code class=\"inline-code\">.value</code> ទេ ប៉ុន្តែវាដំណើរការតែជាមួយ objects ប៉ុណ្ណោះ។",
+    zh: "<code class=\"inline-code\">reactive()</code> 使整个对象变为响应式。不需要 <code class=\"inline-code\">.value</code>，但只适用于对象。"
+  },
+  "blog.vue.s2.reactiveCodeTitle": { en: "reactive() usage", km: "ការប្រើ reactive()", zh: "reactive() 用法" },
+  "blog.vue.s2.refCompare1": { en: "Works with any type", km: "ដំណើរការជាមួយប្រភេទណាមួយ", zh: "适用于任何类型" },
+  "blog.vue.s2.refCompare2": { en: "Need <code class=\"inline-code\">.value</code> in script", km: "ត្រូវការ <code class=\"inline-code\">.value</code> ក្នុង script", zh: "在 script 中需要 <code class=\"inline-code\">.value</code>" },
+  "blog.vue.s2.refCompare3": { en: "Can reassign entirely", km: "អាចកំណត់តម្លៃឡើងវិញទាំងស្រុង", zh: "可以完全重新赋值" },
+  "blog.vue.s2.refCompare4": { en: "Recommended for most cases", km: "ផ្ដល់អនុសាសន៍សម្រាប់ករណីភាគច្រើន", zh: "推荐用于大多数情况" },
+  "blog.vue.s2.reactiveCompare1": { en: "Only objects/arrays", km: "មានតែ objects/arrays ប៉ុណ្ណោះ", zh: "仅适用于对象/数组" },
+  "blog.vue.s2.reactiveCompare2": { en: "No <code class=\"inline-code\">.value</code> needed", km: "មិនត្រូវការ <code class=\"inline-code\">.value</code> ទេ", zh: "不需要 <code class=\"inline-code\">.value</code>" },
+  "blog.vue.s2.reactiveCompare3": { en: "Cannot reassign the whole object", km: "មិនអាចកំណត់តម្លៃ object ទាំងមូលឡើងវិញ", zh: "不能重新赋值整个对象" },
+  "blog.vue.s2.reactiveCompare4": { en: "Good for complex state objects", km: "ល្អសម្រាប់ state objects ស្មុគស្មាញ", zh: "适合复杂的状态对象" },
+  "blog.vue.s3.title": { en: "3. Computed Properties", km: "3. Computed Properties", zh: "3. 计算属性" },
+  "blog.vue.s3.desc": {
+    en: "<code class=\"inline-code\">computed()</code> creates a cached value that automatically updates when its dependencies change. Use it for derived data.",
+    km: "<code class=\"inline-code\">computed()</code> បង្កើតតម្លៃដែលបាន cache ដែលធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិនៅពេល dependencies របស់វាផ្លាស់ប្ដូរ។ ប្រើវាសម្រាប់ទិន្នន័យដែលបានទាញយកមក។",
+    zh: "<code class=\"inline-code\">computed()</code> 创建一个缓存值，当其依赖项发生变化时自动更新。用于派生数据。"
+  },
+  "blog.vue.s3.codeTitle": { en: "computed() usage", km: "ការប្រើ computed()", zh: "computed() 用法" },
+  "blog.vue.s4.title": { en: "4. Watchers", km: "4. Watchers", zh: "4. 侦听器" },
+  "blog.vue.s4.desc": {
+    en: "<code class=\"inline-code\">watch()</code> runs a callback when a reactive value changes. Use it for side effects (API calls, logging, etc).",
+    km: "<code class=\"inline-code\">watch()</code> ដំណើរការ callback នៅពេលតម្លៃ reactive ផ្លាស់ប្ដូរ។ ប្រើវាសម្រាប់ side effects (ការហៅ API, logging ។ល។)។",
+    zh: "<code class=\"inline-code\">watch()</code> 在响应式值发生变化时运行回调。用于副作用（API 调用、日志记录等）。"
+  },
+  "blog.vue.s4.codeTitle": { en: "watch() usage", km: "ការប្រើ watch()", zh: "watch() 用法" },
+  "blog.vue.s5.title": { en: "5. Lifecycle Hooks", km: "5. Lifecycle Hooks", zh: "5. 生命周期钩子" },
+  "blog.vue.s5.desc": { en: "Lifecycle hooks let you run code at specific points in a component's life.", km: "Lifecycle hooks អនុញ្ញាតឱ្យអ្នកដំណើរការកូដនៅចំណុចជាក់លាក់ក្នុងជីវិតរបស់ component។", zh: "生命周期钩子让你在组件生命周期的特定时间点运行代码。" },
+  "blog.vue.s5.thHook": { en: "Hook", km: "Hook", zh: "钩子" },
+  "blog.vue.s5.thWhen": { en: "When it runs", km: "ពេលណាវាដំណើរការ", zh: "何时运行" },
+  "blog.vue.s5.thUse": { en: "Common use", km: "ការប្រើប្រាស់ទូទៅ", zh: "常见用途" },
+  "blog.vue.s5.mounted.when": { en: "After DOM is rendered", km: "បន្ទាប់ពី DOM ត្រូវបានបង្ហាញ", zh: "DOM 渲染后" },
+  "blog.vue.s5.mounted.use": { en: "Fetch data, init libraries", km: "ទាញទិន្នន័យ ចាប់ផ្ដើម libraries", zh: "获取数据、初始化库" },
+  "blog.vue.s5.updated.when": { en: "After reactive state change causes re-render", km: "បន្ទាប់ពី reactive state ផ្លាស់ប្ដូរបណ្ដាលឱ្យ re-render", zh: "响应式状态变化导致重新渲染后" },
+  "blog.vue.s5.updated.use": { en: "DOM-dependent operations", km: "ប្រតិបត្តិការដែលពឹងផ្អែកលើ DOM", zh: "依赖 DOM 的操作" },
+  "blog.vue.s5.unmounted.when": { en: "Component is removed", km: "Component ត្រូវបានដកចេញ", zh: "组件被移除" },
+  "blog.vue.s5.unmounted.use": { en: "Cleanup (timers, listeners)", km: "សម្អាត (timers, listeners)", zh: "清理（定时器、监听器）" },
+  "blog.vue.s5.beforeMount.when": { en: "Before DOM is rendered", km: "មុនពេល DOM ត្រូវបានបង្ហាញ", zh: "DOM 渲染前" },
+  "blog.vue.s5.beforeMount.use": { en: "Pre-render logic", km: "ឡូជីខលមុនពេល render", zh: "渲染前逻辑" },
+  "blog.vue.s5.beforeUnmount.when": { en: "Before component is removed", km: "មុនពេល component ត្រូវបានដកចេញ", zh: "组件被移除前" },
+  "blog.vue.s5.beforeUnmount.use": { en: "Save state, cleanup", km: "រក្សាទុក state សម្អាត", zh: "保存状态、清理" },
+  "blog.vue.s5.codeTitle": { en: "Lifecycle Hooks", km: "Lifecycle Hooks", zh: "生命周期钩子" },
+  "blog.vue.s6.title": { en: "6. Props & Emits", km: "6. Props & Emits", zh: "6. Props 与 Emits" },
+  "blog.vue.s6.propsTitle": { en: "Props — receive data from parent", km: "Props — ទទួលទិន្នន័យពី parent", zh: "Props——从父组件接收数据" },
+  "blog.vue.s6.emitsTitle": { en: "Emits — send events to parent", km: "Emits — ផ្ញើ events ទៅ parent", zh: "Emits——向父组件发送事件" },
+  "blog.vue.s6.usingTitle": { en: "Using the component", km: "ការប្រើ component", zh: "使用组件" },
+  "blog.vue.s6.parentCodeTitle": { en: "Parent component", km: "Parent component", zh: "父组件" },
+  "blog.vue.s7.title": { en: "7. Composables (Reusable Logic)", km: "7. Composables (ឡូជីខលអាចប្រើឡើងវិញ)", zh: "7. Composables（可复用逻辑）" },
+  "blog.vue.s7.desc": {
+    en: "Composables are functions that encapsulate and reuse stateful logic. Convention: name them <code class=\"inline-code\">use[Something]</code>.",
+    km: "Composables គឺជា functions ដែលរុំព័ទ្ធ និងប្រើឡើងវិញនូវ stateful logic។ ទម្លាប់: ដាក់ឈ្មោះវា <code class=\"inline-code\">use[Something]</code>។",
+    zh: "Composables 是封装和复用有状态逻辑的函数。命名约定：<code class=\"inline-code\">use[Something]</code>。"
+  },
+  "blog.vue.s7.codeTitle2": { en: "Using the composable", km: "ការប្រើ composable", zh: "使用 composable" },
+  "blog.vue.s7.tip": {
+    en: "<strong>Real-world examples:</strong> <code class=\"inline-code\">useFetch()</code>, <code class=\"inline-code\">useAuth()</code>, <code class=\"inline-code\">useTheme()</code>, <code class=\"inline-code\">useLocalStorage()</code>. Composables are Vue's answer to React hooks.",
+    km: "<strong>ឧទាហរណ៍ជាក់ស្ដែង:</strong> <code class=\"inline-code\">useFetch()</code>, <code class=\"inline-code\">useAuth()</code>, <code class=\"inline-code\">useTheme()</code>, <code class=\"inline-code\">useLocalStorage()</code>។ Composables គឺជាចម្លើយរបស់ Vue ចំពោះ React hooks។",
+    zh: "<strong>实际示例：</strong><code class=\"inline-code\">useFetch()</code>、<code class=\"inline-code\">useAuth()</code>、<code class=\"inline-code\">useTheme()</code>、<code class=\"inline-code\">useLocalStorage()</code>。Composables 是 Vue 对 React hooks 的解答。"
+  },
+  "blog.vue.s8.title": { en: "8. Template Refs", km: "8. Template Refs", zh: "8. 模板引用" },
+  "blog.vue.s8.desc": {
+    en: "Access DOM elements directly using <code class=\"inline-code\">ref</code> + template <code class=\"inline-code\">ref</code> attribute.",
+    km: "ចូលប្រើ DOM elements ដោយផ្ទាល់ដោយប្រើ <code class=\"inline-code\">ref</code> + template <code class=\"inline-code\">ref</code> attribute។",
+    zh: "使用 <code class=\"inline-code\">ref</code> + 模板 <code class=\"inline-code\">ref</code> 属性直接访问 DOM 元素。"
+  },
+  "blog.vue.s8.codeTitle": { en: "Template Refs", km: "Template Refs", zh: "模板引用" },
+  "blog.vue.s9.title": { en: "9. Provide / Inject", km: "9. Provide / Inject", zh: "9. Provide / Inject" },
+  "blog.vue.s9.desc": { en: "Pass data deep through component trees without prop drilling.", km: "បញ្ជូនទិន្នន័យជ្រៅតាមរយៈ component trees ដោយមិនចាំបាច់ prop drilling។", zh: "在组件树中深层传递数据，无需逐层传递 props。" },
+  "blog.vue.s9.flowParent": { en: "Parent (provide)", km: "Parent (provide)", zh: "父组件 (provide)" },
+  "blog.vue.s9.flowChild": { en: "Child", km: "Child", zh: "子组件" },
+  "blog.vue.s9.flowGrandchild": { en: "Grandchild (inject)", km: "Grandchild (inject)", zh: "孙组件 (inject)" },
+  "blog.vue.s9.provideCodeTitle": { en: "Parent — provide", km: "Parent — provide", zh: "父组件 - provide" },
+  "blog.vue.s9.injectCodeTitle": { en: "Any descendant — inject", km: "Descendant ណាមួយ — inject", zh: "任意后代组件 - inject" },
+  "blog.vue.sum1": { en: "<strong>script setup</strong> — cleaner syntax, auto-exposed variables", km: "<strong>script setup</strong> — syntax ស្អាតជាង អថេរបង្ហាញដោយស្វ័យប្រវត្តិ", zh: "<strong>script setup</strong>——更简洁的语法，自动暴露变量" },
+  "blog.vue.sum2": { en: "<strong>ref() / reactive()</strong> — make data reactive", km: "<strong>ref() / reactive()</strong> — ធ្វើឱ្យទិន្នន័យក្លាយជា reactive", zh: "<strong>ref() / reactive()</strong>——使数据响应式" },
+  "blog.vue.sum3": { en: "<strong>computed()</strong> — cached derived values", km: "<strong>computed()</strong> — តម្លៃដែលបានទាញយកមកត្រូវបាន cache", zh: "<strong>computed()</strong>——缓存的派生值" },
+  "blog.vue.sum4": { en: "<strong>watch()</strong> — react to changes with side effects", km: "<strong>watch()</strong> — ឆ្លើយតបនឹងការផ្លាស់ប្ដូរជាមួយ side effects", zh: "<strong>watch()</strong>——通过副作用响应变化" },
+  "blog.vue.sum5": { en: "<strong>Lifecycle hooks</strong> — onMounted, onUnmounted, etc.", km: "<strong>Lifecycle hooks</strong> — onMounted, onUnmounted ។ល។", zh: "<strong>生命周期钩子</strong>——onMounted、onUnmounted 等" },
+  "blog.vue.sum6": { en: "<strong>defineProps / defineEmits</strong> — component communication", km: "<strong>defineProps / defineEmits</strong> — ការទំនាក់ទំនង component", zh: "<strong>defineProps / defineEmits</strong>——组件通信" },
+  "blog.vue.sum7": { en: "<strong>Composables</strong> — reusable stateful logic (use[Something])", km: "<strong>Composables</strong> — ឡូជីខល stateful អាចប្រើឡើងវិញ (use[Something])", zh: "<strong>Composables</strong>——可复用的有状态逻辑（use[Something]）" },
+  "blog.vue.sum8": { en: "<strong>provide / inject</strong> — pass data without prop drilling", km: "<strong>provide / inject</strong> — បញ្ជូនទិន្នន័យដោយមិនចាំបាច់ prop drilling", zh: "<strong>provide / inject</strong>——无需逐层传递即可传递数据" },
+
   // Footer
   "footer.rights": {
     en: "All rights reserved.",
