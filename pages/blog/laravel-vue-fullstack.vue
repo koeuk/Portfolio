@@ -429,29 +429,29 @@ import App from './components/App.vue';
 
 const app = createApp(App);
 app.mount('#app');`,
-  `<template>
-  <div>
-    <h2>Task List</h2>
-    <p v-if="loading">Loading tasks...</p>
-    <ul v-else>
-      <li v-for="task in tasks" :key="task.id">
-        <span :class="{ 'line-through': task.completed }">
+  `&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Task List&lt;/h2&gt;
+    &lt;p v-if="loading"&gt;Loading tasks...&lt;/p&gt;
+    &lt;ul v-else&gt;
+      &lt;li v-for="task in tasks" :key="task.id"&gt;
+        &lt;span :class="{ 'line-through': task.completed }"&gt;
           {{ task.title }}
-        </span>
-        <span v-if="task.description"> — {{ task.description }}</span>
-      </li>
-    </ul>
-  </div>
-</template>
+        &lt;/span&gt;
+        &lt;span v-if="task.description"&gt; — {{ task.description }}&lt;/span&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
 
-<script setup>
+&lt;script setup&gt;
 import { ref, onMounted } from 'vue';
 import apiClient from '../api/axios';
 
 const tasks = ref([]);
 const loading = ref(true);
 
-const fetchTasks = async () => {
+const fetchTasks = async () =&gt; {
   try {
     const response = await apiClient.get('/tasks');
     tasks.value = response.data;
@@ -463,49 +463,49 @@ const fetchTasks = async () => {
 };
 
 onMounted(fetchTasks);
-<\/script>`,
-  `<template>
-  <div class="task-manager">
-    <h2>Task Manager</h2>
+&lt;/script&gt;`,
+`&lt;template&gt;
+  &lt;div class="task-manager"&gt;
+    &lt;h2&gt;Task Manager&lt;/h2&gt;
 
-    <!-- Create / Edit Form -->
-    <form @submit.prevent="handleSubmit">
-      <input
+    &lt;!-- Create / Edit Form --&gt;
+    &lt;form @submit.prevent="handleSubmit"&gt;
+      &lt;input
         v-model="form.title"
         placeholder="Task title"
         required
-      />
-      <input
+      /&gt;
+      &lt;input
         v-model="form.description"
         placeholder="Description (optional)"
-      />
-      <button type="submit">
+      /&gt;
+      &lt;button type="submit"&gt;
         {{ editing ? 'Update' : 'Create' }} Task
-      </button>
-      <button v-if="editing" type="button" @click="cancelEdit">
+      &lt;/button&gt;
+      &lt;button v-if="editing" type="button" @click="cancelEdit"&gt;
         Cancel
-      </button>
-    </form>
+      &lt;/button&gt;
+    &lt;/form&gt;
 
-    <!-- Task List -->
-    <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <input
+    &lt;!-- Task List --&gt;
+    &lt;ul&gt;
+      &lt;li v-for="task in tasks" :key="task.id"&gt;
+        &lt;input
           type="checkbox"
           :checked="task.completed"
           @change="toggleComplete(task)"
-        />
-        <span :class="{ 'line-through': task.completed }">
+        /&gt;
+        &lt;span :class="{ 'line-through': task.completed }"&gt;
           {{ task.title }}
-        </span>
-        <button @click="editTask(task)">Edit</button>
-        <button @click="deleteTask(task.id)">Delete</button>
-      </li>
-    </ul>
-  </div>
-</template>
+        &lt;/span&gt;
+        &lt;button @click="editTask(task)"&gt;Edit&lt;/button&gt;
+        &lt;button @click="deleteTask(task.id)"&gt;Delete&lt;/button&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
 
-<script setup>
+&lt;script setup&gt;
 import { ref, reactive, onMounted } from 'vue';
 import apiClient from '../api/axios';
 
@@ -514,12 +514,12 @@ const editing = ref(false);
 const editingId = ref(null);
 const form = reactive({ title: '', description: '' });
 
-const fetchTasks = async () => {
+const fetchTasks = async () =&gt; {
   const res = await apiClient.get('/tasks');
   tasks.value = res.data;
 };
 
-const handleSubmit = async () => {
+const handleSubmit = async () =&gt; {
   if (editing.value) {
     await apiClient.put(\`/tasks/\${editingId.value}\`, form);
   } else {
@@ -532,34 +532,34 @@ const handleSubmit = async () => {
   await fetchTasks();
 };
 
-const editTask = (task) => {
+const editTask = (task) =&gt; {
   form.title = task.title;
   form.description = task.description || '';
   editing.value = true;
   editingId.value = task.id;
 };
 
-const cancelEdit = () => {
+const cancelEdit = () =&gt; {
   form.title = '';
   form.description = '';
   editing.value = false;
   editingId.value = null;
 };
 
-const toggleComplete = async (task) => {
+const toggleComplete = async (task) =&gt; {
   await apiClient.put(\`/tasks/\${task.id}\`, {
     completed: !task.completed,
   });
   await fetchTasks();
 };
 
-const deleteTask = async (id) => {
+const deleteTask = async (id) =&gt; {
   await apiClient.delete(\`/tasks/\${id}\`);
   await fetchTasks();
 };
 
 onMounted(fetchTasks);
-<\/script>`,
+&lt;/script&gt;`,
   `# Install Sanctum
 php artisan install:api
 

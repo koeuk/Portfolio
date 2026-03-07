@@ -116,16 +116,16 @@ onUnmounted(() => {
 /* Outer soft glow */
 .outer-glow {
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle,
-    rgba(180, 210, 255, 0.07) 0%,
-    rgba(180, 210, 255, 0.03) 30%,
-    transparent 70%
+    rgba(80, 220, 120, 0.02) 0%,
+    rgba(80, 220, 120, 0.008) 30%,
+    transparent 60%
   );
   border-radius: 50%;
   pointer-events: none;
@@ -134,30 +134,30 @@ onUnmounted(() => {
 :global(.dark) .outer-glow {
   background: radial-gradient(
     circle,
-    rgba(180, 210, 255, 0.1) 0%,
-    rgba(180, 210, 255, 0.04) 30%,
-    transparent 70%
+    rgba(80, 220, 120, 0.03) 0%,
+    rgba(80, 220, 120, 0.012) 30%,
+    transparent 60%
   );
 }
 
 /* Inner bright core */
 .inner-core {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(200, 220, 255, 0.3) 40%,
+    rgba(150, 255, 180, 0.2) 0%,
+    rgba(80, 220, 120, 0.08) 40%,
     transparent 70%
   );
   border-radius: 50%;
   box-shadow:
-    0 0 10px 3px rgba(200, 220, 255, 0.2),
-    0 0 20px 6px rgba(200, 220, 255, 0.1);
+    0 0 6px 1px rgba(80, 220, 120, 0.06),
+    0 0 12px 3px rgba(80, 220, 120, 0.03);
   animation: corePulse 2s ease-in-out infinite;
 }
 
@@ -165,30 +165,30 @@ onUnmounted(() => {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
     box-shadow:
-      0 0 10px 3px rgba(200, 220, 255, 0.2),
-      0 0 20px 6px rgba(200, 220, 255, 0.1);
+      0 0 6px 1px rgba(80, 220, 120, 0.06),
+      0 0 12px 3px rgba(80, 220, 120, 0.03);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.3);
+    transform: translate(-50%, -50%) scale(1.15);
     box-shadow:
-      0 0 15px 5px rgba(200, 220, 255, 0.3),
-      0 0 30px 10px rgba(200, 220, 255, 0.15);
+      0 0 8px 2px rgba(80, 220, 120, 0.09),
+      0 0 16px 4px rgba(80, 220, 120, 0.04);
   }
 }
 
 /* Trail particles */
 .trail-particle {
   position: absolute;
-  background: rgba(200, 220, 255, 0.7);
+  background: rgba(80, 220, 120, 0.15);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 4px 1px rgba(200, 220, 255, 0.3);
+  box-shadow: 0 0 2px 1px rgba(80, 220, 120, 0.08);
   transition: opacity 0.1s linear;
   pointer-events: none;
 }
 
 .trail-particle:nth-child(odd) {
-  background: rgba(220, 200, 255, 0.6);
-  box-shadow: 0 0 4px 1px rgba(220, 200, 255, 0.3);
+  background: rgba(120, 255, 160, 0.12);
+  box-shadow: 0 0 2px 1px rgba(120, 255, 160, 0.06);
 }
 </style>
