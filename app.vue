@@ -1,5 +1,11 @@
 <template>
   <div :class="{ 'dark': isDark }" class="min-h-screen bg-white dark:bg-primary transition-colors">
+    <!-- Anime magic background -->
+    <MagicBackground />
+
+    <!-- Cursor spotlight glow -->
+    <CursorSpotlight />
+
     <!-- Navbar outside transition so it stays fixed -->
     <Navbar />
 

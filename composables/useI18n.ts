@@ -3199,6 +3199,313 @@ const translations: Translations = {
     km: 'ជៀសវាង <code class="inline-code">any</code> — ប្រើ <code class="inline-code">unknown</code>។ ប្រើ const objects ជាជាង enums។',
     zh: '避免使用 <code class="inline-code">any</code> — 改用 <code class="inline-code">unknown</code>。优先使用 const 对象而非枚举。',
   },
+
+  // Blog - Tailwind Responsive
+  "blog.tailwind.responsive.title": {
+    en: "Building Responsive Layouts with Tailwind CSS",
+    km: "ការបង្កើតប្លង់ឆ្លើយតបជាមួយ Tailwind CSS",
+    zh: "使用 Tailwind CSS 构建响应式布局",
+  },
+  "blog.tailwind.responsive.intro": {
+    en: "Tailwind CSS is a utility-first CSS framework that lets you build modern, responsive layouts directly in your HTML. Instead of writing custom CSS, you compose designs using small, single-purpose utility classes. In this guide, we will explore how to build fully responsive layouts using Tailwind CSS.",
+    km: "Tailwind CSS គឺជា CSS framework ប្រភេទ utility-first ដែលអនុញ្ញាតឱ្យអ្នកបង្កើតប្លង់ទំនើប និងឆ្លើយតបដោយផ្ទាល់នៅក្នុង HTML របស់អ្នក។ ជំនួសឱ្យការសរសេរ CSS ផ្ទាល់ អ្នករចនាដោយប្រើ utility classes តូចៗដែលមានគោលបំណងតែមួយ។ នៅក្នុងមគ្គុទ្ទេសក៍នេះ យើងនឹងស្វែងយល់ពីរបៀបបង្កើតប្លង់ឆ្លើយតបពេញលេញដោយប្រើ Tailwind CSS។",
+    zh: "Tailwind CSS 是一个实用优先的 CSS 框架，让您可以直接在 HTML 中构建现代、响应式的布局。无需编写自定义 CSS，您可以使用小型、单一用途的实用类来组合设计。在本指南中，我们将探讨如何使用 Tailwind CSS 构建完全响应式的布局。",
+  },
+  "blog.tailwind.responsive.section1Title": {
+    en: "1. What is Tailwind CSS? Why use it?",
+    km: "1. តើ Tailwind CSS ជាអ្វី? ហេតុអ្វីប្រើវា?",
+    zh: "1. 什么是 Tailwind CSS？为什么使用它？",
+  },
+  "blog.tailwind.responsive.section1Desc": {
+    en: "Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs without leaving your HTML. Unlike Bootstrap or other component-based frameworks, Tailwind doesn't impose design decisions on you. Instead, it gives you the building blocks to create any design you want.",
+    km: "Tailwind CSS គឺជា CSS framework ប្រភេទ utility-first ដែលផ្តល់ utility classes កម្រិតទាបដើម្បីបង្កើតការរចនាផ្ទាល់ខ្លួនដោយមិនចាំបាច់ចាកចេញពី HTML របស់អ្នក។ មិនដូច Bootstrap ឬ framework ដែលផ្អែកលើ component ផ្សេងទេ Tailwind មិនបង្ខំការសម្រេចចិត្តលើការរចនាទេ។ ផ្ទុយទៅវិញ វាផ្តល់ឱ្យអ្នកនូវគ្រឿងផ្សំដើម្បីបង្កើតការរចនាណាមួយដែលអ្នកចង់បាន។",
+    zh: "Tailwind CSS 是一个实用优先的 CSS 框架，提供底层实用类来构建自定义设计，无需离开 HTML。与 Bootstrap 或其他基于组件的框架不同，Tailwind 不会强加设计决策。相反，它为您提供构建块来创建任何您想要的设计。",
+  },
+  "blog.tailwind.responsive.section1Li1": {
+    en: "No context switching between HTML and CSS files",
+    km: "មិនចាំបាច់ប្តូររវាង HTML និង CSS files",
+    zh: "无需在 HTML 和 CSS 文件之间切换",
+  },
+  "blog.tailwind.responsive.section1Li2": {
+    en: 'Highly customizable via <code class="inline-code">tailwind.config.js</code>',
+    km: 'អាចប្ដូរតាមបំណងខ្ពស់តាមរយៈ <code class="inline-code">tailwind.config.js</code>',
+    zh: '通过 <code class="inline-code">tailwind.config.js</code> 高度可定制',
+  },
+  "blog.tailwind.responsive.section1Li3": {
+    en: "Built-in responsive design utilities",
+    km: "ឧបករណ៍រចនាឆ្លើយតបដែលភ្ជាប់មកជាមួយ",
+    zh: "内置响应式设计工具",
+  },
+  "blog.tailwind.responsive.section1Li4": {
+    en: "Dark mode support out of the box",
+    km: "គាំទ្រ dark mode ដោយមិនចាំបាច់កំណត់បន្ថែម",
+    zh: "开箱即用的深色模式支持",
+  },
+  "blog.tailwind.responsive.section1Li5": {
+    en: "Smaller production builds with automatic purging of unused CSS",
+    km: "ទំហំ production តូចជាងដោយការលុប CSS ដែលមិនប្រើដោយស្វ័យប្រវត្តិ",
+    zh: "通过自动清除未使用的 CSS 实现更小的生产构建",
+  },
+  "blog.tailwind.responsive.codeTitle1": {
+    en: "Tailwind vs Traditional CSS",
+    km: "Tailwind ទល់នឹង CSS បែបប្រពៃណី",
+    zh: "Tailwind 与传统 CSS 对比",
+  },
+  "blog.tailwind.responsive.section2Title": {
+    en: "2. Setting up Tailwind CSS",
+    km: "2. ការដំឡើង Tailwind CSS",
+    zh: "2. 设置 Tailwind CSS",
+  },
+  "blog.tailwind.responsive.section2Desc": {
+    en: "Getting started with Tailwind CSS is straightforward. Install it via npm and generate the configuration file.",
+    km: "ការចាប់ផ្តើមជាមួយ Tailwind CSS គឺសាមញ្ញ។ ដំឡើងវាតាមរយៈ npm និងបង្កើតឯកសារកំណត់រចនាសម្ព័ន្ធ។",
+    zh: "开始使用 Tailwind CSS 非常简单。通过 npm 安装它并生成配置文件。",
+  },
+  "blog.tailwind.responsive.codeTitle2": {
+    en: "Installation",
+    km: "ការដំឡើង",
+    zh: "安装",
+  },
+  "blog.tailwind.responsive.section3Title": {
+    en: "3. Responsive Design Basics (Breakpoints)",
+    km: "3. មូលដ្ឋានគ្រឹះនៃការរចនាឆ្លើយតប (Breakpoints)",
+    zh: "3. 响应式设计基础（断点）",
+  },
+  "blog.tailwind.responsive.section3Desc": {
+    en: "Tailwind uses a mobile-first breakpoint system. Each breakpoint prefix applies styles at that minimum width and above. The default breakpoints are:",
+    km: "Tailwind ប្រើប្រព័ន្ធ breakpoint ដែលផ្អែកលើ mobile ជាមុន។ បុព្វបទ breakpoint នីមួយៗអនុវត្តរចនាប័ទ្មនៅទទឹងអប្បបរមានោះ និងខ្ពស់ជាង។ breakpoints លំនាំដើមគឺ៖",
+    zh: "Tailwind 使用移动优先的断点系统。每个断点前缀在该最小宽度及以上应用样式。默认断点为：",
+  },
+  "blog.tailwind.responsive.tablePrefix": {
+    en: "Prefix",
+    km: "បុព្វបទ",
+    zh: "前缀",
+  },
+  "blog.tailwind.responsive.tableMinWidth": {
+    en: "Min Width",
+    km: "ទទឹងអប្បបរមា",
+    zh: "最小宽度",
+  },
+  "blog.tailwind.responsive.tableDevices": {
+    en: "Typical Devices",
+    km: "ឧបករណ៍ធម្មតា",
+    zh: "典型设备",
+  },
+  "blog.tailwind.responsive.deviceSm": {
+    en: "Small phones (landscape)",
+    km: "ទូរសព្ទតូច (ផ្ដេក)",
+    zh: "小型手机（横屏）",
+  },
+  "blog.tailwind.responsive.deviceMd": {
+    en: "Tablets",
+    km: "ថេប្លេត",
+    zh: "平板电脑",
+  },
+  "blog.tailwind.responsive.deviceLg": {
+    en: "Laptops",
+    km: "កុំព្យូទ័រយួរដៃ",
+    zh: "笔记本电脑",
+  },
+  "blog.tailwind.responsive.deviceXl": {
+    en: "Desktops",
+    km: "កុំព្យូទ័រលើតុ",
+    zh: "台式电脑",
+  },
+  "blog.tailwind.responsive.device2xl": {
+    en: "Large desktops",
+    km: "កុំព្យូទ័រលើតុធំ",
+    zh: "大型台式电脑",
+  },
+  "blog.tailwind.responsive.codeTitle4": {
+    en: "Using Breakpoints",
+    km: "ការប្រើ Breakpoints",
+    zh: "使用断点",
+  },
+  "blog.tailwind.responsive.section4Title": {
+    en: "4. Mobile-First Approach",
+    km: "4. វិធីសាស្រ្តផ្អែកលើ Mobile ជាមុន",
+    zh: "4. 移动优先方法",
+  },
+  "blog.tailwind.responsive.section4Desc": {
+    en: "Tailwind follows a mobile-first approach. Unprefixed utilities apply to all screen sizes, while prefixed utilities only apply at the specified breakpoint and above. This means you should design for mobile first, then layer on styles for larger screens.",
+    km: "Tailwind អនុវត្តវិធីសាស្រ្តផ្អែកលើ mobile ជាមុន។ Utilities ដែលគ្មានបុព្វបទអនុវត្តចំពោះទំហំអេក្រង់ទាំងអស់ ខណៈ utilities ដែលមានបុព្វបទអនុវត្តតែនៅ breakpoint ដែលបានបញ្ជាក់ និងខ្ពស់ជាង។ នេះមានន័យថាអ្នកគួររចនាសម្រាប់ mobile ជាមុន បន្ទាប់មកបន្ថែមរចនាប័ទ្មសម្រាប់អេក្រង់ធំជាង។",
+    zh: "Tailwind 遵循移动优先的方法。无前缀的实用类适用于所有屏幕尺寸，而有前缀的实用类仅在指定的断点及以上应用。这意味着您应该先为移动端设计，然后为更大的屏幕添加样式。",
+  },
+  "blog.tailwind.responsive.codeTitle5": {
+    en: "Mobile-First Example",
+    km: "ឧទាហរណ៍ Mobile ជាមុន",
+    zh: "移动优先示例",
+  },
+  "blog.tailwind.responsive.tipBox": {
+    en: '<strong>Tip:</strong> Always start with the mobile layout (no prefix), then add <code class="inline-code">md:</code> and <code class="inline-code">lg:</code> prefixes for larger screens. This ensures your design works on all devices.',
+    km: '<strong>គន្លឹះ៖</strong> ចាប់ផ្តើមជានិច្ចជាមួយប្លង់ mobile (គ្មានបុព្វបទ) បន្ទាប់មកបន្ថែមបុព្វបទ <code class="inline-code">md:</code> និង <code class="inline-code">lg:</code> សម្រាប់អេក្រង់ធំជាង។ នេះធានាថាការរចនារបស់អ្នកដំណើរការលើឧបករណ៍ទាំងអស់។',
+    zh: '<strong>提示：</strong>始终从移动端布局开始（无前缀），然后为更大的屏幕添加 <code class="inline-code">md:</code> 和 <code class="inline-code">lg:</code> 前缀。这确保您的设计在所有设备上都能正常工作。',
+  },
+  "blog.tailwind.responsive.section5Title": {
+    en: "5. Flexbox with Tailwind",
+    km: "5. Flexbox ជាមួយ Tailwind",
+    zh: "5. Tailwind 中的 Flexbox",
+  },
+  "blog.tailwind.responsive.section5Desc": {
+    en: 'Flexbox is one of the most powerful layout tools in CSS, and Tailwind makes it incredibly easy to use. The key utility classes include <code class="inline-code">flex</code>, <code class="inline-code">items-center</code>, <code class="inline-code">justify-between</code>, and <code class="inline-code">gap</code>.',
+    km: 'Flexbox គឺជាឧបករណ៍ប្លង់ដ៏មានអានុភាពបំផុតមួយក្នុង CSS ហើយ Tailwind ធ្វើឱ្យវាងាយស្រួលប្រើខ្លាំង។ Utility classes សំខាន់ៗរួមមាន <code class="inline-code">flex</code>, <code class="inline-code">items-center</code>, <code class="inline-code">justify-between</code>, និង <code class="inline-code">gap</code>។',
+    zh: 'Flexbox 是 CSS 中最强大的布局工具之一，Tailwind 使其非常易于使用。关键实用类包括 <code class="inline-code">flex</code>、<code class="inline-code">items-center</code>、<code class="inline-code">justify-between</code> 和 <code class="inline-code">gap</code>。',
+  },
+  "blog.tailwind.responsive.codeTitle6": {
+    en: "Flexbox Utilities",
+    km: "ឧបករណ៍ Flexbox",
+    zh: "Flexbox 实用类",
+  },
+  "blog.tailwind.responsive.section6Title": {
+    en: "6. Grid Layouts",
+    km: "6. ប្លង់ Grid",
+    zh: "6. Grid 布局",
+  },
+  "blog.tailwind.responsive.section6Desc": {
+    en: 'CSS Grid is perfect for two-dimensional layouts. Tailwind provides utilities like <code class="inline-code">grid</code>, <code class="inline-code">grid-cols-*</code>, and <code class="inline-code">gap-*</code> to build responsive grid systems with ease.',
+    km: 'CSS Grid គឺល្អឥតខ្ចោះសម្រាប់ប្លង់ពីរវិមាត្រ។ Tailwind ផ្តល់ utilities ដូចជា <code class="inline-code">grid</code>, <code class="inline-code">grid-cols-*</code>, និង <code class="inline-code">gap-*</code> ដើម្បីបង្កើតប្រព័ន្ធ grid ឆ្លើយតបដោយងាយស្រួល។',
+    zh: 'CSS Grid 非常适合二维布局。Tailwind 提供了 <code class="inline-code">grid</code>、<code class="inline-code">grid-cols-*</code> 和 <code class="inline-code">gap-*</code> 等实用类，轻松构建响应式网格系统。',
+  },
+  "blog.tailwind.responsive.codeTitle7": {
+    en: "Responsive Grid Layout",
+    km: "ប្លង់ Grid ឆ្លើយតប",
+    zh: "响应式 Grid 布局",
+  },
+  "blog.tailwind.responsive.section7Title": {
+    en: "7. Responsive Typography",
+    km: "7. អក្សរឆ្លើយតប",
+    zh: "7. 响应式排版",
+  },
+  "blog.tailwind.responsive.section7Desc": {
+    en: 'Typography should scale with screen size for optimal readability. Tailwind lets you adjust font sizes, line heights, and font weights at different breakpoints using classes like <code class="inline-code">text-sm</code>, <code class="inline-code">md:text-lg</code>, and <code class="inline-code">lg:text-2xl</code>.',
+    km: 'អក្សរគួរតែមានទំហំសមស្របតាមទំហំអេក្រង់ដើម្បីអានបានល្អបំផុត។ Tailwind អនុញ្ញាតឱ្យអ្នកកែទំហំអក្សរ កម្ពស់បន្ទាត់ និងទម្ងន់អក្សរនៅ breakpoints ផ្សេងៗដោយប្រើ classes ដូចជា <code class="inline-code">text-sm</code>, <code class="inline-code">md:text-lg</code>, និង <code class="inline-code">lg:text-2xl</code>។',
+    zh: '排版应随屏幕大小缩放以获得最佳可读性。Tailwind 允许您使用 <code class="inline-code">text-sm</code>、<code class="inline-code">md:text-lg</code> 和 <code class="inline-code">lg:text-2xl</code> 等类在不同断点调整字体大小、行高和字体粗细。',
+  },
+  "blog.tailwind.responsive.codeTitle8": {
+    en: "Responsive Typography",
+    km: "អក្សរឆ្លើយតប",
+    zh: "响应式排版",
+  },
+  "blog.tailwind.responsive.section8Title": {
+    en: "8. Responsive Spacing and Padding",
+    km: "8. ចន្លោះ និង Padding ឆ្លើយតប",
+    zh: "8. 响应式间距和内边距",
+  },
+  "blog.tailwind.responsive.section8Desc": {
+    en: 'Spacing is crucial for responsive design. Tailwind provides margin (<code class="inline-code">m-*</code>), padding (<code class="inline-code">p-*</code>), and gap utilities that can be adjusted per breakpoint to ensure proper spacing on every screen size.',
+    km: 'ចន្លោះគឺសំខាន់សម្រាប់ការរចនាឆ្លើយតប។ Tailwind ផ្តល់ margin (<code class="inline-code">m-*</code>), padding (<code class="inline-code">p-*</code>), និង gap utilities ដែលអាចកែតម្រូវតាម breakpoint ដើម្បីធានាចន្លោះត្រឹមត្រូវលើទំហំអេក្រង់ទាំងអស់។',
+    zh: '间距对于响应式设计至关重要。Tailwind 提供了 margin（<code class="inline-code">m-*</code>）、padding（<code class="inline-code">p-*</code>）和 gap 实用类，可以按断点调整以确保在每种屏幕尺寸上都有适当的间距。',
+  },
+  "blog.tailwind.responsive.codeTitle9": {
+    en: "Responsive Spacing",
+    km: "ចន្លោះឆ្លើយតប",
+    zh: "响应式间距",
+  },
+  "blog.tailwind.responsive.section9Title": {
+    en: "9. Hiding/Showing Elements",
+    km: "9. ការលាក់/បង្ហាញធាតុ",
+    zh: "9. 隐藏/显示元素",
+  },
+  "blog.tailwind.responsive.section9Desc": {
+    en: 'Sometimes you need to show or hide elements based on screen size. Tailwind provides the <code class="inline-code">hidden</code> and <code class="inline-code">block</code> utilities combined with breakpoint prefixes like <code class="inline-code">md:block</code> and <code class="inline-code">lg:hidden</code>.',
+    km: 'ពេលខ្លះអ្នកត្រូវបង្ហាញ ឬលាក់ធាតុដោយផ្អែកលើទំហំអេក្រង់។ Tailwind ផ្តល់ utilities <code class="inline-code">hidden</code> និង <code class="inline-code">block</code> រួមជាមួយបុព្វបទ breakpoint ដូចជា <code class="inline-code">md:block</code> និង <code class="inline-code">lg:hidden</code>។',
+    zh: '有时您需要根据屏幕大小显示或隐藏元素。Tailwind 提供了 <code class="inline-code">hidden</code> 和 <code class="inline-code">block</code> 实用类，结合 <code class="inline-code">md:block</code> 和 <code class="inline-code">lg:hidden</code> 等断点前缀。',
+  },
+  "blog.tailwind.responsive.codeTitle10": {
+    en: "Show/Hide by Screen Size",
+    km: "បង្ហាញ/លាក់តាមទំហំអេក្រង់",
+    zh: "按屏幕大小显示/隐藏",
+  },
+  "blog.tailwind.responsive.section10Title": {
+    en: "10. Container and Max Width",
+    km: "10. Container និង Max Width",
+    zh: "10. 容器和最大宽度",
+  },
+  "blog.tailwind.responsive.section10Desc": {
+    en: 'The <code class="inline-code">container</code> class sets the max-width to match the current breakpoint. Combined with <code class="inline-code">mx-auto</code> and padding, it creates a centered content area that adapts to screen size.',
+    km: 'Class <code class="inline-code">container</code> កំណត់ max-width ឱ្យត្រូវនឹង breakpoint បច្ចុប្បន្ន។ រួមជាមួយ <code class="inline-code">mx-auto</code> និង padding វាបង្កើតផ្ទៃមាតិកាកណ្តាលដែលសម្រួលតាមទំហំអេក្រង់។',
+    zh: '<code class="inline-code">container</code> 类将最大宽度设置为匹配当前断点。结合 <code class="inline-code">mx-auto</code> 和内边距，它创建了一个适应屏幕大小的居中内容区域。',
+  },
+  "blog.tailwind.responsive.codeTitle11": {
+    en: "Container and Max Width",
+    km: "Container និង Max Width",
+    zh: "容器和最大宽度",
+  },
+  "blog.tailwind.responsive.section11Title": {
+    en: "11. Responsive Navigation Example",
+    km: "11. ឧទាហរណ៍ Navigation ឆ្លើយតប",
+    zh: "11. 响应式导航示例",
+  },
+  "blog.tailwind.responsive.section11Desc": {
+    en: "A responsive navigation bar is one of the most common patterns. Here is how to build one that collapses into a hamburger menu on mobile and shows full links on larger screens.",
+    km: "របារ navigation ឆ្លើយតបគឺជាគំរូមួយក្នុងចំណោមគំរូទូទៅបំផុត។ នេះជារបៀបបង្កើតមួយដែលបង្រួមទៅជាម៉ឺនុយ hamburger នៅលើ mobile និងបង្ហាញតំណភ្ជាប់ពេញនៅលើអេក្រង់ធំ។",
+    zh: "响应式导航栏是最常见的模式之一。以下是如何构建一个在移动端折叠为汉堡菜单、在更大屏幕上显示完整链接的导航栏。",
+  },
+  "blog.tailwind.responsive.codeTitle12": {
+    en: "Responsive Navbar",
+    km: "Navbar ឆ្លើយតប",
+    zh: "响应式导航栏",
+  },
+  "blog.tailwind.responsive.section12Title": {
+    en: "12. Dark Mode Support",
+    km: "12. ការគាំទ្រ Dark Mode",
+    zh: "12. 深色模式支持",
+  },
+  "blog.tailwind.responsive.section12Desc": {
+    en: 'Tailwind has built-in dark mode support using the <code class="inline-code">dark:</code> prefix. You can enable it via the <code class="inline-code">class</code> strategy (recommended) or the <code class="inline-code">media</code> strategy that follows the OS preference.',
+    km: 'Tailwind មានការគាំទ្រ dark mode ដែលភ្ជាប់មកជាមួយដោយប្រើបុព្វបទ <code class="inline-code">dark:</code>។ អ្នកអាចបើកវាតាមរយៈយុទ្ធសាស្ត្រ <code class="inline-code">class</code> (ដែលបានផ្ដល់អនុសាសន៍) ឬយុទ្ធសាស្ត្រ <code class="inline-code">media</code> ដែលអនុវត្តតាមចំណូលចិត្តរបស់ប្រព័ន្ធប្រតិបត្តិការ។',
+    zh: 'Tailwind 使用 <code class="inline-code">dark:</code> 前缀内置了深色模式支持。您可以通过 <code class="inline-code">class</code> 策略（推荐）或遵循操作系统偏好的 <code class="inline-code">media</code> 策略来启用它。',
+  },
+  "blog.tailwind.responsive.codeTitle13": {
+    en: "Dark Mode Configuration",
+    km: "ការកំណត់រចនាសម្ព័ន្ធ Dark Mode",
+    zh: "深色模式配置",
+  },
+  "blog.tailwind.responsive.codeTitle14": {
+    en: "Using Dark Mode Classes",
+    km: "ការប្រើ Dark Mode Classes",
+    zh: "使用深色模式类",
+  },
+  "blog.tailwind.responsive.summary1": {
+    en: "Tailwind CSS is a utility-first framework that lets you build responsive designs directly in HTML.",
+    km: "Tailwind CSS គឺជា framework ប្រភេទ utility-first ដែលអនុញ្ញាតឱ្យអ្នកបង្កើតការរចនាឆ្លើយតបដោយផ្ទាល់ក្នុង HTML។",
+    zh: "Tailwind CSS 是一个实用优先的框架，让您可以直接在 HTML 中构建响应式设计。",
+  },
+  "blog.tailwind.responsive.summary2": {
+    en: 'Use breakpoint prefixes (<code class="inline-code">sm:</code>, <code class="inline-code">md:</code>, <code class="inline-code">lg:</code>, <code class="inline-code">xl:</code>, <code class="inline-code">2xl:</code>) for responsive design.',
+    km: 'ប្រើបុព្វបទ breakpoint (<code class="inline-code">sm:</code>, <code class="inline-code">md:</code>, <code class="inline-code">lg:</code>, <code class="inline-code">xl:</code>, <code class="inline-code">2xl:</code>) សម្រាប់ការរចនាឆ្លើយតប។',
+    zh: '使用断点前缀（<code class="inline-code">sm:</code>、<code class="inline-code">md:</code>、<code class="inline-code">lg:</code>、<code class="inline-code">xl:</code>、<code class="inline-code">2xl:</code>）进行响应式设计。',
+  },
+  "blog.tailwind.responsive.summary3": {
+    en: "Always design mobile-first, then add styles for larger screens.",
+    km: "រចនាសម្រាប់ mobile ជាមុនជានិច្ច បន្ទាប់មកបន្ថែមរចនាប័ទ្មសម្រាប់អេក្រង់ធំជាង។",
+    zh: "始终先为移动端设计，然后为更大的屏幕添加样式。",
+  },
+  "blog.tailwind.responsive.summary4": {
+    en: 'Use <code class="inline-code">flex</code> and <code class="inline-code">grid</code> utilities for powerful, responsive layouts.',
+    km: 'ប្រើ utilities <code class="inline-code">flex</code> និង <code class="inline-code">grid</code> សម្រាប់ប្លង់ឆ្លើយតបដ៏មានអានុភាព។',
+    zh: '使用 <code class="inline-code">flex</code> 和 <code class="inline-code">grid</code> 实用类构建强大的响应式布局。',
+  },
+  "blog.tailwind.responsive.summary5": {
+    en: "Responsive typography, spacing, and visibility classes adapt your UI across devices.",
+    km: "អក្សរឆ្លើយតប ចន្លោះ និង visibility classes សម្រួល UI របស់អ្នកនៅលើឧបករណ៍ផ្សេងៗ។",
+    zh: "响应式排版、间距和可见性类使您的 UI 适应各种设备。",
+  },
+  "blog.tailwind.responsive.summary6": {
+    en: 'The <code class="inline-code">container</code> class with <code class="inline-code">mx-auto</code> centers content responsively.',
+    km: 'Class <code class="inline-code">container</code> ជាមួយ <code class="inline-code">mx-auto</code> ដាក់មាតិកានៅកណ្តាលដោយឆ្លើយតប។',
+    zh: '<code class="inline-code">container</code> 类配合 <code class="inline-code">mx-auto</code> 实现响应式内容居中。',
+  },
+  "blog.tailwind.responsive.summary7": {
+    en: 'Dark mode is built-in with the <code class="inline-code">dark:</code> prefix for seamless theme switching.',
+    km: 'Dark mode ភ្ជាប់មកជាមួយបុព្វបទ <code class="inline-code">dark:</code> សម្រាប់ការប្ដូរ theme យ៉ាងរលូន។',
+    zh: '深色模式通过 <code class="inline-code">dark:</code> 前缀内置，实现无缝主题切换。',
+  },
+  "blog.tailwind.responsive.summary8": {
+    en: "Tailwind purges unused CSS in production, resulting in very small bundle sizes.",
+    km: "Tailwind លុប CSS ដែលមិនប្រើក្នុង production ដែលនាំឱ្យមានទំហំ bundle តូចខ្លាំង។",
+    zh: "Tailwind 在生产环境中清除未使用的 CSS，从而产生非常小的包大小。",
+  },
 };
 
 export const useI18n = () => {
