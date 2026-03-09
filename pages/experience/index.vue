@@ -7,28 +7,28 @@
           {{ t('experience.title') }}
         </h1>
         <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg slide-up-delay-1">
-          A journey through my professional career and the technologies I've mastered along the way.
+          {{ t('experience.subtitle') }}
         </p>
       </div>
 
       <!-- Year Filter Tabs -->
       <div class="flex flex-wrap items-center justify-center gap-4 mb-12 slide-up">
-        <button 
+        <button
           @click="selectedYear = 'All'"
           class="px-8 py-3 rounded-full text-sm font-black transition-all duration-500 uppercase tracking-widest border"
-          :class="selectedYear === 'All' 
-            ? 'bg-primary text-white border-primary shadow-[0_10px_30px_rgba(0,0,0,0.1)] scale-110' 
+          :class="selectedYear === 'All'
+            ? 'bg-primary text-white border-primary shadow-[0_10px_30px_rgba(0,0,0,0.1)] scale-110'
             : 'bg-white text-gray-400 border-gray-100 dark:bg-primary-light dark:border-gray-800' "
         >
-          All Experiences
+          {{ t('experience.allExperiences') }}
         </button>
-        <button 
-          v-for="year in availableYears" 
+        <button
+          v-for="year in availableYears"
           :key="year"
           @click="selectedYear = year"
           class="px-8 py-3 rounded-full text-sm font-black transition-all duration-500 uppercase tracking-widest border"
-          :class="selectedYear === year 
-            ? 'bg-primary text-white border-primary shadow-[0_10px_30px_rgba(0,0,0,0.1)] scale-110' 
+          :class="selectedYear === year
+            ? 'bg-primary text-white border-primary shadow-[0_10px_30px_rgba(0,0,0,0.1)] scale-110'
             : 'bg-white text-gray-400 border-gray-100 dark:bg-primary-light dark:border-gray-800' "
         >
           {{ year }}
@@ -56,14 +56,14 @@
           </div>
 
           <h3 class="text-2xl font-bold text-primary dark:text-white mb-2 group-hover:translate-x-1 transition-transform">
-            {{ t(`experience.${exp.id}.role`) }}
+            {{ exp.role }}
           </h3>
           <p class="text-gray-500 dark:text-gray-400 font-semibold mb-6 group-hover:translate-x-1 transition-transform delay-75">
-            {{ t(`experience.${exp.id}.company`) }}
+            {{ exp.company }}
           </p>
 
           <p class="text-gray-600 dark:text-gray-300 line-clamp-3 mb-8 flex-grow">
-            {{ t(`experience.${exp.id}.description`) }}
+            {{ exp.description }}
           </p>
 
           <div class="flex flex-wrap gap-2 pt-6 border-t border-gray-100 dark:border-gray-800">
@@ -84,15 +84,18 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-const { experiences } = useData()
 const { t } = useI18n()
+const { getExperiences } = useApi()
+const { data: experiencesData } = await getExperiences()
+
+const experiences = computed(() => (experiencesData.value as any)?.data || [])
 
 const selectedYear = ref('All')
 
 const availableYears = computed(() => {
   const allowed = ['2026', '2025', '2024']
   const years = new Set<string>()
-  experiences.forEach(exp => {
+  experiences.value.forEach((exp: any) => {
     const startYear = exp.period.split(' ')[0]
     if (startYear && allowed.includes(startYear)) years.add(startYear)
   })
@@ -101,9 +104,9 @@ const availableYears = computed(() => {
 
 const filteredExperiences = computed(() => {
   const allowed = ['2026', '2025', '2024']
-  const baseSet = experiences.filter(exp => allowed.includes(exp.period.split(' ')[0]))
+  const baseSet = experiences.value.filter((exp: any) => allowed.includes(exp.period.split(' ')[0]))
   if (selectedYear.value === 'All') return baseSet
-  return baseSet.filter(exp => exp.period.startsWith(selectedYear.value))
+  return baseSet.filter((exp: any) => exp.period.startsWith(selectedYear.value))
 })
 
 useHead({

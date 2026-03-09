@@ -4,10 +4,10 @@
             <!-- Photo with Avatar -->
             <div class="flex justify-center about-image">
                 <Avatar class="w-80 h-80 shadow-2xl border-4 border-gray-200 dark:border-gray-700">
-                    <AvatarImage src="/images/koeuk.jpg" :alt="personalInfo.name" />
+                    <AvatarImage :src="personalInfo?.image || '/images/profile.jpg'" :alt="personalInfo?.name" />
                     <AvatarFallback
                         class="bg-gradient-to-br from-primary to-primary-light text-white text-6xl font-bold">
-                        {{personalInfo.name.split(' ').map(n => n[0]).join('')}}
+                        {{ personalInfo?.name?.split(' ').map((n: string) => n[0]).join('') }}
                     </AvatarFallback>
                 </Avatar>
             </div>
@@ -18,20 +18,20 @@
                     {{ t('about.title') }}
                 </h2>
                 <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8">
-                    {{ t('about.bio') }}
+                    {{ personalInfo?.bio || t('about.bio') }}
                 </p>
 
                 <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">
                     {{ t('about.keySkills') }}
                 </h3>
                 <div class="flex flex-wrap gap-3 mb-8">
-                    <span v-for="badge in badgeKeys" :key="badge"
+                    <span v-for="badge in badges" :key="badge.id"
                         class="px-4 py-2 bg-gray-100 dark:bg-primary-light text-primary dark:text-white font-medium rounded-full text-sm border border-gray-200 dark:border-gray-600">
-                        {{ t(badge) }}
+                        {{ badge.name }}
                     </span>
                 </div>
 
-                <Button variant="outline" size="lg" as="a" href="/resume.pdf" download
+                <Button variant="outline" size="lg" as="a" :href="personalInfo?.resume_url || '/resume.pdf'" download
                     class="border-primary text-primary hover:bg-primary hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-primary">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -45,18 +45,15 @@
 </template>
 
 <script setup lang="ts">
-    const { personalInfo } = useData()
     const { t } = useI18n()
     const { isVisible, elementRef } = useScrollAnimation()
+    const { getPersonalInfo, getBadges } = useApi()
 
-    const badgeKeys = [
-        'badge.frontend',
-        'badge.responsive',
-        'badge.typescript',
-        'badge.frameworks',
-        'badge.uiux',
-        'badge.problemSolving'
-    ]
+    const { data: personalInfoData } = await getPersonalInfo()
+    const { data: badgesData } = await getBadges()
+
+    const personalInfo = computed(() => (personalInfoData.value as any)?.data)
+    const badges = computed(() => (badgesData.value as any)?.data || [])
 </script>
 
 <style scoped>

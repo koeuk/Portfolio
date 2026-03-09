@@ -5,7 +5,7 @@
             <div class="flex justify-between items-center h-16">
                 <NuxtLink to="/#home" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <img src="/images/profile.jpg" alt="Logo" class="w-9 h-9 rounded-full object-cover border-2 border-primary dark:border-white" />
-                    <span class="text-xl font-bold text-primary dark:text-white">Koeuk Dev</span>
+                    <span class="text-xl font-bold text-primary dark:text-white">{{ personalInfo?.name || 'Koeuk Dev' }}</span>
                 </NuxtLink>
 
                 <!-- Desktop Menu -->
@@ -92,6 +92,9 @@
 <script setup lang="ts">
     const { isDark, toggleTheme, initTheme } = useTheme()
     const { t, currentLang, setLanguage, initLang, languages } = useI18n()
+    const { getPersonalInfo } = useApi()
+    const { data: personalInfoData } = await getPersonalInfo()
+    const personalInfo = computed(() => (personalInfoData.value as any)?.data)
 
     const isOpen = ref(false)
     const scrolled = ref(false)

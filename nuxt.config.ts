@@ -2,6 +2,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-01-31',
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
+  runtimeConfig: {
+    public: {
+      apiBase: 'http://localhost:8000/api'
+    }
+  },
   components: [
     { path: '~/components/ui', pathPrefix: false },
     { path: '~/components' }

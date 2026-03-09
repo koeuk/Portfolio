@@ -25,10 +25,15 @@
 </template>
 
 <script setup lang="ts">
-    const { projects } = useData()
     const { t } = useI18n()
     const { isVisible, elementRef } = useScrollAnimation()
-    const featuredProjects = computed(() => projects.filter(p => p.featured))
+    const { getProjects } = useApi()
+    const { data: projectsData } = await getProjects(true)
+
+    const featuredProjects = computed(() => {
+        const projects = (projectsData.value as any)?.data || []
+        return projects.filter((p: any) => p.featured)
+    })
 </script>
 
 <style scoped>

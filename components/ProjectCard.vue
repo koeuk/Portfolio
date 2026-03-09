@@ -11,15 +11,15 @@
         <!-- Content -->
         <div class="flex-1 flex flex-col min-h-0">
             <h3 class="text-xs sm:text-lg font-bold mb-1 sm:mb-2 text-primary dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors line-clamp-1 sm:line-clamp-none">
-                {{ getProjectTitle(project.id) }}
+                {{ project.title }}
             </h3>
             <p class="text-gray-600 dark:text-gray-300 mb-2 sm:mb-4 leading-relaxed text-[10px] sm:text-sm line-clamp-2 h-6 sm:h-10">
-                {{ getProjectDesc(project.id) }}
+                {{ project.description }}
             </p>
 
             <!-- Technologies -->
             <div class="flex flex-wrap gap-1 sm:gap-2 h-5 sm:h-8 overflow-hidden mb-2 sm:mb-4">
-                <span v-for="tech in project.technologies.slice(0, 2)" :key="tech"
+                <span v-for="tech in displayTechnologies" :key="tech"
                     class="px-1.5 py-0.5 sm:px-3 sm:py-2 bg-gray-100 dark:bg-primary text-primary dark:text-white text-[8px] sm:text-xs font-medium rounded-full border border-gray-200 dark:border-gray-600">
                     {{ tech }}
                 </span>
@@ -31,7 +31,7 @@
 
         <!-- Links - Always at bottom -->
         <div class="flex gap-2 sm:gap-4 pt-2 sm:pt-4 border-t border-gray-100 dark:border-gray-700">
-            <a v-if="project.githubUrl" :href="project.githubUrl" target="_blank" rel="noopener noreferrer"
+            <a v-if="project.github_url" :href="project.github_url" target="_blank" rel="noopener noreferrer"
                 class="flex items-center gap-1 sm:gap-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors font-medium text-[10px] sm:text-base">
                 <svg class="w-3 h-3 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -39,7 +39,7 @@
                 </svg>
                 <span class="hidden sm:inline">{{ t('projects.code') }}</span>
             </a>
-            <a v-if="project.liveUrl" :href="project.liveUrl" target="_blank" rel="noopener noreferrer"
+            <a v-if="project.live_url" :href="project.live_url" target="_blank" rel="noopener noreferrer"
                 class="flex items-center gap-1 sm:gap-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors font-medium text-[10px] sm:text-base">
                 <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -52,30 +52,22 @@
 </template>
 
 <script setup lang="ts">
-    import type { Project } from '~/composables/useData'
-
     const { t } = useI18n()
 
-    defineProps<{
-        project: Project
+    const props = defineProps<{
+        project: {
+            id: number
+            title: string
+            description: string
+            image: string | null
+            live_url: string | null
+            github_url: string | null
+            featured: boolean
+            sort_order: number
+            technologies: string[]
+        }
         index: number
     }>()
 
-    const projectKeys: Record<string, { title: string; desc: string }> = {
-        '1': { title: 'project.ecommerce.title', desc: 'project.ecommerce.desc' },
-        '2': { title: 'project.taskapp.title', desc: 'project.taskapp.desc' },
-        '3': { title: 'project.portfolio.title', desc: 'project.portfolio.desc' },
-        '4': { title: 'project.weather.title', desc: 'project.weather.desc' },
-        '5': { title: 'project.social.title', desc: 'project.social.desc' },
-        '6': { title: 'project.blog.title', desc: 'project.blog.desc' },
-        '7': { title: 'project.fitness.title', desc: 'project.fitness.desc' },
-    }
-
-    function getProjectTitle(id: string): string {
-        return t(projectKeys[id]?.title || 'project.ecommerce.title')
-    }
-
-    function getProjectDesc(id: string): string {
-        return t(projectKeys[id]?.desc || 'project.ecommerce.desc')
-    }
+    const displayTechnologies = computed(() => props.project.technologies.slice(0, 2))
 </script>

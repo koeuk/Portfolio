@@ -53,6 +53,19 @@ const translations: Translations = {
     km: "បទពិសោធន៍ការងារ",
     zh: "工作经验",
   },
+  "experience.subtitle": { en: "A journey through my professional career and the technologies I've mastered along the way.", km: "ដំណើរការឆ្លងកាត់អាជីពវិជ្ជាជីវៈរបស់ខ្ញុំ និងបច្ចេកវិទ្យាដែលខ្ញុំបានស្ទាត់ជំនាញ។", zh: "我职业生涯的旅程以及我掌握的技术。" },
+  "experience.allExperiences": { en: "All Experiences", km: "បទពិសោធន៍ទាំងអស់", zh: "所有经验" },
+  "experience.viewAll": { en: "View All Experience", km: "មើលបទពិសោធន៍ទាំងអស់", zh: "查看所有经验" },
+  "experience.backToExperience": { en: "Back to Experience", km: "ត្រឡប់ទៅបទពិសោធន៍", zh: "返回经验" },
+  "experience.roleResponsibility": { en: "Role & Responsibility", km: "តួនាទី និងការទទួលខុសត្រូវ", zh: "角色与职责" },
+  "experience.impactAchievements": { en: "Impact & Achievements", km: "ផលប៉ះពាល់ និងសមិទ្ធផល", zh: "影响与成就" },
+  "experience.techStack": { en: "Tech Stack", km: "បច្ចេកវិទ្យា", zh: "技术栈" },
+  "experience.keyDifferences": { en: "Key Differences", km: "ភាពខុសគ្នាសំខាន់ៗ", zh: "主要区别" },
+  "experience.feature": { en: "Feature", km: "មុខងារ", zh: "功能" },
+  "experience.webInterface": { en: "Web Interface", km: "ផ្ទាំងបណ្តាញ", zh: "Web 界面" },
+  "experience.adminInterface": { en: "Admin Interface", km: "ផ្ទាំងគ្រប់គ្រង", zh: "管理界面" },
+  "experience.notFound": { en: "Experience Not Found", km: "រកមិនឃើញបទពិសោធន៍", zh: "未找到经验" },
+  "experience.viewAllExperiences": { en: "View All Experiences", km: "មើលបទពិសោធន៍ទាំងអស់", zh: "查看所有经验" },
   "experience.1.role": {
     en: "Build simple UI YouTube",
     km: "ការកសាង UI YouTube ធម្មតា",
@@ -320,6 +333,7 @@ const translations: Translations = {
     zh: "未找到此筛选条件的文章。"
   },
   "blog.backToBlog": { en: "Back to Blog", km: "ត្រឡប់ទៅប្លក់", zh: "返回博客" },
+  "blog.postNotFound": { en: "Post Not Found", km: "រកមិនឃើញអត្ថបទ", zh: "未找到文章" },
   "blog.summary": { en: "Summary", km: "សេចក្តីសង្ខេប", zh: "总结" },
 
   // Blog - Vue Composition API
@@ -3513,6 +3527,8 @@ export const useI18n = () => {
 
   const setLanguage = (lang: Language) => {
     currentLang.value = lang;
+    const { setLocale } = useAppLocale();
+    setLocale(lang);
     if (process.client) {
       localStorage.setItem("lang", lang);
     }
@@ -3529,6 +3545,8 @@ export const useI18n = () => {
       const saved = localStorage.getItem("lang") as Language | null;
       if (saved && ["en", "km", "zh"].includes(saved)) {
         currentLang.value = saved;
+        const { setLocale } = useAppLocale();
+        setLocale(saved);
       }
     }
   };

@@ -58,7 +58,7 @@
                 </span>
             </h1>
             <p class="text-xl sm:text-2xl md:text-3xl mb-12 text-gray-300 max-w-3xl mx-auto slide-up-delay-1">
-                {{ t('hero.role') }}
+                {{ personalInfo?.role || t('hero.role') }}
             </p>
             <div class="slide-up-delay-2">
                 <Button variant="accent" size="lg" as="a" href="#projects">
@@ -77,20 +77,29 @@
 </template>
 
 <script setup lang="ts">
-    const { personalInfo } = useData()
     const { t } = useI18n()
+    const { getPersonalInfo } = useApi()
+    const { data: personalInfoData } = await getPersonalInfo()
+
+    const personalInfo = computed(() => (personalInfoData.value as any)?.data)
 
     const displayedName = ref('')
-    const fullName = personalInfo.name
+    const fullName = computed(() => personalInfo.value?.name || 'Koeuk Dev')
     let charIndex = 0
 
     onMounted(() => {
         typeWriter()
     })
 
+    watch(fullName, () => {
+        displayedName.value = ''
+        charIndex = 0
+        typeWriter()
+    })
+
     function typeWriter() {
-        if (charIndex < fullName.length) {
-            displayedName.value += fullName.charAt(charIndex)
+        if (charIndex < fullName.value.length) {
+            displayedName.value += fullName.value.charAt(charIndex)
             charIndex++
             setTimeout(typeWriter, 100)
         }
