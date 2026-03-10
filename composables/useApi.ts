@@ -41,6 +41,9 @@ export const useApi = () => {
   const getBlogTags = () =>
     useAsyncData('blog-tags', () => apiFetch('/blog/tags'), { watch: [locale] })
 
+  const sendContact = (data: { name: string; email: string; message: string }) =>
+    $fetch(`${apiBase}/contact`, { method: 'POST', body: data })
+
   return {
     apiBase,
     apiFetch,
@@ -53,6 +56,7 @@ export const useApi = () => {
     getBlogTabs,
     getBlogPosts,
     getBlogPost,
-    getBlogTags
+    getBlogTags,
+    sendContact
   }
 }

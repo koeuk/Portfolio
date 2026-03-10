@@ -43,8 +43,8 @@
                         required />
                     <textarea v-model="form.message" :placeholder="t('contact.message')" rows="6"
                         class="input-field resize-none" required></textarea>
-                    <Button variant="accent" size="lg" class="w-full">
-                        {{ t('contact.send') }}
+                    <Button variant="accent" size="lg" class="w-full" :disabled="loading">
+                        {{ loading ? t('contact.sending') || 'Sending...' : t('contact.send') }}
                     </Button>
 
                     <p v-if="status === 'success'" class="text-green-400 text-center font-medium">
@@ -62,7 +62,7 @@
 <script setup lang="ts">
     const { t } = useI18n()
     const { isVisible, elementRef } = useScrollAnimation()
-    const { getPersonalInfo } = useApi()
+    const { getPersonalInfo, sendContact } = useApi()
 
     const { data: personalInfoData } = await getPersonalInfo()
 
@@ -71,15 +71,23 @@
 
     const form = reactive({ name: '', email: '', message: '' })
     const status = ref<'idle' | 'success' | 'error'>('idle')
+    const loading = ref(false)
 
-    function handleSubmit() {
-        status.value = 'success'
-        setTimeout(() => {
+    async function handleSubmit() {
+        loading.value = true
+        try {
+            await sendContact({ name: form.name, email: form.email, message: form.message })
+            status.value = 'success'
             form.name = ''
             form.email = ''
             form.message = ''
-            status.value = 'idle'
-        }, 3000)
+            setTimeout(() => { status.value = 'idle' }, 3000)
+        } catch {
+            status.value = 'error'
+            setTimeout(() => { status.value = 'idle' }, 3000)
+        } finally {
+            loading.value = false
+        }
     }
 </script>
 
