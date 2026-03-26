@@ -19,7 +19,7 @@
             </p>
           </div>
         </div>
-        <div class="px-6 py-2 rounded-full border border-gray-200 dark:border-gray-700 font-bold text-primary dark:text-white uppercase tracking-widest text-sm slide-up-delay-2">
+        <div class="px-6 py-2 rounded-full border border-gray-200 dark:border-gray-700 font-bold text-primary dark:text-white uppercase tracking-widest text-sm slide-up-delay-2 whitespace-nowrap">
           {{ experience.period }}
         </div>
       </div>
