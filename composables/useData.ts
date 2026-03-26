@@ -234,7 +234,7 @@ export const useData = () => {
     {
       id: "2",
       role: "Frontend Developer",
-      company: "Digital Agency",
+      company: "Login & Register with Google",
       period: "2025 - 2026",
       description: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
       technologies: ["Vue.js", "JavaScript", "CSS3", "Node.js"],

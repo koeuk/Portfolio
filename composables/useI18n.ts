@@ -140,9 +140,9 @@ const translations: Translations = {
     zh: "使用 Java Swing 开发桌面端 YouTube 界面，并采用 Oracle SQL 进行数据库管理。专注于创建稳健、高性能的用户体验，实现直接的 JDBC 集成。",
   },
   "experience.2.role": {
-    en: "Digital Agency",
-    km: "ភ្នាក់ងារឌីជីថល",
-    zh: "数字代理公司",
+    en: "Login & Register with Google",
+    km: "ចូលប្រើ និងចុះឈ្មោះជាមួយ Google",
+    zh: "使用 Google 登录和注册",
   },
   "experience.2.company": {
     en: "Frontend Developer",
