@@ -238,6 +238,14 @@ export const useData = () => {
       period: "2025 - 2026",
       description: "The primary purpose of LaravelLogin_register is to serve as a robust Authentication Boilerplate (or starter kit) for a modern web application.",
       technologies: ["Vue.js", "Inertia.js", "Laravel 12", "Tailwind CSS"],
+      images: [
+        "/images/experience/2/login.png",
+        "/images/experience/2/google-auth.png",
+        "/images/experience/2/google-choose-account.png",
+        "/images/experience/2/google-auth-confirm.png",
+        "/images/experience/2/dashboard.png",
+        "/images/experience/2/profile.png"
+      ],
       categories: [
         {
           id: 'purpose_section',
