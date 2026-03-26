@@ -236,8 +236,45 @@ export const useData = () => {
       role: "Frontend Developer",
       company: "Login & Register with Google",
       period: "2025 - 2026",
-      description: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
-      technologies: ["Vue.js", "JavaScript", "CSS3", "Node.js"],
+      description: "The primary purpose of LaravelLogin_register is to serve as a robust Authentication Boilerplate (or starter kit) for a modern web application.",
+      technologies: ["Vue.js", "Inertia.js", "Laravel 12", "Tailwind CSS"],
+      categories: [
+        {
+          id: 'purpose_section',
+          items: [
+            {
+              id: 'core_purpose',
+              subheading: 'Instead of writing an entire login structure from scratch every time you start a new application, this repository provides:',
+              points: ['standard_login', 'sso_integration', 'dashboard_profile']
+            }
+          ]
+        },
+        {
+          id: 'tech_section',
+          items: [
+            {
+              id: 'stack',
+              subheading: 'This project is built using the VILT Stack (Vue, Inertia, Laravel, Tailwind), a modern and highly popular tech stack combo:',
+              points: ['backend', 'frontend', 'inertia', 'styling', 'auth_pkg', 'bundler']
+            }
+          ]
+        },
+        {
+          id: 'workflow_section',
+          items: [
+            {
+              id: 'guest_auth',
+              subheading: 'A. Guest Access & Authentication. When a guest visits the root URL (/), they are automatically redirected to Login.vue.',
+              points: ['standard_choice', 'social_choice', 'social_callback']
+            },
+            {
+              id: 'auth_state',
+              subheading: 'B. Authenticated State',
+              points: ['dashboard', 'profile_management', 'logout']
+            }
+          ]
+        }
+      ]
     },
     {
       id: "3",

@@ -150,9 +150,93 @@ const translations: Translations = {
     zh: "前端开发工程师",
   },
   "experience.2.description": {
-    en: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
-    km: "បង្កើតកម្មវិធីវេបឆ្លើយតប និងមានប្រសិទ្ធភាពសម្រាប់អតិថិជនផ្សេងៗ។ សហការជាមួយអ្នករចនា និងក្រុម backend ដើម្បីផ្តល់បទពិសោធន៍អ្នកប្រើប្រាស់ល្អ។",
-    zh: "为不同客户构建响应式高性能Web应用程序。与设计师和后端团队合作，交付精致的用户体验。",
+    en: "The primary purpose of LaravelLogin_register is to serve as a robust Authentication Boilerplate (or starter kit) for a modern web application.",
+    km: "គោលបំណងចម្បងនៃ LaravelLogin_register គឺដើម្បីបម្រើជាឧបករណ៍ផ្ទៀងផ្ទាត់រឹងមាំ (ឬកញ្ចប់ចាប់ផ្តើម) សម្រាប់កម្មវិធីវេបទំនើប។",
+    zh: "LaravelLogin_register 的主要目的是作为现代 Web 应用程序的强大身份验证样板（或入门套件）。",
+  },
+  "experience.2.purpose_section.title": { en: "1. The Purpose", km: "1. គោលបំណង", zh: "1. 目的" },
+  "experience.2.purpose_section.core_purpose.label": { en: "Core Purpose", km: "គោលបំណងចម្បង", zh: "核心目的" },
+  "experience.2.purpose_section.core_purpose.standard_login": { 
+    en: "A fully functional standard login and registration system.", 
+    km: "ប្រព័ន្ធចូលប្រើ និងចុះឈ្មោះធម្មតាដែលដំណើរការពេញលេញ។", 
+    zh: "功能齐全的标准登录和注册系统。" 
+  },
+  "experience.2.purpose_section.core_purpose.sso_integration": { 
+    en: "Seamless Single Sign-On (SSO) integration linking a user to their Google, Facebook, and Apple accounts.", 
+    km: "ការរួមបញ្ចូល Single Sign-On (SSO) យ៉ាងរលូនដែលភ្ជាប់អ្នកប្រើប្រាស់ទៅគណនី Google, Facebook និង Apple របស់ពួកគេ។", 
+    zh: "无缝的单点登录 (SSO) 集成，将用户链接到他们的 Google、Facebook 和 Apple 帐户。" 
+  },
+  "experience.2.purpose_section.core_purpose.dashboard_profile": { 
+    en: "A dashboard and user profile management page where users can update their details and passwords securely.", 
+    km: "ផ្ទាំងគ្រប់គ្រង និងទំព័រគ្រប់គ្រងប្រវត្តិរូបអ្នកប្រើប្រាស់ដែលអ្នកប្រើប្រាស់អាចធ្វើបច្ចុប្បន្នភាពព័ត៌មានលម្អិត និងពាក្យសម្ងាត់របស់ពួកគេដោយសុវត្ថិភាព។", 
+    zh: "仪表板和用户个人资料管理页面，用户可以在其中安全地更新其详细信息和密码。" 
+  },
+
+  "experience.2.tech_section.title": { en: "🛠 2. Programs and Technologies Used", km: "🛠 2. កម្មវិធី និងបច្ចេកវិទ្យាដែលបានប្រើ", zh: "🛠 2. 使用的程序和技术" },
+  "experience.2.tech_section.stack.label": { en: "VILT Stack", km: "បច្ចេកវិទ្យា VILT Stack", zh: "VILT 技术栈" },
+  "experience.2.tech_section.stack.backend": { 
+    en: "Backend / Core Engine: Laravel 12 (PHP 8.2+). Laravel handles all business logic, database queries, routing, middleware security, and session management.", 
+    km: "ខ្នងបង្អែក / ម៉ាស៊ីនស្នូល: Laravel 12 (PHP 8.2+)។ Laravel ដោះស្រាយតក្កវិទ្យាអាជីវកម្ម សំណួរមូលដ្ឋានទិន្នន័យ ផ្លូវ សុវត្ថិភាព middleware និងការគ្រប់គ្រងសម័យប្រជុំ។", 
+    zh: "后端/核心引擎：Laravel 12 (PHP 8.2+)。Laravel 处理所有业务逻辑、数据库查询、路由、中间件安全和会话管理。" 
+  },
+  "experience.2.tech_section.stack.frontend": { 
+    en: "Frontend UI: Vue.js 3 (JavaScript). Vue handles all the interactive visual elements (components, pages, forms).", 
+    km: "UI ផ្នែកខាងមុខ: Vue.js 3 (JavaScript)។ Vue គ្រប់គ្រងកម្មវិធីអន្តរកម្មដែលអាចមើលឃើញទាំងអស់ (សមាសភាគ ទំព័រ ទម្រង់)។", 
+    zh: "前端 UI：Vue.js 3（JavaScript）。Vue 处理所有交互式视觉元素（组件、页面、表单）。" 
+  },
+  "experience.2.tech_section.stack.inertia": { 
+    en: "The Bridge: Inertia.js. Inertia acts as the 'glue' between Laravel and Vue. It allows you to build a Single-Page Application (SPA) without needing to configure complex, separate REST APIs.", 
+    km: "ស្ពានភ្ជាប់: Inertia.js ជា 'កាវ' រវាង Laravel និង Vue។ វាអនុញ្ញាតឱ្យអ្នកបង្កើតកម្មវិធី Single-Page (SPA) មួយដោយមិនចាំបាច់មាន REST APIs ដាច់ដោយឡែកដ៏ស្មុគស្មាញ។", 
+    zh: "桥梁：Inertia.js 充当 Laravel 和 Vue 之间的“粘合剂”。它允许您构建单页应用程序 (SPA)，而无需配置复杂的独立 REST API。" 
+  },
+  "experience.2.tech_section.stack.styling": { 
+    en: "Styling: Tailwind CSS 4.0. A utility-first CSS framework used to design the user interface without writing custom CSS files.", 
+    km: "ការរចនា: Tailwind CSS 4.0។ ជា framework CSS សម្រាប់រចនាចំណុចប្រទាក់អ្នកប្រើប្រាស់ដោយមិនសរសេរឯកសារ CSS ផ្ទាល់ខ្លួន។", 
+    zh: "样式：Tailwind CSS 4.0。用于设计用户界面的实用优先 CSS 框架，无需编写自定义 CSS 文件。" 
+  },
+  "experience.2.tech_section.stack.auth_pkg": { 
+    en: "Authentication Package: Laravel Socialite. Makes social OAuth integrations (Google, Facebook, Apple) incredibly simple and secure.", 
+    km: "កញ្ចប់ផ្ទៀងផ្ទាត់: Laravel Socialite ធ្វើឱ្យការរួមបញ្ចូលសង្គម OAuth ងាយស្រួល និងមានសុវត្ថិភាព។", 
+    zh: "身份验证包：Laravel Socialite。使社交 OAuth 集成不仅简单而且非常安全。" 
+  },
+  "experience.2.tech_section.stack.bundler": { 
+    en: "Bundler: Vite. Responsible for compiling and hot-reloading your Vue components and Tailwind styles during development.", 
+    km: "Bundler: Vite។ ទទួលខុសត្រូវក្នុងការចងក្រង និងផ្ទុកឡើងវិញសមាសភាគ Vue របស់អ្នកកំឡុងពេលអភិវឌ្ឍ។", 
+    zh: "打包工具：Vite。负责在开发过程中编译和热重载 Vue 组件和 Tailwind 样式。" 
+  },
+
+  "experience.2.workflow_section.title": { en: "🔄 3. Application Workflow", km: "🔄 3. លំហូរការងាររបស់កម្មវិធី", zh: "🔄 3. 应用程序工作流程" },
+  "experience.2.workflow_section.guest_auth.label": { en: "Guest Access & Authentication", km: "ការចូលប្រើរបស់អ្នកទស្សនា និងផ្ទៀងផ្ទាត់", zh: "访客访问和身份验证" },
+  "experience.2.workflow_section.guest_auth.standard_choice": { 
+    en: "Choice of Login (Standard): A user submits their email and password. The LoginController validates it and creates a session.", 
+    km: "ជម្រើសចូលប្រើ (ធម្មតា): អ្នកប្រើប្រាស់បញ្ជូនអ៊ីមែល និងពាក្យសម្ងាត់។ LoginController ផ្ទៀងផ្ទាត់ និងបង្កើតសម័យថ្មី។", 
+    zh: "登录选择（标准）：用户提交其邮箱和密码。LoginController 对其进行验证并创建会话。" 
+  },
+  "experience.2.workflow_section.guest_auth.social_choice": { 
+    en: "Social Login: A user clicks 'Sign in with Google'. The GoogleController calls Socialite to redirect the user to Google's permission screen.", 
+    km: "ការចូលប្រើតាមប្រព័ន្ធសង្គម: ចុច 'ចូលប្រើជាមួយ Google'។ GoogleController ហៅ Socialite ទៅទំព័រអនុញ្ញាតរបស់ Google។", 
+    zh: "社交登录：用户点击“使用 Google 登录”。GoogleController 调起 Socialite 重定向到谷歌权限界面。" 
+  },
+  "experience.2.workflow_section.guest_auth.social_callback": { 
+    en: "Callback: The app reads the user's Google ID. If it's a new user, it saves their info and logs them in automatically.", 
+    km: "កម្មវិធីអាន Google ID របស់អ្នកប្រើប្រាស់។ ប្រសិនបើថ្មី វារក្សាទុកព័ត៌មាន និងឱ្យពួកគេចូលដោយស្វ័យប្រវត្តិ។", 
+    zh: "回调：应用程序读取用户的 Google ID。如果是新用户，则自动生成用户保存并登录。" 
+  },
+  "experience.2.workflow_section.auth_state.label": { en: "Authenticated State", km: "រដ្ឋដែលបានផ្ទៀងផ្ទាត់", zh: "已验证状态" },
+  "experience.2.workflow_section.auth_state.dashboard": { 
+    en: "Dashboard: User is redirected to /dashboard. Protected by auth middleware, only logged-in users can reach it.", 
+    km: "ផ្ទាំងគ្រប់គ្រង: បញ្ជូនទៅកាន់ /dashboard ការពារដោយ auth middleware មានតែអ្នកចូលទើបអាចមើលបាន។", 
+    zh: "仪表板：重定向到受到 auth 中间件保护的 /dashboard。唯有登录用户才可访问。" 
+  },
+  "experience.2.workflow_section.auth_state.profile_management": { 
+    en: "Profile Management: Navigate to /profile to update standard info (fullname, username) and change password securely.", 
+    km: "គ្រប់គ្រងប្រវត្តិរូប: ចូលទៅកាន់ /profile ដើម្បីធ្វើបច្ចុប្បន្នភាពព័ត៌មាន និងប្តូរពាក្យសម្ងាត់ដោយសុវត្ថិភាព។", 
+    zh: "资料管理：导航到 /profile 以更新标准信息（姓名、用户名）并安全更改密码。" 
+  },
+  "experience.2.workflow_section.auth_state.logout": { 
+    en: "Logout: Triggers a POST request to /logout, destroying the secure session and sending user back to login page.", 
+    km: "ចាកចេញ: កេះស្នើសុំ POST ទៅកាន់ /logout លុបសម័យ និងបញ្ជូនអ្នកប្រើប្រាស់ត្រឡប់ទៅទំព័រចូលប្រើវិញ។", 
+    zh: "注销：触发对 /logout 的 POST 请求，销毁安全会话并返回登录页面。" 
   },
   "experience.3.role": {
     en: "Innovation Lab",
