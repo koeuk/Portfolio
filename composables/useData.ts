@@ -1,0 +1,300 @@
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  featured?: boolean;
+}
+
+export interface Skill {
+  name: string;
+  icon: string;
+  category: "frontend" | "backend" | "tools";
+}
+
+export interface ExperienceCategory {
+  id: string;
+  points: string[];
+  subheading?: string;
+  period?: string;
+  technologies?: string[];
+}
+
+export interface Experience {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  description: string;
+  technologies: string[];
+  images?: string[];
+  categories?: {
+    id: string;
+    items: ExperienceCategory[];
+  }[];
+  keyDifferences?: {
+    id: string;
+  }[];
+}
+
+export const useData = () => {
+  const personalInfo = {
+    name: "Koeuk Dev",
+    image: '/images/koeuk.jpg', // ✅ Correct path
+    role: "Web Developer & Creative Thinker",
+    email: "koeukkos@gmail.com",
+    github: "https://github.com/koeuk",
+    linkedin: "https://www.linkedin.com/in/koeuk-kos-130482299/",
+    telegram: "https://t.me/koeuk24",
+    facebook: "https://facebook.com/koeuk24",
+    bio: "Passionate web developer with expertise in modern JavaScript frameworks. I specialize in building beautiful, responsive websites and applications that solve real-world problems. With a focus on clean code and exceptional user experiences, I bring ideas to life through technology.",
+  };
+
+  const projects: Project[] = [
+    {
+      id: "1",
+      title: "E-Commerce Platform",
+      description:
+        "Full-stack e-commerce solution with secure payment integration, inventory management, and modern shopping experience",
+      image: "/images/projects/ecommerce.jpg",
+      technologies: ["Nuxt.js", "TypeScript", "Stripe", "PostgreSQL"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/yourusername/ecommerce",
+      featured: true,
+    },
+    {
+      id: "2",
+      title: "Task Management App",
+      description:
+        "Collaborative task manager with real-time updates, drag-and-drop functionality, and team collaboration features",
+      image: "/images/projects/taskapp.jpg",
+      technologies: ["Vue.js", "Firebase", "Tailwind CSS"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/yourusername/taskapp",
+      featured: true,
+    },
+    {
+      id: "3",
+      title: "Portfolio Website",
+      description:
+        "Clean and modern portfolio showcasing projects with smooth animations and responsive design",
+      image: "/images/projects/portfolio.jpg",
+      technologies: ["Nuxt.js", "TypeScript", "Tailwind CSS"],
+      githubUrl: "https://github.com/yourusername/portfolio",
+      featured: true,
+    },
+    {
+      id: "4",
+      title: "Weather Dashboard",
+      description:
+        "Real-time weather application with beautiful visualizations, forecasts, and location-based services",
+      image: "/images/projects/weather.jpg",
+      technologies: ["Vue.js", "OpenWeather API", "Chart.js"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/yourusername/weather",
+      featured: true,
+    },
+    {
+      id: "5",
+      title: "Social Media App",
+      description:
+        "Modern social platform with real-time messaging, post sharing, and user interactions",
+      image: "/images/projects/social.jpg",
+      technologies: ["Nuxt.js", "Socket.io", "MongoDB"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/yourusername/social",
+      featured: true,
+    },
+    {
+      id: "6",
+      title: "Blog Platform",
+      description:
+        "Content management system with markdown support, SEO optimization, and admin dashboard",
+      image: "/images/projects/blog.jpg",
+      technologies: ["Nuxt.js", "Prisma", "PostgreSQL"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/yourusername/blog",
+      featured: true,
+    },
+    {
+      id: "7",
+      title: "Fitness Tracker",
+      description:
+        "Health and fitness app with workout tracking, progress charts, and personalized plans",
+      image: "/images/projects/fitness.jpg",
+      technologies: ["Vue.js", "Node.js", "MongoDB"],
+      liveUrl: "https://example.com",
+      githubUrl: "https://github.com/yourusername/fitness",
+      featured: true,
+    },
+  ];
+
+  const skills: Skill[] = [
+    { name: "HTML5", icon: "🌐", category: "frontend" },
+    { name: "CSS3", icon: "🎨", category: "frontend" },
+    { name: "JavaScript", icon: "⚡", category: "frontend" },
+    { name: "TypeScript", icon: "📘", category: "frontend" },
+    { name: "Vue.js", icon: "💚", category: "frontend" },
+    { name: "Nuxt.js", icon: "💎", category: "frontend" },
+    { name: "Tailwind CSS", icon: "🎯", category: "frontend" },
+    { name: "Node.js", icon: "🟢", category: "backend" },
+    { name: "Git", icon: "📦", category: "tools" },
+    { name: "VS Code", icon: "💻", category: "tools" },
+  ];
+
+  const experiences: Experience[] = [
+    {
+      id: "1",
+      role: "YouTube UI Project",
+      company: "Build simple UI YouTube",
+      period: "2026 - Present",
+      description: "Developed a desktop-based YouTube interface using Java Swing for the frontend and Oracle SQL for the database management. Focused on creating a robust, high-performance user experience with direct JDBC integration.",
+      technologies: ["Java", "Java Swing", "Oracle SQL"],
+      images: [
+        "/images/experience/1/login.png",
+        "/images/experience/1/dashboard.png",
+        "/images/experience/1/manage-users.png",
+        "/images/experience/1/user-detail.png",
+        "/images/experience/1/manage-videos.png",
+        "/images/experience/1/categories.png",
+        "/images/experience/1/tags.png",
+        "/images/experience/1/comments.png"
+      ],
+      categories: [
+        {
+          id: 'web_interface',
+          items: [
+            {
+              id: 'discovery',
+              period: 'WEB MODULE',
+              subheading: 'Content Delivery Network',
+              points: ['homepage', 'search', 'watch_page', 'subscriptions', 'history'],
+              technologies: ['Thumbnail Display', 'Video Duration', 'View Counts']
+            },
+            {
+              id: 'interaction',
+              period: 'SOCIAL',
+              subheading: 'Community Engagement',
+              points: ['comments', 'channel_pages'],
+              technologies: ['Swing UI', 'Event Listeners']
+            },
+            {
+              id: 'creator_tools',
+              period: 'TOOLS',
+              subheading: 'Video Management System',
+              points: ['upload_video', 'management', 'analytics', 'channel_customization'],
+              technologies: ['Oracle BFILEs', 'File I/O']
+            }
+          ]
+        },
+        {
+          id: 'admin_interface',
+          items: [
+            {
+              id: 'overview',
+              period: 'ADMIN',
+              subheading: 'Core System Management',
+              points: ['global_stats', 'visual_analytics'],
+              technologies: ['Admin Dash', 'Chart Logic']
+            },
+            {
+              id: 'user_management',
+              period: 'USERS',
+              subheading: 'Full Access Control',
+              points: ['user_crud', 'access_control', 'role_management'],
+              technologies: ['Security', 'CRUD']
+            },
+            {
+              id: 'content_moderation',
+              period: 'MODERATION',
+              subheading: 'Security & Moderation',
+              points: ['video_crud', 'upload_queue', 'metadata_control'],
+              technologies: ['Approval Workflow', 'JDBC']
+            },
+            {
+              id: 'system_features',
+              period: 'SYSTEM',
+              subheading: 'Platform Configuration',
+              points: ['theme_toggle', 'interface_switching'],
+              technologies: ['Swing Themes', 'State Management']
+            }
+          ]
+        }
+      ],
+      keyDifferences: [
+        { id: 'video_management' },
+        { id: 'user_management' },
+        { id: 'moderation' },
+        { id: 'target_audience' }
+      ]
+    },
+    {
+      id: "2",
+      role: "Frontend Developer",
+      company: "Digital Agency",
+      period: "2025 - 2026",
+      description: "Built responsive and performant web applications for diverse clients. Collaborated with designers and backend teams to deliver polished user experiences.",
+      technologies: ["Vue.js", "JavaScript", "CSS3", "Node.js"],
+    },
+    {
+      id: "3",
+      role: "UI/UX Engineer",
+      company: "Innovation Lab",
+      period: "2024 - 2025",
+      description: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",
+      technologies: ["Vue.js", "Figma", "Sass", "Cypress"],
+    },
+    {
+      id: "4",
+      role: "Junior Web Developer",
+      company: "Startup Inc",
+      period: "2024 - 2025",
+      description: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Git"],
+    },
+    {
+      id: "5",
+      role: "Web Development Intern",
+      company: "Creative Studio",
+      period: "2025 - 2026",
+      description: "Assisted in the development of responsive landing pages and email templates. Learned industry best practices for clean code and performance optimization.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    },
+    {
+      id: "6",
+      role: "Freelance Developer",
+      company: "Self-Employed",
+      period: "2024 - 2025",
+      description: "Designed and developed custom websites for small businesses. Managed full project lifecycles from initial concept to deployment and maintenance.",
+      technologies: ["WordPress", "PHP", "jQuery", "MySQL"],
+    },
+    {
+      id: "7",
+      role: "Open Source Contributor",
+      company: "GitHub Community",
+      period: "2024 - 2025",
+      description: "Contributed to various open-source projects, fixing bugs and implementing new features. Collaborated with developers worldwide and improved code quality.",
+      technologies: ["Git", "Markdown", "JavaScript", "Testing"],
+    },
+  ];
+
+  const badges = [
+    "Frontend Development",
+    "Responsive Design",
+    "TypeScript",
+    "Modern Frameworks",
+    "UI/UX Design",
+    "Problem Solving",
+  ];
+
+  return {
+    personalInfo,
+    projects,
+    skills,
+    experiences,
+    badges,
+  };
+};
