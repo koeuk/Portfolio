@@ -112,13 +112,13 @@
                 </svg>
               </a>
             </div>
-            <a href="https://github.com/koeuk" target="_blank" rel="noopener noreferrer"
+            <NuxtLink to="/github"
               class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-600 text-gray-300 hover:bg-white hover:text-[#0d1117] font-semibold transition-all hover:scale-105">
               View More
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </NuxtLink>
           </div>
         </div>
       </div>
