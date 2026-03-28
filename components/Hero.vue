@@ -16,8 +16,16 @@
         <div class="absolute inset-0 overflow-hidden">
             <div class="orb orb-1"></div>
             <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-            <div class="orb orb-4"></div>
+        </div>
+
+        <!-- Floating Profile Images -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="profile-float profile-float-1">
+                <img src="/images/profile.jpg" alt="" class="w-full h-full object-cover rounded-full" />
+            </div>
+            <div class="profile-float profile-float-2">
+                <img src="/images/profile.jpg" alt="" class="w-full h-full object-cover rounded-full" />
+            </div>
         </div>
 
         <!-- Animated Lines -->
@@ -247,24 +255,68 @@
     animation-duration: 18s;
 }
 
-.orb-3 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    top: 40%;
-    right: 15%;
-    animation-delay: -10s;
-    animation-duration: 22s;
+/* Floating Profile Images */
+.profile-float {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1), 0 0 80px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    opacity: 0.4;
 }
 
-.orb-4 {
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
-    bottom: 20%;
-    left: 5%;
-    animation-delay: -7s;
-    animation-duration: 25s;
+.profile-float-1 {
+    width: 180px;
+    height: 180px;
+    bottom: 15%;
+    left: 8%;
+    animation: profileFloat1 18s ease-in-out infinite;
+}
+
+.profile-float-2 {
+    width: 220px;
+    height: 220px;
+    top: 15%;
+    right: 8%;
+    animation: profileFloat2 22s ease-in-out infinite;
+}
+
+@keyframes profileFloat1 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translate(20px, -30px) rotate(5deg) scale(1.05);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-15px, 20px) rotate(-3deg) scale(0.95);
+        opacity: 0.35;
+    }
+    75% {
+        transform: translate(25px, 10px) rotate(4deg) scale(1.02);
+        opacity: 0.45;
+    }
+}
+
+@keyframes profileFloat2 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.35;
+    }
+    25% {
+        transform: translate(-25px, 20px) rotate(-4deg) scale(0.95);
+        opacity: 0.45;
+    }
+    50% {
+        transform: translate(20px, -25px) rotate(5deg) scale(1.05);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate(-10px, -15px) rotate(-3deg) scale(0.98);
+        opacity: 0.5;
+    }
 }
 
 @keyframes orbFloat {
