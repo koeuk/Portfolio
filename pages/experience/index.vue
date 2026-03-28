@@ -93,17 +93,18 @@ const availableYears = computed(() => {
   const allowed = ['2026', '2025', '2024']
   const years = new Set<string>()
   experiences.forEach(exp => {
-    const startYear = exp.period.split(' ')[0]
-    if (startYear && allowed.includes(startYear)) years.add(startYear)
+    allowed.forEach(y => {
+      if (exp.period.includes(y)) years.add(y)
+    })
   })
   return Array.from(years).sort((a, b) => b.localeCompare(a))
 })
 
 const filteredExperiences = computed(() => {
   const allowed = ['2026', '2025', '2024']
-  const baseSet = experiences.filter(exp => allowed.includes(exp.period.split(' ')[0]))
+  const baseSet = experiences.filter(exp => allowed.some(y => exp.period.includes(y)))
   if (selectedYear.value === 'All') return baseSet
-  return baseSet.filter(exp => exp.period.startsWith(selectedYear.value))
+  return baseSet.filter(exp => exp.period.includes(selectedYear.value))
 })
 
 useHead({
