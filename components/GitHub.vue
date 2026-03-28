@@ -5,7 +5,7 @@
         GitHub
       </h2>
 
-      <div class="section-content max-w-5xl mx-auto px-4">
+      <div class="section-content max-w-7xl mx-auto px-4">
         <div class="p-6 sm:p-8 rounded-2xl bg-[#0d1117] border border-gray-700 text-white">
           <!-- Header -->
           <div class="flex items-center gap-3 mb-2">
