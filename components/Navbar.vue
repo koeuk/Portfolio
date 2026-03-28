@@ -99,9 +99,10 @@
 
     const navLinks = [
         { href: '/#home', label: 'nav.home' },
-        { href: '/#projects', label: 'nav.projects' },
         { href: '/#skills', label: 'nav.skills' },
-        { href: '/#experience', label: 'nav.experience' },
+        { href: '/#github', label: 'nav.github' },
+        { href: '/#experience', label: 'nav.personalProjects' },
+        { href: '/#work-experience', label: 'nav.workExperience' },
         { href: '/#about', label: 'nav.about' },
         { href: '/#contact', label: 'nav.contact' },
         { href: '/blog', label: 'nav.blog', isPage: true }
