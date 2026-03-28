@@ -13,7 +13,7 @@ const translations: Translations = {
   "nav.home": { en: "Home", km: "ទំព័រដើម", zh: "首页" },
   "nav.projects": { en: "Projects", km: "គម្រោង", zh: "项目" },
   "nav.skills": { en: "Skills", km: "ជំនាញ", zh: "技能" },
-  "nav.experience": { en: "Experience", km: "បទពិសោធន៍", zh: "经验" },
+  "nav.experience": { en: "Personal Projects", km: "គម្រោងផ្ទាល់ខ្លួន", zh: "个人项目" },
   "nav.about": { en: "About", km: "អំពី", zh: "关于" },
   "nav.contact": { en: "Contact", km: "ទំនាក់ទំនង", zh: "联系" },
   "nav.blog": { en: "Blog", km: "ប្លក់", zh: "博客" },
@@ -80,9 +80,9 @@ const translations: Translations = {
 
   // Experience
   "experience.title": {
-    en: "Work Experience",
-    km: "បទពិសោធន៍ការងារ",
-    zh: "工作经验",
+    en: "Personal Projects",
+    km: "គម្រោងផ្ទាល់ខ្លួន",
+    zh: "个人项目",
   },
   "experience.1.role": {
     en: "Build simple UI YouTube",
