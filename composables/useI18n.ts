@@ -46,6 +46,36 @@ const translations: Translations = {
     km: "ជំនាញ និង បច្ចេកវិទ្យា",
     zh: "技能与技术",
   },
+  "skills.seeMore": {
+    en: "See More",
+    km: "មើលបន្ថែម",
+    zh: "查看更多",
+  },
+  "skills.all": {
+    en: "All Skills & Technologies",
+    km: "ជំនាញ និង បច្ចេកវិទ្យាទាំងអស់",
+    zh: "所有技能与技术",
+  },
+  "skills.frontend": {
+    en: "Frontend",
+    km: "ផ្នែកខាងមុខ",
+    zh: "前端",
+  },
+  "skills.backend": {
+    en: "Backend",
+    km: "ផ្នែកខាងក្រោយ",
+    zh: "后端",
+  },
+  "skills.tools": {
+    en: "Tools",
+    km: "ឧបករណ៍",
+    zh: "工具",
+  },
+  "skills.backHome": {
+    en: "Back to Home",
+    km: "ត្រឡប់ទំព័រដើម",
+    zh: "返回首页",
+  },
 
   // Experience
   "experience.title": {

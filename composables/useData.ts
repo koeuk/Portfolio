@@ -141,6 +141,7 @@ export const useData = () => {
     { name: "Nuxt.js", icon: "💎", category: "frontend" },
     { name: "Tailwind CSS", icon: "🎯", category: "frontend" },
     { name: "Node.js", icon: "🟢", category: "backend" },
+    { name: "Laravel", icon: "🔶", category: "backend" },
     { name: "Git", icon: "📦", category: "tools" },
     { name: "VS Code", icon: "💻", category: "tools" },
   ];

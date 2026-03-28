@@ -1,58 +1,73 @@
 <template>
-  <section id="skills" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
-    <div :class="{ 'section-visible': isVisible }">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 text-primary dark:text-white section-title">
-        {{ t('skills.title') }}
-      </h2>
+  <div class="min-h-screen bg-white dark:bg-primary pt-24 pb-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Back Button -->
+      <NuxtLink
+        to="/#skills"
+        class="inline-flex items-center gap-2 mb-10 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors font-medium"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        {{ t('skills.backHome') }}
+      </NuxtLink>
 
-      <!-- Infinite Scroll Container -->
-      <div class="relative section-content">
-        <div class="flex animate-scroll">
-          <!-- First set -->
-          <div class="flex gap-6 pr-6">
-            <div
-              v-for="skill in skills"
-              :key="skill.name"
-              class="skill-card flex-shrink-0 dark:bg-primary-light dark:border-gray-700"
-            >
-              <div class="w-12 h-12 mb-2" v-html="getIcon(skill.name)"></div>
-              <p class="font-semibold text-sm text-gray-700 dark:text-gray-200">{{ skill.name }}</p>
-            </div>
-          </div>
-          <!-- Duplicate for seamless loop -->
-          <div class="flex gap-6 pr-6">
-            <div
-              v-for="skill in skills"
-              :key="'dup-' + skill.name"
-              class="skill-card flex-shrink-0 dark:bg-primary-light dark:border-gray-700"
-            >
-              <div class="w-12 h-12 mb-2" v-html="getIcon(skill.name)"></div>
-              <p class="font-semibold text-sm text-gray-700 dark:text-gray-200">{{ skill.name }}</p>
-            </div>
+      <!-- Page Title -->
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-primary dark:text-white">
+        {{ t('skills.all') }}
+      </h1>
+
+      <!-- Skills by Category -->
+      <div v-for="category in categories" :key="category.key" class="mb-16">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8 text-primary dark:text-white flex items-center gap-3">
+          <span class="w-10 h-10 rounded-lg bg-primary/10 dark:bg-white/10 flex items-center justify-center text-lg">
+            {{ category.emoji }}
+          </span>
+          {{ t(`skills.${category.key}`) }}
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <div
+            v-for="skill in category.skills"
+            :key="skill.name"
+            class="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-105 hover:border-primary/30 dark:hover:border-white/30 transition-all duration-300 cursor-default"
+          >
+            <div class="w-14 h-14" v-html="getIcon(skill.name)"></div>
+            <p class="font-semibold text-gray-700 dark:text-gray-200 text-center">{{ skill.name }}</p>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 dark:bg-white/10 text-primary dark:text-gray-300">
+              {{ t(`skills.${skill.category}`) }}
+            </span>
           </div>
         </div>
       </div>
-
-      <!-- See More Button -->
-      <div class="flex justify-center mt-10 section-content">
-        <NuxtLink
-          to="/skills"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary dark:bg-white text-white dark:text-primary font-semibold hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg"
-        >
-          {{ t('skills.seeMore') }}
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </NuxtLink>
-      </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
 const { skills } = useData()
 const { t } = useI18n()
-const { isVisible, elementRef } = useScrollAnimation()
+
+useHead({
+  title: 'Skills & Technologies - Koeuk Dev',
+})
+
+const categories = computed(() => [
+  {
+    key: 'frontend',
+    emoji: '🎨',
+    skills: skills.filter(s => s.category === 'frontend'),
+  },
+  {
+    key: 'backend',
+    emoji: '🖥',
+    skills: skills.filter(s => s.category === 'backend'),
+  },
+  {
+    key: 'tools',
+    emoji: '🛠',
+    skills: skills.filter(s => s.category === 'tools'),
+  },
+].filter(c => c.skills.length > 0))
 
 const icons: Record<string, string> = {
   'HTML5': `<svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"/></svg>`,
@@ -72,40 +87,3 @@ function getIcon(name: string): string {
   return icons[name] || `<span class="text-4xl">💻</span>`
 }
 </script>
-
-<style scoped>
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-scroll {
-  animation: scroll 25s linear infinite;
-  will-change: transform;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
-}
-
-.section-title,
-.section-content {
-  opacity: 0;
-  filter: blur(10px);
-  transform: translateY(50px) scale(0.95);
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.section-visible .section-title {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0) scale(1);
-}
-
-.section-visible .section-content {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0) scale(1);
-  transition-delay: 0.15s;
-}
-</style>
