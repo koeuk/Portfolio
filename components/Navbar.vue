@@ -11,8 +11,13 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6">
                     <NuxtLink v-for="link in navLinks" :key="link.href" :to="link.href"
-                        class="text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-white transition-colors font-medium">
+                        class="transition-colors font-medium relative py-1"
+                        :class="currentActive === link.href
+                            ? 'text-primary dark:text-white'
+                            : 'text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white'">
                         {{ t(link.label) }}
+                        <span v-if="currentActive === link.href"
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary dark:bg-white rounded-full"></span>
                     </NuxtLink>
 
                     <!-- Language Selector -->
@@ -70,7 +75,10 @@
             <div v-if="isOpen"
                 class="md:hidden bg-white dark:bg-primary border-t border-gray-200 dark:border-gray-700 shadow-lg">
                 <NuxtLink v-for="link in navLinks" :key="link.href" :to="link.href" @click="isOpen = false"
-                    class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-primary-light text-gray-700 dark:text-gray-200 transition-colors">
+                    class="block px-4 py-3 transition-colors"
+                    :class="currentActive === link.href
+                        ? 'bg-gray-100 dark:bg-primary-light text-primary dark:text-white font-semibold border-l-4 border-primary dark:border-white'
+                        : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary-light'">
                     {{ t(link.label) }}
                 </NuxtLink>
                 <!-- Language selector mobile -->
@@ -93,15 +101,26 @@
     const { isDark, toggleTheme, initTheme } = useTheme()
     const { t, currentLang, setLanguage, initLang, languages } = useI18n()
 
+    const route = useRoute()
     const isOpen = ref(false)
     const scrolled = ref(false)
     const showLangMenu = ref(false)
+    const activeSection = ref('/#home')
+
+    const isHomePage = computed(() => route.path === '/')
+    const currentActive = computed(() => {
+        if (!isHomePage.value) {
+            const match = navLinks.find(l => route.path.startsWith(l.href.replace('/#', '/')) && !l.href.startsWith('/#'))
+            return match?.href || ''
+        }
+        return activeSection.value
+    })
 
     const navLinks = [
         { href: '/#home', label: 'nav.home' },
         { href: '/#skills', label: 'nav.skills' },
         { href: '/#github', label: 'nav.github' },
-        { href: '/#experience', label: 'nav.personalProjects' },
+        { href: '/#personal-projects', label: 'nav.personalProjects' },
         { href: '/#work-experience', label: 'nav.workExperience' },
         { href: '/#about', label: 'nav.about' },
         { href: '/#contact', label: 'nav.contact' },
@@ -132,6 +151,24 @@
 
     function handleScroll() {
         scrolled.value = window.scrollY > 20
+
+        // If at bottom of page, activate contact
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
+            activeSection.value = '/#contact'
+            return
+        }
+
+        const sections = ['home', 'skills', 'github', 'personal-projects', 'work-experience', 'about', 'contact']
+        const scrollPos = window.scrollY + 150
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const el = document.getElementById(sections[i])
+            if (el && el.offsetTop <= scrollPos) {
+                activeSection.value = `/#${sections[i]}`
+                return
+            }
+        }
+        activeSection.value = '/#home'
     }
 
     function closeLangMenu(e: Event) {

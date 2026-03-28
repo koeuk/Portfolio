@@ -1,5 +1,5 @@
 <template>
-  <section id="experience" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
+  <section id="personal-projects" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
     <div :class="{ 'section-visible': isVisible }">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
         <h2 class="text-4xl md:text-5xl lg:text-7xl font-bold text-primary dark:text-white section-title">
