@@ -64,7 +64,7 @@
               <p class="text-sm text-gray-500 dark:text-gray-400">Dec 2024 - Present</p>
               <h4 class="text-lg font-semibold text-violet-600 dark:text-violet-400 mb-2">Vehabooking</h4>
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                Worked on a hotel and travel booking platform, developing responsive UI components and integrating
+                Worked on Innovation Lab Hotel Booking platform, developing responsive UI components and integrating
                 booking APIs. Gained experience in real-world product development, agile workflows, and building
                 user-friendly interfaces for the hospitality industry.
               </p>
