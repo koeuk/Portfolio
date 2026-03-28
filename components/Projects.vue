@@ -1,23 +1,32 @@
 <template>
-    <section id="projects" ref="elementRef" class="section px-0 dark:bg-primary overflow-hidden">
+    <section id="projects" ref="elementRef" class="section dark:bg-primary overflow-hidden">
         <div :class="{ 'section-visible': isVisible }">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 text-primary dark:text-white section-title">
                 {{ t('projects.title') }}
             </h2>
 
-            <!-- Scrollable Container -->
-            <div class="relative overflow-hidden section-content">
-                <div class="flex animate-scroll-projects">
-                    <!-- First set -->
-                    <div class="flex gap-3 sm:gap-8 py-2">
-                        <ProjectCard v-for="(project, index) in featuredProjects" :key="project.id" :project="project"
-                            :index="index" class="w-[160px] h-[280px] sm:w-[380px] sm:h-[420px] flex-shrink-0" />
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="flex gap-3 sm:gap-8">
-                        <ProjectCard v-for="(project, index) in featuredProjects" :key="'dup-' + project.id"
-                            :project="project" :index="index" class="w-[160px] h-[280px] sm:w-[380px] sm:h-[420px] flex-shrink-0" />
-                    </div>
+            <!-- Projects Grid -->
+            <div class="section-content max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <ProjectCard
+                        v-for="(project, index) in visibleProjects"
+                        :key="project.id"
+                        :project="project"
+                        :index="index"
+                    />
+                </div>
+
+                <!-- See More Button -->
+                <div v-if="featuredProjects.length > initialCount && !showAll" class="flex justify-center mt-10">
+                    <button
+                        @click="showAll = true"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary dark:bg-white text-white dark:text-primary font-semibold hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg"
+                    >
+                        {{ t('projects.seeMore') }}
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -28,28 +37,17 @@
     const { projects } = useData()
     const { t } = useI18n()
     const { isVisible, elementRef } = useScrollAnimation()
+
     const featuredProjects = computed(() => projects.filter(p => p.featured))
+    const showAll = ref(false)
+    const initialCount = 3
+
+    const visibleProjects = computed(() =>
+        showAll.value ? featuredProjects.value : featuredProjects.value.slice(0, initialCount)
+    )
 </script>
 
 <style scoped>
-@keyframes scroll-projects {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.animate-scroll-projects {
-    animation: scroll-projects 40s linear infinite;
-    will-change: transform;
-}
-
-.animate-scroll-projects:hover {
-    animation-play-state: paused;
-}
-
 .section-title,
 .section-content {
     opacity: 0;

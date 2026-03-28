@@ -33,12 +33,13 @@ const translations: Translations = {
 
   // Projects
   "projects.title": {
-    en: "Featured Projects",
-    km: "គម្រោងពិសេស",
-    zh: "精选项目",
+    en: "Personal Projects",
+    km: "គម្រោងផ្ទាល់ខ្លួន",
+    zh: "个人项目",
   },
   "projects.code": { en: "Code", km: "កូដ", zh: "代码" },
   "projects.demo": { en: "Live Demo", km: "សាកល្បង", zh: "在线演示" },
+  "projects.seeMore": { en: "See More", km: "មើលបន្ថែម", zh: "查看更多" },
 
   // Skills
   "skills.title": {
