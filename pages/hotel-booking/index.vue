@@ -1,34 +1,28 @@
 <template>
   <div class="min-h-screen bg-[#0a0a0a] text-white">
-    <!-- Hero Banner -->
-    <div class="relative h-[50vh] flex items-center justify-center overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-violet-900/40 via-[#0a0a0a] to-blue-900/30"></div>
-      <div class="absolute inset-0 opacity-20"
-        style="background-image: radial-gradient(circle at 20% 50%, rgba(139,92,246,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(59,130,246,0.2) 0%, transparent 50%)">
-      </div>
-      <div class="relative z-10 text-center px-4">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-sm text-gray-300 mb-6">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Full-Stack Project
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-20 space-y-4">
+        <div class="space-y-4">
+          <NuxtLink to="/experience" class="group inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-all uppercase tracking-widest translate-x-0 hover:-translate-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Experience
+          </NuxtLink>
+          <div class="space-y-2 pt-4">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white">
+              Hotel Booking
+            </h1>
+            <p class="text-2xl md:text-3xl font-medium text-gray-400">
+              Hotel Booking System
+            </p>
+          </div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white via-violet-200 to-blue-200 bg-clip-text text-transparent">
-          Hotel Booking System
-        </h1>
-        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-          A complete hotel reservation platform with guest & admin interfaces
-        </p>
+        <div class="px-6 py-2 rounded-full border border-gray-700 font-bold text-white uppercase tracking-widest text-sm whitespace-nowrap">
+          2025 - 2026
+        </div>
       </div>
-    </div>
-
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-      <!-- Back -->
-      <NuxtLink to="/#personal-projects"
-        class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12 mt-8">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        Back
-      </NuxtLink>
 
       <!-- Tech Stack Pills -->
       <div class="flex flex-wrap gap-3 mb-16">
