@@ -1,7 +1,8 @@
 <template>
   <div>
     <Hero />
-    <Projects />
+    <!-- <Projects /> -->
+    <GitHub />
     <Skills />
     <Experience />
     <About />
