@@ -58,25 +58,16 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <form @submit.prevent="handleSubmit" class="space-y-5">
-                    <input v-model="form.name" type="text" :placeholder="t('contact.name')" class="input-field"
-                        required />
-                    <input v-model="form.email" type="email" :placeholder="t('contact.email')" class="input-field"
-                        required />
-                    <textarea v-model="form.message" :placeholder="t('contact.message')" rows="6"
-                        class="input-field resize-none" required></textarea>
-                    <Button variant="accent" size="lg" class="w-full">
+                <!-- Contact Form (disabled) -->
+                <div class="space-y-5 opacity-50 pointer-events-none select-none">
+                    <input type="text" :placeholder="t('contact.name')" class="input-field" disabled />
+                    <input type="email" :placeholder="t('contact.email')" class="input-field" disabled />
+                    <textarea :placeholder="t('contact.message')" rows="6"
+                        class="input-field resize-none" disabled></textarea>
+                    <Button variant="accent" size="lg" class="w-full" disabled>
                         {{ t('contact.send') }}
                     </Button>
-
-                    <p v-if="status === 'success'" class="text-green-400 text-center font-medium">
-                        {{ t('contact.success') }}
-                    </p>
-                    <p v-if="status === 'error'" class="text-red-400 text-center font-medium">
-                        {{ t('contact.error') }}
-                    </p>
-                </form>
+                </div>
             </div>
         </div>
     </section>
