@@ -49,7 +49,7 @@ export const useData = () => {
     github: "https://github.com/koeuk",
     linkedin: "https://www.linkedin.com/in/koeuk-kos-130482299/",
     telegram: "https://t.me/koeuk24",
-    facebook: "https://facebook.com/koeuk24",
+    facebook: "https://www.facebook.com/koeuk25/",
     bio: "Passionate web developer with expertise in modern JavaScript frameworks. I specialize in building beautiful, responsive websites and applications that solve real-world problems. With a focus on clean code and exceptional user experiences, I bring ideas to life through technology.",
   };
 
