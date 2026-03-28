@@ -288,10 +288,11 @@ export const useData = () => {
     {
       id: "3",
       role: "Hotel Booking",
-      company: "Hotel Booking",
-      period: "2024 - 2025",
-      description: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",
-      technologies: ["Vue.js", "Figma", "Sass", "Cypress"],
+      company: "Hotel Booking System",
+      period: "2025 - 2026",
+      description: "A full-featured hotel booking and management platform with guest browsing, room availability, payment processing, coupon system, reviews, and a complete admin dashboard with analytics and reports.",
+      technologies: ["Laravel 12", "React 18", "Inertia.js", "Tailwind CSS", "Shadcn UI", "MySQL"],
+      images: Array.from({ length: 39 }, (_, i) => `/images/hotel-booking/${i + 1}.png`),
     },
     {
       id: "4",
