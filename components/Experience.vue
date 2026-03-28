@@ -16,9 +16,9 @@
         </NuxtLink>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 section-content">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 section-content">
         <NuxtLink
-          v-for="(exp, index) in experiences.slice(0, 6)"
+          v-for="(exp, index) in experiences.slice(0, 8)"
           :key="exp.id"
           :to="`/experience/${exp.id}`"
           class="group card p-8 flex flex-col h-full border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
@@ -41,7 +41,7 @@
             {{ t(`experience.${exp.id}.company`) }}
           </p>
 
-          <p class="text-gray-600 dark:text-gray-300 line-clamp-3 mb-8 flex-grow">
+          <p class="text-gray-600 dark:text-gray-300 mb-8 flex-grow overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
             {{ t(`experience.${exp.id}.description`) }}
           </p>
 
