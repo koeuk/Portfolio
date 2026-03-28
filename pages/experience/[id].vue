@@ -287,6 +287,11 @@ const experience = computed(() => {
   return experiences.find(e => e.id === route.params.id)
 })
 
+// Redirect Hotel Booking to its dedicated page
+if (route.params.id === '3') {
+  navigateTo('/hotel-booking')
+}
+
 const nextImg = () => {
   if (!experience.value?.images) return
   currentImgIndex.value = (currentImgIndex.value + 1) % experience.value.images.length

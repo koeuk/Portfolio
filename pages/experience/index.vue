@@ -40,7 +40,7 @@
         <NuxtLink
           v-for="(exp, index) in filteredExperiences"
           :key="exp.id"
-          :to="`/experience/${exp.id}`"
+          :to="exp.id === '3' ? '/hotel-booking' : `/experience/${exp.id}`"
           class="group card p-8 flex flex-col h-full hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 slide-up"
           :class="`slide-up-delay-${Math.min(index + 1, 3)}`"
         >
