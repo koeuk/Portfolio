@@ -282,9 +282,9 @@ const translations: Translations = {
     zh: "酒店预订",
   },
   "experience.3.description": {
-    en: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",
-    km: "ភ្ជាប់គំលាតរវាងការរចនា និងការអភិវឌ្ឍន៍។ បង្កើតគំរូ prototype កម្រិតខ្ពស់ និងអនុវត្តសមាសភាគ UI ស្មុគស្មាញដោយផ្តោតលើ accessibility។",
-    zh: "弥合设计与开发之间的差距。创建高保真原型并实现复杂的 UI 组件，重点关注可访问性。",
+    en: "A full-featured hotel booking and management platform with guest browsing, room availability, payment processing, coupon system, reviews, and a complete admin dashboard with analytics and reports.",
+    km: "វេទិកាកក់សណ្ឋាគារពេញលក្ខណៈ ជាមួយការរុករកសម្រាប់ភ្ញៀវ ការពិនិត្យបន្ទប់ទំនេរ ការទូទាត់ ប្រព័ន្ធគូប៉ុង ការវាយតម្លៃ និងផ្ទាំងគ្រប់គ្រងរដ្ឋបាលពេញលេញ។",
+    zh: "功能齐全的酒店预订和管理平台，具有客户浏览、房间可用性、支付处理、优惠券系统、评论和完整的管理仪表板。",
   },
   "experience.4.role": {
     en: "Startup Inc",
