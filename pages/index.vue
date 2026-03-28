@@ -2,9 +2,10 @@
   <div>
     <Hero />
     <!-- <Projects /> -->
-    <GitHub />
     <Skills />
+    <GitHub />
     <Experience />
+    <WorkExperience />
     <About />
     <Contact />
   </div>
