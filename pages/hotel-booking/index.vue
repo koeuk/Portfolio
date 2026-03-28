@@ -89,8 +89,8 @@
       <div class="mb-16">
         <h2 class="text-3xl font-bold mb-8">Screenshots</h2>
         <div class="columns-1 md:columns-2 gap-4 space-y-4">
-          <div v-for="i in 39" :key="i"
-            class="break-inside-avoid rounded-xl overflow-hidden border border-white/10 hover:border-violet-500/40 transition-all cursor-pointer group"
+          <div v-for="i in imageIndices" :key="i"
+            class="break-inside-avoid rounded-xl overflow-hidden transition-all cursor-pointer group"
             @click="openLightbox(i)">
             <img
               :src="`/images/hotel-booking/${i}.png`"
@@ -140,7 +140,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </button>
-          <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">{{ lightboxImage }} / 39</p>
+          <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">{{ lightboxImage! - 3 }} / 36</p>
         </div>
       </Transition>
     </Teleport>
@@ -150,11 +150,12 @@
 <script setup lang="ts">
 useHead({ title: 'Hotel Booking System - Koeuk Dev' })
 
+const imageIndices = Array.from({ length: 36 }, (_, i) => i + 4)
 const lightboxImage = ref<number | null>(null)
 
 function openLightbox(i: number) { lightboxImage.value = i }
-function nextImage() { if (lightboxImage.value) lightboxImage.value = lightboxImage.value >= 39 ? 1 : lightboxImage.value + 1 }
-function prevImage() { if (lightboxImage.value) lightboxImage.value = lightboxImage.value <= 1 ? 39 : lightboxImage.value - 1 }
+function nextImage() { if (lightboxImage.value) lightboxImage.value = lightboxImage.value >= 39 ? 4 : lightboxImage.value + 1 }
+function prevImage() { if (lightboxImage.value) lightboxImage.value = lightboxImage.value <= 4 ? 39 : lightboxImage.value - 1 }
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
@@ -181,7 +182,7 @@ const techStack = [
 const stats = [
   { value: '34', label: 'API Endpoints' },
   { value: '12', label: 'DB Tables' },
-  { value: '39', label: 'Screenshots' },
+  { value: '36', label: 'Screenshots' },
   { value: '2', label: 'User Roles' },
 ]
 
