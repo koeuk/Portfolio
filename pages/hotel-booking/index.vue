@@ -85,11 +85,28 @@
         </div>
       </div>
 
-      <!-- Screenshots Gallery -->
+      <!-- Screenshots Gallery - Web User -->
       <div class="mb-16">
-        <h2 class="text-3xl font-bold mb-8">Screenshots</h2>
+        <h2 class="text-3xl font-bold mb-8">Screenshots — Web User</h2>
         <div class="columns-1 md:columns-2 gap-4 space-y-4">
-          <div v-for="i in imageIndices" :key="i"
+          <div v-for="i in webUserImages" :key="i"
+            class="break-inside-avoid rounded-xl overflow-hidden transition-all cursor-pointer group"
+            @click="openLightbox(i)">
+            <img
+              :src="`/images/hotel-booking/${i}.png`"
+              :alt="`Hotel Booking Screenshot ${i}`"
+              class="w-full block group-hover:scale-[1.02] transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Screenshots Gallery - Admin -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold mb-8">Screenshots — Admin</h2>
+        <div class="columns-1 md:columns-2 gap-4 space-y-4">
+          <div v-for="i in adminImages" :key="i"
             class="break-inside-avoid rounded-xl overflow-hidden transition-all cursor-pointer group"
             @click="openLightbox(i)">
             <img
@@ -140,7 +157,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </button>
-          <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">{{ lightboxImage! - 3 }} / 36</p>
+          <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm">{{ imageIndices.indexOf(lightboxImage!) + 1 }} / {{ imageIndices.length }}</p>
         </div>
       </Transition>
     </Teleport>
@@ -150,12 +167,22 @@
 <script setup lang="ts">
 useHead({ title: 'Hotel Booking System - Koeuk Dev' })
 
-const imageIndices = Array.from({ length: 36 }, (_, i) => i + 4)
+const webUserImages = [25, 26, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+const adminImages = Array.from({ length: 36 }, (_, i) => i + 4).filter(i => ![11, 18].includes(i) && !webUserImages.includes(i))
+const imageIndices = [...webUserImages, ...adminImages]
 const lightboxImage = ref<number | null>(null)
 
 function openLightbox(i: number) { lightboxImage.value = i }
-function nextImage() { if (lightboxImage.value) lightboxImage.value = lightboxImage.value >= 39 ? 4 : lightboxImage.value + 1 }
-function prevImage() { if (lightboxImage.value) lightboxImage.value = lightboxImage.value <= 4 ? 39 : lightboxImage.value - 1 }
+function nextImage() {
+  if (!lightboxImage.value) return
+  const idx = imageIndices.indexOf(lightboxImage.value)
+  lightboxImage.value = imageIndices[(idx + 1) % imageIndices.length]
+}
+function prevImage() {
+  if (!lightboxImage.value) return
+  const idx = imageIndices.indexOf(lightboxImage.value)
+  lightboxImage.value = imageIndices[(idx - 1 + imageIndices.length) % imageIndices.length]
+}
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
@@ -182,7 +209,7 @@ const techStack = [
 const stats = [
   { value: '34', label: 'API Endpoints' },
   { value: '12', label: 'DB Tables' },
-  { value: '36', label: 'Screenshots' },
+  { value: '35', label: 'Screenshots' },
   { value: '2', label: 'User Roles' },
 ]
 
