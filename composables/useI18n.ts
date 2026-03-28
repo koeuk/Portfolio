@@ -272,14 +272,14 @@ const translations: Translations = {
     zh: "注销：触发对 /logout 的 POST 请求，销毁安全会话并返回登录页面。" 
   },
   "experience.3.role": {
-    en: "Innovation Lab",
-    km: "មន្ទីរពិសោធន៍ច្នៃប្រឌិត",
-    zh: "创新实验室",
+    en: "Hotel Booking",
+    km: "ការកក់សណ្ឋាគារ",
+    zh: "酒店预订",
   },
   "experience.3.company": {
-    en: "UI/UX Engineer",
-    km: "វិស្វករ UI/UX",
-    zh: "UI/UX 工程师",
+    en: "Hotel Booking",
+    km: "ការកក់សណ្ឋាគារ",
+    zh: "酒店预订",
   },
   "experience.3.description": {
     en: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",

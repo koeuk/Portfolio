@@ -287,8 +287,8 @@ export const useData = () => {
     },
     {
       id: "3",
-      role: "UI/UX Engineer",
-      company: "Innovation Lab",
+      role: "Hotel Booking",
+      company: "Hotel Booking",
       period: "2024 - 2025",
       description: "Bridged the gap between design and development. Created high-fidelity prototypes and implemented complex UI components with a focus on accessibility.",
       technologies: ["Vue.js", "Figma", "Sass", "Cypress"],
