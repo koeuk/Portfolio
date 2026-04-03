@@ -99,7 +99,7 @@
 
 <script setup lang="ts">
     const { isDark, toggleTheme, initTheme } = useTheme()
-    const { t, currentLang, setLanguage, initLang, languages } = useI18n()
+    const { t, currentLang, setLanguage, languages } = useI18n()
 
     const route = useRoute()
     const isOpen = ref(false)
@@ -139,7 +139,6 @@
 
     onMounted(() => {
         initTheme()
-        initLang()
         window.addEventListener('scroll', handleScroll)
         document.addEventListener('click', closeLangMenu)
     })

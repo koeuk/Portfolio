@@ -530,28 +530,22 @@ const translations: Translations = {
 };
 
 export const useI18n = () => {
-  const currentLang = useState<Language>("lang", () => "en");
+  const langCookie = useCookie<Language>("lang", {
+    default: () => "en",
+    maxAge: 365 * 24 * 60 * 60,
+  });
+
+  const currentLang = useState<Language>("lang", () => langCookie.value || "en");
 
   const setLanguage = (lang: Language) => {
     currentLang.value = lang;
-    if (process.client) {
-      localStorage.setItem("lang", lang);
-    }
+    langCookie.value = lang;
   };
 
   const t = (key: string): string => {
     const translation = translations[key];
     if (!translation) return key;
     return translation[currentLang.value] || translation.en || key;
-  };
-
-  const initLang = () => {
-    if (process.client) {
-      const saved = localStorage.getItem("lang") as Language | null;
-      if (saved && ["en", "km", "zh"].includes(saved)) {
-        currentLang.value = saved;
-      }
-    }
   };
 
   const languages = [
@@ -564,7 +558,6 @@ export const useI18n = () => {
     currentLang,
     setLanguage,
     t,
-    initLang,
     languages,
   };
 };
