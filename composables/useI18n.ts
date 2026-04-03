@@ -522,6 +522,11 @@ const translations: Translations = {
     km: "កម្មវិធីសុខភាព និងកាយសម្បទា ជាមួយនឹងការតាមដានលំហាត់ប្រាណ តារាងវឌ្ឍនភាព និងផែនការផ្ទាល់ខ្លួន",
     zh: "健康健身应用，具有锻炼追踪、进度图表和个性化计划",
   },
+  "hotel.integrations": {
+    en: "Integrations",
+    km: "ការរួមបញ្ចូល",
+    zh: "集成",
+  },
 };
 
 export const useI18n = () => {

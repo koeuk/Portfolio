@@ -121,7 +121,7 @@
 
       <!-- Integrations -->
       <div class="mb-16">
-        <h2 class="text-3xl font-bold mb-8">Integrations</h2>
+        <h2 class="text-3xl font-bold mb-8">{{ t('hotel.integrations') }}</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div v-for="intg in integrations" :key="intg.name"
             class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
@@ -166,6 +166,7 @@
 
 <script setup lang="ts">
 useHead({ title: 'Hotel Booking System - Koeuk Dev' })
+const { t } = useI18n()
 
 const webUserImages = [25, 26, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
 const adminImages = Array.from({ length: 36 }, (_, i) => i + 4).filter(i => ![11, 18].includes(i) && !webUserImages.includes(i))
