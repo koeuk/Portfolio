@@ -5,32 +5,30 @@
         {{ t('skills.title') }}
       </h2>
 
-      <!-- Infinite Scroll Container -->
+      <!-- Carousel -->
       <div class="relative section-content">
-        <div class="flex animate-scroll">
-          <!-- First set -->
-          <div class="flex gap-6 pr-6">
-            <div
+        <Carousel
+          class="w-full"
+          :plugins="[plugin]"
+          :opts="{ align: 'start', loop: true, dragFree: true }"
+          @mouseenter="plugin.stop"
+          @mouseleave="[plugin.reset(), plugin.play()]"
+        >
+          <CarouselContent class="py-2">
+            <CarouselItem
               v-for="skill in skills"
               :key="skill.name"
-              class="skill-card flex-shrink-0 dark:bg-primary-light dark:border-gray-700"
+              class="basis-auto pl-6"
             >
-              <div class="w-12 h-12 mb-2" v-html="getIcon(skill.name)"></div>
-              <p class="font-semibold text-sm text-gray-700 dark:text-gray-200">{{ skill.name }}</p>
-            </div>
-          </div>
-          <!-- Duplicate for seamless loop -->
-          <div class="flex gap-6 pr-6">
-            <div
-              v-for="skill in skills"
-              :key="'dup-' + skill.name"
-              class="skill-card flex-shrink-0 dark:bg-primary-light dark:border-gray-700"
-            >
-              <div class="w-12 h-12 mb-2" v-html="getIcon(skill.name)"></div>
-              <p class="font-semibold text-sm text-gray-700 dark:text-gray-200">{{ skill.name }}</p>
-            </div>
-          </div>
-        </div>
+              <div class="skill-card flex-shrink-0 dark:bg-primary-light dark:border-gray-700">
+                <div class="w-12 h-12 mb-2" v-html="getIcon(skill.name)"></div>
+                <p class="font-semibold text-sm text-gray-700 dark:text-gray-200">{{ skill.name }}</p>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious class="left-0" />
+          <CarouselNext class="right-0" />
+        </Carousel>
       </div>
 
       <!-- See More Button -->
@@ -50,9 +48,18 @@
 </template>
 
 <script setup lang="ts">
+import Autoplay from 'embla-carousel-autoplay'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '~/components/ui/carousel/index'
+
 const { skills } = useData()
 const { t } = useI18n()
 const { isVisible, elementRef } = useScrollAnimation()
+
+const plugin = Autoplay({
+  delay: 2000,
+  stopOnMouseEnter: true,
+  stopOnInteraction: false,
+})
 
 const icons: Record<string, string> = {
   'HTML5': `<svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"/></svg>`,
@@ -74,20 +81,6 @@ function getIcon(name: string): string {
 </script>
 
 <style scoped>
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-scroll {
-  animation: scroll 25s linear infinite;
-  will-change: transform;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
-}
-
 .section-title,
 .section-content {
   opacity: 0;
