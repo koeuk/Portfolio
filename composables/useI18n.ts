@@ -96,77 +96,317 @@ const translations: Translations = {
     km: "អ្នកបង្កើត Java & Oracle",
     zh: "Java & Oracle 开发者",
   },
-  "experience.1.web_interface.title": { en: "🌐 Web Interface (User/Creator)", km: "🌐 ផ្ទាំងបណ្តាញ (អ្នកប្រើប្រាស់/អ្នកបង្កើត)", zh: "🌐 Web 界面（用户/创作者）" },
-  "experience.1.web_interface.discovery.label": { en: "1. Discovery & Viewing", km: "1. ស្វែងរក និង កម្សាន្ត", zh: "1. 发现与观看" },
-  "experience.1.web_interface.discovery.period": { en: "WEB MODULE", km: "ផ្នែក Web", zh: "WEB 模块" },
-  "experience.1.web_interface.discovery.subheading": { en: "Content Delivery Network", km: "បណ្តាញចែកចាយមាតិកា", zh: "内容分发网络" },
-  "experience.1.web_interface.discovery.homepage": { en: "Homepage: Browse a 4-column grid of videos with thumbnails, durations, and view counts.", km: "ទំព័រដើម: មើលវីដេអូជាក្រឡាចត្រង្គ៤ជួរ ជាមួយនឹងរូបភាពតំណាង រយៈពេល និងចំនួនអ្នកមើល។", zh: "首页：浏览4列视频网格，包含缩略图、时长和观看次数。" },
-  "experience.1.web_interface.discovery.search": { en: "Search: Filter videos by keywords in titles and descriptions.", km: "ស្វែងរក: ត្រងវីដេអូតាមពាក្យគន្លឹះនៅក្នុងចំណងជើងនិងការពិពណ៌នា។", zh: "搜索：按标题和描述中的关键字过滤视频。" },
-  "experience.1.web_interface.discovery.watch_page": { en: "Watch Page: Play videos, toggle Likes/Dislikes, and share video URLs to the clipboard.", km: "ទំព័រមើល: លេងវីដេអូ, ចូលចិត្ត/មិនចូលចិត្ត, និងចែករំលែកតំណបណ្ដាញទៅក្ដារតម្បៀតខ្ទាស់។", zh: "观看页面：播放视频，切换喜欢/不喜欢，并将视频URL分享到剪贴板。" },
-  "experience.1.web_interface.discovery.subscriptions": { en: "Subscriptions: Follow channels to see their latest uploads in a dedicated feed.", km: "ការជាវ: តាមដានប៉ុស្តិ៍នានាដើម្បីមើលការបង្ហោះចុងក្រោយរបស់ពួកគេនៅក្នុងផ្ទាំងបញ្ជីពិសេស។", zh: "订阅：关注频道以在专用动态中查看他们的最新上传。" },
-  "experience.1.web_interface.discovery.history": { en: "History: View watch history organized by date (Today, Yesterday, etc.) and clear it if needed.", km: "ប្រវត្តិ: មើលប្រវត្តិមើលរៀបចំតាមកាលបរិច្ឆេទ (ថ្ងៃនេះ ម្សិលមិញ ល។) និងអាចលុបបាន។", zh: "历史记录：按日期（今天、昨天等）查看观看历史记录，并在需要时清除。" },
-  
-  "experience.1.web_interface.interaction.label": { en: "2. Social Interaction", km: "2. ទំនាក់ទំនងសង្គម", zh: "2. 社交互动" },
-  "experience.1.web_interface.interaction.period": { en: "SOCIAL", km: "សង្គម", zh: "社交" },
-  "experience.1.web_interface.interaction.subheading": { en: "Community Engagement", km: "ការចូលរួមរបស់សហគមន៍", zh: "社区参与" },
-  "experience.1.web_interface.interaction.comments": { en: "Comments: Post new comments, reply to existing ones, sort by 'Top' or 'Newest,' and like comments.", km: "មតិយោបល់: បង្ហោះមតិយោបល់ថ្មី, ឆ្លើយតប, តម្រៀបតាម 'កំពូល' ឬ 'ថ្មីបំផុត', និងចូលចិត្តមតិយោបល់។", zh: "评论：发布新评论，回复现有评论，按“热门”或“最新”排序，以及点赞评论。" },
-  "experience.1.web_interface.interaction.channel_pages": { en: "Channel Pages: Visit any creator's public profile to see their banner, stats, and all uploaded videos.", km: "ទំព័រប៉ុស្តិ៍: ចូលទៅកាន់ប្រវត្តិរូបសាធារណៈរបស់អ្នកបង្កើតដើម្បីមើលបដា, ស្ថិតិ និងវីដេអូទាំងអស់។", zh: "频道页面：访问任何创作者的公开个人资料以查看其横幅、统计数据和所有上传的视频。" },
+  "experience.1.web_interface.title": {
+    en: "🌐 Web Interface (User/Creator)",
+    km: "🌐 ផ្ទាំងបណ្តាញ (អ្នកប្រើប្រាស់/អ្នកបង្កើត)",
+    zh: "🌐 Web 界面（用户/创作者）",
+  },
+  "experience.1.web_interface.discovery.label": {
+    en: "1. Discovery & Viewing",
+    km: "1. ស្វែងរក និង កម្សាន្ត",
+    zh: "1. 发现与观看",
+  },
+  "experience.1.web_interface.discovery.period": {
+    en: "WEB MODULE",
+    km: "ផ្នែក Web",
+    zh: "WEB 模块",
+  },
+  "experience.1.web_interface.discovery.subheading": {
+    en: "Content Delivery Network",
+    km: "បណ្តាញចែកចាយមាតិកា",
+    zh: "内容分发网络",
+  },
+  "experience.1.web_interface.discovery.homepage": {
+    en: "Homepage: Browse a 4-column grid of videos with thumbnails, durations, and view counts.",
+    km: "ទំព័រដើម: មើលវីដេអូជាក្រឡាចត្រង្គ៤ជួរ ជាមួយនឹងរូបភាពតំណាង រយៈពេល និងចំនួនអ្នកមើល។",
+    zh: "首页：浏览4列视频网格，包含缩略图、时长和观看次数。",
+  },
+  "experience.1.web_interface.discovery.search": {
+    en: "Search: Filter videos by keywords in titles and descriptions.",
+    km: "ស្វែងរក: ត្រងវីដេអូតាមពាក្យគន្លឹះនៅក្នុងចំណងជើងនិងការពិពណ៌នា។",
+    zh: "搜索：按标题和描述中的关键字过滤视频。",
+  },
+  "experience.1.web_interface.discovery.watch_page": {
+    en: "Watch Page: Play videos, toggle Likes/Dislikes, and share video URLs to the clipboard.",
+    km: "ទំព័រមើល: លេងវីដេអូ, ចូលចិត្ត/មិនចូលចិត្ត, និងចែករំលែកតំណបណ្ដាញទៅក្ដារតម្បៀតខ្ទាស់។",
+    zh: "观看页面：播放视频，切换喜欢/不喜欢，并将视频URL分享到剪贴板。",
+  },
+  "experience.1.web_interface.discovery.subscriptions": {
+    en: "Subscriptions: Follow channels to see their latest uploads in a dedicated feed.",
+    km: "ការជាវ: តាមដានប៉ុស្តិ៍នានាដើម្បីមើលការបង្ហោះចុងក្រោយរបស់ពួកគេនៅក្នុងផ្ទាំងបញ្ជីពិសេស។",
+    zh: "订阅：关注频道以在专用动态中查看他们的最新上传。",
+  },
+  "experience.1.web_interface.discovery.history": {
+    en: "History: View watch history organized by date (Today, Yesterday, etc.) and clear it if needed.",
+    km: "ប្រវត្តិ: មើលប្រវត្តិមើលរៀបចំតាមកាលបរិច្ឆេទ (ថ្ងៃនេះ ម្សិលមិញ ល។) និងអាចលុបបាន។",
+    zh: "历史记录：按日期（今天、昨天等）查看观看历史记录，并在需要时清除。",
+  },
 
-  "experience.1.web_interface.creator_tools.label": { en: "3. Creator Tools (YouTube Studio)", km: "3. ឧបករណ៍អ្នកបង្កើត", zh: "3. 创作者工具" },
-  "experience.1.web_interface.creator_tools.period": { en: "TOOLS", km: "ឧបករណ៍", zh: "工具" },
-  "experience.1.web_interface.creator_tools.subheading": { en: "Video Management System", km: "ប្រព័ន្ធគ្រប់គ្រងវីដេអូ", zh: "视频管理系统" },
-  "experience.1.web_interface.creator_tools.upload_video": { en: "Upload Video: Upload .mp4 files and thumbnails. Creators can set Title, Description, Category, Tags, and Privacy.", km: "បង្ហោះវីដេអូ: បង្ហោះឯកសារ .mp4 និងរូបថត (Oracle BFILEs)។ អ្នកបង្កើតអាចកំណត់ចំណងជើង, ការពិពណ៌នា, ប្រភេទ និងឯកជនភាព។", zh: "上传视频：上传 .mp4 文件和缩略图。可以设置标题、描述、类别、标签和隐私。" },
-  "experience.1.web_interface.creator_tools.management": { en: "Management: A 'Studio' view to edit video details, delete uploads, or filter videos by status.", km: "ការគ្រប់គ្រង: ទិដ្ឋភាព 'Studio' ដើម្បីកែសម្រួលព័ត៌មានលម្អិត, លុប, ឬត្រងវីដេអូតាមស្ថានភាព។", zh: "管理：提供“工作室”视图以编辑视频详细信息、删除上传的视频或按状态过滤视频。" },
-  "experience.1.web_interface.creator_tools.analytics": { en: "Analytics: A dashboard showing Total Views, Watch Time, Subscriber growth, and Revenue charts.", km: "ការវិភាគ: តារាងបង្ហាញចំនួនមើលសរុប, ពេលវេលាមើល, រង្វាស់អ្នកជាវ, និងប្រាក់ចំណូល។", zh: "分析：显示总观看次数、观看时间、订阅者增长和收入图表的仪表板。" },
-  "experience.1.web_interface.creator_tools.channel_customization": { en: "Channel Customization: Update personal channel branding and info.", km: "ការរៀបចំប៉ុស្តិ៍: ធ្វើបច្ចុប្បន្នភាពស្លាកយីហោនិងព័ត៌មានប៉ុស្តិ៍ផ្ទាល់ខ្លួន។", zh: "频道定制：更新个人频道品牌信息。" },
+  "experience.1.web_interface.interaction.label": {
+    en: "2. Social Interaction",
+    km: "2. ទំនាក់ទំនងសង្គម",
+    zh: "2. 社交互动",
+  },
+  "experience.1.web_interface.interaction.period": {
+    en: "SOCIAL",
+    km: "សង្គម",
+    zh: "社交",
+  },
+  "experience.1.web_interface.interaction.subheading": {
+    en: "Community Engagement",
+    km: "ការចូលរួមរបស់សហគមន៍",
+    zh: "社区参与",
+  },
+  "experience.1.web_interface.interaction.comments": {
+    en: "Comments: Post new comments, reply to existing ones, sort by 'Top' or 'Newest,' and like comments.",
+    km: "មតិយោបល់: បង្ហោះមតិយោបល់ថ្មី, ឆ្លើយតប, តម្រៀបតាម 'កំពូល' ឬ 'ថ្មីបំផុត', និងចូលចិត្តមតិយោបល់។",
+    zh: "评论：发布新评论，回复现有评论，按“热门”或“最新”排序，以及点赞评论。",
+  },
+  "experience.1.web_interface.interaction.channel_pages": {
+    en: "Channel Pages: Visit any creator's public profile to see their banner, stats, and all uploaded videos.",
+    km: "ទំព័រប៉ុស្តិ៍: ចូលទៅកាន់ប្រវត្តិរូបសាធារណៈរបស់អ្នកបង្កើតដើម្បីមើលបដា, ស្ថិតិ និងវីដេអូទាំងអស់។",
+    zh: "频道页面：访问任何创作者的公开个人资料以查看其横幅、统计数据和所有上传的视频。",
+  },
 
-  "experience.1.admin_interface.title": { en: "🛡️ Admin Interface", km: "🛡️ ផ្ទាំងគ្រប់គ្រង", zh: "🛡️ 管理界面" },
-  "experience.1.admin_interface.overview.label": { en: "1. Platform Overview (Dashboard)", km: "1. ទិដ្ឋភាពប្រព័ន្ធទូទៅ", zh: "1. 平台概述" },
-  "experience.1.admin_interface.overview.period": { en: "ADMIN", km: "អ្នកគ្រប់គ្រង", zh: "管理员" },
-  "experience.1.admin_interface.overview.subheading": { en: "Core System Management", km: "ការគ្រប់គ្រងប្រព័ន្ធស្នូល", zh: "核心系统管理" },
-  "experience.1.admin_interface.overview.global_stats": { en: "Global Stats: Real-time counts of total users, videos, views, channels, and comments.", km: "ស្ថិតិសកល: រាប់ចំនួនអ្នកប្រើប្រាស់ វីដេអូ អ្នកមើល ប៉ុស្តិ៍ និងមតិយោបល់ក្នុងពេលជាក់ស្តែង។", zh: "全局统计：实时汇总总用户数、视频数、观看次数、频道数和评论数。" },
-  "experience.1.admin_interface.overview.visual_analytics": { en: "Visual Analytics: Pie and bar charts showing User distribution, Video categories, Engagement, and Privacy.", km: "តារាងវិភាគ: តារាងផៃនិងរបារបង្ហាញការចែកចាយអ្នកប្រើប្រាស់ ប្រភេទវីដេអូ និងការចូលរួម។", zh: "可视化分析：饼图和条形图显示用户分布、视频分类、互动和隐私情况。" },
+  "experience.1.web_interface.creator_tools.label": {
+    en: "3. Creator Tools (YouTube Studio)",
+    km: "3. ឧបករណ៍អ្នកបង្កើត",
+    zh: "3. 创作者工具",
+  },
+  "experience.1.web_interface.creator_tools.period": {
+    en: "TOOLS",
+    km: "ឧបករណ៍",
+    zh: "工具",
+  },
+  "experience.1.web_interface.creator_tools.subheading": {
+    en: "Video Management System",
+    km: "ប្រព័ន្ធគ្រប់គ្រងវីដេអូ",
+    zh: "视频管理系统",
+  },
+  "experience.1.web_interface.creator_tools.upload_video": {
+    en: "Upload Video: Upload .mp4 files and thumbnails. Creators can set Title, Description, Category, Tags, and Privacy.",
+    km: "បង្ហោះវីដេអូ: បង្ហោះឯកសារ .mp4 និងរូបថត (Oracle BFILEs)។ អ្នកបង្កើតអាចកំណត់ចំណងជើង, ការពិពណ៌នា, ប្រភេទ និងឯកជនភាព។",
+    zh: "上传视频：上传 .mp4 文件和缩略图。可以设置标题、描述、类别、标签和隐私。",
+  },
+  "experience.1.web_interface.creator_tools.management": {
+    en: "Management: A 'Studio' view to edit video details, delete uploads, or filter videos by status.",
+    km: "ការគ្រប់គ្រង: ទិដ្ឋភាព 'Studio' ដើម្បីកែសម្រួលព័ត៌មានលម្អិត, លុប, ឬត្រងវីដេអូតាមស្ថានភាព។",
+    zh: "管理：提供“工作室”视图以编辑视频详细信息、删除上传的视频或按状态过滤视频。",
+  },
+  "experience.1.web_interface.creator_tools.analytics": {
+    en: "Analytics: A dashboard showing Total Views, Watch Time, Subscriber growth, and Revenue charts.",
+    km: "ការវិភាគ: តារាងបង្ហាញចំនួនមើលសរុប, ពេលវេលាមើល, រង្វាស់អ្នកជាវ, និងប្រាក់ចំណូល។",
+    zh: "分析：显示总观看次数、观看时间、订阅者增长和收入图表的仪表板。",
+  },
+  "experience.1.web_interface.creator_tools.channel_customization": {
+    en: "Channel Customization: Update personal channel branding and info.",
+    km: "ការរៀបចំប៉ុស្តិ៍: ធ្វើបច្ចុប្បន្នភាពស្លាកយីហោនិងព័ត៌មានប៉ុស្តិ៍ផ្ទាល់ខ្លួន។",
+    zh: "频道定制：更新个人频道品牌信息。",
+  },
 
-  "experience.1.admin_interface.user_management.label": { en: "2. User Management", km: "2. គ្រប់គ្រងអ្នកប្រើប្រាស់", zh: "2. 用户管理" },
-  "experience.1.admin_interface.user_management.period": { en: "USERS", km: "អ្នកប្រើប្រាស់", zh: "用户" },
-  "experience.1.admin_interface.user_management.subheading": { en: "Full Access Control", km: "គ្រប់គ្រងការចូលប្រើប្រាស់ពេញលេញ", zh: "全面访问控制" },
-  "experience.1.admin_interface.user_management.user_crud": { en: "Full CRUD: Create, View, Edit, and Delete users.", km: "CRUD ពេញលេញ: បង្កើត មើល កែសម្រួល និងលុបអ្នកប្រើប្រាស់។", zh: "完全 CRUD：创建、查看、编辑和删除用户。" },
-  "experience.1.admin_interface.user_management.access_control": { en: "Access Control: Activate or Deactivate accounts. Deactivated users cannot log in.", km: "គ្រប់គ្រងសិទ្ធិ: បើក ឬ បិទគណនី។ អ្នកប្រើប្រាស់ដែលត្រូវបានបិទមិនអាចចូលបានទេ។", zh: "访问控制：激活或停用账户。停用的用户无法登录Web界面。" },
-  "experience.1.admin_interface.user_management.role_management": { en: "Role Management: Assign roles like USER, MODERATOR, or ADMIN.", km: "ការគ្រប់គ្រងតួនាទី: ផ្ដល់តួនាទីដូចជា USER, MODERATOR, ឬ ADMIN។", zh: "角色管理：分配角色，如 USER、MODERATOR 或 ADMIN。" },
+  "experience.1.admin_interface.title": {
+    en: "🛡️ Admin Interface",
+    km: "🛡️ ផ្ទាំងគ្រប់គ្រង",
+    zh: "🛡️ 管理界面",
+  },
+  "experience.1.admin_interface.overview.label": {
+    en: "1. Platform Overview (Dashboard)",
+    km: "1. ទិដ្ឋភាពប្រព័ន្ធទូទៅ",
+    zh: "1. 平台概述",
+  },
+  "experience.1.admin_interface.overview.period": {
+    en: "ADMIN",
+    km: "អ្នកគ្រប់គ្រង",
+    zh: "管理员",
+  },
+  "experience.1.admin_interface.overview.subheading": {
+    en: "Core System Management",
+    km: "ការគ្រប់គ្រងប្រព័ន្ធស្នូល",
+    zh: "核心系统管理",
+  },
+  "experience.1.admin_interface.overview.global_stats": {
+    en: "Global Stats: Real-time counts of total users, videos, views, channels, and comments.",
+    km: "ស្ថិតិសកល: រាប់ចំនួនអ្នកប្រើប្រាស់ វីដេអូ អ្នកមើល ប៉ុស្តិ៍ និងមតិយោបល់ក្នុងពេលជាក់ស្តែង។",
+    zh: "全局统计：实时汇总总用户数、视频数、观看次数、频道数和评论数。",
+  },
+  "experience.1.admin_interface.overview.visual_analytics": {
+    en: "Visual Analytics: Pie and bar charts showing User distribution, Video categories, Engagement, and Privacy.",
+    km: "តារាងវិភាគ: តារាងផៃនិងរបារបង្ហាញការចែកចាយអ្នកប្រើប្រាស់ ប្រភេទវីដេអូ និងការចូលរួម។",
+    zh: "可视化分析：饼图和条形图显示用户分布、视频分类、互动和隐私情况。",
+  },
 
-  "experience.1.admin_interface.content_moderation.label": { en: "3. Content Moderation & Management", km: "3. គ្រប់គ្រងមាតិកានិងត្រួតពិនិត្យ", zh: "3. 内容审核与管理" },
-  "experience.1.admin_interface.content_moderation.period": { en: "MODERATION", km: "ការត្រួតពិនិត្យ", zh: "审核" },
-  "experience.1.admin_interface.content_moderation.subheading": { en: "Security & Moderation", km: "សុវត្ថិភាព និង ការត្រួតពិនិត្យ", zh: "安全与审核" },
-  "experience.1.admin_interface.content_moderation.video_crud": { en: "Video CRUD: Add videos manually, edit metadata, or delete content across the platform.", km: "CRUD វីដេអូ: បន្ថែមវីដេអូដោយដៃ, កែសម្រួល, ឬលុបមាតិកានៅទូទាំងប្រព័ន្ធ។", zh: "视频 CRUD：管理员可以手动添加视频、编辑任何视频的元数据或删除全平台内容。" },
-  "experience.1.admin_interface.content_moderation.upload_queue": { en: "Upload Queue: A 'Manage Uploads' section to Approve or Reject videos before they become public.", km: "បញ្ជីបង្ហោះ: ផ្នែក 'គ្រប់គ្រងបង្ហោះ' ដើម្បីអនុម័តឬបដិសេធវីដេអូមុនពេលវាក្លាយជាសាធារណៈ។", zh: "上传队列：专用的“管理上传”部分，管理员可以在视频公开前批准或拒绝。" },
-  "experience.1.admin_interface.content_moderation.metadata_control": { en: "Metadata Control: Manage the system's video categories, tags, and comments.", km: "គ្រប់គ្រងទិន្នន័យ: គ្រប់គ្រងប្រភេទវីដេអូ ស្លាក និងមតិយោបល់នៃប្រព័ន្ធ។", zh: "元数据控制：管理系统的视频类别、标签和评论。" },
+  "experience.1.admin_interface.user_management.label": {
+    en: "2. User Management",
+    km: "2. គ្រប់គ្រងអ្នកប្រើប្រាស់",
+    zh: "2. 用户管理",
+  },
+  "experience.1.admin_interface.user_management.period": {
+    en: "USERS",
+    km: "អ្នកប្រើប្រាស់",
+    zh: "用户",
+  },
+  "experience.1.admin_interface.user_management.subheading": {
+    en: "Full Access Control",
+    km: "គ្រប់គ្រងការចូលប្រើប្រាស់ពេញលេញ",
+    zh: "全面访问控制",
+  },
+  "experience.1.admin_interface.user_management.user_crud": {
+    en: "Full CRUD: Create, View, Edit, and Delete users.",
+    km: "CRUD ពេញលេញ: បង្កើត មើល កែសម្រួល និងលុបអ្នកប្រើប្រាស់។",
+    zh: "完全 CRUD：创建、查看、编辑和删除用户。",
+  },
+  "experience.1.admin_interface.user_management.access_control": {
+    en: "Access Control: Activate or Deactivate accounts. Deactivated users cannot log in.",
+    km: "គ្រប់គ្រងសិទ្ធិ: បើក ឬ បិទគណនី។ អ្នកប្រើប្រាស់ដែលត្រូវបានបិទមិនអាចចូលបានទេ។",
+    zh: "访问控制：激活或停用账户。停用的用户无法登录Web界面。",
+  },
+  "experience.1.admin_interface.user_management.role_management": {
+    en: "Role Management: Assign roles like USER, MODERATOR, or ADMIN.",
+    km: "ការគ្រប់គ្រងតួនាទី: ផ្ដល់តួនាទីដូចជា USER, MODERATOR, ឬ ADMIN។",
+    zh: "角色管理：分配角色，如 USER、MODERATOR 或 ADMIN。",
+  },
 
-  "experience.1.admin_interface.system_features.label": { en: "4. System Features", km: "4. មុខងារប្រព័ន្ធ", zh: "4. 系统功能" },
-  "experience.1.admin_interface.system_features.period": { en: "SYSTEM", km: "ប្រព័ន្ធ", zh: "系统" },
-  "experience.1.admin_interface.system_features.subheading": { en: "Platform Configuration", km: "ការរៀបចំប្រព័ន្ធ", zh: "平台配置" },
-  "experience.1.admin_interface.system_features.theme_toggle": { en: "Theme Toggle: Switch the admin UI between Dark Mode and Light Mode.", km: "បិទបើកស្បែក: ប្តូរផ្ទាំងគ្រប់គ្រងរវាងរបៀបងងឹត និង របៀបភ្លឺ។", zh: "主题切换：在深色模式和浅色模式之间切换整个管理 UI。" },
-  "experience.1.admin_interface.system_features.interface_switching": { en: "Interface Switching: A quick-access button to jump back to the User interface.", km: "ប្តូរផ្ទាំង: ប៊ូតុងចូលរហ័សដើម្បីត្រលប់ទៅផ្ទាំងអ្នកប្រើប្រាស់វិញ។", zh: "界面切换：快速访问按钮，可跳回用户界面。" },
+  "experience.1.admin_interface.content_moderation.label": {
+    en: "3. Content Moderation & Management",
+    km: "3. គ្រប់គ្រងមាតិកានិងត្រួតពិនិត្យ",
+    zh: "3. 内容审核与管理",
+  },
+  "experience.1.admin_interface.content_moderation.period": {
+    en: "MODERATION",
+    km: "ការត្រួតពិនិត្យ",
+    zh: "审核",
+  },
+  "experience.1.admin_interface.content_moderation.subheading": {
+    en: "Security & Moderation",
+    km: "សុវត្ថិភាព និង ការត្រួតពិនិត្យ",
+    zh: "安全与审核",
+  },
+  "experience.1.admin_interface.content_moderation.video_crud": {
+    en: "Video CRUD: Add videos manually, edit metadata, or delete content across the platform.",
+    km: "CRUD វីដេអូ: បន្ថែមវីដេអូដោយដៃ, កែសម្រួល, ឬលុបមាតិកានៅទូទាំងប្រព័ន្ធ។",
+    zh: "视频 CRUD：管理员可以手动添加视频、编辑任何视频的元数据或删除全平台内容。",
+  },
+  "experience.1.admin_interface.content_moderation.upload_queue": {
+    en: "Upload Queue: A 'Manage Uploads' section to Approve or Reject videos before they become public.",
+    km: "បញ្ជីបង្ហោះ: ផ្នែក 'គ្រប់គ្រងបង្ហោះ' ដើម្បីអនុម័តឬបដិសេធវីដេអូមុនពេលវាក្លាយជាសាធារណៈ។",
+    zh: "上传队列：专用的“管理上传”部分，管理员可以在视频公开前批准或拒绝。",
+  },
+  "experience.1.admin_interface.content_moderation.metadata_control": {
+    en: "Metadata Control: Manage the system's video categories, tags, and comments.",
+    km: "គ្រប់គ្រងទិន្នន័យ: គ្រប់គ្រងប្រភេទវីដេអូ ស្លាក និងមតិយោបល់នៃប្រព័ន្ធ។",
+    zh: "元数据控制：管理系统的视频类别、标签和评论。",
+  },
 
-  "experience.1.key_differences.title": { en: "Key Differences", km: "ភាពខុសគ្នាសំខាន់ៗ", zh: "主要区别" },
-  "experience.1.key_differences.feature.title": { en: "Feature", km: "មុខងារ", zh: "功能" },
-  "experience.1.key_differences.web.title": { en: "Web (User)", km: "Web (អ្នកប្រើប្រាស់)", zh: "Web（用户）" },
-  "experience.1.key_differences.admin.title": { en: "Admin", km: "អ្នកគ្រប់គ្រង", zh: "管理员" },
-  
-  "experience.1.key_differences.video_management.feature": { en: "Video Management", km: "ការគ្រប់គ្រងវីដេអូ", zh: "视频管理" },
-  "experience.1.key_differences.video_management.web": { en: "Only their own videos", km: "មានសិទ្ធិតែវីដេអូរបស់ពួកគេផ្ទាល់", zh: "仅限他们自己的视频" },
-  "experience.1.key_differences.video_management.admin": { en: "All videos on the platform", km: "វីដេអូទាំងអស់នៅលើប្រព័ន្ធ", zh: "平台上的所有视频" },
-  
-  "experience.1.key_differences.user_management.feature": { en: "User Management", km: "គ្រប់គ្រងអ្នកប្រើប្រាស់", zh: "用户管理" },
-  "experience.1.key_differences.user_management.web": { en: "Profile editing only", km: "កែសម្រួលប្រវត្តិរូបប៉ុណ្ណោះ", zh: "仅限编辑个人资料" },
-  "experience.1.key_differences.user_management.admin": { en: "Full control over all accounts", km: "គ្រប់គ្រងគណនីទាំងអស់ពេញលេញ", zh: "完全控制所有帐户" },
-  
-  "experience.1.key_differences.moderation.feature": { en: "Moderation", km: "ការត្រួតពិនិត្យ", zh: "审核" },
-  "experience.1.key_differences.moderation.web": { en: "Report/Comment", km: "រាយការណ៍/មតិយោបល់", zh: "举报/评论" },
-  "experience.1.key_differences.moderation.admin": { en: "Approve/Reject uploads", km: "អនុម័ត/បដិសេធការបង្ហោះ", zh: "批准/拒绝上传" },
-  
-  "experience.1.key_differences.target_audience.feature": { en: "Target Audience", km: "ទស្សនិកជនគោលដៅ", zh: "目标受众" },
-  "experience.1.key_differences.target_audience.web": { en: "Viewers & Creators", km: "អ្នកទស្សនា & អ្នកបង្កើត", zh: "观众和创作者" },
-  "experience.1.key_differences.target_audience.admin": { en: "Platform Operators", km: "អ្នកប្រតិបត្តិការប្រព័ន្ធ", zh: "平台运营商" },
+  "experience.1.admin_interface.system_features.label": {
+    en: "4. System Features",
+    km: "4. មុខងារប្រព័ន្ធ",
+    zh: "4. 系统功能",
+  },
+  "experience.1.admin_interface.system_features.period": {
+    en: "SYSTEM",
+    km: "ប្រព័ន្ធ",
+    zh: "系统",
+  },
+  "experience.1.admin_interface.system_features.subheading": {
+    en: "Platform Configuration",
+    km: "ការរៀបចំប្រព័ន្ធ",
+    zh: "平台配置",
+  },
+  "experience.1.admin_interface.system_features.theme_toggle": {
+    en: "Theme Toggle: Switch the admin UI between Dark Mode and Light Mode.",
+    km: "បិទបើកស្បែក: ប្តូរផ្ទាំងគ្រប់គ្រងរវាងរបៀបងងឹត និង របៀបភ្លឺ។",
+    zh: "主题切换：在深色模式和浅色模式之间切换整个管理 UI。",
+  },
+  "experience.1.admin_interface.system_features.interface_switching": {
+    en: "Interface Switching: A quick-access button to jump back to the User interface.",
+    km: "ប្តូរផ្ទាំង: ប៊ូតុងចូលរហ័សដើម្បីត្រលប់ទៅផ្ទាំងអ្នកប្រើប្រាស់វិញ។",
+    zh: "界面切换：快速访问按钮，可跳回用户界面。",
+  },
+
+  "experience.1.key_differences.title": {
+    en: "Key Differences",
+    km: "ភាពខុសគ្នាសំខាន់ៗ",
+    zh: "主要区别",
+  },
+  "experience.1.key_differences.feature.title": {
+    en: "Feature",
+    km: "មុខងារ",
+    zh: "功能",
+  },
+  "experience.1.key_differences.web.title": {
+    en: "Web (User)",
+    km: "Web (អ្នកប្រើប្រាស់)",
+    zh: "Web（用户）",
+  },
+  "experience.1.key_differences.admin.title": {
+    en: "Admin",
+    km: "អ្នកគ្រប់គ្រង",
+    zh: "管理员",
+  },
+
+  "experience.1.key_differences.video_management.feature": {
+    en: "Video Management",
+    km: "ការគ្រប់គ្រងវីដេអូ",
+    zh: "视频管理",
+  },
+  "experience.1.key_differences.video_management.web": {
+    en: "Only their own videos",
+    km: "មានសិទ្ធិតែវីដេអូរបស់ពួកគេផ្ទាល់",
+    zh: "仅限他们自己的视频",
+  },
+  "experience.1.key_differences.video_management.admin": {
+    en: "All videos on the platform",
+    km: "វីដេអូទាំងអស់នៅលើប្រព័ន្ធ",
+    zh: "平台上的所有视频",
+  },
+
+  "experience.1.key_differences.user_management.feature": {
+    en: "User Management",
+    km: "គ្រប់គ្រងអ្នកប្រើប្រាស់",
+    zh: "用户管理",
+  },
+  "experience.1.key_differences.user_management.web": {
+    en: "Profile editing only",
+    km: "កែសម្រួលប្រវត្តិរូបប៉ុណ្ណោះ",
+    zh: "仅限编辑个人资料",
+  },
+  "experience.1.key_differences.user_management.admin": {
+    en: "Full control over all accounts",
+    km: "គ្រប់គ្រងគណនីទាំងអស់ពេញលេញ",
+    zh: "完全控制所有帐户",
+  },
+
+  "experience.1.key_differences.moderation.feature": {
+    en: "Moderation",
+    km: "ការត្រួតពិនិត្យ",
+    zh: "审核",
+  },
+  "experience.1.key_differences.moderation.web": {
+    en: "Report/Comment",
+    km: "រាយការណ៍/មតិយោបល់",
+    zh: "举报/评论",
+  },
+  "experience.1.key_differences.moderation.admin": {
+    en: "Approve/Reject uploads",
+    km: "អនុម័ត/បដិសេធការបង្ហោះ",
+    zh: "批准/拒绝上传",
+  },
+
+  "experience.1.key_differences.target_audience.feature": {
+    en: "Target Audience",
+    km: "ទស្សនិកជនគោលដៅ",
+    zh: "目标受众",
+  },
+  "experience.1.key_differences.target_audience.web": {
+    en: "Viewers & Creators",
+    km: "អ្នកទស្សនា & អ្នកបង្កើត",
+    zh: "观众和创作者",
+  },
+  "experience.1.key_differences.target_audience.admin": {
+    en: "Platform Operators",
+    km: "អ្នកប្រតិបត្តិការប្រព័ន្ធ",
+    zh: "平台运营商",
+  },
   "experience.1.description": {
     en: "Developed a desktop-based YouTube interface using Java Swing for the frontend and Oracle SQL for the database management. Focused on creating a robust, high-performance user experience with direct JDBC integration.",
     km: "បានបង្កើតចំណុចប្រទាក់ YouTube ដែលផ្អែកលើ desktop ដោយប្រើ Java Swing សម្រាប់ frontend និង Oracle SQL សម្រាប់ការគ្រប់គ្រងមូលដ្ឋានទិន្នន័យ។ ផ្តោតលើការបង្កើតបទពិសោធន៍អ្នកប្រើប្រាស់ដែលរឹងមាំ និងមានប្រសិទ្ធភាពខ្ពស់ ជាមួយនឹងការតភ្ជាប់ JDBC ផ្ទាល់។",
@@ -187,89 +427,117 @@ const translations: Translations = {
     km: "គោលបំណងចម្បងនៃ LaravelLogin_register គឺដើម្បីបម្រើជាឧបករណ៍ផ្ទៀងផ្ទាត់រឹងមាំ (ឬកញ្ចប់ចាប់ផ្តើម) សម្រាប់កម្មវិធីវេបទំនើប។",
     zh: "LaravelLogin_register 的主要目的是作为现代 Web 应用程序的强大身份验证样板（或入门套件）。",
   },
-  "experience.2.purpose_section.title": { en: "1. The Purpose", km: "1. គោលបំណង", zh: "1. 目的" },
-  "experience.2.purpose_section.core_purpose.label": { en: "Core Purpose", km: "គោលបំណងចម្បង", zh: "核心目的" },
-  "experience.2.purpose_section.core_purpose.standard_login": { 
-    en: "A fully functional standard login and registration system.", 
-    km: "ប្រព័ន្ធចូលប្រើ និងចុះឈ្មោះធម្មតាដែលដំណើរការពេញលេញ។", 
-    zh: "功能齐全的标准登录和注册系统。" 
+  "experience.2.purpose_section.title": {
+    en: "1. The Purpose",
+    km: "1. គោលបំណង",
+    zh: "1. 目的",
   },
-  "experience.2.purpose_section.core_purpose.sso_integration": { 
-    en: "Seamless Single Sign-On (SSO) integration linking a user to their Google, Facebook, and Apple accounts.", 
-    km: "ការរួមបញ្ចូល Single Sign-On (SSO) យ៉ាងរលូនដែលភ្ជាប់អ្នកប្រើប្រាស់ទៅគណនី Google, Facebook និង Apple របស់ពួកគេ។", 
-    zh: "无缝的单点登录 (SSO) 集成，将用户链接到他们的 Google、Facebook 和 Apple 帐户。" 
+  "experience.2.purpose_section.core_purpose.label": {
+    en: "Core Purpose",
+    km: "គោលបំណងចម្បង",
+    zh: "核心目的",
   },
-  "experience.2.purpose_section.core_purpose.dashboard_profile": { 
-    en: "A dashboard and user profile management page where users can update their details and passwords securely.", 
-    km: "ផ្ទាំងគ្រប់គ្រង និងទំព័រគ្រប់គ្រងប្រវត្តិរូបអ្នកប្រើប្រាស់ដែលអ្នកប្រើប្រាស់អាចធ្វើបច្ចុប្បន្នភាពព័ត៌មានលម្អិត និងពាក្យសម្ងាត់របស់ពួកគេដោយសុវត្ថិភាព។", 
-    zh: "仪表板和用户个人资料管理页面，用户可以在其中安全地更新其详细信息和密码。" 
+  "experience.2.purpose_section.core_purpose.standard_login": {
+    en: "A fully functional standard login and registration system.",
+    km: "ប្រព័ន្ធចូលប្រើ និងចុះឈ្មោះធម្មតាដែលដំណើរការពេញលេញ។",
+    zh: "功能齐全的标准登录和注册系统。",
   },
-
-  "experience.2.tech_section.title": { en: "🛠 2. Programs and Technologies Used", km: "🛠 2. កម្មវិធី និងបច្ចេកវិទ្យាដែលបានប្រើ", zh: "🛠 2. 使用的程序和技术" },
-  "experience.2.tech_section.stack.label": { en: "VILT Stack", km: "បច្ចេកវិទ្យា VILT Stack", zh: "VILT 技术栈" },
-  "experience.2.tech_section.stack.backend": { 
-    en: "Backend / Core Engine: Laravel 12 (PHP 8.2+). Laravel handles all business logic, database queries, routing, middleware security, and session management.", 
-    km: "ខ្នងបង្អែក / ម៉ាស៊ីនស្នូល: Laravel 12 (PHP 8.2+)។ Laravel ដោះស្រាយតក្កវិទ្យាអាជីវកម្ម សំណួរមូលដ្ឋានទិន្នន័យ ផ្លូវ សុវត្ថិភាព middleware និងការគ្រប់គ្រងសម័យប្រជុំ។", 
-    zh: "后端/核心引擎：Laravel 12 (PHP 8.2+)。Laravel 处理所有业务逻辑、数据库查询、路由、中间件安全和会话管理。" 
+  "experience.2.purpose_section.core_purpose.sso_integration": {
+    en: "Seamless Single Sign-On (SSO) integration linking a user to their Google, Facebook, and Apple accounts.",
+    km: "ការរួមបញ្ចូល Single Sign-On (SSO) យ៉ាងរលូនដែលភ្ជាប់អ្នកប្រើប្រាស់ទៅគណនី Google, Facebook និង Apple របស់ពួកគេ។",
+    zh: "无缝的单点登录 (SSO) 集成，将用户链接到他们的 Google、Facebook 和 Apple 帐户。",
   },
-  "experience.2.tech_section.stack.frontend": { 
-    en: "Frontend UI: Vue.js 3 (JavaScript). Vue handles all the interactive visual elements (components, pages, forms).", 
-    km: "UI ផ្នែកខាងមុខ: Vue.js 3 (JavaScript)។ Vue គ្រប់គ្រងកម្មវិធីអន្តរកម្មដែលអាចមើលឃើញទាំងអស់ (សមាសភាគ ទំព័រ ទម្រង់)។", 
-    zh: "前端 UI：Vue.js 3（JavaScript）。Vue 处理所有交互式视觉元素（组件、页面、表单）。" 
-  },
-  "experience.2.tech_section.stack.inertia": { 
-    en: "The Bridge: Inertia.js. Inertia acts as the 'glue' between Laravel and Vue. It allows you to build a Single-Page Application (SPA) without needing to configure complex, separate REST APIs.", 
-    km: "ស្ពានភ្ជាប់: Inertia.js ជា 'កាវ' រវាង Laravel និង Vue។ វាអនុញ្ញាតឱ្យអ្នកបង្កើតកម្មវិធី Single-Page (SPA) មួយដោយមិនចាំបាច់មាន REST APIs ដាច់ដោយឡែកដ៏ស្មុគស្មាញ។", 
-    zh: "桥梁：Inertia.js 充当 Laravel 和 Vue 之间的“粘合剂”。它允许您构建单页应用程序 (SPA)，而无需配置复杂的独立 REST API。" 
-  },
-  "experience.2.tech_section.stack.styling": { 
-    en: "Styling: Tailwind CSS 4.0. A utility-first CSS framework used to design the user interface without writing custom CSS files.", 
-    km: "ការរចនា: Tailwind CSS 4.0។ ជា framework CSS សម្រាប់រចនាចំណុចប្រទាក់អ្នកប្រើប្រាស់ដោយមិនសរសេរឯកសារ CSS ផ្ទាល់ខ្លួន។", 
-    zh: "样式：Tailwind CSS 4.0。用于设计用户界面的实用优先 CSS 框架，无需编写自定义 CSS 文件。" 
-  },
-  "experience.2.tech_section.stack.auth_pkg": { 
-    en: "Authentication Package: Laravel Socialite. Makes social OAuth integrations (Google, Facebook, Apple) incredibly simple and secure.", 
-    km: "កញ្ចប់ផ្ទៀងផ្ទាត់: Laravel Socialite ធ្វើឱ្យការរួមបញ្ចូលសង្គម OAuth ងាយស្រួល និងមានសុវត្ថិភាព។", 
-    zh: "身份验证包：Laravel Socialite。使社交 OAuth 集成不仅简单而且非常安全。" 
-  },
-  "experience.2.tech_section.stack.bundler": { 
-    en: "Bundler: Vite. Responsible for compiling and hot-reloading your Vue components and Tailwind styles during development.", 
-    km: "Bundler: Vite។ ទទួលខុសត្រូវក្នុងការចងក្រង និងផ្ទុកឡើងវិញសមាសភាគ Vue របស់អ្នកកំឡុងពេលអភិវឌ្ឍ។", 
-    zh: "打包工具：Vite。负责在开发过程中编译和热重载 Vue 组件和 Tailwind 样式。" 
+  "experience.2.purpose_section.core_purpose.dashboard_profile": {
+    en: "A dashboard and user profile management page where users can update their details and passwords securely.",
+    km: "ផ្ទាំងគ្រប់គ្រង និងទំព័រគ្រប់គ្រងប្រវត្តិរូបអ្នកប្រើប្រាស់ដែលអ្នកប្រើប្រាស់អាចធ្វើបច្ចុប្បន្នភាពព័ត៌មានលម្អិត និងពាក្យសម្ងាត់របស់ពួកគេដោយសុវត្ថិភាព។",
+    zh: "仪表板和用户个人资料管理页面，用户可以在其中安全地更新其详细信息和密码。",
   },
 
-  "experience.2.workflow_section.title": { en: "🔄 3. Application Workflow", km: "🔄 3. លំហូរការងាររបស់កម្មវិធី", zh: "🔄 3. 应用程序工作流程" },
-  "experience.2.workflow_section.guest_auth.label": { en: "Guest Access & Authentication", km: "ការចូលប្រើរបស់អ្នកទស្សនា និងផ្ទៀងផ្ទាត់", zh: "访客访问和身份验证" },
-  "experience.2.workflow_section.guest_auth.standard_choice": { 
-    en: "Choice of Login (Standard): A user submits their email and password. The LoginController validates it and creates a session.", 
-    km: "ជម្រើសចូលប្រើ (ធម្មតា): អ្នកប្រើប្រាស់បញ្ជូនអ៊ីមែល និងពាក្យសម្ងាត់។ LoginController ផ្ទៀងផ្ទាត់ និងបង្កើតសម័យថ្មី។", 
-    zh: "登录选择（标准）：用户提交其邮箱和密码。LoginController 对其进行验证并创建会话。" 
+  "experience.2.tech_section.title": {
+    en: "🛠 2. Programs and Technologies Used",
+    km: "🛠 2. កម្មវិធី និងបច្ចេកវិទ្យាដែលបានប្រើ",
+    zh: "🛠 2. 使用的程序和技术",
   },
-  "experience.2.workflow_section.guest_auth.social_choice": { 
-    en: "Social Login: A user clicks 'Sign in with Google'. The GoogleController calls Socialite to redirect the user to Google's permission screen.", 
-    km: "ការចូលប្រើតាមប្រព័ន្ធសង្គម: ចុច 'ចូលប្រើជាមួយ Google'។ GoogleController ហៅ Socialite ទៅទំព័រអនុញ្ញាតរបស់ Google។", 
-    zh: "社交登录：用户点击“使用 Google 登录”。GoogleController 调起 Socialite 重定向到谷歌权限界面。" 
+  "experience.2.tech_section.stack.label": {
+    en: "VILT Stack",
+    km: "បច្ចេកវិទ្យា VILT Stack",
+    zh: "VILT 技术栈",
   },
-  "experience.2.workflow_section.guest_auth.social_callback": { 
-    en: "Callback: The app reads the user's Google ID. If it's a new user, it saves their info and logs them in automatically.", 
-    km: "កម្មវិធីអាន Google ID របស់អ្នកប្រើប្រាស់។ ប្រសិនបើថ្មី វារក្សាទុកព័ត៌មាន និងឱ្យពួកគេចូលដោយស្វ័យប្រវត្តិ។", 
-    zh: "回调：应用程序读取用户的 Google ID。如果是新用户，则自动生成用户保存并登录。" 
+  "experience.2.tech_section.stack.backend": {
+    en: "Backend / Core Engine: Laravel 12 (PHP 8.2+). Laravel handles all business logic, database queries, routing, middleware security, and session management.",
+    km: "ខ្នងបង្អែក / ម៉ាស៊ីនស្នូល: Laravel 12 (PHP 8.2+)។ Laravel ដោះស្រាយតក្កវិទ្យាអាជីវកម្ម សំណួរមូលដ្ឋានទិន្នន័យ ផ្លូវ សុវត្ថិភាព middleware និងការគ្រប់គ្រងសម័យប្រជុំ។",
+    zh: "后端/核心引擎：Laravel 12 (PHP 8.2+)。Laravel 处理所有业务逻辑、数据库查询、路由、中间件安全和会话管理。",
   },
-  "experience.2.workflow_section.auth_state.label": { en: "Authenticated State", km: "រដ្ឋដែលបានផ្ទៀងផ្ទាត់", zh: "已验证状态" },
-  "experience.2.workflow_section.auth_state.dashboard": { 
-    en: "Dashboard: User is redirected to /dashboard. Protected by auth middleware, only logged-in users can reach it.", 
-    km: "ផ្ទាំងគ្រប់គ្រង: បញ្ជូនទៅកាន់ /dashboard ការពារដោយ auth middleware មានតែអ្នកចូលទើបអាចមើលបាន។", 
-    zh: "仪表板：重定向到受到 auth 中间件保护的 /dashboard。唯有登录用户才可访问。" 
+  "experience.2.tech_section.stack.frontend": {
+    en: "Frontend UI: Vue.js 3 (JavaScript). Vue handles all the interactive visual elements (components, pages, forms).",
+    km: "UI ផ្នែកខាងមុខ: Vue.js 3 (JavaScript)។ Vue គ្រប់គ្រងកម្មវិធីអន្តរកម្មដែលអាចមើលឃើញទាំងអស់ (សមាសភាគ ទំព័រ ទម្រង់)។",
+    zh: "前端 UI：Vue.js 3（JavaScript）。Vue 处理所有交互式视觉元素（组件、页面、表单）。",
   },
-  "experience.2.workflow_section.auth_state.profile_management": { 
-    en: "Profile Management: Navigate to /profile to update standard info (fullname, username) and change password securely.", 
-    km: "គ្រប់គ្រងប្រវត្តិរូប: ចូលទៅកាន់ /profile ដើម្បីធ្វើបច្ចុប្បន្នភាពព័ត៌មាន និងប្តូរពាក្យសម្ងាត់ដោយសុវត្ថិភាព។", 
-    zh: "资料管理：导航到 /profile 以更新标准信息（姓名、用户名）并安全更改密码。" 
+  "experience.2.tech_section.stack.inertia": {
+    en: "The Bridge: Inertia.js. Inertia acts as the 'glue' between Laravel and Vue. It allows you to build a Single-Page Application (SPA) without needing to configure complex, separate REST APIs.",
+    km: "ស្ពានភ្ជាប់: Inertia.js ជា 'កាវ' រវាង Laravel និង Vue។ វាអនុញ្ញាតឱ្យអ្នកបង្កើតកម្មវិធី Single-Page (SPA) មួយដោយមិនចាំបាច់មាន REST APIs ដាច់ដោយឡែកដ៏ស្មុគស្មាញ។",
+    zh: "桥梁：Inertia.js 充当 Laravel 和 Vue 之间的“粘合剂”。它允许您构建单页应用程序 (SPA)，而无需配置复杂的独立 REST API。",
   },
-  "experience.2.workflow_section.auth_state.logout": { 
-    en: "Logout: Triggers a POST request to /logout, destroying the secure session and sending user back to login page.", 
-    km: "ចាកចេញ: កេះស្នើសុំ POST ទៅកាន់ /logout លុបសម័យ និងបញ្ជូនអ្នកប្រើប្រាស់ត្រឡប់ទៅទំព័រចូលប្រើវិញ។", 
-    zh: "注销：触发对 /logout 的 POST 请求，销毁安全会话并返回登录页面。" 
+  "experience.2.tech_section.stack.styling": {
+    en: "Styling: Tailwind CSS 4.0. A utility-first CSS framework used to design the user interface without writing custom CSS files.",
+    km: "ការរចនា: Tailwind CSS 4.0។ ជា framework CSS សម្រាប់រចនាចំណុចប្រទាក់អ្នកប្រើប្រាស់ដោយមិនសរសេរឯកសារ CSS ផ្ទាល់ខ្លួន។",
+    zh: "样式：Tailwind CSS 4.0。用于设计用户界面的实用优先 CSS 框架，无需编写自定义 CSS 文件。",
+  },
+  "experience.2.tech_section.stack.auth_pkg": {
+    en: "Authentication Package: Laravel Socialite. Makes social OAuth integrations (Google, Facebook, Apple) incredibly simple and secure.",
+    km: "កញ្ចប់ផ្ទៀងផ្ទាត់: Laravel Socialite ធ្វើឱ្យការរួមបញ្ចូលសង្គម OAuth ងាយស្រួល និងមានសុវត្ថិភាព។",
+    zh: "身份验证包：Laravel Socialite。使社交 OAuth 集成不仅简单而且非常安全。",
+  },
+  "experience.2.tech_section.stack.bundler": {
+    en: "Bundler: Vite. Responsible for compiling and hot-reloading your Vue components and Tailwind styles during development.",
+    km: "Bundler: Vite។ ទទួលខុសត្រូវក្នុងការចងក្រង និងផ្ទុកឡើងវិញសមាសភាគ Vue របស់អ្នកកំឡុងពេលអភិវឌ្ឍ។",
+    zh: "打包工具：Vite。负责在开发过程中编译和热重载 Vue 组件和 Tailwind 样式。",
+  },
+
+  "experience.2.workflow_section.title": {
+    en: "🔄 3. Application Workflow",
+    km: "🔄 3. លំហូរការងាររបស់កម្មវិធី",
+    zh: "🔄 3. 应用程序工作流程",
+  },
+  "experience.2.workflow_section.guest_auth.label": {
+    en: "Guest Access & Authentication",
+    km: "ការចូលប្រើរបស់អ្នកទស្សនា និងផ្ទៀងផ្ទាត់",
+    zh: "访客访问和身份验证",
+  },
+  "experience.2.workflow_section.guest_auth.standard_choice": {
+    en: "Choice of Login (Standard): A user submits their email and password. The LoginController validates it and creates a session.",
+    km: "ជម្រើសចូលប្រើ (ធម្មតា): អ្នកប្រើប្រាស់បញ្ជូនអ៊ីមែល និងពាក្យសម្ងាត់។ LoginController ផ្ទៀងផ្ទាត់ និងបង្កើតសម័យថ្មី។",
+    zh: "登录选择（标准）：用户提交其邮箱和密码。LoginController 对其进行验证并创建会话。",
+  },
+  "experience.2.workflow_section.guest_auth.social_choice": {
+    en: "Social Login: A user clicks 'Sign in with Google'. The GoogleController calls Socialite to redirect the user to Google's permission screen.",
+    km: "ការចូលប្រើតាមប្រព័ន្ធសង្គម: ចុច 'ចូលប្រើជាមួយ Google'។ GoogleController ហៅ Socialite ទៅទំព័រអនុញ្ញាតរបស់ Google។",
+    zh: "社交登录：用户点击“使用 Google 登录”。GoogleController 调起 Socialite 重定向到谷歌权限界面。",
+  },
+  "experience.2.workflow_section.guest_auth.social_callback": {
+    en: "Callback: The app reads the user's Google ID. If it's a new user, it saves their info and logs them in automatically.",
+    km: "កម្មវិធីអាន Google ID របស់អ្នកប្រើប្រាស់។ ប្រសិនបើថ្មី វារក្សាទុកព័ត៌មាន និងឱ្យពួកគេចូលដោយស្វ័យប្រវត្តិ។",
+    zh: "回调：应用程序读取用户的 Google ID。如果是新用户，则自动生成用户保存并登录。",
+  },
+  "experience.2.workflow_section.auth_state.label": {
+    en: "Authenticated State",
+    km: "រដ្ឋដែលបានផ្ទៀងផ្ទាត់",
+    zh: "已验证状态",
+  },
+  "experience.2.workflow_section.auth_state.dashboard": {
+    en: "Dashboard: User is redirected to /dashboard. Protected by auth middleware, only logged-in users can reach it.",
+    km: "ផ្ទាំងគ្រប់គ្រង: បញ្ជូនទៅកាន់ /dashboard ការពារដោយ auth middleware មានតែអ្នកចូលទើបអាចមើលបាន។",
+    zh: "仪表板：重定向到受到 auth 中间件保护的 /dashboard。唯有登录用户才可访问。",
+  },
+  "experience.2.workflow_section.auth_state.profile_management": {
+    en: "Profile Management: Navigate to /profile to update standard info (fullname, username) and change password securely.",
+    km: "គ្រប់គ្រងប្រវត្តិរូប: ចូលទៅកាន់ /profile ដើម្បីធ្វើបច្ចុប្បន្នភាពព័ត៌មាន និងប្តូរពាក្យសម្ងាត់ដោយសុវត្ថិភាព។",
+    zh: "资料管理：导航到 /profile 以更新标准信息（姓名、用户名）并安全更改密码。",
+  },
+  "experience.2.workflow_section.auth_state.logout": {
+    en: "Logout: Triggers a POST request to /logout, destroying the secure session and sending user back to login page.",
+    km: "ចាកចេញ: កេះស្នើសុំ POST ទៅកាន់ /logout លុបសម័យ និងបញ្ជូនអ្នកប្រើប្រាស់ត្រឡប់ទៅទំព័រចូលប្រើវិញ។",
+    zh: "注销：触发对 /logout 的 POST 请求，销毁安全会话并返回登录页面。",
   },
   "experience.3.role": {
     en: "Hotel Booking",
@@ -417,26 +685,38 @@ const translations: Translations = {
   "blog.subtitle": {
     en: "Thoughts, tutorials, and insights about web development",
     km: "គំនិត ការបង្រៀន និងការយល់ដឹងអំពីការអភិវឌ្ឍន៍វេប",
-    zh: "关于网页开发的想法、教程和见解"
+    zh: "关于网页开发的想法、教程和见解",
   },
   "blog.comingSoon": {
     en: "Blog posts coming soon...",
     km: "អត្ថបទប្លក់នឹងមកដល់ឆាប់ៗ...",
-    zh: "博客文章即将推出..."
+    zh: "博客文章即将推出...",
   },
   "blog.tab.all": { en: "All", km: "ទាំងអស់", zh: "全部" },
   "blog.tab.laravel": { en: "Laravel", km: "Laravel", zh: "Laravel" },
   "blog.tab.vue": { en: "Vue", km: "Vue", zh: "Vue" },
-  "blog.tab.typescript": { en: "TypeScript", km: "TypeScript", zh: "TypeScript" },
-  "blog.tab.laravelVue": { en: "Laravel & Vue", km: "Laravel & Vue", zh: "Laravel & Vue" },
+  "blog.tab.typescript": {
+    en: "TypeScript",
+    km: "TypeScript",
+    zh: "TypeScript",
+  },
+  "blog.tab.laravelVue": {
+    en: "Laravel & Vue",
+    km: "Laravel & Vue",
+    zh: "Laravel & Vue",
+  },
   "blog.tab.interview": { en: "Interview", km: "សំភាសន៍", zh: "面试" },
   "blog.tab.database": { en: "Database", km: "មូលដ្ឋានទិន្នន័យ", zh: "数据库" },
   "blog.noResults": {
     en: "No posts found for this filter.",
     km: "រកមិនឃើញអត្ថបទសម្រាប់តម្រងនេះទេ។",
-    zh: "未找到此筛选条件的文章。"
+    zh: "未找到此筛选条件的文章。",
   },
-  "blog.backToBlog": { en: "Back to Blog", km: "ត្រឡប់ទៅប្លក់", zh: "返回博客" },
+  "blog.backToBlog": {
+    en: "Back to Blog",
+    km: "ត្រឡប់ទៅប្លក់",
+    zh: "返回博客",
+  },
   "blog.summary": { en: "Summary", km: "សេចក្តីសង្ខេប", zh: "总结" },
 
   // Footer
@@ -535,7 +815,10 @@ export const useI18n = () => {
     maxAge: 365 * 24 * 60 * 60,
   });
 
-  const currentLang = useState<Language>("lang", () => langCookie.value || "en");
+  const currentLang = useState<Language>(
+    "lang",
+    () => langCookie.value || "en",
+  );
 
   const setLanguage = (lang: Language) => {
     currentLang.value = lang;
@@ -551,7 +834,7 @@ export const useI18n = () => {
   const languages = [
     { code: "en", name: "English", flag: "🇺🇸" },
     { code: "km", name: "ខ្មែរ", flag: "🇰🇭" },
-    { code: "zh", name: "中文", flag: "🇨🇳" },
+    // { code: "zh", name: "中文", flag: "🇨🇳" },
   ];
 
   return {
