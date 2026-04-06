@@ -1,11 +1,11 @@
-import type { EmblaCarouselVueType } from 'embla-carousel-vue'
+import type { EmblaCarouselType } from 'embla-carousel'
 import type { InjectionKey, Ref } from 'vue'
 
-export type CarouselApi = EmblaCarouselVueType[1]
+export type CarouselApi = Ref<EmblaCarouselType | undefined>
 
 export interface CarouselContextValue {
-  api: Ref<CarouselApi | null>
-  viewportRef: Ref<HTMLElement | null>
+  api: CarouselApi
+  viewportRef: Ref<HTMLElement | undefined>
   orientation: Ref<'horizontal' | 'vertical'>
 }
 

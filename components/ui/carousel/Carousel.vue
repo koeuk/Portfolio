@@ -2,7 +2,7 @@
 import { provide, ref, toRef, watchEffect } from 'vue'
 import type { HTMLAttributes } from 'vue'
 import type { EmblaOptionsType, EmblaPluginType } from 'embla-carousel'
-import { useEmblaCarousel } from 'embla-carousel-vue'
+import emblaCarouselVue from 'embla-carousel-vue'
 import { cn } from '~/lib/utils'
 import { carouselContextKey, type CarouselApi } from './carouselContext'
 
@@ -23,13 +23,22 @@ const emit = defineEmits<{
 
 const orientation = toRef(props, 'orientation')
 
-const [viewportRef, api] = useEmblaCarousel(
-  () => ({
+const opts = ref<EmblaOptionsType>({
+  axis: orientation.value === 'horizontal' ? 'x' : 'y',
+  ...(props.opts ?? {}),
+})
+
+const plugins = ref<EmblaPluginType[]>(props.plugins ?? [])
+
+watchEffect(() => {
+  opts.value = {
     axis: orientation.value === 'horizontal' ? 'x' : 'y',
     ...(props.opts ?? {}),
-  }),
-  () => props.plugins ?? [],
-)
+  }
+  plugins.value = props.plugins ?? []
+})
+
+const [viewportRef, api] = emblaCarouselVue(opts, plugins)
 
 provide(carouselContextKey, {
   api,
@@ -38,7 +47,7 @@ provide(carouselContextKey, {
 })
 
 watchEffect(() => {
-  if (api.value) emit('init-api', api.value)
+  if (api.value) emit('init-api', api)
 })
 </script>
 

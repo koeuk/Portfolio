@@ -15,12 +15,11 @@ onMounted(() => {
   if (!ctx) throw new Error('CarouselContent must be used within Carousel')
 })
 
-const viewportRef = computed(() => ctx?.viewportRef)
 const isHorizontal = computed(() => (ctx?.orientation.value ?? 'horizontal') === 'horizontal')
 </script>
 
 <template>
-  <div v-if="viewportRef" ref="viewportRef" class="overflow-hidden">
+  <div v-if="ctx" :ref="ctx.viewportRef" class="overflow-hidden">
     <div
       :class="cn(
         'flex',

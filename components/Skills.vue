@@ -11,8 +11,6 @@
           class="w-full"
           :plugins="[plugin]"
           :opts="{ align: 'start', loop: true, dragFree: true }"
-          @mouseenter="plugin.stop"
-          @mouseleave="[plugin.reset(), plugin.play()]"
         >
           <CarouselContent class="py-2">
             <CarouselItem
@@ -59,6 +57,7 @@ const plugin = Autoplay({
   delay: 2000,
   stopOnMouseEnter: true,
   stopOnInteraction: false,
+  playOnInit: true,
 })
 
 const icons: Record<string, string> = {
