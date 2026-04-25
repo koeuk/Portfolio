@@ -7,18 +7,18 @@
 
       <div class="relative max-w-4xl mx-auto timeline-content">
         <!-- Vertical Line -->
-        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-violet-500 to-emerald-500 rounded-full hidden md:block"></div>
-        <div class="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-violet-500 to-emerald-500 rounded-full md:hidden"></div>
+        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-violet-500 to-emerald-500 rounded-full hidden md:block timeline-line"></div>
+        <div class="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-violet-500 to-emerald-500 rounded-full md:hidden timeline-line"></div>
 
         <!-- START -->
-        <div class="flex justify-center mb-12 relative z-10">
+        <div class="flex justify-center mb-12 relative z-10 timeline-step timeline-step-start">
           <div class="px-6 py-2 rounded-full border-2 border-primary dark:border-white text-primary dark:text-white font-bold text-lg bg-white dark:bg-primary">
             START
           </div>
         </div>
 
         <!-- IT Solutions -->
-        <div class="relative flex flex-col md:flex-row items-start mb-16">
+        <div class="relative flex flex-col md:flex-row items-start mb-16 timeline-step timeline-step-1">
           <div class="hidden md:block w-1/2"></div>
           <div class="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
             <div class="w-5 h-5 rounded-full bg-blue-500 border-4 border-white dark:border-primary shadow-lg"></div>
@@ -50,7 +50,7 @@
         </div>
 
         <!-- Vehabooking -->
-        <div class="relative flex flex-col md:flex-row items-start mb-16">
+        <div class="relative flex flex-col md:flex-row items-start mb-16 timeline-step timeline-step-2">
           <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
             <div class="relative">
               <div class="hidden md:block absolute right-0 top-1/2 translate-x-full w-8 border-t-2 border-dashed border-violet-400"></div>
@@ -84,7 +84,7 @@
         </div>
 
         <!-- PRESENT -->
-        <div class="flex justify-center mt-4 relative z-10">
+        <div class="flex justify-center mt-4 relative z-10 timeline-step timeline-step-end">
           <div class="px-6 py-2 rounded-full border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 font-bold text-lg bg-white dark:bg-primary">
             PRESENT
           </div>
@@ -118,5 +118,53 @@ const { isVisible, elementRef } = useScrollAnimation()
   filter: blur(0);
   transform: translateY(0) scale(1);
   transition-delay: 0.3s;
+}
+
+/* Timeline line draws downward from START */
+.timeline-line {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 2.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0.5s;
+}
+
+.section-visible .timeline-line {
+  transform: scaleY(1);
+}
+
+/* Staggered reveal of each step from top to bottom */
+.timeline-step {
+  opacity: 0;
+  transform: translateY(-20px);
+  filter: blur(8px);
+  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s ease-out;
+}
+
+.section-visible .timeline-step-start {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition-delay: 0.4s;
+}
+
+.section-visible .timeline-step-1 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition-delay: 1.1s;
+}
+
+.section-visible .timeline-step-2 {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition-delay: 1.8s;
+}
+
+.section-visible .timeline-step-end {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition-delay: 2.5s;
 }
 </style>
