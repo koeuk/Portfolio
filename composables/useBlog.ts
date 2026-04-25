@@ -18,7 +18,7 @@ export const useBlog = () => {
       date: 'Mar 6, 2026',
       category: 'Database',
       tags: ['Database', 'SQL'],
-      slug: '/blog/database-basics'
+      slug: '/read-more/database-basics'
     },
     {
       id: 14,
@@ -27,7 +27,7 @@ export const useBlog = () => {
       date: 'Mar 1, 2026',
       category: 'Interview',
       tags: ['Laravel', 'Interview'],
-      slug: '/blog/interview-laravel'
+      slug: '/read-more/interview-laravel'
     },
     {
       id: 15,
@@ -36,7 +36,7 @@ export const useBlog = () => {
       date: 'Feb 25, 2026',
       category: 'Interview',
       tags: ['Vue', 'Interview'],
-      slug: '/blog/interview-vue'
+      slug: '/read-more/interview-vue'
     },
     {
       id: 16,
@@ -45,7 +45,7 @@ export const useBlog = () => {
       date: 'Feb 20, 2026',
       category: 'Interview',
       tags: ['MySQL', 'Interview'],
-      slug: '/blog/interview-mysql'
+      slug: '/read-more/interview-mysql'
     },
     {
       id: 17,
@@ -54,7 +54,7 @@ export const useBlog = () => {
       date: 'Feb 15, 2026',
       category: 'Interview',
       tags: ['SQL', 'Interview'],
-      slug: '/blog/interview-sql'
+      slug: '/read-more/interview-sql'
     },
     {
       id: 18,
@@ -63,7 +63,7 @@ export const useBlog = () => {
       date: 'Feb 10, 2026',
       category: 'Interview',
       tags: ['TypeScript', 'Interview'],
-      slug: '/blog/interview-typescript'
+      slug: '/read-more/interview-typescript'
     },
     {
       id: 1,
@@ -72,7 +72,7 @@ export const useBlog = () => {
       date: 'Jan 15, 2026',
       category: 'Vue',
       tags: ['Vue', 'JavaScript'],
-      slug: '/blog/vue-composition-api'
+      slug: '/read-more/vue-composition-api'
     },
     {
       id: 2,
@@ -81,7 +81,7 @@ export const useBlog = () => {
       date: 'Jan 10, 2026',
       category: 'CSS',
       tags: ['Tailwind', 'CSS'],
-      slug: '/blog/tailwind-responsive-layouts'
+      slug: '/read-more/tailwind-responsive-layouts'
     },
     {
       id: 3,
@@ -90,7 +90,7 @@ export const useBlog = () => {
       date: 'Jan 5, 2026',
       category: 'TypeScript',
       tags: ['TypeScript', 'JavaScript'],
-      slug: '/blog/typescript-best-practices'
+      slug: '/read-more/typescript-best-practices'
     },
     {
       id: 4,
@@ -99,7 +99,7 @@ export const useBlog = () => {
       date: 'Dec 28, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-setup'
+      slug: '/read-more/laravel-setup'
     },
     {
       id: 5,
@@ -108,7 +108,7 @@ export const useBlog = () => {
       date: 'Dec 20, 2025',
       category: 'Laravel & Vue',
       tags: ['Laravel', 'Vue'],
-      slug: '/blog/laravel-vue-fullstack'
+      slug: '/read-more/laravel-vue-fullstack'
     },
     {
       id: 6,
@@ -117,7 +117,7 @@ export const useBlog = () => {
       date: 'Dec 15, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-eloquent'
+      slug: '/read-more/laravel-eloquent'
     },
     {
       id: 7,
@@ -126,7 +126,7 @@ export const useBlog = () => {
       date: 'Dec 10, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-relationships'
+      slug: '/read-more/laravel-relationships'
     },
     {
       id: 8,
@@ -135,7 +135,7 @@ export const useBlog = () => {
       date: 'Dec 5, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-authentication'
+      slug: '/read-more/laravel-authentication'
     },
     {
       id: 9,
@@ -144,7 +144,7 @@ export const useBlog = () => {
       date: 'Dec 1, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-authorization'
+      slug: '/read-more/laravel-authorization'
     },
     {
       id: 10,
@@ -153,7 +153,7 @@ export const useBlog = () => {
       date: 'Nov 28, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-verification'
+      slug: '/read-more/laravel-verification'
     },
     {
       id: 11,
@@ -162,7 +162,7 @@ export const useBlog = () => {
       date: 'Nov 25, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-encryption'
+      slug: '/read-more/laravel-encryption'
     },
     {
       id: 12,
@@ -171,7 +171,7 @@ export const useBlog = () => {
       date: 'Nov 22, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-hashing'
+      slug: '/read-more/laravel-hashing'
     },
     {
       id: 13,
@@ -180,7 +180,7 @@ export const useBlog = () => {
       date: 'Nov 20, 2025',
       category: 'Laravel',
       tags: ['Laravel', 'PHP'],
-      slug: '/blog/laravel-passwords'
+      slug: '/read-more/laravel-passwords'
     },
   ]
 

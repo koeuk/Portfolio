@@ -43,7 +43,7 @@
         <!-- Read More -->
         <div class="flex justify-center mt-12 section-content">
           <NuxtLink
-            to="/read-more"
+            to="/blog"
             class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary dark:bg-white text-white dark:text-primary font-semibold hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg"
           >
             {{ t('blog.readMore') }}

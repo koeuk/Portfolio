@@ -28,10 +28,11 @@
 
       <!-- Feelings Posts Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <article
+        <NuxtLink
           v-for="post in filteredPosts"
           :key="post.id"
-          class="card p-6 group cursor-default block"
+          :to="`/blog/${post.slug}`"
+          class="card p-6 group cursor-pointer block hover:-translate-y-1 transition-transform"
         >
           <div class="h-40 rounded-lg mb-4 overflow-hidden flex items-center justify-center"
             :class="post.image ? '' : `bg-gradient-to-br ${post.gradient}`">
@@ -44,7 +45,7 @@
             <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
             <span class="font-semibold">{{ post.category }}</span>
           </div>
-          <h2 class="text-lg font-bold text-primary dark:text-white mb-2">
+          <h2 class="text-lg font-bold text-primary dark:text-white mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
             {{ post.title }}
           </h2>
           <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
@@ -59,7 +60,7 @@
               {{ tag }}
             </span>
           </div>
-        </article>
+        </NuxtLink>
       </div>
 
       <!-- No results for filter -->
@@ -96,80 +97,7 @@ const activeTab = computed({
   }
 })
 
-interface FeelingPost {
-  id: number
-  title: string
-  body: string
-  date: string
-  category: string
-  tags: string[]
-  emoji: string
-  gradient: string
-  image?: string
-}
-
-const posts: FeelingPost[] = [
-  {
-    id: 1,
-    title: 'The Quiet Joy of Shipping Something',
-    body: 'Today I deployed a feature I had been working on for weeks. There is something quietly wonderful about pressing the merge button and watching the pipeline turn green. Not the loud kind of joy — the calm, settled kind.',
-    date: 'Apr 22, 2026',
-    category: 'Happy',
-    tags: ['work', 'flow'],
-    emoji: '🌱',
-    gradient: 'from-emerald-400 to-teal-500',
-  },
-  {
-    id: 2,
-    title: 'Looking Back on a Year of Building',
-    body: 'A year ago I barely knew what a composable was. Tonight I refactored a whole system of them without checking docs once. Growth happens slowly, then all at once.',
-    date: 'Apr 15, 2026',
-    category: 'Reflective',
-    tags: ['growth', 'learning'],
-    emoji: '🌙',
-    gradient: 'from-indigo-500 to-purple-600',
-  },
-  {
-    id: 3,
-    title: 'Small People, Big Patience',
-    body: 'Spent the afternoon helping a friend understand recursion. Watching the moment it clicks for someone else is its own kind of reward. Teaching teaches you twice.',
-    date: 'Apr 8, 2026',
-    category: 'Grateful',
-    tags: ['friends', 'mentoring'],
-    emoji: '💫',
-    gradient: 'from-amber-400 to-orange-500',
-  },
-  {
-    id: 4,
-    title: 'The Bug That Wouldn\'t Leave',
-    body: 'Three days. One bug. Logs that lied to me. By the time I found it, the fix was four characters. The hard parts of this job are rarely about typing.',
-    date: 'Mar 30, 2026',
-    category: 'Challenging',
-    tags: ['debugging', 'patience'],
-    emoji: '🌧',
-    gradient: 'from-slate-500 to-gray-700',
-  },
-  {
-    id: 5,
-    title: 'A Walk Without a Phone',
-    body: 'Left it on the desk on purpose. Noticed how loud the wind was, how slow my thoughts moved when nothing was demanding them. Will do this more.',
-    date: 'Mar 20, 2026',
-    category: 'Reflective',
-    tags: ['rest', 'mindfulness'],
-    emoji: '🍃',
-    gradient: 'from-green-400 to-emerald-600',
-  },
-  {
-    id: 6,
-    title: 'New Year, Same Hands, Different Heart',
-    body: 'Started the year with a small list — fewer commitments, more depth. Already harder than I thought. But the days feel more mine.',
-    date: 'Jan 3, 2026',
-    category: 'Hopeful',
-    tags: ['goals', 'beginnings'],
-    emoji: '✨',
-    gradient: 'from-pink-400 to-rose-500',
-  },
-]
+const { posts } = useFeelings()
 
 const filteredPosts = computed(() => {
   if (activeTab.value === 'all') return posts

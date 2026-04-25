@@ -661,6 +661,11 @@ const translations: Translations = {
     km: "ត្រឡប់ទៅប្លក់",
     zh: "返回博客",
   },
+  "readMore.back": {
+    en: "Back to Read More",
+    km: "ត្រឡប់ទៅអានបន្ថែម",
+    zh: "返回阅读更多",
+  },
   "blog.summary": { en: "Summary", km: "សេចក្តីសង្ខេប", zh: "总结" },
 
   // Footer
