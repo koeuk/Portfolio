@@ -59,7 +59,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <span class="text-4xl md:text-5xl font-bold text-violet-500/20 dark:text-violet-400/20">2024 - 2026</span>
+              <span class="year-shimmer text-4xl md:text-5xl font-bold">2024 - 2026</span>
               <h3 class="text-xl font-bold text-primary dark:text-white mt-2">Staff</h3>
               <p class="text-sm text-gray-500 dark:text-gray-400">Dec 2024 - Present</p>
               <h4 class="text-lg font-semibold text-violet-600 dark:text-violet-400 mb-2">Vehabooking</h4>
@@ -166,5 +166,42 @@ const { isVisible, elementRef } = useScrollAnimation()
   transform: translateY(0);
   filter: blur(0);
   transition-delay: 2.5s;
+}
+
+/* Shimmer animation for the 2024 - 2026 year label */
+.year-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.15) 0%,
+    rgba(139, 92, 246, 0.15) 35%,
+    rgba(167, 139, 250, 0.95) 50%,
+    rgba(139, 92, 246, 0.15) 65%,
+    rgba(139, 92, 246, 0.15) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: year-shimmer-sweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline-block;
+}
+
+@keyframes year-shimmer-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .year-shimmer {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: rgba(139, 92, 246, 0.4);
+    color: rgba(139, 92, 246, 0.4);
+  }
 }
 </style>
