@@ -187,7 +187,7 @@ export const useBlog = () => {
       title: 'Learn HTML5: The Foundation of the Web',
       excerpt: 'Start with the building blocks of the web — semantic tags, forms, multimedia, accessibility, and modern HTML5 APIs.',
       date: 'Apr 1, 2026',
-      category: 'Frontend',
+      category: 'HTML',
       tags: ['HTML5', 'Frontend'],
       slug: '/read-more/learn-html5'
     },
@@ -196,7 +196,7 @@ export const useBlog = () => {
       title: 'Learn CSS3: Style the Modern Web',
       excerpt: 'Master modern CSS — Flexbox, Grid, custom properties, animations, transforms, and responsive design patterns.',
       date: 'Apr 2, 2026',
-      category: 'Frontend',
+      category: 'CSS',
       tags: ['CSS3', 'Frontend'],
       slug: '/read-more/learn-css3'
     },
@@ -205,7 +205,7 @@ export const useBlog = () => {
       title: 'Learn JavaScript: From Zero to Modern ES',
       excerpt: 'Get fluent in JavaScript — variables, functions, async/await, modules, ES2022+ features, and how the language really works.',
       date: 'Apr 3, 2026',
-      category: 'Frontend',
+      category: 'JavaScript',
       tags: ['JavaScript', 'Frontend'],
       slug: '/read-more/learn-javascript'
     },
@@ -223,7 +223,7 @@ export const useBlog = () => {
       title: 'Learn Tailwind CSS: Utility-First Styling',
       excerpt: 'Stop writing custom CSS — learn Tailwind\'s utility classes, theming, dark mode, and design system workflow.',
       date: 'Apr 5, 2026',
-      category: 'Frontend',
+      category: 'CSS',
       tags: ['Tailwind', 'CSS'],
       slug: '/read-more/learn-tailwind'
     },

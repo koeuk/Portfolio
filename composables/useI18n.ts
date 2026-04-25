@@ -651,6 +651,11 @@ const translations: Translations = {
   },
   "blog.tab.interview": { en: "Interview", km: "សំភាសន៍", zh: "面试" },
   "blog.tab.database": { en: "Database", km: "មូលដ្ឋានទិន្នន័យ", zh: "数据库" },
+  "blog.tab.frontend": { en: "Frontend", km: "ផ្នែកខាងមុខ", zh: "前端" },
+  "blog.tab.tools": { en: "Tools", km: "ឧបករណ៍", zh: "工具" },
+  "blog.tab.html": { en: "HTML", km: "HTML", zh: "HTML" },
+  "blog.tab.css": { en: "CSS", km: "CSS", zh: "CSS" },
+  "blog.tab.javascript": { en: "JavaScript", km: "JavaScript", zh: "JavaScript" },
   "blog.noResults": {
     en: "No posts found for this filter.",
     km: "រកមិនឃើញអត្ថបទសម្រាប់តម្រងនេះទេ។",

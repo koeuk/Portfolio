@@ -137,12 +137,16 @@ useHead({
 
 const tabs = computed(() => [
   { label: t('blog.tab.all'), value: 'all' },
-  { label: t('blog.tab.laravel'), value: 'Laravel' },
-  { label: t('blog.tab.vue'), value: 'Vue' },
+  { label: t('blog.tab.html'), value: 'HTML' },
+  { label: t('blog.tab.css'), value: 'CSS' },
+  { label: t('blog.tab.javascript'), value: 'JavaScript' },
   { label: t('blog.tab.typescript'), value: 'TypeScript' },
+  { label: t('blog.tab.vue'), value: 'Vue' },
+  { label: t('blog.tab.laravel'), value: 'Laravel' },
   { label: t('blog.tab.laravelVue'), value: 'Laravel & Vue' },
   { label: t('blog.tab.interview'), value: 'Interview' },
   { label: t('blog.tab.database'), value: 'Database' },
+  { label: t('blog.tab.tools'), value: 'Tools' },
 ])
 
 const route = useRoute()
@@ -165,6 +169,8 @@ const activeTabLabel = computed(() => {
 
 function selectTab(value: string) {
   activeTab.value = value
+  const tab = tabs.value.find(t => t.value === value)
+  searchQuery.value = value === 'all' ? '' : (tab?.label ?? '')
   isOpen.value = false
 }
 
