@@ -14,13 +14,13 @@
                 <!-- Desktop Menu Pill -->
                 <div
                     class="hidden md:flex items-center gap-1 px-2 py-1.5 rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] relative">
-                    <NuxtLink v-for="link in navLinks" :key="link.href" :to="link.href"
+                    <NuxtLink v-for="navLink in navLinks" :key="navLink.href" :to="navLink.href"
                         class="relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300 z-10"
-                        :class="currentActive === link.href
+                        :class="currentActive === navLink.href
                             ? 'text-white dark:text-primary'
                             : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white'">
-                        <span class="relative z-10">{{ t(link.label) }}</span>
-                        <span v-if="currentActive === link.href"
+                        <span class="relative z-10">{{ t(navLink.label) }}</span>
+                        <span v-if="currentActive === navLink.href"
                             class="absolute inset-0 bg-primary dark:bg-white rounded-full -z-0 nav-pill-active"></span>
                     </NuxtLink>
                 </div>
@@ -30,27 +30,27 @@
                     class="hidden md:flex items-center gap-2 px-2 py-1.5 rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
                     <!-- Language Selector -->
                     <div class="relative">
-                        <button @click.stop="showLangMenu = !showLangMenu"
+                        <button @click.stop="showLanguageMenu = !showLanguageMenu"
                             class="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-sm">
                             <span class="text-base leading-none">{{ currentFlag }}</span>
                             <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 transition-transform duration-300"
-                                :class="{ 'rotate-180': showLangMenu }" fill="none" stroke="currentColor"
+                                :class="{ 'rotate-180': showLanguageMenu }" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                                     d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
                         <Transition name="dropdown">
-                            <div v-if="showLangMenu"
+                            <div v-if="showLanguageMenu"
                                 class="absolute right-0 mt-3 w-40 bg-white/90 dark:bg-primary/95 backdrop-blur-xl rounded-2xl shadow-xl border border-black/5 dark:border-white/10 overflow-hidden p-1.5">
-                                <button v-for="lang in languages" :key="lang.code"
-                                    @click="selectLanguage(lang.code as 'en' | 'km' | 'zh')"
+                                <button v-for="language in languages" :key="language.code"
+                                    @click="selectLanguage(language.code as 'en' | 'km' | 'zh')"
                                     class="w-full px-3 py-2 text-left rounded-xl flex items-center gap-2.5 text-sm transition-colors"
-                                    :class="currentLang === lang.code
+                                    :class="currentLang === language.code
                                         ? 'bg-primary/10 dark:bg-white/10 text-primary dark:text-white font-medium'
                                         : 'text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5'">
-                                    <span class="text-base">{{ lang.flag }}</span>
-                                    <span>{{ lang.name }}</span>
+                                    <span class="text-base">{{ language.flag }}</span>
+                                    <span>{{ language.name }}</span>
                                 </button>
                             </div>
                         </Transition>
@@ -102,22 +102,22 @@
             <div v-if="isOpen" class="md:hidden mt-3 max-w-7xl mx-auto">
                 <div
                     class="bg-white/80 dark:bg-primary/90 backdrop-blur-xl rounded-3xl border border-black/5 dark:border-white/10 shadow-2xl overflow-hidden p-2">
-                    <NuxtLink v-for="link in navLinks" :key="link.href" :to="link.href" @click="isOpen = false"
+                    <NuxtLink v-for="navLink in navLinks" :key="navLink.href" :to="navLink.href" @click="isOpen = false"
                         class="block px-4 py-3 rounded-2xl transition-all text-sm font-medium"
-                        :class="currentActive === link.href
+                        :class="currentActive === navLink.href
                             ? 'bg-primary text-white dark:bg-white dark:text-primary'
                             : 'text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'">
-                        {{ t(link.label) }}
+                        {{ t(navLink.label) }}
                     </NuxtLink>
                     <div class="mt-2 pt-2 border-t border-black/5 dark:border-white/10 px-1">
                         <div class="flex gap-1.5 p-1">
-                            <button v-for="lang in languages" :key="lang.code"
-                                @click="selectLanguage(lang.code as 'en' | 'km' | 'zh')"
+                            <button v-for="language in languages" :key="language.code"
+                                @click="selectLanguage(language.code as 'en' | 'km' | 'zh')"
                                 class="flex-1 py-2 rounded-xl text-center text-sm font-medium transition-all"
-                                :class="currentLang === lang.code
+                                :class="currentLang === language.code
                                     ? 'bg-primary text-white dark:bg-white dark:text-primary'
                                     : 'bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-200'">
-                                {{ lang.flag }} {{ lang.name }}
+                                {{ language.flag }} {{ language.name }}
                             </button>
                         </div>
                     </div>
@@ -134,13 +134,13 @@
     const route = useRoute()
     const isOpen = ref(false)
     const scrolled = ref(false)
-    const showLangMenu = ref(false)
+    const showLanguageMenu = ref(false)
     const activeSection = ref('/#home')
 
     const isHomePage = computed(() => route.path === '/')
     const currentActive = computed(() => {
         if (!isHomePage.value) {
-            const match = navLinks.find(l => route.path.startsWith(l.href.replace('/#', '/')) && !l.href.startsWith('/#'))
+            const match = navLinks.find(navLink => route.path.startsWith(navLink.href.replace('/#', '/')) && !navLink.href.startsWith('/#'))
             return match?.href || ''
         }
         return activeSection.value
@@ -158,24 +158,24 @@
     ]
 
     const currentFlag = computed(() => {
-        const lang = languages.find(l => l.code === currentLang.value)
-        return lang?.flag || '🇺🇸'
+        const language = languages.find(language => language.code === currentLang.value)
+        return language?.flag || '🇺🇸'
     })
 
-    const selectLanguage = (lang: 'en' | 'km' | 'zh') => {
-        setLanguage(lang)
-        showLangMenu.value = false
+    const selectLanguage = (language: 'en' | 'km' | 'zh') => {
+        setLanguage(language)
+        showLanguageMenu.value = false
     }
 
     onMounted(() => {
         initTheme()
         window.addEventListener('scroll', handleScroll)
-        document.addEventListener('click', closeLangMenu)
+        document.addEventListener('click', closeLanguageMenu)
     })
 
     onUnmounted(() => {
         window.removeEventListener('scroll', handleScroll)
-        document.removeEventListener('click', closeLangMenu)
+        document.removeEventListener('click', closeLanguageMenu)
     })
 
     function handleScroll() {
@@ -187,22 +187,22 @@
         }
 
         const sections = ['home', 'skills', 'github', 'personal-projects', 'work-experience', 'about', 'contact']
-        const scrollPos = window.scrollY + 150
+        const scrollPosition = window.scrollY + 150
 
-        for (let i = sections.length - 1; i >= 0; i--) {
-            const el = document.getElementById(sections[i])
-            if (el && el.offsetTop <= scrollPos) {
-                activeSection.value = `/#${sections[i]}`
+        for (let index = sections.length - 1; index >= 0; index--) {
+            const element = document.getElementById(sections[index])
+            if (element && element.offsetTop <= scrollPosition) {
+                activeSection.value = `/#${sections[index]}`
                 return
             }
         }
         activeSection.value = '/#home'
     }
 
-    function closeLangMenu(e: Event) {
-        const target = e.target as HTMLElement
+    function closeLanguageMenu(event: Event) {
+        const target = event.target as HTMLElement
         if (!target.closest('.relative')) {
-            showLangMenu.value = false
+            showLanguageMenu.value = false
         }
     }
 </script>

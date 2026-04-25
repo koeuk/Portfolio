@@ -26,10 +26,10 @@
 
       <!-- Tech Stack Pills -->
       <div class="flex flex-wrap gap-3 mb-16">
-        <span v-for="tech in techStack" :key="tech.name"
+        <span v-for="technology in techStack" :key="technology.name"
           class="px-4 py-2 rounded-full text-sm font-medium border"
-          :class="tech.color">
-          {{ tech.name }}
+          :class="technology.color">
+          {{ technology.name }}
         </span>
       </div>
 
@@ -53,7 +53,7 @@
               {{ feature.icon }}
             </div>
             <h3 class="text-lg font-semibold mb-2 group-hover:text-violet-300 transition-colors">{{ feature.title }}</h3>
-            <p class="text-sm text-gray-400 leading-relaxed">{{ feature.desc }}</p>
+            <p class="text-sm text-gray-400 leading-relaxed">{{ feature.description }}</p>
           </div>
         </div>
       </div>
@@ -89,12 +89,12 @@
       <div class="mb-16">
         <h2 class="text-3xl font-bold mb-8">Screenshots — Web User</h2>
         <div class="columns-1 md:columns-2 gap-4 space-y-4">
-          <div v-for="i in webUserImages" :key="i"
+          <div v-for="imageNumber in webUserImages" :key="imageNumber"
             class="break-inside-avoid rounded-xl overflow-hidden transition-all cursor-pointer group"
-            @click="openLightbox(i)">
+            @click="openLightbox(imageNumber)">
             <img
-              :src="`/images/hotel-booking/${i}.png`"
-              :alt="`Hotel Booking Screenshot ${i}`"
+              :src="`/images/hotel-booking/${imageNumber}.png`"
+              :alt="`Hotel Booking Screenshot ${imageNumber}`"
               class="w-full block group-hover:scale-[1.02] transition-transform duration-500"
               loading="lazy"
             />
@@ -106,12 +106,12 @@
       <div class="mb-16">
         <h2 class="text-3xl font-bold mb-8">Screenshots — Admin</h2>
         <div class="columns-1 md:columns-2 gap-4 space-y-4">
-          <div v-for="i in adminImages" :key="i"
+          <div v-for="imageNumber in adminImages" :key="imageNumber"
             class="break-inside-avoid rounded-xl overflow-hidden transition-all cursor-pointer group"
-            @click="openLightbox(i)">
+            @click="openLightbox(imageNumber)">
             <img
-              :src="`/images/hotel-booking/${i}.png`"
-              :alt="`Hotel Booking Screenshot ${i}`"
+              :src="`/images/hotel-booking/${imageNumber}.png`"
+              :alt="`Hotel Booking Screenshot ${imageNumber}`"
               class="w-full block group-hover:scale-[1.02] transition-transform duration-500"
               loading="lazy"
             />
@@ -123,12 +123,12 @@
       <div class="mb-16">
         <h2 class="text-3xl font-bold mb-8">{{ t('hotel.integrations') }}</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div v-for="intg in integrations" :key="intg.name"
+          <div v-for="integration in integrations" :key="integration.name"
             class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
-            <span class="text-2xl">{{ intg.icon }}</span>
+            <span class="text-2xl">{{ integration.icon }}</span>
             <div>
-              <p class="font-semibold text-sm">{{ intg.name }}</p>
-              <p class="text-xs text-gray-400">{{ intg.desc }}</p>
+              <p class="font-semibold text-sm">{{ integration.name }}</p>
+              <p class="text-xs text-gray-400">{{ integration.description }}</p>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <button @click="prevImage" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+          <button @click="previousImage" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -169,28 +169,28 @@ useHead({ title: 'Hotel Booking System - Koeuk Dev' })
 const { t } = useI18n()
 
 const webUserImages = [25, 26, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
-const adminImages = Array.from({ length: 36 }, (_, i) => i + 4).filter(i => ![11, 18].includes(i) && !webUserImages.includes(i))
+const adminImages = Array.from({ length: 36 }, (_, index) => index + 4).filter(index => ![11, 18].includes(index) && !webUserImages.includes(index))
 const imageIndices = [...webUserImages, ...adminImages]
 const lightboxImage = ref<number | null>(null)
 
-function openLightbox(i: number) { lightboxImage.value = i }
+function openLightbox(imageNumber: number) { lightboxImage.value = imageNumber }
 function nextImage() {
   if (!lightboxImage.value) return
-  const idx = imageIndices.indexOf(lightboxImage.value)
-  lightboxImage.value = imageIndices[(idx + 1) % imageIndices.length]
+  const index = imageIndices.indexOf(lightboxImage.value)
+  lightboxImage.value = imageIndices[(index + 1) % imageIndices.length]
 }
-function prevImage() {
+function previousImage() {
   if (!lightboxImage.value) return
-  const idx = imageIndices.indexOf(lightboxImage.value)
-  lightboxImage.value = imageIndices[(idx - 1 + imageIndices.length) % imageIndices.length]
+  const index = imageIndices.indexOf(lightboxImage.value)
+  lightboxImage.value = imageIndices[(index - 1 + imageIndices.length) % imageIndices.length]
 }
 
 onMounted(() => {
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', (event) => {
     if (!lightboxImage.value) return
-    if (e.key === 'Escape') lightboxImage.value = null
-    if (e.key === 'ArrowRight') nextImage()
-    if (e.key === 'ArrowLeft') prevImage()
+    if (event.key === 'Escape') lightboxImage.value = null
+    if (event.key === 'ArrowRight') nextImage()
+    if (event.key === 'ArrowLeft') previousImage()
   })
 })
 
@@ -215,16 +215,16 @@ const stats = [
 ]
 
 const features = [
-  { icon: '🏨', title: 'Hotel Browsing', desc: 'Search and filter hotels by city, country, or keyword with real-time results.', iconBg: 'bg-violet-500/20' },
-  { icon: '🗓', title: 'Room Availability', desc: 'Real-time overlap detection for check-in/check-out dates with auto-calculated pricing.', iconBg: 'bg-blue-500/20' },
-  { icon: '💳', title: 'Payment Processing', desc: 'Support for Card, Cash, and PayPal methods with full transaction tracking.', iconBg: 'bg-emerald-500/20' },
-  { icon: '🎫', title: 'Coupon System', desc: 'Percentage-based discount codes with date validity and usage limits.', iconBg: 'bg-yellow-500/20' },
-  { icon: '⭐', title: 'Reviews & Ratings', desc: 'Rate hotels 1-5 stars after completed bookings with moderation tools.', iconBg: 'bg-orange-500/20' },
-  { icon: '📊', title: 'Admin Dashboard', desc: 'Analytics with weekly/monthly/yearly breakdowns, PDF and Excel export.', iconBg: 'bg-pink-500/20' },
-  { icon: '🔐', title: 'Authentication', desc: 'Laravel Sanctum + Breeze with Google and Facebook OAuth social login.', iconBg: 'bg-red-500/20' },
-  { icon: '🔔', title: 'Notifications', desc: 'Multi-channel alerts via email, in-app database, and Telegram bot.', iconBg: 'bg-cyan-500/20' },
-  { icon: '🗺', title: 'Maps Integration', desc: 'Hotel location maps with Leaflet and OpenStreetMap, no API key required.', iconBg: 'bg-green-500/20' },
-  { icon: '🌙', title: 'Dark Mode', desc: 'Persistent theme toggle with system preference detection.', iconBg: 'bg-gray-500/20' },
+  { icon: '🏨', title: 'Hotel Browsing', description: 'Search and filter hotels by city, country, or keyword with real-time results.', iconBg: 'bg-violet-500/20' },
+  { icon: '🗓', title: 'Room Availability', description: 'Real-time overlap detection for check-in/check-out dates with auto-calculated pricing.', iconBg: 'bg-blue-500/20' },
+  { icon: '💳', title: 'Payment Processing', description: 'Support for Card, Cash, and PayPal methods with full transaction tracking.', iconBg: 'bg-emerald-500/20' },
+  { icon: '🎫', title: 'Coupon System', description: 'Percentage-based discount codes with date validity and usage limits.', iconBg: 'bg-yellow-500/20' },
+  { icon: '⭐', title: 'Reviews & Ratings', description: 'Rate hotels 1-5 stars after completed bookings with moderation tools.', iconBg: 'bg-orange-500/20' },
+  { icon: '📊', title: 'Admin Dashboard', description: 'Analytics with weekly/monthly/yearly breakdowns, PDF and Excel export.', iconBg: 'bg-pink-500/20' },
+  { icon: '🔐', title: 'Authentication', description: 'Laravel Sanctum + Breeze with Google and Facebook OAuth social login.', iconBg: 'bg-red-500/20' },
+  { icon: '🔔', title: 'Notifications', description: 'Multi-channel alerts via email, in-app database, and Telegram bot.', iconBg: 'bg-cyan-500/20' },
+  { icon: '🗺', title: 'Maps Integration', description: 'Hotel location maps with Leaflet and OpenStreetMap, no API key required.', iconBg: 'bg-green-500/20' },
+  { icon: '🌙', title: 'Dark Mode', description: 'Persistent theme toggle with system preference detection.', iconBg: 'bg-gray-500/20' },
 ]
 
 const tables = [
@@ -233,12 +233,12 @@ const tables = [
 ]
 
 const integrations = [
-  { icon: '🔵', name: 'Google OAuth', desc: 'Social login via Google' },
-  { icon: '🔷', name: 'Facebook OAuth', desc: 'Social login via Facebook' },
-  { icon: '✈️', name: 'Telegram Bot', desc: 'Admin booking alerts' },
-  { icon: '📧', name: 'SMTP Email', desc: 'Booking notifications' },
-  { icon: '🗺', name: 'OpenStreetMap', desc: 'Hotel location maps' },
-  { icon: '📄', name: 'PDF/Excel Export', desc: 'jsPDF + SheetJS reports' },
+  { icon: '🔵', name: 'Google OAuth', description: 'Social login via Google' },
+  { icon: '🔷', name: 'Facebook OAuth', description: 'Social login via Facebook' },
+  { icon: '✈️', name: 'Telegram Bot', description: 'Admin booking alerts' },
+  { icon: '📧', name: 'SMTP Email', description: 'Booking notifications' },
+  { icon: '🗺', name: 'OpenStreetMap', description: 'Hotel location maps' },
+  { icon: '📄', name: 'PDF/Excel Export', description: 'jsPDF + SheetJS reports' },
 ]
 </script>
 

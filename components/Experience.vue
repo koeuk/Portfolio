@@ -18,14 +18,14 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 section-content">
         <NuxtLink
-          v-for="(exp, index) in experiences.slice(0, 8)"
-          :key="exp.id"
-          :to="`/experience/${exp.id}`"
+          v-for="(experience, index) in experiences.slice(0, 8)"
+          :key="experience.id"
+          :to="`/experience/${experience.id}`"
           class="group card p-8 flex flex-col h-full border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
         >
           <div class="mb-6 flex justify-between items-start">
             <span class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest group-hover:text-primary dark:group-hover:text-white transition-colors">
-              {{ exp.period }}
+              {{ experience.period }}
             </span>
             <div class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center group-hover:bg-primary group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-primary transition-all duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,26 +35,26 @@
           </div>
 
           <h3 class="text-2xl font-bold text-primary dark:text-white mb-2 group-hover:translate-x-1 transition-transform">
-            {{ t(`experience.${exp.id}.role`) }}
+            {{ t(`experience.${experience.id}.role`) }}
           </h3>
           <p class="text-gray-500 dark:text-gray-400 font-semibold mb-6 group-hover:translate-x-1 transition-transform delay-75">
-            {{ t(`experience.${exp.id}.company`) }}
+            {{ t(`experience.${experience.id}.company`) }}
           </p>
 
           <p class="text-gray-600 dark:text-gray-300 mb-8 flex-grow overflow-hidden" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
-            {{ t(`experience.${exp.id}.description`) }}
+            {{ t(`experience.${experience.id}.description`) }}
           </p>
 
           <div class="flex flex-wrap gap-2 pt-6 border-t border-gray-100 dark:border-gray-800">
             <span
-              v-for="tech in exp.technologies.slice(0, 3)"
-              :key="tech"
+              v-for="technology in experience.technologies.slice(0, 3)"
+              :key="technology"
               class="px-2 py-1 text-[10px] font-semibold rounded-full bg-gray-50 dark:bg-primary border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 group-hover:bg-primary group-hover:text-white transition-colors"
             >
-              {{ tech }}
+              {{ technology }}
             </span>
-            <span v-if="exp.technologies.length > 3" class="text-[10px] font-bold text-gray-400 self-center">
-              +{{ exp.technologies.length - 3 }}
+            <span v-if="experience.technologies.length > 3" class="text-[10px] font-bold text-gray-400 self-center">
+              +{{ experience.technologies.length - 3 }}
             </span>
           </div>
         </NuxtLink>

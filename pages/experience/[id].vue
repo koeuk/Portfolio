@@ -28,34 +28,34 @@
       <section v-if="experience.images && experience.images.length > 0" class="mb-20 slide-up-delay-1" @mouseenter="stopAutoSlide" @mouseleave="startAutoSlide" @touchstart="stopAutoSlide" @touchend="startAutoSlide">
         <div class="relative group aspect-[16/9] rounded-[2rem] overflow-hidden border border-gray-100 dark:border-gray-800 shadow-2xl bg-gray-100 dark:bg-primary-dark">
           <Transition name="fade" mode="out-in">
-            <img 
-              :key="currentImgIndex"
-              :src="experience.images[currentImgIndex]" 
+            <img
+              :key="currentImageIndex"
+              :src="experience.images[currentImageIndex]"
               class="w-full h-full object-cover cursor-zoom-in"
-              @click="openLightbox(currentImgIndex)"
+              @click="openLightbox(currentImageIndex)"
             />
           </Transition>
 
           <!-- Navigation Overlays -->
           <div class="absolute inset-y-0 left-0 w-24 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <button @click.stop="prevImg" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/30 border border-white/20 transition-all hover:scale-110">
+            <button @click.stop="previousImage" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/30 border border-white/20 transition-all hover:scale-110">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
           </div>
           <div class="absolute inset-y-0 right-0 w-24 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <button @click.stop="nextImg" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/30 border border-white/20 transition-all hover:scale-110">
+            <button @click.stop="nextImage" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/30 border border-white/20 transition-all hover:scale-110">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
 
           <!-- Indicators -->
           <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 px-6 py-3 bg-black/20 backdrop-blur-md rounded-full">
-            <button 
-              v-for="(_, idx) in experience.images" 
-              :key="idx"
-              @click="currentImgIndex = idx"
+            <button
+              v-for="(_, index) in experience.images"
+              :key="index"
+              @click="currentImageIndex = index"
               class="h-1.5 transition-all duration-500 rounded-full"
-              :class="idx === currentImgIndex ? 'w-10 bg-white' : 'w-2 bg-white/30 hover:bg-white/60'"
+              :class="index === currentImageIndex ? 'w-10 bg-white' : 'w-2 bg-white/30 hover:bg-white/60'"
             ></button>
           </div>
         </div>
@@ -67,16 +67,16 @@
             <button @click="scrollThumbnails('left')" class="p-2 text-gray-400 hover:text-primary dark:hover:text-white transition-colors flex-shrink-0">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            
+
             <div ref="thumbnailContainer" class="flex flex-grow gap-4 overflow-x-auto py-4 px-2 no-scrollbar scroll-smooth snap-x snap-mandatory">
-              <button 
-                v-for="(img, idx) in experience.images" 
-                :key="img"
-                @click="currentImgIndex = idx"
+              <button
+                v-for="(image, index) in experience.images"
+                :key="image"
+                @click="currentImageIndex = index"
                 class="flex-shrink-0 w-28 h-18 sm:w-32 sm:h-20 rounded-2xl overflow-hidden border-2 transition-all duration-300 snap-center"
-                :class="idx === currentImgIndex ? 'border-primary dark:border-white scale-105 shadow-xl ring-4 ring-primary/20 dark:ring-white/20' : 'border-transparent opacity-50 hover:opacity-100'"
+                :class="index === currentImageIndex ? 'border-primary dark:border-white scale-105 shadow-xl ring-4 ring-primary/20 dark:ring-white/20' : 'border-transparent opacity-50 hover:opacity-100'"
               >
-                <img :src="img" class="w-full h-full object-cover" />
+                <img :src="image" class="w-full h-full object-cover" />
               </button>
             </div>
 
@@ -85,7 +85,7 @@
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
-          
+
           <!-- Custom Track Bar matches screenshot request -->
           <div class="flex items-center justify-between bg-gray-400 dark:bg-gray-600 rounded-full w-full h-3 mt-4 px-1 mx-auto max-w-3xl opacity-50">
             <button @click="scrollThumbnails('left')" class="text-white hover:text-primary transition-colors flex items-center justify-center p-1">
@@ -142,11 +142,11 @@
             </h2>
             <div class="flex flex-wrap justify-center gap-3">
               <span
-                v-for="tech in experience.technologies"
-                :key="tech"
+                v-for="technology in experience.technologies"
+                :key="technology"
                 class="px-5 py-2 text-sm font-semibold rounded-2xl bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 shadow-sm transition-all hover:scale-110"
               >
-                {{ tech }}
+                {{ technology }}
               </span>
             </div>
           </div>
@@ -164,8 +164,8 @@
           </div>
 
           <div class="space-y-12">
-            <div 
-              v-for="category in section.items" 
+            <div
+              v-for="category in section.items"
               :key="category.id"
               class="space-y-4"
             >
@@ -173,7 +173,7 @@
                 <div class="w-2 h-2 rounded-full bg-primary/50 dark:bg-white/50"></div>
                 {{ t(`experience.${experience.id}.${section.id}.${category.id}.label`) }}
               </h3>
-              
+
               <p v-if="category.subheading" class="text-gray-500 font-bold pl-5">
                 {{ category.subheading }}
               </p>
@@ -187,11 +187,11 @@
               <!-- Category Tech Pills -->
               <div v-if="category.technologies" class="flex flex-wrap gap-2 pt-4 pl-5">
                 <span
-                  v-for="tech in category.technologies"
-                  :key="tech"
+                  v-for="technology in category.technologies"
+                  :key="technology"
                   class="px-3 py-1 text-xs font-bold rounded-full bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-800 text-gray-500 dark:text-gray-400 uppercase tracking-tighter"
                 >
-                  {{ tech }}
+                  {{ technology }}
                 </span>
               </div>
             </div>
@@ -207,7 +207,7 @@
           </h2>
           <div class="h-px flex-grow bg-gray-100 dark:bg-gray-800"></div>
         </div>
-        
+
         <div class="overflow-x-auto rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-xl bg-white dark:bg-primary">
           <table class="w-full text-left border-collapse min-w-[600px]">
             <thead>
@@ -218,10 +218,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(diff, index) in experience.keyDifferences" :key="diff.id" :class="index % 2 === 0 ? 'bg-white dark:bg-primary' : 'bg-gray-50/50 dark:bg-primary-light/30'" class="border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-primary-light transition-colors group">
-                <td class="py-6 px-8 text-lg font-bold text-primary dark:text-white border-r border-gray-50 dark:border-gray-800 whitespace-nowrap">{{ t(`experience.${experience.id}.key_differences.${diff.id}.feature`) }}</td>
-                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium border-r border-gray-50 dark:border-gray-800 group-hover:text-primary dark:group-hover:text-white transition-colors">{{ t(`experience.${experience.id}.key_differences.${diff.id}.web`) }}</td>
-                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium group-hover:text-primary dark:group-hover:text-white transition-colors">{{ t(`experience.${experience.id}.key_differences.${diff.id}.admin`) }}</td>
+              <tr v-for="(keyDifference, index) in experience.keyDifferences" :key="keyDifference.id" :class="index % 2 === 0 ? 'bg-white dark:bg-primary' : 'bg-gray-50/50 dark:bg-primary-light/30'" class="border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-primary-light transition-colors group">
+                <td class="py-6 px-8 text-lg font-bold text-primary dark:text-white border-r border-gray-50 dark:border-gray-800 whitespace-nowrap">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.feature`) }}</td>
+                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium border-r border-gray-50 dark:border-gray-800 group-hover:text-primary dark:group-hover:text-white transition-colors">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.web`) }}</td>
+                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium group-hover:text-primary dark:group-hover:text-white transition-colors">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.admin`) }}</td>
               </tr>
             </tbody>
           </table>
@@ -240,22 +240,22 @@
 
           <!-- Main Lightbox Content -->
           <div class="relative w-full h-full flex items-center justify-center">
-            <button @click="prevImg" class="absolute left-0 md:-left-20 p-4 text-white hover:scale-125 transition-transform">
+            <button @click="previousImage" class="absolute left-0 md:-left-20 p-4 text-white hover:scale-125 transition-transform">
               <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
 
             <div class="max-w-6xl max-h-[85vh] overflow-hidden rounded-xl shadow-[0_0_100px_rgba(255,255,255,0.1)]">
-              <img :src="experience.images[currentImgIndex]" class="w-full h-full object-contain" />
+              <img :src="experience.images[currentImageIndex]" class="w-full h-full object-contain" />
             </div>
 
-            <button @click="nextImg" class="absolute right-0 md:-right-20 p-4 text-white hover:scale-125 transition-transform">
+            <button @click="nextImage" class="absolute right-0 md:-right-20 p-4 text-white hover:scale-125 transition-transform">
               <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
 
           <!-- Counter -->
           <div class="mt-8 text-white/60 font-medium tracking-[0.2em] uppercase">
-            {{ currentImgIndex + 1 }} / {{ experience.images.length }}
+            {{ currentImageIndex + 1 }} / {{ experience.images.length }}
           </div>
         </div>
       </Transition>
@@ -278,13 +278,13 @@ const route = useRoute()
 const { experiences } = useData()
 const { t } = useI18n()
 
-const currentImgIndex = ref(0)
+const currentImageIndex = ref(0)
 const lightboxOpen = ref(false)
 const thumbnailContainer = ref<HTMLElement | null>(null)
 let slideInterval: any = null
 
 const experience = computed(() => {
-  return experiences.find(e => e.id === route.params.id)
+  return experiences.find(experience => experience.id === route.params.id)
 })
 
 // Redirect Hotel Booking to its dedicated page
@@ -292,25 +292,25 @@ if (route.params.id === '3') {
   navigateTo('/hotel-booking')
 }
 
-const nextImg = () => {
+const nextImage = () => {
   if (!experience.value?.images) return
-  currentImgIndex.value = (currentImgIndex.value + 1) % experience.value.images.length
+  currentImageIndex.value = (currentImageIndex.value + 1) % experience.value.images.length
 }
 
-const prevImg = () => {
+const previousImage = () => {
   if (!experience.value?.images) return
-  currentImgIndex.value = (currentImgIndex.value - 1 + experience.value.images.length) % experience.value.images.length
+  currentImageIndex.value = (currentImageIndex.value - 1 + experience.value.images.length) % experience.value.images.length
 }
 
 const openLightbox = (index: number) => {
-  currentImgIndex.value = index
+  currentImageIndex.value = index
   lightboxOpen.value = true
 }
 
 const startAutoSlide = () => {
   stopAutoSlide()
   slideInterval = setInterval(() => {
-    nextImg()
+    nextImage()
   }, 4000)
 }
 
@@ -335,22 +335,22 @@ const scrollThumbnails = (direction: 'left' | 'right') => {
   })
 }
 
-watch(currentImgIndex, (newIdx) => {
+watch(currentImageIndex, (newIndex) => {
   if (!thumbnailContainer.value) return
-  const activeThumbnail = thumbnailContainer.value.children[newIdx] as HTMLElement
+  const activeThumbnail = thumbnailContainer.value.children[newIndex] as HTMLElement
   if (activeThumbnail) {
     const containerWidth = thumbnailContainer.value.offsetWidth
-    const thumbLeft = activeThumbnail.offsetLeft
-    const thumbWidth = activeThumbnail.offsetWidth
+    const thumbnailLeft = activeThumbnail.offsetLeft
+    const thumbnailWidth = activeThumbnail.offsetWidth
     thumbnailContainer.value.scrollTo({
-      left: thumbLeft - containerWidth / 2 + thumbWidth / 2,
+      left: thumbnailLeft - containerWidth / 2 + thumbnailWidth / 2,
       behavior: 'smooth'
     })
   }
 })
 
 useHead({
-  title: experience.value 
+  title: experience.value
     ? `${t(`experience.${experience.value.id}.role`)} at ${t(`experience.${experience.value.id}.company`)} | Koeuk Dev`
     : 'Experience | Koeuk Dev',
   meta: [

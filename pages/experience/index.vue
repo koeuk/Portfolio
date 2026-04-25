@@ -38,15 +38,15 @@
       <!-- Experience Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <NuxtLink
-          v-for="(exp, index) in filteredExperiences"
-          :key="exp.id"
-          :to="exp.id === '3' ? '/hotel-booking' : `/experience/${exp.id}`"
+          v-for="(experience, index) in filteredExperiences"
+          :key="experience.id"
+          :to="experience.id === '3' ? '/hotel-booking' : `/experience/${experience.id}`"
           class="group card p-8 flex flex-col h-full hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 slide-up"
           :class="`slide-up-delay-${Math.min(index + 1, 3)}`"
         >
           <div class="mb-6 flex justify-between items-start">
             <span class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest group-hover:text-primary dark:group-hover:text-white transition-colors">
-              {{ exp.period }}
+              {{ experience.period }}
             </span>
             <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-primary border border-gray-200 dark:border-gray-700 flex items-center justify-center group-hover:bg-primary group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-primary transition-all duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,23 +56,23 @@
           </div>
 
           <h3 class="text-2xl font-bold text-primary dark:text-white mb-2 group-hover:translate-x-1 transition-transform">
-            {{ t(`experience.${exp.id}.role`) }}
+            {{ t(`experience.${experience.id}.role`) }}
           </h3>
           <p class="text-gray-500 dark:text-gray-400 font-semibold mb-6 group-hover:translate-x-1 transition-transform delay-75">
-            {{ t(`experience.${exp.id}.company`) }}
+            {{ t(`experience.${experience.id}.company`) }}
           </p>
 
           <p class="text-gray-600 dark:text-gray-300 line-clamp-3 mb-8 flex-grow">
-            {{ t(`experience.${exp.id}.description`) }}
+            {{ t(`experience.${experience.id}.description`) }}
           </p>
 
           <div class="flex flex-wrap gap-2 pt-6 border-t border-gray-100 dark:border-gray-800">
             <span
-              v-for="tech in exp.technologies"
-              :key="tech"
+              v-for="technology in experience.technologies"
+              :key="technology"
               class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-50 dark:bg-primary border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 group-hover:bg-primary group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-primary transition-all duration-300"
             >
-              {{ tech }}
+              {{ technology }}
             </span>
           </div>
         </NuxtLink>
@@ -92,9 +92,9 @@ const selectedYear = ref('All')
 const availableYears = computed(() => {
   const allowed = ['2026', '2025', '2024']
   const years = new Set<string>()
-  experiences.forEach(exp => {
+  experiences.forEach(experience => {
     allowed.forEach(y => {
-      if (exp.period.includes(y)) years.add(y)
+      if (experience.period.includes(y)) years.add(y)
     })
   })
   return Array.from(years).sort((a, b) => b.localeCompare(a))
@@ -102,9 +102,9 @@ const availableYears = computed(() => {
 
 const filteredExperiences = computed(() => {
   const allowed = ['2026', '2025', '2024']
-  const baseSet = experiences.filter(exp => allowed.some(y => exp.period.includes(y)))
+  const baseSet = experiences.filter(experience => allowed.some(y => experience.period.includes(y)))
   if (selectedYear.value === 'All') return baseSet
-  return baseSet.filter(exp => exp.period.includes(selectedYear.value))
+  return baseSet.filter(experience => experience.period.includes(selectedYear.value))
 })
 
 useHead({

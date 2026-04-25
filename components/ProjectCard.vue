@@ -14,14 +14,14 @@
                 {{ getProjectTitle(project.id) }}
             </h3>
             <p class="text-gray-600 dark:text-gray-300 mb-2 sm:mb-4 leading-relaxed text-[10px] sm:text-sm line-clamp-2 h-6 sm:h-10">
-                {{ getProjectDesc(project.id) }}
+                {{ getProjectDescription(project.id) }}
             </p>
 
             <!-- Technologies -->
             <div class="flex flex-wrap gap-1 sm:gap-2 h-5 sm:h-8 overflow-hidden mb-2 sm:mb-4">
-                <span v-for="tech in project.technologies.slice(0, 2)" :key="tech"
+                <span v-for="technology in project.technologies.slice(0, 2)" :key="technology"
                     class="px-1.5 py-0.5 sm:px-3 sm:py-2 bg-gray-100 dark:bg-primary text-primary dark:text-white text-[8px] sm:text-xs font-medium rounded-full border border-gray-200 dark:border-gray-600">
-                    {{ tech }}
+                    {{ technology }}
                 </span>
                 <span v-if="project.technologies.length > 2" class="px-1 py-0.5 text-gray-500 text-[8px] sm:text-xs">
                     +{{ project.technologies.length - 2 }}
@@ -61,21 +61,21 @@
         index: number
     }>()
 
-    const projectKeys: Record<string, { title: string; desc: string }> = {
-        '1': { title: 'project.ecommerce.title', desc: 'project.ecommerce.desc' },
-        '2': { title: 'project.taskapp.title', desc: 'project.taskapp.desc' },
-        '3': { title: 'project.portfolio.title', desc: 'project.portfolio.desc' },
-        '4': { title: 'project.weather.title', desc: 'project.weather.desc' },
-        '5': { title: 'project.social.title', desc: 'project.social.desc' },
-        '6': { title: 'project.blog.title', desc: 'project.blog.desc' },
-        '7': { title: 'project.fitness.title', desc: 'project.fitness.desc' },
+    const projectKeys: Record<string, { title: string; description: string }> = {
+        '1': { title: 'project.ecommerce.title', description: 'project.ecommerce.desc' },
+        '2': { title: 'project.taskapp.title', description: 'project.taskapp.desc' },
+        '3': { title: 'project.portfolio.title', description: 'project.portfolio.desc' },
+        '4': { title: 'project.weather.title', description: 'project.weather.desc' },
+        '5': { title: 'project.social.title', description: 'project.social.desc' },
+        '6': { title: 'project.blog.title', description: 'project.blog.desc' },
+        '7': { title: 'project.fitness.title', description: 'project.fitness.desc' },
     }
 
     function getProjectTitle(id: string): string {
         return t(projectKeys[id]?.title || 'project.ecommerce.title')
     }
 
-    function getProjectDesc(id: string): string {
-        return t(projectKeys[id]?.desc || 'project.ecommerce.desc')
+    function getProjectDescription(id: string): string {
+        return t(projectKeys[id]?.description || 'project.ecommerce.desc')
     }
 </script>
