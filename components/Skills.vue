@@ -5,28 +5,29 @@
         {{ t('skills.title') }}
       </h2>
 
-      <!-- Carousel -->
-      <div class="relative section-content">
-        <Carousel
-          class="w-full"
-          :plugins="[plugin]"
-          :opts="{ align: 'start', loop: true, dragFree: true }"
-        >
-          <CarouselContent class="py-2">
-            <CarouselItem
-              v-for="skill in skills"
+      <!-- Skills by Category -->
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 section-content">
+        <div v-for="category in categories" :key="category.key" class="mb-16 last:mb-0">
+          <h3 class="text-2xl md:text-3xl font-bold mb-8 text-primary dark:text-white flex items-center gap-3">
+            <span class="w-10 h-10 rounded-lg bg-primary/10 dark:bg-white/10 flex items-center justify-center text-lg">
+              {{ category.emoji }}
+            </span>
+            {{ t(`skills.${category.key}`) }}
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div
+              v-for="skill in category.skills"
               :key="skill.name"
-              class="basis-auto pl-6"
+              class="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-105 hover:border-primary/30 dark:hover:border-white/30 transition-all duration-300 cursor-default"
             >
-              <div class="skill-card flex-shrink-0 dark:bg-primary-light dark:border-gray-700">
-                <div class="w-12 h-12 mb-2" v-html="getIcon(skill.name)"></div>
-                <p class="font-semibold text-sm text-gray-700 dark:text-gray-200">{{ skill.name }}</p>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-          <CarouselPrevious class="left-0" />
-          <CarouselNext class="right-0" />
-        </Carousel>
+              <div class="w-14 h-14" v-html="getIcon(skill.name)"></div>
+              <p class="font-semibold text-gray-700 dark:text-gray-200 text-center">{{ skill.name }}</p>
+              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 dark:bg-white/10 text-primary dark:text-gray-300">
+                {{ t(`skills.${skill.category}`) }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- See More Button -->
@@ -46,19 +47,27 @@
 </template>
 
 <script setup lang="ts">
-import Autoplay from 'embla-carousel-autoplay'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '~/components/ui/carousel/index'
-
 const { skills } = useData()
 const { t } = useI18n()
 const { isVisible, elementRef } = useScrollAnimation()
 
-const plugin = Autoplay({
-  delay: 2000,
-  stopOnMouseEnter: true,
-  stopOnInteraction: false,
-  playOnInit: true,
-})
+const categories = computed(() => [
+  {
+    key: 'frontend',
+    emoji: '🎨',
+    skills: skills.filter(skill => skill.category === 'frontend'),
+  },
+  {
+    key: 'backend',
+    emoji: '🖥',
+    skills: skills.filter(skill => skill.category === 'backend'),
+  },
+  {
+    key: 'tools',
+    emoji: '🛠',
+    skills: skills.filter(skill => skill.category === 'tools'),
+  },
+].filter(category => category.skills.length > 0))
 
 const icons: Record<string, string> = {
   'HTML5': `<svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"/></svg>`,
