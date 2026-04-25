@@ -26,17 +26,18 @@
           {{ t(`skills.${category.key}`) }}
         </h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          <div
+          <NuxtLink
             v-for="skill in category.skills"
             :key="skill.name"
-            class="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-105 hover:border-primary/30 dark:hover:border-white/30 transition-all duration-300 cursor-default"
+            :to="getSkillLink(skill.name)"
+            class="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-105 hover:border-primary/30 dark:hover:border-white/30 transition-all duration-300 cursor-pointer"
           >
             <div class="w-14 h-14" v-html="getIcon(skill.name)"></div>
             <p class="font-semibold text-gray-700 dark:text-gray-200 text-center">{{ skill.name }}</p>
             <span class="text-xs px-2 py-1 rounded-full bg-primary/10 dark:bg-white/10 text-primary dark:text-gray-300">
               {{ t(`skills.${skill.category}`) }}
             </span>
-          </div>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -85,5 +86,22 @@ const icons: Record<string, string> = {
 
 function getIcon(name: string): string {
   return icons[name] || `<span class="text-4xl">💻</span>`
+}
+
+const skillLinkMap: Record<string, string> = {
+  'HTML5': '/read-more/learn-html5',
+  'CSS3': '/read-more/learn-css3',
+  'JavaScript': '/read-more/learn-javascript',
+  'TypeScript': '/read-more/typescript-best-practices',
+  'Vue.js': '/read-more/vue-composition-api',
+  'Nuxt.js': '/read-more/learn-nuxt',
+  'Tailwind CSS': '/read-more/learn-tailwind',
+  'Laravel': '/read-more/laravel-setup',
+  'Git': '/read-more/learn-git',
+  'VS Code': '/read-more/learn-vscode',
+}
+
+function getSkillLink(name: string): string {
+  return skillLinkMap[name] || '/read-more'
 }
 </script>

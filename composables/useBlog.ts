@@ -182,6 +182,69 @@ export const useBlog = () => {
       tags: ['Laravel', 'PHP'],
       slug: '/read-more/laravel-passwords'
     },
+    {
+      id: 20,
+      title: 'Learn HTML5: The Foundation of the Web',
+      excerpt: 'Start with the building blocks of the web — semantic tags, forms, multimedia, accessibility, and modern HTML5 APIs.',
+      date: 'Apr 1, 2026',
+      category: 'Frontend',
+      tags: ['HTML5', 'Frontend'],
+      slug: '/read-more/learn-html5'
+    },
+    {
+      id: 21,
+      title: 'Learn CSS3: Style the Modern Web',
+      excerpt: 'Master modern CSS — Flexbox, Grid, custom properties, animations, transforms, and responsive design patterns.',
+      date: 'Apr 2, 2026',
+      category: 'Frontend',
+      tags: ['CSS3', 'Frontend'],
+      slug: '/read-more/learn-css3'
+    },
+    {
+      id: 22,
+      title: 'Learn JavaScript: From Zero to Modern ES',
+      excerpt: 'Get fluent in JavaScript — variables, functions, async/await, modules, ES2022+ features, and how the language really works.',
+      date: 'Apr 3, 2026',
+      category: 'Frontend',
+      tags: ['JavaScript', 'Frontend'],
+      slug: '/read-more/learn-javascript'
+    },
+    {
+      id: 23,
+      title: 'Learn Nuxt.js: The Vue Meta-Framework',
+      excerpt: 'Build full-featured Vue apps with Nuxt 3 — file-based routing, server routes, auto-imports, SSR, and modules.',
+      date: 'Apr 4, 2026',
+      category: 'Vue',
+      tags: ['Nuxt', 'Vue'],
+      slug: '/read-more/learn-nuxt'
+    },
+    {
+      id: 24,
+      title: 'Learn Tailwind CSS: Utility-First Styling',
+      excerpt: 'Stop writing custom CSS — learn Tailwind\'s utility classes, theming, dark mode, and design system workflow.',
+      date: 'Apr 5, 2026',
+      category: 'Frontend',
+      tags: ['Tailwind', 'CSS'],
+      slug: '/read-more/learn-tailwind'
+    },
+    {
+      id: 25,
+      title: 'Learn Git: Version Control Essentials',
+      excerpt: 'Master Git fundamentals — clone, commit, branch, merge, rebase, and the workflows real teams actually use.',
+      date: 'Apr 6, 2026',
+      category: 'Tools',
+      tags: ['Git', 'Tools'],
+      slug: '/read-more/learn-git'
+    },
+    {
+      id: 26,
+      title: 'Learn VS Code: A Faster Way to Code',
+      excerpt: 'Get the most out of VS Code — keybindings, multi-cursor editing, refactoring tools, debugging, and must-have extensions.',
+      date: 'Apr 7, 2026',
+      category: 'Tools',
+      tags: ['VS Code', 'Tools'],
+      slug: '/read-more/learn-vscode'
+    },
   ]
 
   return { posts }
