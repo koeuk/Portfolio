@@ -3,9 +3,6 @@
     <Hero />
     <!-- <Projects /> -->
     <Skills />
-    <GitHub />
-    <Experience />
-    <WorkExperience />
     <About />
     <Contact />
   </div>

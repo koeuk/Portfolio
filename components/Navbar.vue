@@ -149,9 +149,7 @@
     const navLinks = [
         { href: '/#home', label: 'nav.home' },
         { href: '/#skills', label: 'nav.skills' },
-        { href: '/#github', label: 'nav.github' },
-        { href: '/#personal-projects', label: 'nav.personalProjects' },
-        { href: '/#work-experience', label: 'nav.workExperience' },
+        { href: '/my-info', label: 'nav.myInfo', isPage: true },
         { href: '/#about', label: 'nav.about' },
         { href: '/#contact', label: 'nav.contact' },
         { href: '/blog', label: 'nav.blog', isPage: true }
@@ -186,7 +184,7 @@
             return
         }
 
-        const sections = ['home', 'skills', 'github', 'personal-projects', 'work-experience', 'about', 'contact']
+        const sections = ['home', 'skills', 'about', 'contact']
         const scrollPosition = window.scrollY + 150
 
         for (let index = sections.length - 1; index >= 0; index--) {
