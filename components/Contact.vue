@@ -58,16 +58,24 @@
                     </div>
                 </div>
 
-                <!-- Contact Form (disabled) -->
-                <div class="space-y-5 opacity-50 pointer-events-none select-none">
-                    <input type="text" :placeholder="t('contact.name')" class="input-field" disabled />
-                    <input type="email" :placeholder="t('contact.email')" class="input-field" disabled />
-                    <textarea :placeholder="t('contact.message')" rows="6"
-                        class="input-field resize-none" disabled></textarea>
-                    <Button variant="accent" size="lg" class="w-full" disabled>
-                        {{ t('contact.send') }}
+                <!-- Contact Form -->
+                <form class="space-y-5" @submit.prevent="handleSubmit">
+                    <input v-model="form.name" type="text" :placeholder="t('contact.name')"
+                        class="input-field" required :disabled="loading" />
+                    <input v-model="form.email" type="email" :placeholder="t('contact.email')"
+                        class="input-field" required :disabled="loading" />
+                    <textarea v-model="form.message" :placeholder="t('contact.message')" rows="6"
+                        class="input-field resize-none" required :disabled="loading"></textarea>
+                    <Button type="submit" variant="accent" size="lg" class="w-full" :disabled="loading">
+                        {{ loading ? '...' : t('contact.send') }}
                     </Button>
-                </div>
+                    <p v-if="status === 'success'" class="text-green-400 text-sm text-center">
+                        {{ t('contact.success') }}
+                    </p>
+                    <p v-if="status === 'error'" class="text-red-400 text-sm text-center">
+                        {{ t('contact.error') }}
+                    </p>
+                </form>
             </div>
         </div>
     </section>
@@ -77,18 +85,41 @@
     const { personalInfo } = useData()
     const { t } = useI18n()
     const { isVisible, elementRef } = useScrollAnimation()
+    const config = useRuntimeConfig()
 
     const form = reactive({ name: '', email: '', message: '' })
     const status = ref<'idle' | 'success' | 'error'>('idle')
+    const loading = ref(false)
 
-    function handleSubmit() {
-        status.value = 'success'
-        setTimeout(() => {
-            form.name = ''
-            form.email = ''
-            form.message = ''
-            status.value = 'idle'
-        }, 3000)
+    async function handleSubmit() {
+        loading.value = true
+        status.value = 'idle'
+        try {
+            const res = await $fetch<{ success: boolean }>('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: {
+                    access_key: config.public.web3formsKey,
+                    name: form.name,
+                    email: form.email,
+                    message: form.message,
+                    subject: `Portfolio contact from ${form.name}`,
+                    from_name: 'Portfolio Contact Form'
+                }
+            })
+            if (res.success) {
+                status.value = 'success'
+                form.name = ''
+                form.email = ''
+                form.message = ''
+            } else {
+                status.value = 'error'
+            }
+        } catch {
+            status.value = 'error'
+        } finally {
+            loading.value = false
+            setTimeout(() => { status.value = 'idle' }, 5000)
+        }
     }
 </script>
 
