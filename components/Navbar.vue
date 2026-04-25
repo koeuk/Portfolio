@@ -69,8 +69,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                             <svg v-else class="w-3 h-3 text-indigo-300" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                             </svg>
                         </span>
                     </button>
@@ -103,8 +102,7 @@
                 <div
                     class="bg-white/80 dark:bg-primary/90 backdrop-blur-xl rounded-3xl border border-black/5 dark:border-white/10 shadow-2xl overflow-hidden p-2">
                     <NuxtLink v-for="navLink in navLinks" :key="navLink.href" :to="navLink.href" @click="isOpen = false"
-                        class="block px-4 py-3 rounded-2xl transition-all text-sm font-medium"
-                        :class="currentActive === navLink.href
+                        class="block px-4 py-3 rounded-2xl transition-all text-sm font-medium" :class="currentActive === navLink.href
                             ? 'bg-primary text-white dark:bg-white dark:text-primary'
                             : 'text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'">
                         {{ t(navLink.label) }}
@@ -113,8 +111,7 @@
                         <div class="flex gap-1.5 p-1">
                             <button v-for="language in languages" :key="language.code"
                                 @click="selectLanguage(language.code as 'en' | 'km' | 'zh')"
-                                class="flex-1 py-2 rounded-xl text-center text-sm font-medium transition-all"
-                                :class="currentLang === language.code
+                                class="flex-1 py-2 rounded-xl text-center text-sm font-medium transition-all" :class="currentLang === language.code
                                     ? 'bg-primary text-white dark:bg-white dark:text-primary'
                                     : 'bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-200'">
                                 {{ language.flag }} {{ language.name }}
@@ -128,81 +125,82 @@
 </template>
 
 <script setup lang="ts">
-    const { isDark, toggleTheme, initTheme } = useTheme()
-    const { t, currentLang, setLanguage, languages } = useI18n()
+const { isDark, toggleTheme, initTheme } = useTheme()
+const { t, currentLang, setLanguage, languages } = useI18n()
 
-    const route = useRoute()
-    const isOpen = ref(false)
-    const scrolled = ref(false)
-    const showLanguageMenu = ref(false)
-    const activeSection = ref('/#home')
+const route = useRoute()
+const isOpen = ref(false)
+const scrolled = ref(false)
+const showLanguageMenu = ref(false)
+const activeSection = ref('/#home')
 
-    const isHomePage = computed(() => route.path === '/')
-    const currentActive = computed(() => {
-        if (!isHomePage.value) {
-            const match = navLinks.find(navLink => route.path.startsWith(navLink.href.replace('/#', '/')) && !navLink.href.startsWith('/#'))
-            return match?.href || ''
-        }
-        return activeSection.value
-    })
+const isHomePage = computed(() => route.path === '/')
+const currentActive = computed(() => {
+    if (!isHomePage.value) {
+        const match = navLinks.find(navLink => route.path.startsWith(navLink.href.replace('/#', '/')) && !navLink.href.startsWith('/#'))
+        return match?.href || ''
+    }
+    return activeSection.value
+})
 
-    const navLinks = [
-        { href: '/#home', label: 'nav.home' },
-        { href: '/#skills', label: 'nav.skills' },
-        { href: '/my-info', label: 'nav.myInfo', isPage: true },
-        { href: '/#about', label: 'nav.about' },
-        { href: '/#contact', label: 'nav.contact' },
-        { href: '/blog', label: 'nav.blog', isPage: true }
-    ]
+const navLinks = [
+    { href: '/#home', label: 'nav.home' },
+    { href: '/#skills', label: 'nav.skills' },
+    { href: '/workExperience', label: 'nav.workExperience', isPage: true },
+    // { href: '/#about', label: 'nav.about' },
+    { href: '/#contact', label: 'nav.contact' },
+    { href: '/my-info', label: 'nav.myInfo', isPage: true },
+    { href: '/blog', label: 'nav.blog', isPage: true }
+]
 
-    const currentFlag = computed(() => {
-        const language = languages.find(language => language.code === currentLang.value)
-        return language?.flag || '🇺🇸'
-    })
+const currentFlag = computed(() => {
+    const language = languages.find(language => language.code === currentLang.value)
+    return language?.flag || '🇺🇸'
+})
 
-    const selectLanguage = (language: 'en' | 'km' | 'zh') => {
-        setLanguage(language)
-        showLanguageMenu.value = false
+const selectLanguage = (language: 'en' | 'km' | 'zh') => {
+    setLanguage(language)
+    showLanguageMenu.value = false
+}
+
+onMounted(() => {
+    initTheme()
+    window.addEventListener('scroll', handleScroll)
+    document.addEventListener('click', closeLanguageMenu)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+    document.removeEventListener('click', closeLanguageMenu)
+})
+
+function handleScroll() {
+    scrolled.value = window.scrollY > 20
+
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
+        activeSection.value = '/#contact'
+        return
     }
 
-    onMounted(() => {
-        initTheme()
-        window.addEventListener('scroll', handleScroll)
-        document.addEventListener('click', closeLanguageMenu)
-    })
+    const sections = ['home', 'skills', 'about', 'contact']
+    const scrollPosition = window.scrollY + 150
 
-    onUnmounted(() => {
-        window.removeEventListener('scroll', handleScroll)
-        document.removeEventListener('click', closeLanguageMenu)
-    })
-
-    function handleScroll() {
-        scrolled.value = window.scrollY > 20
-
-        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
-            activeSection.value = '/#contact'
+    for (let index = sections.length - 1; index >= 0; index--) {
+        const element = document.getElementById(sections[index])
+        if (element && element.offsetTop <= scrollPosition) {
+            activeSection.value = `/#${sections[index]}`
             return
         }
-
-        const sections = ['home', 'skills', 'about', 'contact']
-        const scrollPosition = window.scrollY + 150
-
-        for (let index = sections.length - 1; index >= 0; index--) {
-            const element = document.getElementById(sections[index])
-            if (element && element.offsetTop <= scrollPosition) {
-                activeSection.value = `/#${sections[index]}`
-                return
-            }
-        }
-        activeSection.value = '/#home'
     }
+    activeSection.value = '/#home'
+}
 
-    function closeLanguageMenu(event: Event) {
-        const target = event.target as HTMLElement
-        if (!target.closest('.relative')) {
-            showLanguageMenu.value = false
-        }
+function closeLanguageMenu(event: Event) {
+    const target = event.target as HTMLElement
+    if (!target.closest('.relative')) {
+        showLanguageMenu.value = false
     }
+}
 </script>
 
 <style scoped>
@@ -216,6 +214,7 @@
         filter: blur(10px);
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         filter: blur(0);
@@ -232,6 +231,7 @@
         opacity: 0;
         transform: scale(0.7);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
