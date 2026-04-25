@@ -302,30 +302,6 @@ export const useData = () => {
       description: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
       technologies: ["HTML5", "CSS3", "JavaScript", "Git"],
     },
-    {
-      id: "5",
-      role: "Web Development Intern",
-      company: "Creative Studio",
-      period: "2025 - 2026",
-      description: "Assisted in the development of responsive landing pages and email templates. Learned industry best practices for clean code and performance optimization.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    },
-    {
-      id: "6",
-      role: "Freelance Developer",
-      company: "Self-Employed",
-      period: "2024 - 2025",
-      description: "Designed and developed custom websites for small businesses. Managed full project lifecycles from initial concept to deployment and maintenance.",
-      technologies: ["WordPress", "PHP", "jQuery", "MySQL"],
-    },
-    {
-      id: "7",
-      role: "Open Source Contributor",
-      company: "GitHub Community",
-      period: "2024 - 2025",
-      description: "Contributed to various open-source projects, fixing bugs and implementing new features. Collaborated with developers worldwide and improved code quality.",
-      technologies: ["Git", "Markdown", "JavaScript", "Testing"],
-    },
   ];
 
   const badges = [
