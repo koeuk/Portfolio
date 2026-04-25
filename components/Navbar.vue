@@ -150,6 +150,7 @@ const navLinks = [
     // { href: '/#about', label: 'nav.about' },
     { href: '/#contact', label: 'nav.contact' },
     { href: '/my-info', label: 'nav.myInfo', isPage: true },
+    { href: '/read-more', label: 'nav.readMore', isPage: true },
     { href: '/blog', label: 'nav.blog', isPage: true }
 ]
 
