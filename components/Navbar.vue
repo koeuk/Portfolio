@@ -1,5 +1,6 @@
 <template>
-    <nav class="fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ease-out nav-enter px-4 sm:px-6 pt-0">
+    <nav class="fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ease-out nav-enter px-4 sm:px-6"
+        :class="scrolled ? 'pt-3' : 'pt-5'">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-center gap-3">
                 <!-- Logo Pill -->
