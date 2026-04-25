@@ -554,21 +554,6 @@ const translations: Translations = {
     km: "វេទិកាកក់សណ្ឋាគារពេញលក្ខណៈ ជាមួយការរុករកសម្រាប់ភ្ញៀវ ការពិនិត្យបន្ទប់ទំនេរ ការទូទាត់ ប្រព័ន្ធគូប៉ុង ការវាយតម្លៃ និងផ្ទាំងគ្រប់គ្រងរដ្ឋបាលពេញលេញ។",
     zh: "功能齐全的酒店预订和管理平台，具有客户浏览、房间可用性、支付处理、优惠券系统、评论和完整的管理仪表板。",
   },
-  "experience.4.role": {
-    en: "Startup Inc",
-    km: "ក្រុមហ៊ុន Startup",
-    zh: "创业公司",
-  },
-  "experience.4.company": {
-    en: "Junior Web Developer",
-    km: "អ្នកបង្កើតវេបសាយវ័យក្មេង",
-    zh: "初级Web开发工程师",
-  },
-  "experience.4.description": {
-    en: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
-    km: "បង្កើត និងថែទាំវេបសាយសម្រាប់អតិថិជន។ ទទួលបានបទពិសោធន៍ជាក់ស្តែងជាមួយ framework frontend ទំនើប និងការអភិវឌ្ឍន៍ agile។",
-    zh: "开发和维护面向客户的网站。获得了现代前端框架和敏捷开发工作流程的实践经验。",
-  },
 
   // About
   "about.title": { en: "About Me", km: "អំពីខ្ញុំ", zh: "关于我" },

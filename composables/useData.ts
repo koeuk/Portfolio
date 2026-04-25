@@ -294,14 +294,6 @@ export const useData = () => {
       technologies: ["Laravel 12", "React 18", "Inertia.js", "Tailwind CSS", "Shadcn UI", "MySQL"],
       images: Array.from({ length: 39 }, (_, i) => `/images/hotel-booking/${i + 1}.png`),
     },
-    {
-      id: "4",
-      role: "Junior Web Developer",
-      company: "Startup Inc",
-      period: "2024 - 2025",
-      description: "Developed and maintained client-facing websites. Gained hands-on experience with modern frontend frameworks and agile development workflows.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Git"],
-    },
   ];
 
   const badges = [
