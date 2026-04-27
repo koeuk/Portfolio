@@ -24,9 +24,9 @@
 
         <!-- Content -->
         <div class="w-full max-w-7xl mx-auto text-center text-white relative z-10 px-4">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+            <h1 class="hero-shimmer text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
                 {{ t('hero.greeting') }}
-                <span class="text-white">
+                <span>
                     {{ displayedName }}<span class="animate-blink">|</span>
                 </span>
             </h1>
@@ -78,6 +78,42 @@ function typeWriter() {
 
 .animate-blink {
     animation: blink 1.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* Shimmer animation for the hero greeting */
+.hero-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.85) 35%,
+        rgba(216, 180, 254, 1) 50%,
+        rgba(255, 255, 255, 0.85) 65%,
+        rgba(255, 255, 255, 0.85) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: hero-shimmer-sweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes hero-shimmer-sweep {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-shimmer {
+        animation: none;
+        background: none;
+        -webkit-text-fill-color: #ffffff;
+        color: #ffffff;
+    }
 }
 
 .hero-bg {

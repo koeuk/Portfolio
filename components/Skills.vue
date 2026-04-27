@@ -1,7 +1,7 @@
 <template>
   <section id="skills" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
     <div :class="{ 'section-visible': isVisible }">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 text-primary dark:text-white section-title">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title title-shimmer">
         {{ t('skills.title') }}
       </h2>
 
@@ -114,5 +114,63 @@ function getSkillLink(name: string): string {
   filter: blur(0);
   transform: translateY(0) scale(1);
   transition-delay: 0.15s;
+}
+
+/* Shimmer animation for the section title — light mode (dark text + violet highlight) */
+.title-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(31, 41, 55, 1) 0%,
+    rgba(31, 41, 55, 1) 35%,
+    rgba(139, 92, 246, 1) 50%,
+    rgba(31, 41, 55, 1) 65%,
+    rgba(31, 41, 55, 1) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: title-shimmer-sweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Dark mode override — white text + light violet highlight */
+.dark .title-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.9) 35%,
+    rgba(216, 180, 254, 1) 50%,
+    rgba(255, 255, 255, 0.9) 65%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@keyframes title-shimmer-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title-shimmer {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: rgb(31, 41, 55);
+    color: rgb(31, 41, 55);
+  }
+  .dark .title-shimmer {
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
+  }
 }
 </style>
