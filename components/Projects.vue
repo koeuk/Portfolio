@@ -1,7 +1,7 @@
 <template>
     <section id="projects" ref="elementRef" class="section dark:bg-primary overflow-hidden">
         <div :class="{ 'section-visible': isVisible }">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 text-primary dark:text-white section-title">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 section-title title-shimmer">
                 {{ t('projects.title') }}
             </h2>
 

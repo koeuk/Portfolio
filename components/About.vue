@@ -3,13 +3,27 @@
         <div class="grid md:grid-cols-2 gap-12 items-center" :class="{ 'section-visible': isVisible }">
             <!-- Photo with Avatar -->
             <div class="flex justify-center about-image">
-                <Avatar class="w-80 h-80 shadow-2xl border-4 border-gray-200 dark:border-gray-700">
-                    <AvatarImage src="/images/koeuk.jpg" :alt="personalInfo.name" />
-                    <AvatarFallback
-                        class="bg-gradient-to-br from-primary to-primary-light text-white text-6xl font-bold">
-                        {{personalInfo.name.split(' ').map(n => n[0]).join('')}}
-                    </AvatarFallback>
-                </Avatar>
+                <div class="relative w-80 h-80">
+                    <Avatar class="w-80 h-80 shadow-2xl border-4 border-gray-200 dark:border-gray-700">
+                        <AvatarImage src="/images/koeuk.jpg" :alt="personalInfo.name" />
+                        <AvatarFallback
+                            class="bg-gradient-to-br from-primary to-primary-light text-white text-6xl font-bold">
+                            {{personalInfo.name.split(' ').map(n => n[0]).join('')}}
+                        </AvatarFallback>
+                    </Avatar>
+                    <NuxtLink
+                        to="/my-info"
+                        :aria-label="t('nav.myInfo')"
+                        class="my-info-badge group absolute bottom-3 right-3 w-14 h-14 rounded-full bg-primary dark:bg-white text-white dark:text-primary border-4 border-white dark:border-primary shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12"
+                    >
+                        <svg class="w-6 h-6 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                        <span class="my-info-tooltip absolute bottom-full mb-2 right-0 px-3 py-1.5 rounded-lg bg-primary dark:bg-white text-white dark:text-primary text-xs font-semibold whitespace-nowrap pointer-events-none opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 shadow-lg">
+                            {{ t('nav.myInfo') }}
+                        </span>
+                    </NuxtLink>
+                </div>
             </div>
 
             <!-- Content -->
@@ -80,6 +94,23 @@
     filter: blur(0);
     transform: translateY(0) scale(1);
     transition-delay: 0.15s;
+}
+
+.my-info-badge {
+    animation: badgePulse 2.4s ease-in-out infinite;
+}
+
+.my-info-badge:hover {
+    animation: none;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(124, 58, 237, 0.5);
+    }
+    50% {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(124, 58, 237, 0);
+    }
 }
 
 </style>

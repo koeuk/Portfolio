@@ -35,7 +35,7 @@
 
             <!-- Copyright -->
             <p class="text-gray-400 mb-2">
-                &copy; {{ new Date().getFullYear() }} {{ personalInfo.name }}. {{ t('footer.rights') }}
+                &copy; {{ new Date().getFullYear() }} <span class="title-shimmer-light font-semibold">{{ personalInfo.name }}</span>. {{ t('footer.rights') }}
             </p>
             <p class="text-sm text-gray-500">
                 {{ t('footer.built') }}

@@ -16,7 +16,7 @@ const translations: Translations = {
   "nav.github": { en: "GitHub", km: "GitHub", zh: "GitHub" },
   "nav.personalProjects": { en: "Projects", km: "គម្រោង", zh: "项目" },
   "nav.workExperience": { en: "Experience", km: "បទពិសោធន៍", zh: "经验" },
-  "nav.myInfo": { en: "My Info", km: "ព័ត៌មានរបស់ខ្ញុំ", zh: "我的信息" },
+  "nav.myInfo": { en: "Let's Review my info", km: "តោះមើលព័ត៌មានរបស់ខ្ញុំ", zh: "查看我的信息" },
   "nav.experiences": { en: "Experiences", km: "បទពិសោធន៍", zh: "经验" },
   "nav.about": { en: "About Me", km: "អំពីខ្ញុំ", zh: "关于我" },
   "nav.contact": { en: "Contact", km: "ទំនាក់ទំនង", zh: "联系" },

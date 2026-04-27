@@ -2,7 +2,7 @@
   <section id="blog" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
     <div :class="{ 'section-visible': isVisible }">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 text-primary dark:text-white section-title">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 section-title title-shimmer">
           {{ t('blog.title') }}
         </h2>
         <p class="text-center text-gray-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto section-content">
