@@ -3,7 +3,7 @@
     <Hero />
     <!-- <Projects /> -->
     <Skills />
-    <Blog />
+    <WorkExperience />
     <About />
     <Contact />
   </div>

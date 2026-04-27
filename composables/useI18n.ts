@@ -18,7 +18,7 @@ const translations: Translations = {
   "nav.workExperience": { en: "Experience", km: "បទពិសោធន៍", zh: "经验" },
   "nav.myInfo": { en: "My Info", km: "ព័ត៌មានរបស់ខ្ញុំ", zh: "我的信息" },
   "nav.experiences": { en: "Experiences", km: "បទពិសោធន៍", zh: "经验" },
-  "nav.about": { en: "About", km: "អំពី", zh: "关于" },
+  "nav.about": { en: "About Me", km: "អំពីខ្ញុំ", zh: "关于我" },
   "nav.contact": { en: "Contact", km: "ទំនាក់ទំនង", zh: "联系" },
   "nav.blog": { en: "Blog", km: "ប្លក់", zh: "博客" },
   "nav.readMore": { en: "Rean More", km: "អានបន្ថែម", zh: "阅读更多" },
