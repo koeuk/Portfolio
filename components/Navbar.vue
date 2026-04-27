@@ -222,7 +222,8 @@ function closeLanguageMenu(event: Event) {
 }
 
 .nav-pill-active {
-    animation: pillPop 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: pillPop 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+               pillPulse 2.4s ease-in-out 0.4s infinite;
 }
 
 @keyframes pillPop {
@@ -234,6 +235,30 @@ function closeLanguageMenu(event: Event) {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes pillPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.45);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+    }
+}
+
+:root.dark .nav-pill-active,
+.dark .nav-pill-active {
+    animation: pillPop 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+               pillPulseDark 2.4s ease-in-out 0.4s infinite;
+}
+
+@keyframes pillPulseDark {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
     }
 }
 
