@@ -95,8 +95,9 @@
           :target="post.external ? '_blank' : undefined"
           class="card p-6 group cursor-pointer block"
         >
-          <div class="h-40 bg-gradient-to-br from-primary to-primary-light rounded-lg mb-4 flex items-center justify-center">
-            <span class="text-white/20 text-2xl font-bold">{{ post.category }}</span>
+          <div class="h-40 bg-gradient-to-br from-primary to-primary-light rounded-lg mb-4 flex flex-col items-center justify-center gap-2">
+            <span class="text-5xl drop-shadow-lg" aria-hidden="true">{{ categoryIcon(post.category) }}</span>
+            <span class="text-white/30 text-xl font-bold tracking-wide">{{ post.category }}</span>
           </div>
           <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">{{ post.date }}</div>
           <h2 class="text-lg font-bold text-primary dark:text-white mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
@@ -144,6 +145,26 @@ const tabs = computed(() => [
   { label: t('blog.tab.database'), value: 'Database' },
   { label: t('blog.tab.tools'), value: 'Tools' },
 ])
+
+const categoryIconMap: Record<string, string> = {
+  HTML: '🌐',
+  CSS: '🎨',
+  JavaScript: '⚡',
+  TypeScript: '🔷',
+  Vue: '💚',
+  Laravel: '🅻',
+  'Laravel & Vue': '🔥',
+  Interview: '💬',
+  Database: '🗄️',
+  Tools: '🛠️',
+  Git: '🌿',
+  Nuxt: '🟢',
+  Tailwind: '🌊',
+}
+
+function categoryIcon(category: string) {
+  return categoryIconMap[category] ?? '📄'
+}
 
 const route = useRoute()
 const router = useRouter()
