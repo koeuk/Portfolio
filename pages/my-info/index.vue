@@ -125,6 +125,7 @@
         <GitHub v-if="activeTab === 'github'" key="github" />
         <Experience v-else-if="activeTab === 'projects'" key="projects" />
         <WorkExperience v-else-if="activeTab === 'work'" key="work" />
+        <ReadMore v-else-if="activeTab === 'rean'" key="rean" />
       </Transition>
     </div>
   </div>
@@ -145,6 +146,7 @@ const tabs = [
   { key: 'github', label: 'nav.github', icon: '🐙' },
   { key: 'projects', label: 'nav.personalProjects', icon: '🚀' },
   { key: 'work', label: 'nav.workExperience', icon: '💼' },
+  { key: 'rean', label: 'nav.readMore', icon: '📖' },
 ] as const
 
 const activeTab = ref<typeof tabs[number]['key']>('github')
