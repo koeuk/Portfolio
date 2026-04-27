@@ -14,7 +14,7 @@
 
             <!-- Content -->
             <div class="about-content">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-primary dark:text-white">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 title-shimmer">
                     {{ t('about.title') }}
                 </h2>
                 <p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-8">

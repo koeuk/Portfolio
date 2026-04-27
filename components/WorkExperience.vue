@@ -1,7 +1,7 @@
 <template>
   <section id="work-experience" ref="elementRef" class="section bg-white dark:bg-primary">
     <div :class="{ 'section-visible': isVisible }">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 text-primary dark:text-white section-title">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title title-shimmer">
         Work Experience
       </h2>
 

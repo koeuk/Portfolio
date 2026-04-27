@@ -1,7 +1,7 @@
 <template>
     <section id="contact" ref="elementRef" class="section rounded-t-3xl bg-gradient-to-br from-primary via-primary-light to-primary text-white">
         <div class="max-w-5xl mx-auto" :class="{ 'section-visible': isVisible }">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title title-shimmer-light">
                 {{ t('contact.title') }}
             </h2>
 
