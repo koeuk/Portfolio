@@ -26,7 +26,7 @@
           <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12">
             <div class="relative">
               <div class="hidden md:block absolute left-0 top-1/2 -translate-x-full w-8 border-t-2 border-dashed border-blue-400"></div>
-              <span class="text-4xl md:text-5xl font-bold text-blue-500/20 dark:text-blue-400/20">2024</span>
+              <span class="year-shimmer-blue text-4xl md:text-5xl font-bold">2024</span>
               <div class="absolute -right-4 top-0 w-14 h-14 rounded-full bg-blue-50 dark:bg-blue-900/30 border-4 border-blue-500 flex items-center justify-center hidden md:flex">
                 <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -202,6 +202,34 @@ const { isVisible, elementRef } = useScrollAnimation()
     background: none;
     -webkit-text-fill-color: rgba(139, 92, 246, 0.4);
     color: rgba(139, 92, 246, 0.4);
+  }
+}
+
+/* Shimmer animation for the 2024 year label (IT Solutions, blue theme) */
+.year-shimmer-blue {
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(59, 130, 246, 0.15) 35%,
+    rgba(96, 165, 250, 0.95) 50%,
+    rgba(59, 130, 246, 0.15) 65%,
+    rgba(59, 130, 246, 0.15) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: year-shimmer-sweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .year-shimmer-blue {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: rgba(59, 130, 246, 0.4);
+    color: rgba(59, 130, 246, 0.4);
   }
 }
 </style>

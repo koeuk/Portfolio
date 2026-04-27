@@ -149,7 +149,27 @@ const tabs = [
   { key: 'rean', label: 'nav.readMore', icon: '📖' },
 ] as const
 
-const activeTab = ref<typeof tabs[number]['key']>('github')
+type TabKey = typeof tabs[number]['key']
+const validKeys = tabs.map(tab => tab.key) as readonly string[]
+
+const route = useRoute()
+const router = useRouter()
+
+const activeTab = computed<TabKey>({
+  get: () => {
+    const param = route.query.section as string | undefined
+    return (param && validKeys.includes(param) ? param : 'github') as TabKey
+  },
+  set: (value: TabKey) => {
+    const query = { ...route.query }
+    if (value === 'github') {
+      delete query.section
+    } else {
+      query.section = value
+    }
+    router.replace({ query })
+  },
+})
 
 useHead({
   title: `My Info | ${personalInfo.name}`,

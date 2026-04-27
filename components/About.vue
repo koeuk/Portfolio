@@ -12,7 +12,7 @@
                         </AvatarFallback>
                     </Avatar>
                     <NuxtLink
-                        to="/my-info"
+                        to="/about-me/my-info"
                         :aria-label="t('nav.myInfo')"
                         class="my-info-badge group absolute bottom-3 right-3 w-14 h-14 rounded-full bg-primary dark:bg-white text-white dark:text-primary border-4 border-white dark:border-primary shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12"
                     >
