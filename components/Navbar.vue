@@ -59,6 +59,19 @@
                     <!-- Divider -->
                     <span class="w-px h-5 bg-black/10 dark:bg-white/10"></span>
 
+                    <!-- Music Button -->
+                    <button @click="showMusic = true"
+                        class="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-700 dark:text-gray-200 transition-colors music-btn"
+                        aria-label="Open music">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6Z" />
+                        </svg>
+                        <span class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-emerald-400 music-dot"></span>
+                    </button>
+
+                    <!-- Divider -->
+                    <span class="w-px h-5 bg-black/10 dark:bg-white/10"></span>
+
                     <!-- Theme Toggle Switch -->
                     <button @click="toggleTheme" class="toggle-switch" :class="{ 'active': isDark }"
                         aria-label="Toggle theme">
@@ -78,6 +91,14 @@
                 <!-- Mobile Menu Button -->
                 <div
                     class="flex items-center gap-1 md:hidden px-2 py-1.5 rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)]">
+                    <button @click="showMusic = true"
+                        class="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-700 dark:text-white transition-colors"
+                        aria-label="Open music">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6Z" />
+                        </svg>
+                        <span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-emerald-400 music-dot"></span>
+                    </button>
                     <button @click="toggleTheme" class="toggle-switch" :class="{ 'active': isDark }"
                         aria-label="Toggle theme">
                         <span class="toggle-slider"></span>
@@ -122,6 +143,8 @@
             </div>
         </Transition>
     </nav>
+
+    <MusicSheet v-model:open="showMusic" />
 </template>
 
 <script setup lang="ts">
@@ -132,6 +155,7 @@ const route = useRoute()
 const isOpen = ref(false)
 const scrolled = ref(false)
 const showLanguageMenu = ref(false)
+const showMusic = ref(false)
 const activeSection = ref('/#home')
 
 const isHomePage = computed(() => route.path === '/')
@@ -259,6 +283,19 @@ function closeLanguageMenu(event: Event) {
     }
     50% {
         box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+}
+
+.music-dot {
+    animation: musicDotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes musicDotPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(52, 211, 153, 0);
     }
 }
 
