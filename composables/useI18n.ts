@@ -21,7 +21,7 @@ const translations: Translations = {
   "nav.about": { en: "About", km: "អំពី", zh: "关于" },
   "nav.contact": { en: "Contact", km: "ទំនាក់ទំនង", zh: "联系" },
   "nav.blog": { en: "Blog", km: "ប្លក់", zh: "博客" },
-  "nav.readMore": { en: "Read More", km: "អានបន្ថែម", zh: "阅读更多" },
+  "nav.readMore": { en: "Rean More", km: "អានបន្ថែម", zh: "阅读更多" },
 
   // Hero
   "hero.greeting": { en: "Hi, I'm", km: "សួស្តី ខ្ញុំឈ្មោះ", zh: "你好，我是" },

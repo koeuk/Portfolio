@@ -31,18 +31,6 @@
         </div>
       </div>
 
-      <!-- See More Button -->
-      <div class="flex justify-center mt-10 section-content">
-        <NuxtLink
-          to="/skills"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary dark:bg-white text-white dark:text-primary font-semibold hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg"
-        >
-          {{ t('skills.seeMore') }}
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </NuxtLink>
-      </div>
     </div>
   </section>
 </template>
