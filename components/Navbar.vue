@@ -149,7 +149,6 @@ const navLinks = [
     { href: '/#work-experience', label: 'nav.workExperience' },
     { href: '/#about', label: 'nav.about' },
     { href: '/#contact', label: 'nav.contact' },
-    { href: '/my-info', label: 'nav.myInfo', isPage: true },
     { href: '/blog', label: 'nav.blog', isPage: true }
 ]
 
