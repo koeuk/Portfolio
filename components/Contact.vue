@@ -5,9 +5,9 @@
                 {{ t('contact.title') }}
             </h2>
 
-            <div class="grid md:grid-cols-2 gap-12 section-content">
+            <div class="flex flex-col items-center section-content">
                 <!-- Contact Info -->
-                <div>
+                <div class="text-center">
                     <h3 class="text-3xl font-bold mb-6">{{ t('contact.subtitle') }}</h3>
                     <p class="text-gray-300 text-lg mb-8 leading-relaxed">
                         {{ t('contact.description') }}
@@ -16,7 +16,7 @@
                     <!-- Email -->
                     <div class="space-y-5 mb-8">
                         <a :href="`mailto:${personalInfo.email}`"
-                            class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors text-lg">
+                            class="flex items-center justify-center gap-3 text-gray-300 hover:text-white transition-colors text-lg">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -26,7 +26,7 @@
                     </div>
 
                     <!-- Social Links -->
-                    <div class="flex gap-5">
+                    <div class="flex justify-center gap-5">
                         <a :href="personalInfo.github" target="_blank" rel="noopener noreferrer"
                             class="text-3xl hover:text-white transition-colors transform hover:scale-110">
                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
@@ -57,25 +57,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
-                <form class="space-y-5" @submit.prevent="handleSubmit">
-                    <input v-model="form.name" type="text" :placeholder="t('contact.name')"
-                        class="input-field" required :disabled="loading" />
-                    <input v-model="form.email" type="email" :placeholder="t('contact.email')"
-                        class="input-field" required :disabled="loading" />
-                    <textarea v-model="form.message" :placeholder="t('contact.message')" rows="6"
-                        class="input-field resize-none" required :disabled="loading"></textarea>
-                    <Button type="submit" variant="accent" size="lg" class="w-full" :disabled="loading">
-                        {{ loading ? '...' : t('contact.send') }}
-                    </Button>
-                    <p v-if="status === 'success'" class="text-green-400 text-sm text-center">
-                        {{ t('contact.success') }}
-                    </p>
-                    <p v-if="status === 'error'" class="text-red-400 text-sm text-center">
-                        {{ t('contact.error') }}
-                    </p>
-                </form>
             </div>
         </div>
     </section>
@@ -85,42 +66,6 @@
     const { personalInfo } = useData()
     const { t } = useI18n()
     const { isVisible, elementRef } = useScrollAnimation()
-    const config = useRuntimeConfig()
-
-    const form = reactive({ name: '', email: '', message: '' })
-    const status = ref<'idle' | 'success' | 'error'>('idle')
-    const loading = ref(false)
-
-    async function handleSubmit() {
-        loading.value = true
-        status.value = 'idle'
-        try {
-            const res = await $fetch<{ success: boolean }>('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: {
-                    access_key: config.public.web3formsKey,
-                    name: form.name,
-                    email: form.email,
-                    message: form.message,
-                    subject: `Portfolio contact from ${form.name}`,
-                    from_name: 'Portfolio Contact Form'
-                }
-            })
-            if (res.success) {
-                status.value = 'success'
-                form.name = ''
-                form.email = ''
-                form.message = ''
-            } else {
-                status.value = 'error'
-            }
-        } catch {
-            status.value = 'error'
-        } finally {
-            loading.value = false
-            setTimeout(() => { status.value = 'idle' }, 5000)
-        }
-    }
 </script>
 
 <style scoped>
