@@ -1,5 +1,5 @@
 <template>
-  <section id="blog" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
+  <section id="blog" ref="elementRef" class="section overflow-hidden max-md:!p-0">
     <div :class="{ 'section-visible': isVisible }">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 section-title title-shimmer">

@@ -81,7 +81,7 @@
               </a>
             </div>
             <NuxtLink to="/github"
-              class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gray-600 text-gray-300 hover:bg-white hover:text-[#0d1117] font-semibold transition-all hover:scale-105">
+              class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-gray-600 text-gray-300 hover:bg-white hover:text-[#0d1117] font-semibold transition-all hover:scale-105 shrink-0 whitespace-nowrap text-sm sm:text-base">
               View More
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
