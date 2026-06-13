@@ -101,7 +101,7 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
       <div class="flex justify-center">
         <div role="tablist"
-          class="lg-glass inline-flex items-center gap-1 p-1.5 rounded-full shadow-sm overflow-x-auto max-w-full">
+          class="lg-glass inline-flex items-center gap-1 p-1.5 rounded-full border border-gray-300 dark:border-white/15 overflow-x-auto max-w-full">
           <button v-for="tab in tabs" :key="tab.key" role="tab" :aria-selected="activeTab === tab.key"
             @click="activeTab = tab.key"
             class="relative px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full whitespace-nowrap transition-colors duration-300"
