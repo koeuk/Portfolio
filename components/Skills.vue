@@ -1,30 +1,49 @@
 <template>
-  <section id="skills" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
+  <section id="skills" ref="elementRef" class="section overflow-hidden">
     <div :class="{ 'section-visible': isVisible }">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title title-shimmer">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 section-title title-shimmer">
         {{ t('skills.title') }}
       </h2>
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-16 sm:mb-20 section-title">
+        {{ t('skills.subtitle') }}
+      </p>
 
       <!-- Skills by Category -->
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 section-content">
-        <div v-for="category in categories" :key="category.key" class="mb-16 last:mb-0">
-          <h3 class="text-2xl md:text-3xl font-bold mb-8 text-primary dark:text-white flex items-center gap-3">
-            <span class="w-10 h-10 rounded-lg bg-primary/10 dark:bg-white/10 flex items-center justify-center text-lg">
-              {{ category.emoji }}
-            </span>
-            {{ t(`skills.${category.key}`) }}
-          </h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 section-content space-y-12 sm:space-y-16">
+        <div v-for="category in categories" :key="category.key">
+          <!-- Panel header -->
+          <div class="flex items-center gap-4 mb-7">
+            <span class="ios-cat-icon">{{ category.emoji }}</span>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold text-primary dark:text-white tracking-tight">
+                {{ t(`skills.${category.key}`) }}
+              </h3>
+              <p class="text-[13px] font-medium text-gray-400 dark:text-gray-500">
+                {{ category.skills.length }} {{ category.skills.length === 1 ? 'technology' : 'technologies' }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Skill tiles -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
             <NuxtLink
               v-for="skill in category.skills"
               :key="skill.name"
               :to="getSkillLink(skill.name)"
-              class="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-105 hover:border-primary/30 dark:hover:border-white/30 transition-all duration-300 cursor-pointer"
+              class="ios-tile group/tile"
             >
-              <div class="w-14 h-14" v-html="getIcon(skill.name)"></div>
-              <p class="font-semibold text-gray-700 dark:text-gray-200 text-center">{{ skill.name }}</p>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 dark:bg-white/10 text-primary dark:text-gray-300">
-                {{ t(`skills.${skill.category}`) }}
+              <span class="ios-icon-wrap" :style="{ backgroundColor: getSkillTint(skill.name) }">
+                <span class="w-full h-full block transition-transform duration-300 ease-out group-hover/tile:scale-110" v-html="getIcon(skill.name)"></span>
+              </span>
+              <p class="font-semibold text-[15px] text-gray-800 dark:text-gray-100 text-center tracking-tight">
+                {{ skill.name }}
+              </p>
+              <!-- Hover reveal -->
+              <span class="ios-learn">
+                {{ t('skills.learn') }}
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
               </span>
             </NuxtLink>
           </div>
@@ -76,6 +95,26 @@ function getIcon(name: string): string {
   return icons[name] || `<span class="text-4xl">💻</span>`
 }
 
+// Brand color per skill — the squircle tint follows its icon
+const skillColors: Record<string, string> = {
+  'HTML5': '#E44D26',
+  'CSS3': '#1572B6',
+  'JavaScript': '#F0DB4F',
+  'TypeScript': '#007ACC',
+  'Vue.js': '#42B883',
+  'Nuxt.js': '#00DC82',
+  'Tailwind CSS': '#38BDF8',
+  'Laravel': '#FF2D20',
+  'Node.js': '#83CD29',
+  'Git': '#F34F29',
+  'VS Code': '#0065A9',
+}
+
+function getSkillTint(name: string): string {
+  // ~14% opacity tint of the brand color
+  return (skillColors[name] || '#7C7C7C') + '24'
+}
+
 const skillLinkMap: Record<string, string> = {
   'HTML5': '/read-more/learn-html5',
   'CSS3': '/read-more/learn-css3',
@@ -114,5 +153,115 @@ function getSkillLink(name: string): string {
   filter: blur(0);
   transform: translateY(0) scale(1);
   transition-delay: 0.15s;
+}
+
+/* ===== Premium iOS UI ===== */
+
+/* Category squircle icon */
+.ios-cat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: 16px;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, rgba(124, 58, 237, 0.18), rgba(124, 58, 237, 0.06));
+  box-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.7) inset,
+    0 4px 12px rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+}
+
+:global(.dark) .ios-cat-icon {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04));
+  box-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.12) inset,
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Skill tile */
+.ios-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 0.75rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(17, 12, 46, 0.05);
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s ease,
+              background 0.35s ease;
+}
+
+.ios-tile:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 40px rgba(17, 12, 46, 0.14);
+}
+
+.ios-tile:active {
+  transform: translateY(-2px) scale(0.97);
+}
+
+:global(.dark) .ios-tile {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark) .ios-tile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* App-icon squircle holding the logo (flat, tinted to the brand color) */
+.ios-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.75rem;
+  border-radius: 18px;
+}
+
+/* "Learn →" hover hint */
+.ios-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgb(124, 58, 237);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+:global(.dark) .ios-learn {
+  color: rgba(216, 180, 254, 0.95);
+}
+
+.ios-tile:hover .ios-learn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ios-tile,
+  .ios-tile:hover,
+  .ios-tile:active {
+    transition: none;
+    transform: none;
+  }
 }
 </style>

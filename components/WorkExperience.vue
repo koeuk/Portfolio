@@ -1,5 +1,5 @@
 <template>
-  <section id="work-experience" ref="elementRef" class="section bg-white dark:bg-primary relative overflow-hidden">
+  <section id="work-experience" ref="elementRef" class="section relative overflow-hidden">
     <!-- Ambient refraction orbs so the glass material reads against the page -->
     <div class="glass-orb glass-orb-blue" aria-hidden="true"></div>
     <div class="glass-orb glass-orb-green" aria-hidden="true"></div>

@@ -1,5 +1,5 @@
 <template>
-  <section id="github" ref="elementRef" class="section bg-white dark:bg-primary overflow-hidden">
+  <section id="github" ref="elementRef" class="section overflow-hidden">
     <div :class="{ 'section-visible': isVisible }">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 section-title title-shimmer">
         GitHub

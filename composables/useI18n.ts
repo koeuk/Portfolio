@@ -52,6 +52,16 @@ const translations: Translations = {
     km: "ជំនាញ និង បច្ចេកវិទ្យា",
     zh: "技能与技术",
   },
+  "skills.subtitle": {
+    en: "The tools and technologies I build with",
+    km: "ឧបករណ៍ និងបច្ចេកវិទ្យាដែលខ្ញុំប្រើ",
+    zh: "我所使用的工具与技术",
+  },
+  "skills.learn": {
+    en: "Learn",
+    km: "សិក្សា",
+    zh: "了解",
+  },
   "skills.seeMore": {
     en: "See More",
     km: "មើលបន្ថែម",

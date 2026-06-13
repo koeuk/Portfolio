@@ -1,5 +1,5 @@
 <template>
-    <section id="about" ref="elementRef" class="section bg-white dark:bg-primary">
+    <section id="about" ref="elementRef" class="section">
         <div class="grid md:grid-cols-2 gap-12 items-center" :class="{ 'section-visible': isVisible }">
             <!-- Photo with Avatar -->
             <div class="flex justify-center about-image">
