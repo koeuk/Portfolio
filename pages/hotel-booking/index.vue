@@ -82,10 +82,10 @@
         <h3 class="text-2xl font-bold mb-2">34 API Endpoints</h3>
         <p class="text-gray-400 mb-4">Authentication, Hotels, Rooms, Bookings, Payments, Reviews, Coupons, Notifications, Profile</p>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-mono">GET</span>
-          <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-mono">POST</span>
-          <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-mono">PUT</span>
-          <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-mono">DELETE</span>
+          <span class="lg-pill px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-mono">GET</span>
+          <span class="lg-pill px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-mono">POST</span>
+          <span class="lg-pill px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-mono">PUT</span>
+          <span class="lg-pill px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-mono">DELETE</span>
         </div>
       </div>
 
