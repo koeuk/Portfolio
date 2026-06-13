@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen pt-32 pb-20 bg-white dark:bg-primary transition-colors">
+  <div class="min-h-screen pt-32 pb-20 transition-colors">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Back Link -->
       <NuxtLink to="/"

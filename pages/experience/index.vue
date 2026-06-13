@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen pt-24 pb-20 bg-white dark:bg-primary transition-colors">
+  <div class="min-h-screen pt-24 pb-20 transition-colors">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <!-- Header -->
       <div class="text-center mb-16 space-y-4">
@@ -41,7 +41,7 @@
           v-for="(experience, index) in filteredExperiences"
           :key="experience.id"
           :to="experience.id === '3' ? '/hotel-booking' : `/experience/${experience.id}`"
-          class="group card p-8 flex flex-col h-full hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 slide-up"
+          class="group card p-8 flex flex-col h-full hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:-translate-y-2 slide-up"
           :class="`slide-up-delay-${Math.min(index + 1, 3)}`"
         >
           <div class="mb-6 flex justify-between items-start">

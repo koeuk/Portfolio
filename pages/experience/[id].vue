@@ -1,5 +1,5 @@
 <template>
-  <div v-if="experience" class="min-h-screen pt-24 pb-20 bg-white dark:bg-primary transition-colors">
+  <div v-if="experience" class="min-h-screen pt-24 pb-20 transition-colors">
     <div class="max-w-4xl mx-auto px-4 md:px-8">
       <!-- Top Section: Header & Badge -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-20 space-y-4">

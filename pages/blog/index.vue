@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white dark:bg-primary pt-20">
+  <div class="min-h-screen pt-20">
     <div class="section">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 text-primary dark:text-white">
         {{ t('blog.title') }}

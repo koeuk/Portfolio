@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white dark:bg-primary pt-32 pb-20 transition-colors">
+  <div class="min-h-screen pt-32 pb-20 transition-colors">
     <article v-if="post" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Back Link -->
       <NuxtLink to="/blog"
