@@ -29,36 +29,11 @@
           </div>
         </div>
 
-        <!-- Posts -->
-        <div v-if="activeView === 'post'" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 section-content">
-          <NuxtLink
-            v-for="post in blogPosts"
-            :key="post.id"
-            :to="post.slug"
-            :external="post.external || false"
-            :target="post.external ? '_blank' : undefined"
-            class="card p-6 group cursor-pointer block"
-          >
-            <div class="h-40 bg-gradient-to-br from-primary to-primary-light rounded-lg mb-4 flex items-center justify-center">
-              <span class="text-white/20 text-2xl font-bold">{{ post.category }}</span>
-            </div>
-            <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">{{ post.date }}</div>
-            <h3 class="text-lg font-bold text-primary dark:text-white mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
-              {{ post.title }}
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-              {{ post.excerpt }}
-            </p>
-            <div class="flex gap-2 mt-4">
-              <span
-                v-for="tag in post.tags"
-                :key="tag"
-                class="px-2 py-1 bg-gray-100 dark:bg-primary-light text-xs rounded-full text-gray-600 dark:text-gray-300"
-              >
-                {{ tag }}
-              </span>
-            </div>
-          </NuxtLink>
+        <!-- Posts (coming soon) -->
+        <div v-if="activeView === 'post'" class="text-center py-24 section-content">
+          <div class="text-6xl mb-6">📝</div>
+          <p class="text-xl font-semibold text-primary dark:text-white mb-2">No posts yet</p>
+          <p class="text-gray-500 dark:text-gray-400">New articles are on the way — check back soon.</p>
         </div>
 
         <!-- Feelings -->
@@ -114,6 +89,11 @@
               </span>
             </div>
           </NuxtLink>
+          </div>
+
+          <div v-if="feelingPosts.length === 0" class="text-center py-16 section-content">
+            <p class="text-gray-500 dark:text-gray-400 text-lg">No entries for this mood yet.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -121,10 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import { useBlog } from '~/composables/useBlog'
-
 const { t } = useI18n()
-const { posts } = useBlog()
 const { posts: feelings } = useFeelings()
 const { isVisible, elementRef } = useScrollAnimation()
 
@@ -134,8 +111,22 @@ const views = [
   { key: 'feeling', label: 'Feeling', icon: '💭' },
 ] as const
 
-const blogPosts = computed(() => posts)
-const feelingPosts = computed(() => feelings)
+// Mood filter for the Feeling view
+const activeMood = ref('all')
+const moods = [
+  { label: 'All', value: 'all' },
+  { label: 'Happy', value: 'Happy' },
+  { label: 'Reflective', value: 'Reflective' },
+  { label: 'Grateful', value: 'Grateful' },
+  { label: 'Challenging', value: 'Challenging' },
+  { label: 'Hopeful', value: 'Hopeful' },
+]
+
+const feelingPosts = computed(() =>
+  activeMood.value === 'all'
+    ? feelings
+    : feelings.filter(feeling => feeling.category === activeMood.value)
+)
 </script>
 
 <style scoped>
