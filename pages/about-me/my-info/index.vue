@@ -122,9 +122,7 @@
     <!-- Tab Panels -->
     <div class="mt-4">
       <Transition name="tab-fade" mode="out-in">
-        <GitHub v-if="activeTab === 'github'" key="github" />
-        <Experience v-else-if="activeTab === 'projects'" key="projects" />
-        <WorkExperience v-else-if="activeTab === 'work'" key="work" />
+        <Experience v-if="activeTab === 'projects'" key="projects" />
         <ReadMore v-else-if="activeTab === 'rean'" key="rean" />
       </Transition>
     </div>
@@ -143,9 +141,7 @@ const socialLinks = [
 ]
 
 const tabs = [
-  { key: 'github', label: 'nav.github', icon: '🐙' },
   { key: 'projects', label: 'nav.personalProjects', icon: '🚀' },
-  { key: 'work', label: 'nav.workExperience', icon: '💼' },
   { key: 'rean', label: 'nav.readMore', icon: '📖' },
 ] as const
 
@@ -158,11 +154,11 @@ const router = useRouter()
 const activeTab = computed<TabKey>({
   get: () => {
     const param = route.query.section as string | undefined
-    return (param && validKeys.includes(param) ? param : 'github') as TabKey
+    return (param && validKeys.includes(param) ? param : 'projects') as TabKey
   },
   set: (value: TabKey) => {
     const query = { ...route.query }
-    if (value === 'github') {
+    if (value === 'projects') {
       delete query.section
     } else {
       query.section = value
