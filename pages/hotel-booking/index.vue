@@ -1,6 +1,10 @@
 <template>
-  <div class="min-h-screen bg-[#0a0a0a] text-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+  <div class="min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden">
+    <!-- Ambient refraction orbs -->
+    <div class="lg-orb bg-green-500/20 w-[32rem] h-[32rem] -top-32 -right-40" aria-hidden="true"></div>
+    <div class="lg-orb bg-blue-500/20 w-[34rem] h-[34rem] top-[45%] -left-52" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
       <!-- Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-20 space-y-4">
         <div class="space-y-4">
@@ -19,7 +23,7 @@
             </p>
           </div>
         </div>
-        <div class="px-6 py-2 rounded-full border border-gray-700 font-bold text-white uppercase tracking-widest text-sm whitespace-nowrap">
+        <div class="lg-glass-dark px-6 py-2 rounded-full font-bold text-white uppercase tracking-widest text-sm whitespace-nowrap">
           2025 - 2026
         </div>
       </div>
@@ -27,7 +31,7 @@
       <!-- Tech Stack Pills -->
       <div class="flex flex-wrap gap-3 mb-16">
         <span v-for="technology in techStack" :key="technology.name"
-          class="px-4 py-2 rounded-full text-sm font-medium border"
+          class="lg-pill px-4 py-2 rounded-full text-sm font-medium border"
           :class="technology.color">
           {{ technology.name }}
         </span>
@@ -36,7 +40,7 @@
       <!-- Overview Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
         <div v-for="stat in stats" :key="stat.label"
-          class="p-5 rounded-2xl bg-white/5 border border-white/10 text-center">
+          class="lg-glass-dark lg-glass-hover p-5 rounded-2xl text-center">
           <p class="text-3xl font-bold text-white mb-1">{{ stat.value }}</p>
           <p class="text-sm text-gray-400">{{ stat.label }}</p>
         </div>
@@ -47,7 +51,7 @@
         <h2 class="text-3xl font-bold mb-8">Features</h2>
         <div class="grid md:grid-cols-2 gap-6">
           <div v-for="feature in features" :key="feature.title"
-            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-green-500/30 transition-all group">
+            class="lg-glass-dark lg-glass-hover p-6 rounded-2xl group">
             <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center text-lg"
               :class="feature.iconBg">
               {{ feature.icon }}
@@ -63,16 +67,16 @@
         <h2 class="text-3xl font-bold mb-8">Database Schema</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           <div v-for="table in tables" :key="table"
-            class="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-mono text-gray-300 hover:border-blue-500/40 hover:text-blue-300 transition-all">
+            class="lg-glass-dark lg-glass-hover px-4 py-3 rounded-xl text-sm font-mono text-gray-300 hover:text-blue-300">
             {{ table }}
           </div>
         </div>
       </div>
 
       <!-- API Section -->
-      <div class="mb-16 p-6 rounded-2xl bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-white/10">
+      <div class="mb-16 p-6 rounded-2xl bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-white/10 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_14px_38px_rgba(0,0,0,0.4)]">
         <div class="flex items-center gap-3 mb-3">
-          <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">REST API</span>
+          <span class="lg-pill px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">REST API</span>
           <span class="text-gray-400 text-sm">v1</span>
         </div>
         <h3 class="text-2xl font-bold mb-2">34 API Endpoints</h3>

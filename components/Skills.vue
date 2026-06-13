@@ -12,16 +12,13 @@
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 section-content space-y-12 sm:space-y-16">
         <div v-for="category in categories" :key="category.key">
           <!-- Panel header -->
-          <div class="flex items-center gap-4 mb-7">
-            <span class="ios-cat-icon">{{ category.emoji }}</span>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-bold text-primary dark:text-white tracking-tight">
-                {{ t(`skills.${category.key}`) }}
-              </h3>
-              <p class="text-[13px] font-medium text-gray-400 dark:text-gray-500">
-                {{ category.skills.length }} {{ category.skills.length === 1 ? 'technology' : 'technologies' }}
-              </p>
-            </div>
+          <div class="mb-7">
+            <h3 class="text-xl sm:text-2xl font-bold text-primary dark:text-white tracking-tight">
+              {{ t(`skills.${category.key}`) }}
+            </h3>
+            <p class="text-[13px] font-medium text-gray-400 dark:text-gray-500">
+              {{ category.skills.length }} {{ category.skills.length === 1 ? 'technology' : 'technologies' }}
+            </p>
           </div>
 
           <!-- Skill tiles -->
@@ -32,7 +29,7 @@
               :to="getSkillLink(skill.name)"
               class="ios-tile group/tile"
             >
-              <span class="ios-icon-wrap" :style="{ backgroundColor: getSkillTint(skill.name) }">
+              <span class="ios-icon-wrap">
                 <span class="w-full h-full block transition-transform duration-300 ease-out group-hover/tile:scale-110" v-html="getIcon(skill.name)"></span>
               </span>
               <p class="font-semibold text-[15px] text-gray-800 dark:text-gray-100 text-center tracking-tight">
@@ -95,26 +92,6 @@ function getIcon(name: string): string {
   return icons[name] || `<span class="text-4xl">💻</span>`
 }
 
-// Brand color per skill — the squircle tint follows its icon
-const skillColors: Record<string, string> = {
-  'HTML5': '#E44D26',
-  'CSS3': '#1572B6',
-  'JavaScript': '#F0DB4F',
-  'TypeScript': '#007ACC',
-  'Vue.js': '#42B883',
-  'Nuxt.js': '#00DC82',
-  'Tailwind CSS': '#38BDF8',
-  'Laravel': '#FF2D20',
-  'Node.js': '#83CD29',
-  'Git': '#F34F29',
-  'VS Code': '#0065A9',
-}
-
-function getSkillTint(name: string): string {
-  // ~14% opacity tint of the brand color
-  return (skillColors[name] || '#7C7C7C') + '24'
-}
-
 const skillLinkMap: Record<string, string> = {
   'HTML5': '/read-more/learn-html5',
   'CSS3': '/read-more/learn-css3',
@@ -156,31 +133,6 @@ function getSkillLink(name: string): string {
 }
 
 /* ===== Premium iOS UI ===== */
-
-/* Category squircle icon */
-.ios-cat-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.5rem;
-  border-radius: 16px;
-  flex-shrink: 0;
-  background: linear-gradient(160deg, rgba(124, 58, 237, 0.18), rgba(124, 58, 237, 0.06));
-  box-shadow:
-    0 1px 1px rgba(255, 255, 255, 0.7) inset,
-    0 4px 12px rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.12);
-}
-
-:global(.dark) .ios-cat-icon {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04));
-  box-shadow:
-    0 1px 1px rgba(255, 255, 255, 0.12) inset,
-    0 4px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
 /* Skill tile */
 .ios-tile {
