@@ -51,7 +51,7 @@
           </ul>
         </section>
 
-        <section class="bg-gray-50 dark:bg-primary-light p-6 rounded-2xl">
+        <section class="lg-glass p-6 rounded-2xl">
           <h2 class="text-xl font-bold text-primary dark:text-white mb-3">Summary</h2>
           <p class="leading-relaxed">
             Modern CSS gives you layout, theming, and motion without frameworks. Learn Flexbox, Grid, custom properties,

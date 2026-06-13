@@ -597,7 +597,7 @@ getUser(orderId);  <span class="text-red-400">// Error! OrderId is not assignabl
         </section>
 
         <!-- Summary -->
-        <section class="mt-12 p-6 bg-gray-50 dark:bg-primary-light rounded-2xl border border-gray-200 dark:border-gray-700">
+        <section class="mt-12 lg-glass p-6 rounded-2xl">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Summary</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">

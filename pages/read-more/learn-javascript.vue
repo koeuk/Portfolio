@@ -59,7 +59,7 @@
           </p>
         </section>
 
-        <section class="bg-gray-50 dark:bg-primary-light p-6 rounded-2xl">
+        <section class="lg-glass p-6 rounded-2xl">
           <h2 class="text-xl font-bold text-primary dark:text-white mb-3">Summary</h2>
           <p class="leading-relaxed">
             Learn the modern subset well — <code class="px-1 bg-gray-100 dark:bg-primary-light rounded">const</code>, arrow functions,

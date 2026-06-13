@@ -417,7 +417,7 @@
         </div>
 
         <!-- Summary -->
-        <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
+        <section class="mb-12 lg-glass p-6 rounded-xl">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2"><span class="text-orange-500 mt-1">&#10003;</span><span><strong>MySQL Basics</strong> — Open-source RDBMS using SQL, with InnoDB as the default engine</span></li>
@@ -1043,6 +1043,6 @@ SHOW PROFILE FOR QUERY 1;`,
   @apply p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-sm text-blue-700 dark:text-blue-300;
 }
 .qa-section {
-  @apply mb-8 p-6 rounded-xl bg-gray-50 dark:bg-primary-light/50 border border-gray-200 dark:border-gray-700;
+  @apply mb-8 p-6 rounded-xl bg-white/60 dark:bg-white/5 border border-white/40 dark:border-white/10 backdrop-blur-xl;
 }
 </style>

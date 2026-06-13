@@ -28,7 +28,6 @@
               :key="skill.name"
               :to="getSkillLink(skill.name)"
               class="ios-tile group/tile"
-              :style="{ '--brand': getSkillColor(skill.name) }"
             >
               <span class="ios-icon-wrap">
                 <span class="w-full h-full block transition-transform duration-300 ease-out group-hover/tile:scale-110" v-html="getIcon(skill.name)"></span>
@@ -93,25 +92,6 @@ function getIcon(name: string): string {
   return icons[name] || `<span class="text-4xl">💻</span>`
 }
 
-// Brand color per skill — the tile background tint follows its icon
-const skillColors: Record<string, string> = {
-  'HTML5': '#E44D26',
-  'CSS3': '#1572B6',
-  'JavaScript': '#F0DB4F',
-  'TypeScript': '#007ACC',
-  'Vue.js': '#42B883',
-  'Nuxt.js': '#00DC82',
-  'Tailwind CSS': '#38BDF8',
-  'Laravel': '#FF2D20',
-  'Node.js': '#83CD29',
-  'Git': '#F34F29',
-  'VS Code': '#0065A9',
-}
-
-function getSkillColor(name: string): string {
-  return skillColors[name] || '#888888'
-}
-
 const skillLinkMap: Record<string, string> = {
   'HTML5': '/read-more/learn-html5',
   'CSS3': '/read-more/learn-css3',
@@ -156,7 +136,6 @@ function getSkillLink(name: string): string {
 
 /* Skill tile */
 .ios-tile {
-  --brand: #888888;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -164,19 +143,16 @@ function getSkillLink(name: string): string {
   gap: 0.75rem;
   padding: 1.25rem 0.75rem;
   border-radius: 24px;
-  background: color-mix(in srgb, var(--brand) 12%, white);
-  border: 1px solid color-mix(in srgb, var(--brand) 22%, white);
-  box-shadow: 0 2px 8px rgba(17, 12, 46, 0.05);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   cursor: pointer;
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.35s ease,
               background 0.35s ease;
 }
 
 .ios-tile:hover {
   transform: translateY(-6px);
-  background: color-mix(in srgb, var(--brand) 22%, white);
-  box-shadow: 0 18px 40px color-mix(in srgb, var(--brand) 30%, transparent);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .ios-tile:active {
@@ -184,14 +160,12 @@ function getSkillLink(name: string): string {
 }
 
 :global(.dark) .ios-tile {
-  background: color-mix(in srgb, var(--brand) 22%, transparent);
-  border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 :global(.dark) .ios-tile:hover {
-  background: color-mix(in srgb, var(--brand) 34%, transparent);
-  box-shadow: 0 18px 40px color-mix(in srgb, var(--brand) 40%, transparent);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* App-icon squircle holding the logo (flat, tinted to the brand color) */

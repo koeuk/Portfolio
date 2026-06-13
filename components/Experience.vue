@@ -21,7 +21,7 @@
           v-for="(experience, index) in experiences.slice(0, 8)"
           :key="experience.id"
           :to="`/experience/${experience.id}`"
-          class="group card p-8 flex flex-col h-full border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
+          class="group card p-8 flex flex-col h-full border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:-translate-y-2"
         >
           <div class="mb-6 flex justify-between items-start">
             <span class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest group-hover:text-primary dark:group-hover:text-white transition-colors">

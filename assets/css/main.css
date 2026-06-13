@@ -87,7 +87,7 @@
            hover:bg-white hover:text-primary transition-all duration-300 inline-flex items-center gap-2;
   }
   .card {
-    @apply bg-white dark:bg-primary-light rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300
+    @apply bg-white dark:bg-primary-light rounded-xl transition-all duration-300
            border border-gray-100 dark:border-gray-700 hover:scale-[1.02];
   }
   .input-field {
@@ -97,7 +97,7 @@
   }
   .skill-card {
     @apply w-28 h-28 bg-white dark:bg-primary-light rounded-xl border border-gray-200 dark:border-gray-700 flex flex-col items-center
-           justify-center hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1;
+           justify-center hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-300 hover:-translate-y-1;
   }
 
   .line-clamp-2 {

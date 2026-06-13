@@ -26,7 +26,7 @@
         <!-- How it Works -->
         <section class="mb-12">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">How Password Reset Works</h2>
-          <div class="p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
+          <div class="lg-glass p-6 rounded-xl">
             <ol class="space-y-3 text-gray-600 dark:text-gray-300">
               <li class="flex items-start gap-3">
                 <span class="bg-primary text-white dark:bg-white dark:text-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
@@ -136,7 +136,7 @@
         </section>
 
         <!-- Summary -->
-        <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
+        <section class="mb-12 lg-glass p-6 rounded-xl">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2"><span class="text-green-500 mt-1">&#10003;</span><span><strong>Password::sendResetLink()</strong> — sends reset email with token</span></li>

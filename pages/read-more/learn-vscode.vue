@@ -59,7 +59,7 @@
           <CodeBlock language="json" :code="settingsCode" />
         </section>
 
-        <section class="bg-gray-50 dark:bg-primary-light p-6 rounded-2xl">
+        <section class="lg-glass p-6 rounded-2xl">
           <h2 class="text-xl font-bold text-primary dark:text-white mb-3">Summary</h2>
           <p class="leading-relaxed">
             Live in the command palette. Learn 5 keyboard shortcuts a week. Configure format-on-save once and forget about formatting forever.

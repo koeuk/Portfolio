@@ -464,7 +464,7 @@ router.delete(<span class="text-green-400">`/posts/${id}`</span>);</pre>
         </section>
 
         <!-- Folder Structure -->
-        <section class="p-6 bg-gray-50 dark:bg-primary-light rounded-2xl border border-gray-200 dark:border-gray-700">
+        <section class="lg-glass p-6 rounded-2xl">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Project Structure</h2>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
             <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
@@ -530,7 +530,7 @@ router.delete(<span class="text-green-400">`/posts/${id}`</span>);</pre>
         </section>
 
         <!-- Summary -->
-        <section class="mt-8 p-6 bg-gray-50 dark:bg-primary-light rounded-2xl border border-gray-200 dark:border-gray-700">
+        <section class="mt-8 lg-glass p-6 rounded-2xl">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Summary</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">

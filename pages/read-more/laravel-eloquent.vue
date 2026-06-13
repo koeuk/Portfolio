@@ -135,7 +135,7 @@
         </section>
 
         <!-- Summary -->
-        <section class="mb-12 p-6 rounded-xl bg-gray-50 dark:bg-primary-light border border-gray-200 dark:border-gray-700">
+        <section class="mb-12 lg-glass p-6 rounded-xl">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">{{ t('blog.summary') }}</h2>
           <ul class="space-y-2 text-gray-600 dark:text-gray-300">
             <li class="flex items-start gap-2">
