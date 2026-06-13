@@ -154,7 +154,7 @@
   .lg-glass {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.28));
     border: 1px solid rgba(255, 255, 255, 0.55);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7), 0 10px 30px rgba(15, 23, 42, 0.08);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7);
   }
   .lg-glass::before {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 45%);
@@ -165,7 +165,7 @@
   .dark .lg-glass {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 14px 38px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
   }
   .lg-glass-dark::before,
   .dark .lg-glass::before {
@@ -180,12 +180,12 @@
   }
   .lg-glass.lg-glass-hover:hover {
     border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.85), 0 22px 48px rgba(15, 23, 42, 0.14);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.85);
   }
   .lg-glass-dark.lg-glass-hover:hover,
   .dark .lg-glass.lg-glass-hover:hover {
     border-color: rgba(255, 255, 255, 0.22);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 26px 56px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
   /* Frosted pill — pairs with a tinted bg utility for color */

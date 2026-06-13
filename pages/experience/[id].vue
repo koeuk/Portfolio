@@ -4,8 +4,8 @@
       <!-- Top Section: Header & Badge -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-20 space-y-4">
         <div class="space-y-4">
-          <NuxtLink to="/experience" class="group inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary dark:hover:text-white transition-all uppercase tracking-widest translate-x-0 hover:-translate-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <NuxtLink to="/about-me/my-info?section=projects" class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 dark:border-white/15 text-sm font-bold text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:border-primary/40 dark:hover:border-white/30 transition-all uppercase tracking-widest">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Experience

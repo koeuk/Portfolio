@@ -37,7 +37,7 @@
       <div class="grid lg:grid-cols-3 gap-8">
         <!-- Bio -->
         <section
-          class="lg:col-span-2 lg-glass p-8 rounded-3xl">
+          class="lg:col-span-2 lg-glass p-8 rounded-3xl border border-gray-200 dark:border-white/10">
           <h2 class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
             About Me
           </h2>
@@ -48,7 +48,7 @@
 
         <!-- Quick Facts -->
         <section
-          class="lg-glass p-8 rounded-3xl">
+          class="lg-glass p-8 rounded-3xl border border-gray-200 dark:border-white/10">
           <h2 class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
             Quick Facts
           </h2>
@@ -75,14 +75,14 @@
 
         <!-- Connect / Socials -->
         <section
-          class="lg:col-span-3 lg-glass p-8 rounded-3xl">
+          class="lg:col-span-3 lg-glass p-8 rounded-3xl border border-gray-200 dark:border-white/10">
           <h2 class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
             Connect
           </h2>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <a v-for="socialLink in socialLinks" :key="socialLink.label" :href="socialLink.href" target="_blank"
               rel="noopener noreferrer"
-              class="lg-glass lg-glass-hover group flex items-center gap-3 p-4 rounded-2xl">
+              class="lg-glass lg-glass-hover group flex items-center gap-3 p-4 rounded-2xl border border-gray-200 dark:border-white/10">
               <span class="text-2xl">{{ socialLink.icon }}</span>
               <div class="min-w-0">
                 <p
