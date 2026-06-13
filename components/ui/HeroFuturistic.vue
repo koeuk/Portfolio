@@ -50,8 +50,8 @@
  * Uses /images/profile.jpg as both color + pseudo-depth source (flat, no depth map).
  */
 
-const titleWords = 'Build Your Dreams'.split(' ')
-const subtitle = 'AI-powered creativity for the next generation.'
+const titleWords = "Dear !, I'm Koeuk Dev".split(' ')
+const subtitle = 'Web Developer & Creative Thinker'
 
 const canvas = ref<HTMLCanvasElement | null>(null)
 const supported = ref(true)

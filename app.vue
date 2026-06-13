@@ -1,5 +1,8 @@
 <template>
   <div :class="{ 'dark': isDark }" class="min-h-screen bg-white dark:bg-primary transition-colors">
+    <!-- Fixed gradient-grid background (behind everything) -->
+    <GradientBlurBg />
+
     <!-- Navbar outside transition so it stays fixed -->
     <Navbar />
 
