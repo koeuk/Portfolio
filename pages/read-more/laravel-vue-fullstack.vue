@@ -10,7 +10,7 @@
         <div class="flex gap-2 mb-4">
           <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs rounded-full font-medium">Laravel</span>
           <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs rounded-full font-medium">Vue</span>
-          <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs rounded-full font-medium">Inertia.js</span>
+          <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs rounded-full font-medium">Inertia.js</span>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary dark:text-white mb-4">
           Full-Stack App with Laravel, Inertia & Vue
@@ -26,7 +26,7 @@
         </p>
 
         <!-- What is Inertia -->
-        <section class="p-6 bg-purple-50 dark:bg-purple-900/20 rounded-2xl border border-purple-200 dark:border-purple-800">
+        <section class="p-6 bg-green-50 dark:bg-green-900/20 rounded-2xl border border-green-200 dark:border-green-800">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-3">What is Inertia.js?</h2>
           <p class="leading-relaxed mb-3">
             Inertia.js is <strong>not a framework</strong> - it's a routing library that connects your server-side
@@ -34,19 +34,19 @@
           </p>
           <ul class="space-y-2 ml-4">
             <li class="flex items-start gap-2">
-              <span class="text-purple-500 mt-1 flex-shrink-0">&#9679;</span>
+              <span class="text-green-500 mt-1 flex-shrink-0">&#9679;</span>
               Use Laravel routes and controllers as usual
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-purple-500 mt-1 flex-shrink-0">&#9679;</span>
+              <span class="text-green-500 mt-1 flex-shrink-0">&#9679;</span>
               Return Vue pages instead of Blade views
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-purple-500 mt-1 flex-shrink-0">&#9679;</span>
+              <span class="text-green-500 mt-1 flex-shrink-0">&#9679;</span>
               Get SPA-like navigation without page reloads
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-purple-500 mt-1 flex-shrink-0">&#9679;</span>
+              <span class="text-green-500 mt-1 flex-shrink-0">&#9679;</span>
               No need to build a REST/GraphQL API
             </li>
           </ul>
@@ -211,7 +211,7 @@ Route::resource(<span class="text-green-400">'posts'</span>, PostController::<sp
 
 <span class="text-blue-400">class</span> <span class="text-yellow-400">PostController</span> <span class="text-blue-400">extends</span> <span class="text-yellow-400">Controller</span>
 {
-    <span class="text-blue-400">public function</span> <span class="text-purple-400">index</span>()
+    <span class="text-blue-400">public function</span> <span class="text-green-400">index</span>()
     {
         <span class="text-blue-400">return</span> Inertia::render(<span class="text-green-400">'Posts/Index'</span>, [
             <span class="text-green-400">'posts'</span> => Post::latest()
@@ -224,14 +224,14 @@ Route::resource(<span class="text-green-400">'posts'</span>, PostController::<sp
         ]);
     }
 
-    <span class="text-blue-400">public function</span> <span class="text-purple-400">show</span>(<span class="text-yellow-400">Post</span> $post)
+    <span class="text-blue-400">public function</span> <span class="text-green-400">show</span>(<span class="text-yellow-400">Post</span> $post)
     {
         <span class="text-blue-400">return</span> Inertia::render(<span class="text-green-400">'Posts/Show'</span>, [
             <span class="text-green-400">'post'</span> => $post->only(<span class="text-green-400">'id'</span>, <span class="text-green-400">'title'</span>, <span class="text-green-400">'body'</span>, <span class="text-green-400">'created_at'</span>),
         ]);
     }
 
-    <span class="text-blue-400">public function</span> <span class="text-purple-400">store</span>(<span class="text-yellow-400">Request</span> $request)
+    <span class="text-blue-400">public function</span> <span class="text-green-400">store</span>(<span class="text-yellow-400">Request</span> $request)
     {
         $validated = $request->validate([
             <span class="text-green-400">'title'</span> => <span class="text-green-400">'required|max:255'</span>,
@@ -360,7 +360,7 @@ defineProps({
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
             <pre class="text-sm text-gray-100 font-mono"><span class="text-gray-500">// app/Http/Middleware/HandleInertiaRequests.php</span>
-<span class="text-blue-400">public function</span> <span class="text-purple-400">share</span>(<span class="text-yellow-400">Request</span> $request): <span class="text-yellow-400">array</span>
+<span class="text-blue-400">public function</span> <span class="text-green-400">share</span>(<span class="text-yellow-400">Request</span> $request): <span class="text-yellow-400">array</span>
 {
     <span class="text-blue-400">return</span> [
         ...parent::share($request),

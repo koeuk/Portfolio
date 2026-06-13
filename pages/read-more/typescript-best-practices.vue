@@ -157,7 +157,7 @@
   | { status: <span class="text-green-400">"success"</span>; data: T }
   | { status: <span class="text-green-400">"error"</span>; error: <span class="text-yellow-400">Error</span> };
 
-<span class="text-blue-400">function</span> <span class="text-purple-400">handleState</span>(state: <span class="text-yellow-400">AsyncState</span>&lt;<span class="text-yellow-400">User</span>&gt;) {
+<span class="text-blue-400">function</span> <span class="text-green-400">handleState</span>(state: <span class="text-yellow-400">AsyncState</span>&lt;<span class="text-yellow-400">User</span>&gt;) {
   <span class="text-blue-400">switch</span> (state.status) {
     <span class="text-blue-400">case</span> <span class="text-green-400">"loading"</span>:
       <span class="text-blue-400">return</span> <span class="text-green-400">"Loading..."</span>;
@@ -182,7 +182,7 @@
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
             <pre class="text-sm text-gray-100 font-mono"><span class="text-green-400">// Generic API fetcher</span>
-<span class="text-blue-400">async function</span> <span class="text-purple-400">fetchData</span>&lt;T&gt;(url: <span class="text-yellow-400">string</span>): <span class="text-yellow-400">Promise</span>&lt;T&gt; {
+<span class="text-blue-400">async function</span> <span class="text-green-400">fetchData</span>&lt;T&gt;(url: <span class="text-yellow-400">string</span>): <span class="text-yellow-400">Promise</span>&lt;T&gt; {
   <span class="text-blue-400">const</span> response = <span class="text-blue-400">await</span> fetch(url);
   <span class="text-blue-400">if</span> (!response.ok) {
     <span class="text-blue-400">throw new</span> <span class="text-yellow-400">Error</span>(<span class="text-green-400">`HTTP error: </span>${response.status}<span class="text-green-400">`</span>);
@@ -265,7 +265,7 @@
   | { kind: <span class="text-green-400">"square"</span>; side: <span class="text-yellow-400">number</span> }
   | { kind: <span class="text-green-400">"triangle"</span>; base: <span class="text-yellow-400">number</span>; height: <span class="text-yellow-400">number</span> };
 
-<span class="text-blue-400">function</span> <span class="text-purple-400">getArea</span>(shape: <span class="text-yellow-400">Shape</span>): <span class="text-yellow-400">number</span> {
+<span class="text-blue-400">function</span> <span class="text-green-400">getArea</span>(shape: <span class="text-yellow-400">Shape</span>): <span class="text-yellow-400">number</span> {
   <span class="text-blue-400">switch</span> (shape.kind) {
     <span class="text-blue-400">case</span> <span class="text-green-400">"circle"</span>:
       <span class="text-blue-400">return</span> Math.PI * shape.radius ** <span class="text-yellow-400">2</span>;
@@ -300,11 +300,11 @@
 <span class="text-blue-400">interface</span> <span class="text-yellow-400">Bird</span> { fly: () => <span class="text-yellow-400">void</span> }
 
 <span class="text-green-400">// Custom type guard</span>
-<span class="text-blue-400">function</span> <span class="text-purple-400">isFish</span>(animal: <span class="text-yellow-400">Fish</span> | <span class="text-yellow-400">Bird</span>): animal <span class="text-blue-400">is</span> <span class="text-yellow-400">Fish</span> {
+<span class="text-blue-400">function</span> <span class="text-green-400">isFish</span>(animal: <span class="text-yellow-400">Fish</span> | <span class="text-yellow-400">Bird</span>): animal <span class="text-blue-400">is</span> <span class="text-yellow-400">Fish</span> {
   <span class="text-blue-400">return</span> (animal <span class="text-blue-400">as</span> <span class="text-yellow-400">Fish</span>).swim !== <span class="text-yellow-400">undefined</span>;
 }
 
-<span class="text-blue-400">function</span> <span class="text-purple-400">move</span>(animal: <span class="text-yellow-400">Fish</span> | <span class="text-yellow-400">Bird</span>) {
+<span class="text-blue-400">function</span> <span class="text-green-400">move</span>(animal: <span class="text-yellow-400">Fish</span> | <span class="text-yellow-400">Bird</span>) {
   <span class="text-blue-400">if</span> (isFish(animal)) {
     animal.swim(); <span class="text-gray-500">// TS knows it's Fish</span>
   } <span class="text-blue-400">else</span> {
@@ -418,7 +418,7 @@ palette.blue.map(x => x);  <span class="text-green-400">// OK! TS knows blue is 
   | { ok: <span class="text-yellow-400">true</span>; data: T }
   | { ok: <span class="text-yellow-400">false</span>; error: E };
 
-<span class="text-blue-400">async function</span> <span class="text-purple-400">fetchUser</span>(id: <span class="text-yellow-400">string</span>): <span class="text-yellow-400">Promise</span>&lt;<span class="text-yellow-400">Result</span>&lt;<span class="text-yellow-400">User</span>&gt;&gt; {
+<span class="text-blue-400">async function</span> <span class="text-green-400">fetchUser</span>(id: <span class="text-yellow-400">string</span>): <span class="text-yellow-400">Promise</span>&lt;<span class="text-yellow-400">Result</span>&lt;<span class="text-yellow-400">User</span>&gt;&gt; {
   <span class="text-blue-400">try</span> {
     <span class="text-blue-400">const</span> res = <span class="text-blue-400">await</span> fetch(<span class="text-green-400">`/api/users/${id}`</span>);
     <span class="text-blue-400">if</span> (!res.ok) {
@@ -469,8 +469,8 @@ palette.blue.map(x => x);  <span class="text-green-400">// OK! TS knows blue is 
 <span class="text-blue-400">type</span> <span class="text-yellow-400">UserId</span> = Brand&lt;<span class="text-yellow-400">string</span>, <span class="text-green-400">"UserId"</span>&gt;;
 <span class="text-blue-400">type</span> <span class="text-yellow-400">OrderId</span> = Brand&lt;<span class="text-yellow-400">string</span>, <span class="text-green-400">"OrderId"</span>&gt;;
 
-<span class="text-blue-400">function</span> <span class="text-purple-400">getUser</span>(id: <span class="text-yellow-400">UserId</span>) { <span class="text-gray-500">/* ... */</span> }
-<span class="text-blue-400">function</span> <span class="text-purple-400">getOrder</span>(id: <span class="text-yellow-400">OrderId</span>) { <span class="text-gray-500">/* ... */</span> }
+<span class="text-blue-400">function</span> <span class="text-green-400">getUser</span>(id: <span class="text-yellow-400">UserId</span>) { <span class="text-gray-500">/* ... */</span> }
+<span class="text-blue-400">function</span> <span class="text-green-400">getOrder</span>(id: <span class="text-yellow-400">OrderId</span>) { <span class="text-gray-500">/* ... */</span> }
 
 <span class="text-green-400">// Factory functions to create branded values</span>
 <span class="text-blue-400">const</span> userId = <span class="text-green-400">"user_123"</span> <span class="text-blue-400">as</span> <span class="text-yellow-400">UserId</span>;
@@ -483,7 +483,7 @@ getUser(orderId);  <span class="text-red-400">// Error! OrderId is not assignabl
 <span class="text-blue-400">type</span> <span class="text-yellow-400">Email</span> = Brand&lt;<span class="text-yellow-400">string</span>, <span class="text-green-400">"Email"</span>&gt;;
 <span class="text-blue-400">type</span> <span class="text-yellow-400">PositiveNumber</span> = Brand&lt;<span class="text-yellow-400">number</span>, <span class="text-green-400">"Positive"</span>&gt;;
 
-<span class="text-blue-400">function</span> <span class="text-purple-400">validateEmail</span>(input: <span class="text-yellow-400">string</span>): <span class="text-yellow-400">Email</span> | <span class="text-yellow-400">null</span> {
+<span class="text-blue-400">function</span> <span class="text-green-400">validateEmail</span>(input: <span class="text-yellow-400">string</span>): <span class="text-yellow-400">Email</span> | <span class="text-yellow-400">null</span> {
   <span class="text-blue-400">return</span> input.includes(<span class="text-green-400">"@"</span>) ? input <span class="text-blue-400">as</span> <span class="text-yellow-400">Email</span> : <span class="text-yellow-400">null</span>;
 }</pre>
           </div>
@@ -505,7 +505,7 @@ getUser(orderId);  <span class="text-red-400">// Error! OrderId is not assignabl
             <pre class="text-sm text-gray-100 font-mono"><span class="text-green-400">// Extract return type of a function</span>
 <span class="text-blue-400">type</span> <span class="text-yellow-400">ReturnOf</span>&lt;T&gt; = T <span class="text-blue-400">extends</span> (...args: <span class="text-yellow-400">any</span>[]) => <span class="text-blue-400">infer</span> R ? R : <span class="text-yellow-400">never</span>;
 
-<span class="text-blue-400">function</span> <span class="text-purple-400">createUser</span>() { <span class="text-blue-400">return</span> { id: <span class="text-yellow-400">1</span>, name: <span class="text-green-400">"Koeuk"</span> }; }
+<span class="text-blue-400">function</span> <span class="text-green-400">createUser</span>() { <span class="text-blue-400">return</span> { id: <span class="text-yellow-400">1</span>, name: <span class="text-green-400">"Koeuk"</span> }; }
 <span class="text-blue-400">type</span> <span class="text-yellow-400">User</span> = ReturnOf&lt;<span class="text-blue-400">typeof</span> createUser&gt;;
 <span class="text-gray-500">// Result: { id: number; name: string }</span>
 

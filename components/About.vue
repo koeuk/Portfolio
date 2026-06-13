@@ -106,10 +106,10 @@
 
 @keyframes badgePulse {
     0%, 100% {
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(124, 58, 237, 0.5);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(22, 163, 74, 0.5);
     }
     50% {
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(124, 58, 237, 0);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(22, 163, 74, 0);
     }
 }
 

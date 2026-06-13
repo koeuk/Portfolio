@@ -47,12 +47,12 @@
         <h2 class="text-3xl font-bold mb-8">Features</h2>
         <div class="grid md:grid-cols-2 gap-6">
           <div v-for="feature in features" :key="feature.title"
-            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-violet-500/30 transition-all group">
+            class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-green-500/30 transition-all group">
             <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center text-lg"
               :class="feature.iconBg">
               {{ feature.icon }}
             </div>
-            <h3 class="text-lg font-semibold mb-2 group-hover:text-violet-300 transition-colors">{{ feature.title }}</h3>
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-green-300 transition-colors">{{ feature.title }}</h3>
             <p class="text-sm text-gray-400 leading-relaxed">{{ feature.description }}</p>
           </div>
         </div>
@@ -70,7 +70,7 @@
       </div>
 
       <!-- API Section -->
-      <div class="mb-16 p-6 rounded-2xl bg-gradient-to-r from-violet-900/20 to-blue-900/20 border border-white/10">
+      <div class="mb-16 p-6 rounded-2xl bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-white/10">
         <div class="flex items-center gap-3 mb-3">
           <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold">REST API</span>
           <span class="text-gray-400 text-sm">v1</span>
@@ -197,12 +197,12 @@ onMounted(() => {
 const techStack = [
   { name: 'Laravel 12', color: 'bg-red-500/10 border-red-500/30 text-red-400' },
   { name: 'React 18', color: 'bg-cyan-500/10 border-cyan-500/30 text-cyan-400' },
-  { name: 'Inertia.js', color: 'bg-violet-500/10 border-violet-500/30 text-violet-400' },
+  { name: 'Inertia.js', color: 'bg-green-500/10 border-green-500/30 text-green-400' },
   { name: 'Tailwind CSS', color: 'bg-sky-500/10 border-sky-500/30 text-sky-400' },
   { name: 'Shadcn UI', color: 'bg-white/10 border-white/20 text-gray-300' },
   { name: 'MySQL', color: 'bg-blue-500/10 border-blue-500/30 text-blue-400' },
   { name: 'Sanctum', color: 'bg-orange-500/10 border-orange-500/30 text-orange-400' },
-  { name: 'Vite', color: 'bg-purple-500/10 border-purple-500/30 text-purple-400' },
+  { name: 'Vite', color: 'bg-green-500/10 border-green-500/30 text-green-400' },
   { name: 'Recharts', color: 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' },
   { name: 'Leaflet', color: 'bg-green-500/10 border-green-500/30 text-green-400' },
 ]
@@ -215,7 +215,7 @@ const stats = [
 ]
 
 const features = [
-  { icon: '🏨', title: 'Hotel Browsing', description: 'Search and filter hotels by city, country, or keyword with real-time results.', iconBg: 'bg-violet-500/20' },
+  { icon: '🏨', title: 'Hotel Browsing', description: 'Search and filter hotels by city, country, or keyword with real-time results.', iconBg: 'bg-green-500/20' },
   { icon: '🗓', title: 'Room Availability', description: 'Real-time overlap detection for check-in/check-out dates with auto-calculated pricing.', iconBg: 'bg-blue-500/20' },
   { icon: '💳', title: 'Payment Processing', description: 'Support for Card, Cash, and PayPal methods with full transaction tracking.', iconBg: 'bg-emerald-500/20' },
   { icon: '🎫', title: 'Coupon System', description: 'Percentage-based discount codes with date validity and usage limits.', iconBg: 'bg-yellow-500/20' },

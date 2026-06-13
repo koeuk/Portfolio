@@ -12,7 +12,7 @@
       </NuxtLink>
 
       <header class="mb-8 flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 via-violet-500 to-blue-500 flex items-center justify-center text-white shadow-xl">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 via-green-500 to-blue-500 flex items-center justify-center text-white shadow-xl">
           <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6Z" />
           </svg>

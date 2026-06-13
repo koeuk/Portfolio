@@ -9,7 +9,7 @@ import * as THREE from 'three'
  * Vue/Three.js port of the React "background-paper-shaders" component.
  * The original used @react-three/fiber + @paper-design/shaders-react (React-only),
  * so the framework-agnostic GLSL is reimplemented here on a full-screen quad.
- * Recolored to the portfolio's violet palette.
+ * Recolored to the portfolio's green palette.
  */
 const props = withDefaults(defineProps<{
   color1?: string
@@ -17,8 +17,8 @@ const props = withDefaults(defineProps<{
   intensity?: number
   speed?: number
 }>(), {
-  color1: '#9333ea', // violet-600
-  color2: '#d8b4fe', // violet-300
+  color1: '#16a34a', // green-600
+  color2: '#86efac', // green-300
   intensity: 0.85,
   speed: 1.0,
 })

@@ -20,7 +20,7 @@
         <!-- Header -->
         <header class="flex items-center justify-between px-6 py-5 border-b border-gray-100 dark:border-gray-800">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 via-violet-500 to-blue-500 flex items-center justify-center text-white shadow-lg">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 via-green-500 to-blue-500 flex items-center justify-center text-white shadow-lg">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6Z" />
               </svg>

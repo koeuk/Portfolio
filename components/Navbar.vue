@@ -264,10 +264,10 @@ function closeLanguageMenu(event: Event) {
 
 @keyframes pillPulse {
     0%, 100% {
-        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.45);
+        box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.45);
     }
     50% {
-        box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+        box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
     }
 }
 

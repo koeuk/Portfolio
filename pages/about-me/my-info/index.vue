@@ -15,7 +15,7 @@
       <div class="grid md:grid-cols-[auto_1fr] gap-10 items-center mb-20">
         <div class="relative w-40 h-40 sm:w-56 sm:h-56 mx-auto md:mx-0">
           <div
-            class="absolute inset-0 rounded-full bg-gradient-to-br from-violet-500/30 via-blue-500/20 to-emerald-500/30 blur-3xl">
+            class="absolute inset-0 rounded-full bg-gradient-to-br from-green-500/30 via-blue-500/20 to-emerald-500/30 blur-3xl">
           </div>
           <img :src="personalInfo.image" :alt="personalInfo.name"
             class="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-primary-light shadow-2xl" />

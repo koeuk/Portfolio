@@ -41,7 +41,7 @@ Looking forward to another year of being confused, just at higher levels.`,
       category: 'Reflective',
       tags: ['growth', 'learning'],
       emoji: '🌙',
-      gradient: 'from-indigo-500 to-purple-600',
+      gradient: 'from-indigo-500 to-green-600',
     },
     {
       id: 3,
