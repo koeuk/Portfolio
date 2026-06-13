@@ -173,8 +173,7 @@ const navLinks = [
     { href: '/#work-experience', label: 'nav.workExperience' },
     { href: '/#github', label: 'nav.github' },
     { href: '/#about', label: 'nav.about' },
-    { href: '/#contact', label: 'nav.contact' },
-    { href: '/blog', label: 'nav.blog', isPage: true }
+    { href: '/#contact', label: 'nav.contact' }
 ]
 
 const currentFlag = computed(() => {
