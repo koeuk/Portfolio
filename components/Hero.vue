@@ -3,6 +3,13 @@
         <!-- Black Background -->
         <div class="absolute inset-0 bg-black"></div>
 
+        <!-- Animated Shader Background (Three.js) -->
+        <ClientOnly>
+            <div class="absolute inset-0">
+                <ShaderBackground />
+            </div>
+        </ClientOnly>
+
         <!-- Aurora Wave Effect -->
         <div class="absolute inset-0 aurora-container">
             <div class="aurora aurora-1"></div>
