@@ -1,47 +1,31 @@
 <template>
   <section id="skills" ref="elementRef" class="section overflow-hidden">
     <div :class="{ 'section-visible': isVisible }">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 section-title title-shimmer">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-3 section-title title-shimmer tracking-tight">
         {{ t('skills.title') }}
       </h2>
-      <p class="text-center text-gray-500 dark:text-gray-400 mb-16 sm:mb-20 section-title">
+      <p class="text-center text-gray-500 dark:text-gray-400 mb-16 section-title">
         {{ t('skills.subtitle') }}
       </p>
 
       <!-- Skills by Category -->
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 section-content space-y-12 sm:space-y-16">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 section-content space-y-12">
         <div v-for="category in categories" :key="category.key">
-          <!-- Panel header -->
-          <div class="mb-7">
-            <h3 class="text-xl sm:text-2xl font-bold text-primary dark:text-white tracking-tight">
-              {{ t(`skills.${category.key}`) }}
-            </h3>
-            <p class="text-[13px] font-medium text-gray-400 dark:text-gray-500">
-              {{ category.skills.length }} {{ category.skills.length === 1 ? 'technology' : 'technologies' }}
-            </p>
-          </div>
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
+            {{ t(`skills.${category.key}`) }}
+          </h3>
 
-          <!-- Skill tiles -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-4 gap-y-8">
             <NuxtLink
               v-for="skill in category.skills"
               :key="skill.name"
               :to="getSkillLink(skill.name)"
-              class="ios-tile group/tile"
+              class="skill-item group/item"
             >
-              <span class="ios-icon-wrap">
-                <span class="w-full h-full block transition-transform duration-300 ease-out group-hover/tile:scale-110" v-html="getIcon(skill.name)"></span>
+              <span class="skill-logo">
+                <span class="block w-full h-full" v-html="getIcon(skill.name)"></span>
               </span>
-              <p class="font-semibold text-[15px] text-gray-800 dark:text-gray-100 text-center tracking-tight">
-                {{ skill.name }}
-              </p>
-              <!-- Hover reveal -->
-              <span class="ios-learn">
-                {{ t('skills.learn') }}
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
+              <p class="skill-name">{{ skill.name }}</p>
             </NuxtLink>
           </div>
         </div>
@@ -59,17 +43,14 @@ const { isVisible, elementRef } = useScrollAnimation()
 const categories = computed(() => [
   {
     key: 'frontend',
-    emoji: '🎨',
     skills: skills.filter(skill => skill.category === 'frontend'),
   },
   {
     key: 'backend',
-    emoji: '🖥',
     skills: skills.filter(skill => skill.category === 'backend'),
   },
   {
     key: 'tools',
-    emoji: '🛠',
     skills: skills.filter(skill => skill.category === 'tools'),
   },
 ].filter(category => category.skills.length > 0))
@@ -132,81 +113,64 @@ function getSkillLink(name: string): string {
   transition-delay: 0.15s;
 }
 
-/* ===== Premium iOS UI ===== */
-
-/* Skill tile */
-.ios-tile {
-  position: relative;
+/* ===== Simple card with a modern border ===== */
+.skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  padding: 1.25rem 0.75rem;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              background 0.35s ease;
+  padding: 1.5rem 0.75rem;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
-.ios-tile:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.92);
+:global(.dark) .skill-item {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.ios-tile:active {
-  transform: translateY(-2px) scale(0.97);
+.skill-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 58, 237, 0.5);
+  background: rgba(255, 255, 255, 0.7);
 }
 
-:global(.dark) .ios-tile {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+:global(.dark) .skill-item:hover {
+  border-color: rgba(216, 180, 254, 0.5);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-:global(.dark) .ios-tile:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* App-icon squircle holding the logo (flat, tinted to the brand color) */
-.ios-icon-wrap {
+.skill-logo {
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  padding: 0.75rem;
-  border-radius: 18px;
+  transition: transform 0.3s ease;
 }
 
-/* "Learn →" hover hint */
-.ios-learn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  font-size: 11px;
+.skill-item:hover .skill-logo {
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: rgb(124, 58, 237);
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  color: rgb(55, 65, 81);
 }
 
-:global(.dark) .ios-learn {
-  color: rgba(216, 180, 254, 0.95);
-}
-
-.ios-tile:hover .ios-learn {
-  opacity: 1;
-  transform: translateY(0);
+:global(.dark) .skill-name {
+  color: rgb(229, 231, 235);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ios-tile,
-  .ios-tile:hover,
-  .ios-tile:active {
+  .skill-item,
+  .skill-item:hover,
+  .skill-logo,
+  .skill-item:hover .skill-logo {
     transition: none;
     transform: none;
   }
