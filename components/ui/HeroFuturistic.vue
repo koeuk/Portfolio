@@ -109,7 +109,7 @@ async function init3D() {
   // Load the portrait; use it as both color map and pseudo-depth (red channel)
   const loader = new THREE.TextureLoader()
   const map = await new Promise<any>((resolve) =>
-    loader.load('/images/profile.jpg', resolve, undefined, () => resolve(null)))
+    loader.load('/images/koeuk-profile.png', resolve, undefined, () => resolve(null)))
   if (!map) { supported.value = false; return }
   map.colorSpace = THREE.SRGBColorSpace
 
@@ -130,8 +130,11 @@ async function init3D() {
   const mask = dot.mul(flow).mul(vec3(10, 0, 0))
   const final = blendScreen(tMap, mask)
 
+  // The PNG already has a transparent background — drive opacity from its own
+  // alpha channel (× uOpacity for the fade-in).
+  const uOpacity = uniform(0)
   const material = new THREE.MeshBasicNodeMaterial({ colorNode: final, transparent: true })
-  material.opacity = 0
+  material.opacityNode = tMap.a.mul(uOpacity)
 
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material)
   scene.add(mesh)
@@ -173,7 +176,7 @@ async function init3D() {
     const p = Math.sin(t * 0.5) * 0.5 + 0.5
     uProgress.value = p
     uPointer.value.copy(pointer)
-    material.opacity = THREE.MathUtils.lerp(material.opacity, 1, 0.07)
+    uOpacity.value = THREE.MathUtils.lerp(uOpacity.value, 1, 0.07)
     post.renderAsync()
   })
 
