@@ -1,5 +1,5 @@
 <template>
-    <section id="home" class="h-[75vh] flex items-center justify-center relative overflow-hidden hero-bg">
+    <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden hero-bg">
         <!-- Black Background -->
         <div class="absolute inset-0 bg-black"></div>
 
