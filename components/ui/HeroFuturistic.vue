@@ -86,7 +86,7 @@ async function init3D() {
   const THREE = await import('three/webgpu')
   const {
     abs, blendScreen, float, mod, mx_cell_noise_float, oneMinus,
-    smoothstep, texture, uniform, uv, vec2, vec3, pass, mix, add,
+    smoothstep, texture, uniform, uv, vec2, vec3, pass,
   } = await import('three/tsl')
   const { bloom } = await import('three/examples/jsm/tsl/display/BloomNode.js')
 
@@ -136,16 +136,12 @@ async function init3D() {
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material)
   scene.add(mesh)
 
-  // Post-processing: animated red scan line + bloom
+  // Post-processing: bloom only (the full-screen red scan-line overlay was removed)
   const post = new THREE.PostProcessing(renderer)
   const scenePass = pass(scene, camera)
   const scenePassColor = scenePass.getTextureNode('output')
   const bloomPass = bloom(scenePassColor, 1, 0.5, 1)
-  const uScan = uniform(0)
-  const scanLine = smoothstep(0, float(0.05), abs(uv().y.sub(uScan)))
-  const redOverlay = vec3(1, 0, 0).mul(oneMinus(scanLine)).mul(0.4)
-  const withScan = mix(scenePassColor, add(scenePassColor, redOverlay), smoothstep(0.9, 1.0, oneMinus(scanLine)))
-  post.outputNode = withScan.add(bloomPass)
+  post.outputNode = scenePassColor.add(bloomPass)
 
   const pointer = new THREE.Vector2(0)
   const onPointer = (e: PointerEvent) => {
@@ -176,7 +172,6 @@ async function init3D() {
     const t = clock.getElapsedTime()
     const p = Math.sin(t * 0.5) * 0.5 + 0.5
     uProgress.value = p
-    uScan.value = p
     uPointer.value.copy(pointer)
     material.opacity = THREE.MathUtils.lerp(material.opacity, 1, 0.07)
     post.renderAsync()

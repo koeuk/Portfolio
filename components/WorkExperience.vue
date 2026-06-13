@@ -4,7 +4,7 @@
     <div class="glass-orb glass-orb-blue" aria-hidden="true"></div>
     <div class="glass-orb glass-orb-green" aria-hidden="true"></div>
 
-    <div class="relative" :class="{ 'section-visible': isVisible }">
+    <div class="relative section-visible" :class="{ 'section-visible': isVisible }">
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title title-shimmer">
         Work Experience
       </h2>
