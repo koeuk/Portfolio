@@ -128,7 +128,7 @@
         <h2 class="text-3xl font-bold mb-8">{{ t('hotel.integrations') }}</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div v-for="integration in integrations" :key="integration.name"
-            class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+            class="lg-glass-dark lg-glass-hover flex items-center gap-4 p-4 rounded-xl">
             <span class="text-2xl">{{ integration.icon }}</span>
             <div>
               <p class="font-semibold text-sm">{{ integration.name }}</p>

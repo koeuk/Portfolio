@@ -37,7 +37,7 @@
       <div class="grid lg:grid-cols-3 gap-8">
         <!-- Bio -->
         <section
-          class="lg:col-span-2 p-8 rounded-3xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-800">
+          class="lg:col-span-2 lg-glass p-8 rounded-3xl">
           <h2 class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
             About Me
           </h2>
@@ -48,7 +48,7 @@
 
         <!-- Quick Facts -->
         <section
-          class="p-8 rounded-3xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-800">
+          class="lg-glass p-8 rounded-3xl">
           <h2 class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
             Quick Facts
           </h2>
@@ -75,14 +75,14 @@
 
         <!-- Connect / Socials -->
         <section
-          class="lg:col-span-3 p-8 rounded-3xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-800">
+          class="lg:col-span-3 lg-glass p-8 rounded-3xl">
           <h2 class="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
             Connect
           </h2>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <a v-for="socialLink in socialLinks" :key="socialLink.label" :href="socialLink.href" target="_blank"
               rel="noopener noreferrer"
-              class="group flex items-center gap-3 p-4 rounded-2xl bg-white dark:bg-primary border border-gray-100 dark:border-gray-800 hover:border-primary dark:hover:border-white hover:-translate-y-1 transition-all">
+              class="lg-glass lg-glass-hover group flex items-center gap-3 p-4 rounded-2xl">
               <span class="text-2xl">{{ socialLink.icon }}</span>
               <div class="min-w-0">
                 <p
@@ -101,7 +101,7 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
       <div class="flex justify-center">
         <div role="tablist"
-          class="inline-flex items-center gap-1 p-1.5 rounded-full bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-800 shadow-sm overflow-x-auto max-w-full">
+          class="lg-glass inline-flex items-center gap-1 p-1.5 rounded-full shadow-sm overflow-x-auto max-w-full">
           <button v-for="tab in tabs" :key="tab.key" role="tab" :aria-selected="activeTab === tab.key"
             @click="activeTab = tab.key"
             class="relative px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full whitespace-nowrap transition-colors duration-300"
