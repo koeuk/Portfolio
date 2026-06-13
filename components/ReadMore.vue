@@ -61,25 +61,6 @@
                 </div>
               </div>
 
-              <!-- Suggested Posts -->
-              <div v-if="suggestedPosts.length > 0">
-                <p class="text-sm font-bold text-primary dark:text-white mb-3">All Posts</p>
-                <div class="flex flex-wrap gap-2 max-h-56 overflow-y-auto">
-                  <NuxtLink
-                    v-for="post in suggestedPosts"
-                    :key="post.id"
-                    :to="post.slug"
-                    @click="isOpen = false"
-                    class="px-4 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 dark:bg-primary dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-primary/70 transition-all"
-                  >
-                    {{ post.title }}
-                  </NuxtLink>
-                </div>
-              </div>
-
-              <div v-else class="text-center py-6">
-                <p class="text-sm text-gray-500 dark:text-gray-400">No posts match "{{ searchQuery }}"</p>
-              </div>
             </div>
           </Transition>
         </div>
@@ -300,14 +281,6 @@ const filteredPosts = computed(() => {
   return result
 })
 
-const suggestedPosts = computed(() => {
-  const query = searchQuery.value.trim().toLowerCase()
-  if (!query) return posts.slice(0, 12)
-  return posts.filter(post =>
-    post.title.toLowerCase().includes(query) ||
-    post.tags.some(tag => tag.toLowerCase().includes(query))
-  ).slice(0, 12)
-})
 </script>
 
 <style scoped>
