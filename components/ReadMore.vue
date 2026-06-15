@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white dark:bg-primary">
+  <div>
     <div class="section">
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 title-shimmer">
         {{ t('nav.readMore') }}

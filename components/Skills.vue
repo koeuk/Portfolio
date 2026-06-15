@@ -137,7 +137,7 @@ function getSkillLink(name: string): string {
 }
 
 :global(.dark) .skill-item {
-  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border: 1.5px solid rgba(255, 255, 255, 1);
   background: transparent;
 }
 

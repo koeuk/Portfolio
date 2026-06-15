@@ -77,6 +77,8 @@
                 <span class="glass-pill glass-pill-green">Nuxt.js</span>
                 <span class="glass-pill glass-pill-green">Shadcn Vue</span>
                 <span class="glass-pill glass-pill-green">Tailwind CSS</span>
+                <span class="glass-pill glass-pill-green">Laravel</span>
+                <span class="glass-pill glass-pill-green">PHP</span>
                 <span class="glass-pill glass-pill-green">REST API</span>
               </div>
             </div>
