@@ -1,22 +1,22 @@
 <template>
   <div class="relative h-screen w-full overflow-hidden bg-black">
-    <!-- Portrait (transparent cut-out PNG) -->
-    <div class="absolute inset-0 flex items-end justify-center">
+    <!-- Portrait (transparent cut-out PNG) — pinned to the right -->
+    <div class="absolute inset-0 flex items-end justify-end pr-0 lg:pr-8 xl:pr-16">
       <img
         src="/images/koeuk-profile.png"
         alt="Koeuk Dev"
-        class="h-[88%] w-auto max-w-none object-contain select-none pointer-events-none drop-shadow-2xl"
+        class="h-[88%] w-auto max-w-none object-contain select-none pointer-events-none drop-shadow-2xl rounded-3xl border border-white/15"
       />
       <!-- Soft vignette so the portrait blends into the black hero -->
       <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80"></div>
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,transparent,rgba(0,0,0,0.6))]"></div>
     </div>
 
-    <!-- Title / subtitle overlay -->
+    <!-- Title / subtitle overlay — aligned to the left -->
     <div
-      class="absolute left-0 top-0 z-[60] flex h-screen w-full flex-col items-center justify-center px-10 uppercase pointer-events-none">
+      class="absolute left-0 top-0 z-[60] flex h-screen w-full flex-col items-start justify-center px-8 sm:px-12 lg:px-20 uppercase pointer-events-none">
       <div class="text-3xl font-extrabold md:text-5xl xl:text-6xl 2xl:text-7xl">
-        <div class="flex space-x-2 overflow-hidden text-white lg:space-x-6">
+        <div class="flex flex-wrap space-x-2 overflow-hidden text-white lg:space-x-6">
           <div v-for="(word, index) in titleWords" :key="index" :class="index < visibleWords ? 'fade-in' : ''"
             :style="{ animationDelay: `${index * 0.13 + (delays[index] || 0)}s`, opacity: index < visibleWords ? undefined : 0 }">
             {{ word }}
