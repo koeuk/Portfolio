@@ -20,7 +20,7 @@
               v-for="skill in category.skills"
               :key="skill.name"
               :to="getSkillLink(skill.name)"
-              class="skill-item group/item border-[1.5px] border-black/20 dark:border-white hover:border-green-500/60 dark:hover:border-green-300/70"
+              class="skill-item group/item border-[1.5px] border-black/20 dark:border-white/30 hover:border-green-500/60 dark:hover:border-green-300/70"
             >
               <span class="skill-logo">
                 <span class="block w-full h-full" v-html="getIcon(skill.name)"></span>
