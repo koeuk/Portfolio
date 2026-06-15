@@ -47,7 +47,9 @@
               <div class="flex flex-wrap gap-2 mt-3">
                 <span class="glass-pill glass-pill-blue">Laravel</span>
                 <span class="glass-pill glass-pill-blue">Vue.js</span>
+                <span class="glass-pill glass-pill-blue">Vuetify</span>
                 <span class="glass-pill glass-pill-blue">Tailwind CSS</span>
+                <span class="glass-pill glass-pill-blue">Chart.js</span>
               </div>
             </div>
           </div>
