@@ -1,12 +1,14 @@
 <template>
   <div class="relative h-screen w-full overflow-hidden bg-black">
-    <!-- Portrait (transparent cut-out PNG) — pinned to the right -->
+    <!-- Portrait (transparent cut-out PNG) — pinned right, animated light ring -->
     <div class="absolute inset-0 flex items-end justify-end pr-0 lg:pr-8 xl:pr-16">
-      <img
-        src="/images/koeuk-profile.png"
-        alt="Koeuk Dev"
-        class="h-[88%] w-auto max-w-none object-contain select-none pointer-events-none drop-shadow-2xl rounded-3xl border border-white/15"
-      />
+      <div class="portrait-frame h-[88%]">
+        <img
+          src="/images/koeuk-profile.png"
+          alt="Koeuk Dev"
+          class="h-full w-auto max-w-none object-contain select-none pointer-events-none rounded-[1.4rem] border border-white/10"
+        />
+      </div>
       <!-- Soft vignette so the portrait blends into the black hero -->
       <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80"></div>
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_45%,transparent,rgba(0,0,0,0.6))]"></div>
@@ -85,6 +87,55 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* Portrait frame with a light that runs around the border */
+@property --light-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.portrait-frame {
+  position: relative;
+  padding: 2px;
+  border-radius: 1.5rem;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.85),
+              0 0 70px -15px rgba(99, 102, 241, 0.25);
+}
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--light-angle),
+    transparent 0deg,
+    transparent 200deg,
+    rgba(255, 255, 255, 0.95) 285deg,
+    rgba(129, 140, 248, 0.95) 320deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: portrait-light 4.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes portrait-light {
+  to {
+    --light-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-frame::before {
+    animation: none;
+  }
+}
+
 @keyframes heroFadeIn {
   0% {
     opacity: 0;
