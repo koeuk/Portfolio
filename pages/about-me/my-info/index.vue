@@ -70,6 +70,19 @@
                 </a>
               </dd>
             </div>
+            <div>
+              <dt class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Phone</dt>
+              <dd>
+                <a :href="`tel:${personalInfo.phone.replace(/\s/g, '')}`"
+                  class="text-base font-medium text-primary dark:text-white hover:underline">
+                  {{ personalInfo.phone }}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Location</dt>
+              <dd class="text-base font-medium text-primary dark:text-white">{{ personalInfo.location }}</dd>
+            </div>
           </dl>
         </section>
 

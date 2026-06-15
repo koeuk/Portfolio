@@ -42,15 +42,17 @@ export interface Experience {
 
 export const useData = () => {
   const personalInfo = {
-    name: "Koeuk Dev",
+    name: "Koeuk KOS",
     image: '/images/koeuk.jpg', // ✅ Correct path
-    role: "Web Developer & Creative Thinker",
+    role: "Web Developer",
     email: "koeukkos@gmail.com",
+    phone: "090 959 206",
+    location: "Phnom Penh, Cambodia",
     github: "https://github.com/koeuk",
     linkedin: "https://www.linkedin.com/in/koeuk-kos-130482299/",
     telegram: "https://t.me/koeuk24",
     facebook: "https://www.facebook.com/koeuk25/",
-    bio: "Passionate web developer with expertise in modern JavaScript frameworks. I specialize in building beautiful, responsive websites and applications that solve real-world problems. With a focus on clean code and exceptional user experiences, I bring ideas to life through technology.",
+    bio: "I'm a web developer based in Phnom Penh with over a year of experience building web applications using Laravel and Vue.js. Right now, I'm studying Software Engineering at BELTEI (Year 4). I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
   };
 
   const projects: Project[] = [
@@ -140,9 +142,19 @@ export const useData = () => {
     { name: "Vue.js", icon: "💚", category: "frontend" },
     { name: "Nuxt.js", icon: "💎", category: "frontend" },
     { name: "Tailwind CSS", icon: "🎯", category: "frontend" },
+    { name: "Bootstrap", icon: "🅱️", category: "frontend" },
+    { name: "Vuetify", icon: "💠", category: "frontend" },
+    { name: "shadcn/ui", icon: "🧩", category: "frontend" },
+    { name: "PHP", icon: "🐘", category: "backend" },
     { name: "Laravel", icon: "🔶", category: "backend" },
+    { name: "Inertia.js", icon: "🔗", category: "backend" },
+    { name: "MySQL", icon: "🐬", category: "backend" },
     { name: "Git", icon: "📦", category: "tools" },
+    { name: "GitHub", icon: "🐙", category: "tools" },
     { name: "VS Code", icon: "💻", category: "tools" },
+    { name: "Figma", icon: "🖌️", category: "tools" },
+    { name: "Postman", icon: "📮", category: "tools" },
+    { name: "Asana", icon: "📋", category: "tools" },
   ];
 
   const experiences: Experience[] = [
