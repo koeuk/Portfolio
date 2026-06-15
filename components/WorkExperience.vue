@@ -266,9 +266,11 @@ const { isVisible, elementRef } = useScrollAnimation()
 
 /* START / PRESENT glass capsules */
 .glass-capsule {
+  position: relative;
+  z-index: 10;
   padding: 0.55rem 1.6rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(244, 244, 246, 0.94));
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -282,7 +284,7 @@ const { isVisible, elementRef } = useScrollAnimation()
 .glass-capsule-present { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 26px rgba(16, 185, 129, 0.3); }
 
 .dark .glass-capsule {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  background: linear-gradient(135deg, rgba(38, 40, 46, 0.96), rgba(20, 22, 26, 0.95));
   border-color: rgba(255, 255, 255, 0.14);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.14), 0 10px 28px rgba(0, 0, 0, 0.4);
 }
