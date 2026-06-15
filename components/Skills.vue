@@ -128,7 +128,7 @@ function getSkillLink(name: string): string {
 
 :global(.dark) .skill-item {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .skill-item:hover {
@@ -139,7 +139,7 @@ function getSkillLink(name: string): string {
 
 :global(.dark) .skill-item:hover {
   border-color: rgba(216, 180, 254, 0.5);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .skill-logo {
