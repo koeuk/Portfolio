@@ -45,7 +45,7 @@
                     </span>
                 </div>
 
-                <Button variant="outline" size="lg" as="a" href="/resume.pdf" download
+                <Button variant="outline" size="lg" as="a" href="/resume.pdf" download="Koeuk_KOS_Resume.pdf"
                     class="border-primary text-primary hover:bg-primary hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-primary">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
