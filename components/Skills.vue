@@ -131,13 +131,13 @@ function getSkillLink(name: string): string {
   gap: 0.75rem;
   padding: 1.5rem 0.75rem;
   border-radius: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1.5px solid rgba(0, 0, 0, 0.22);
   background: transparent;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 :global(.dark) .skill-item {
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
   background: transparent;
 }
 
