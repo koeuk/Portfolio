@@ -14,12 +14,12 @@
                     <NuxtLink
                         to="/about-me/my-info"
                         :aria-label="t('nav.myInfo')"
-                        class="my-info-badge group absolute bottom-3 right-3 w-14 h-14 rounded-full bg-primary dark:bg-white text-white dark:text-primary border-4 border-white dark:border-primary shadow-xl flex items-center justify-center transition-all duration-300"
+                        class="my-info-badge group absolute bottom-3 right-3 w-14 h-14 rounded-full bg-primary dark:bg-white text-white dark:text-primary border-4 border-white dark:border-primary shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12"
                     >
-                        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
-                        <span class="my-info-tooltip absolute bottom-full mb-2 right-0 px-3 py-1.5 rounded-lg bg-primary dark:bg-white text-white dark:text-primary text-xs font-semibold whitespace-nowrap pointer-events-none opacity-0 translate-y-1 transition-all duration-300 shadow-lg">
+                        <span class="my-info-tooltip absolute bottom-full mb-2 right-0 px-3 py-1.5 rounded-lg bg-primary dark:bg-white text-white dark:text-primary text-xs font-semibold whitespace-nowrap pointer-events-none opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 shadow-lg">
                             {{ t('nav.myInfo') }}
                         </span>
                     </NuxtLink>
@@ -46,7 +46,7 @@
                 </div>
 
                 <Button variant="outline" size="lg" as="a" href="/resume.pdf" download="Koeuk_KOS_Resume.pdf"
-                    class="border-primary text-primary dark:border-white dark:text-white">
+                    class="border-primary text-primary hover:bg-primary hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-primary">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -98,7 +98,13 @@
 
 .my-info-badge {
     animation: badgePulse 2.4s ease-in-out infinite;
-}@keyframes badgePulse {
+}
+
+.my-info-badge:hover {
+    animation: none;
+}
+
+@keyframes badgePulse {
     0%, 100% {
         box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(22, 163, 74, 0.5);
     }

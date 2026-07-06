@@ -165,7 +165,30 @@ const { isVisible, elementRef } = useScrollAnimation()
 
 .glass-card-green::after {
   background: radial-gradient(120% 120% at 20% 0%, rgba(34, 197, 94, 0.18), transparent 60%);
-}/* Dark mode — darker translucent glass, dimmer specular */
+}
+
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.012);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.85),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.3),
+    0 24px 50px rgba(15, 23, 42, 0.14),
+    0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.glass-card:hover::after {
+  opacity: 0.85;
+}
+
+.glass-card-blue:hover {
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
+.glass-card-green:hover {
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+/* Dark mode — darker translucent glass, dimmer specular */
 .dark .glass-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
   border-color: rgba(255, 255, 255, 0.12);
@@ -178,7 +201,16 @@ const { isVisible, elementRef } = useScrollAnimation()
 
 .dark .glass-card::before {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 45%);
-}/* Floating glass icon discs */
+}
+
+.dark .glass-card:hover {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    0 28px 60px rgba(0, 0, 0, 0.55),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Floating glass icon discs */
 .glass-icon {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.25));
   -webkit-backdrop-filter: blur(14px) saturate(180%);
@@ -192,7 +224,11 @@ const { isVisible, elementRef } = useScrollAnimation()
 }
 
 .glass-icon-blue { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 22px rgba(59, 130, 246, 0.35); }
-.glass-icon-green { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 22px rgba(34, 197, 94, 0.35); }.dark .glass-icon {
+.glass-icon-green { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 22px rgba(34, 197, 94, 0.35); }
+
+.glass-card:hover .glass-icon { transform: scale(1.08) rotate(-3deg); }
+
+.dark .glass-icon {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
   border-color: rgba(255, 255, 255, 0.15);
 }
@@ -210,7 +246,11 @@ const { isVisible, elementRef } = useScrollAnimation()
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
-}.glass-pill-blue {
+}
+
+.glass-pill:hover { transform: translateY(-2px); }
+
+.glass-pill-blue {
   background: rgba(59, 130, 246, 0.12);
   color: rgb(37, 99, 235);
 }
@@ -238,7 +278,10 @@ const { isVisible, elementRef } = useScrollAnimation()
     inset 0 1px 1px rgba(255, 255, 255, 0.8),
     0 8px 24px rgba(15, 23, 42, 0.1);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
-}.glass-capsule-present { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 26px rgba(16, 185, 129, 0.3); }
+}
+
+.glass-capsule:hover { transform: translateY(-3px) scale(1.03); }
+.glass-capsule-present { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 26px rgba(16, 185, 129, 0.3); }
 
 .dark .glass-capsule {
   background: linear-gradient(135deg, rgba(38, 40, 46, 0.96), rgba(20, 22, 26, 0.95));

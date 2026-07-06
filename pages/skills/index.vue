@@ -4,7 +4,7 @@
       <!-- Back Button -->
       <NuxtLink
         to="/#skills"
-        class="inline-flex items-center gap-2 mb-10 text-gray-600 dark:text-gray-300 transition-colors font-medium"
+        class="inline-flex items-center gap-2 mb-10 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors font-medium"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -30,7 +30,7 @@
             v-for="skill in category.skills"
             :key="skill.name"
             :to="getSkillLink(skill.name)"
-            class="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-700 transition-all duration-300 cursor-pointer"
+            class="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-gray-50 dark:bg-primary-light border border-gray-100 dark:border-gray-700 hover:shadow-lg hover:scale-105 hover:border-primary/30 dark:hover:border-white/30 transition-all duration-300 cursor-pointer"
           >
             <div class="w-14 h-14" v-html="getIcon(skill.name)"></div>
             <p class="font-semibold text-gray-700 dark:text-gray-200 text-center">{{ skill.name }}</p>

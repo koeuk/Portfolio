@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white dark:bg-primary pt-20">
     <div class="max-w-4xl mx-auto px-6 py-12">
-      <NuxtLink to="/about-me/my-info?section=rean" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 transition-colors mb-8">
+      <NuxtLink to="/about-me/my-info?section=rean" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors mb-8">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         {{ t('readMore.back') }}
       </NuxtLink>
@@ -62,7 +62,7 @@
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Install Laravel & Inertia Server-Side</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto mb-4">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -79,7 +79,7 @@ php artisan inertia:middleware</pre>
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Install Vue & Inertia Client-Side</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -98,7 +98,7 @@ npm install -D @vitejs/plugin-vue</pre>
             Create the root template that Inertia uses to boot your Vue app. This replaces your usual Blade layout.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto mb-4">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -119,7 +119,7 @@ npm install -D @vitejs/plugin-vue</pre>
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Vite Configuration</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto mb-4">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -148,7 +148,7 @@ npm install -D @vitejs/plugin-vue</pre>
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Vue App Entry Point</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -182,7 +182,7 @@ createInertiaApp({
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Routes</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto mb-4">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -198,7 +198,7 @@ Route::resource(<span class="text-green-400">'posts'</span>, PostController::<sp
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Controller</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -259,7 +259,7 @@ Route::resource(<span class="text-green-400">'posts'</span>, PostController::<sp
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Posts List Page</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto mb-4">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -290,7 +290,7 @@ defineProps({
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Create Post Page with Form</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -355,7 +355,7 @@ defineProps({
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Shared Data (Middleware)</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto mb-4">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -379,7 +379,7 @@ defineProps({
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Persistent Layout</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -424,7 +424,7 @@ defineProps({
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Preserve Scroll & State</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto mb-4">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -444,7 +444,7 @@ router.delete(<span class="text-green-400">`/posts/${id}`</span>);</pre>
 
           <h3 class="text-lg font-semibold text-primary dark:text-white mb-3">Head & SEO</h3>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -467,7 +467,7 @@ router.delete(<span class="text-green-400">`/posts/${id}`</span>);</pre>
         <section class="lg-glass p-6 rounded-2xl">
           <h2 class="text-2xl font-bold text-primary dark:text-white mb-4">Project Structure</h2>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>

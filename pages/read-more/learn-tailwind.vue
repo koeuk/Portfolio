@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white dark:bg-primary pt-20">
     <div class="max-w-4xl mx-auto px-6 py-12">
-      <NuxtLink to="/about-me/my-info?section=rean" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 transition-colors mb-8">
+      <NuxtLink to="/about-me/my-info?section=rean" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors mb-8">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         {{ t('readMore.back') }}
       </NuxtLink>
@@ -65,7 +65,7 @@
 const { t } = useI18n()
 useHead({ title: 'Learn Tailwind CSS - Koeuk Dev' })
 
-const variantsCode = `<button class="px-4 py-2 md:px-6 md:py-3 bg-blue-500 focus:ring-2 rounded-lg">
+const variantsCode = `<button class="px-4 py-2 md:px-6 md:py-3 bg-blue-500 hover:bg-blue-600 focus:ring-2 rounded-lg">
   Click me
 </button>`
 

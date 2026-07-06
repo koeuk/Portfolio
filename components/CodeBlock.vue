@@ -7,7 +7,7 @@
         class="flex items-center gap-1 text-xs px-2 py-1 rounded-md transition-all duration-200"
         :class="copied
           ? 'text-green-500 bg-green-500/10'
-          : 'text-gray-400 opacity-0'"
+          : 'text-gray-400 hover:text-white hover:bg-white/10 opacity-0 group-hover/code:opacity-100'"
       >
         <svg v-if="!copied" xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
         <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>

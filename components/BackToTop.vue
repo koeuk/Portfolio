@@ -3,7 +3,7 @@
     <button 
       v-show="isVisible" 
       @click="scrollToTop"
-      class="fixed bottom-8 right-8 z-50 p-4 bg-primary text-white dark:bg-white dark:text-primary border border-gray-100 dark:border-gray-800 rounded-2xl shadow-xl transition-all duration-300 focus:outline-none"
+      class="fixed bottom-8 right-8 z-50 p-4 bg-primary text-white dark:bg-white dark:text-primary border border-gray-100 dark:border-gray-800 hover:scale-110 hover:shadow-[0_10px_40px_rgba(0,0,0,0.2)] rounded-2xl shadow-xl transition-all duration-300 focus:outline-none"
       aria-label="Back to top"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

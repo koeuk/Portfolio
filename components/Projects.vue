@@ -20,7 +20,7 @@
                 <div v-if="featuredProjects.length > initialCount && !showAll" class="flex justify-center mt-10">
                     <button
                         @click="showAll = true"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary dark:bg-white text-white dark:text-primary font-semibold transition-all"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary dark:bg-white text-white dark:text-primary font-semibold hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg"
                     >
                         {{ t('projects.seeMore') }}
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

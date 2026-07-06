@@ -3,8 +3,8 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Back Link -->
       <NuxtLink to="/"
-        class="group inline-flex items-center gap-2 text-sm font-bold text-gray-400 transition-all uppercase tracking-widest mb-12">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" fill="none"
+        class="group inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary dark:hover:text-white transition-all uppercase tracking-widest mb-12">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none"
           viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
@@ -65,7 +65,7 @@
               <dt class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Email</dt>
               <dd>
                 <a :href="`mailto:${personalInfo.email}`"
-                  class="text-base font-medium text-primary dark:text-white break-all">
+                  class="text-base font-medium text-primary dark:text-white hover:underline break-all">
                   {{ personalInfo.email }}
                 </a>
               </dd>
@@ -74,7 +74,7 @@
               <dt class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Phone</dt>
               <dd>
                 <a :href="`tel:${personalInfo.phone.replace(/\s/g, '')}`"
-                  class="text-base font-medium text-primary dark:text-white">
+                  class="text-base font-medium text-primary dark:text-white hover:underline">
                   {{ personalInfo.phone }}
                 </a>
               </dd>
@@ -95,11 +95,11 @@
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <a v-for="socialLink in socialLinks" :key="socialLink.label" :href="socialLink.href" target="_blank"
               rel="noopener noreferrer"
-              class="lg-glass group flex items-center gap-3 p-4 rounded-2xl border border-gray-200 dark:border-white/10">
+              class="lg-glass lg-glass-hover group flex items-center gap-3 p-4 rounded-2xl border border-gray-200 dark:border-white/10">
               <span class="text-2xl">{{ socialLink.icon }}</span>
               <div class="min-w-0">
                 <p
-                  class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider transition-colors">
+                  class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider group-hover:text-primary dark:group-hover:text-white transition-colors">
                   {{ socialLink.label }}
                 </p>
                 <p class="text-sm font-medium text-primary dark:text-white truncate">{{ socialLink.handle }}</p>
@@ -120,7 +120,7 @@
             class="relative px-5 sm:px-6 py-2.5 text-sm font-semibold rounded-full whitespace-nowrap transition-colors duration-300"
             :class="activeTab === tab.key
               ? 'text-white dark:text-primary'
-              : 'text-gray-500 dark:text-gray-400'">
+              : 'text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white'">
             <span class="relative z-10 flex items-center gap-2">
               <span>{{ tab.icon }}</span>
               {{ t(tab.label) }}
