@@ -20,7 +20,7 @@
               v-for="skill in category.skills"
               :key="skill.name"
               :to="getSkillLink(skill.name)"
-              class="skill-item group/item border-[1.5px] border-black/20 dark:border-white/30"
+              class="skill-item group/item"
             >
               <span class="skill-logo">
                 <span class="block w-full h-full" v-html="getIcon(skill.name)"></span>
@@ -147,7 +147,7 @@ function getSkillLink(name: string): string {
   font-size: 14px;
   font-weight: 600;
   text-align: center;
-  color: rgb(55, 65, 81);
+  color: #c0c0c0; /* silver */
 }
 
 :global(.dark) .skill-logo {
@@ -155,7 +155,7 @@ function getSkillLink(name: string): string {
 }
 
 :global(.dark) .skill-name {
-  color: rgb(229, 231, 235);
+  color: #c0c0c0; /* silver */
 }
 
 @media (prefers-reduced-motion: reduce) {}
