@@ -138,6 +138,7 @@
         <Experience v-if="activeTab === 'projects'" key="projects" />
         <ReadMore v-else-if="activeTab === 'rean'" key="rean" />
         <Blog v-else-if="activeTab === 'blog'" key="blog" />
+        <GitHub v-else-if="activeTab === 'github'" key="github" />
       </Transition>
     </div>
   </div>
@@ -158,6 +159,7 @@ const tabs = [
   { key: 'projects', label: 'nav.personalProjects', icon: '🚀' },
   { key: 'rean', label: 'nav.readMore', icon: '📖' },
   { key: 'blog', label: 'nav.blog', icon: '📝' },
+  { key: 'github', label: 'nav.github', icon: '🐙' },
 ] as const
 
 type TabKey = typeof tabs[number]['key']

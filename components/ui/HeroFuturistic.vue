@@ -1,12 +1,12 @@
 <template>
   <div class="relative h-screen w-full overflow-hidden bg-black">
     <!-- Portrait (transparent cut-out PNG) — pinned right, animated light ring -->
-    <div class="absolute inset-0 flex items-end justify-end pr-0 lg:pr-8 xl:pr-16">
-      <div class="portrait-frame h-[88%]">
+    <div class="absolute inset-0 flex items-end justify-end pr-0 lg:items-center lg:pr-16 xl:pr-24">
+      <div class="portrait-frame h-[88%] lg:h-[74%] lg:aspect-[4/5]">
         <img
           src="/images/koeuk-profile.png"
-          alt="Koeuk Dev"
-          class="h-full w-auto max-w-none object-contain select-none pointer-events-none rounded-[1.4rem] border border-white/10"
+          alt="Koeuk KOS"
+          class="h-full w-auto max-w-none object-contain lg:w-full lg:object-cover lg:object-top select-none pointer-events-none rounded-[1.4rem] border border-white/10"
         />
       </div>
       <!-- Soft vignette so the portrait blends into the black hero -->

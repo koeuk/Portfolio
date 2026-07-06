@@ -4,7 +4,6 @@
     <!-- <Projects /> -->
     <Skills />
     <WorkExperience />
-    <GitHub />
     <About />
     <Contact />
   </div>
