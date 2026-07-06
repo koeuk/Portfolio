@@ -19,7 +19,7 @@
               class="relative px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-300"
               :class="activeView === view.key
                 ? 'text-white dark:text-primary'
-                : 'text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white'"
+                : 'text-gray-500 dark:text-gray-400'"
             >
               <span class="relative z-10 flex items-center gap-2">
                 <span>{{ view.icon }}</span>{{ view.label }}
@@ -47,7 +47,7 @@
               class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300"
               :class="activeMood === mood.value
                 ? 'bg-primary text-white dark:bg-white dark:text-primary shadow-md'
-                : 'bg-gray-100 text-gray-600 dark:bg-primary-light dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-primary-light/80'"
+                : 'bg-gray-100 text-gray-600 dark:bg-primary-light dark:text-gray-300'"
             >
               {{ mood.label }}
             </button>
@@ -65,7 +65,7 @@
               :class="feeling.image ? '' : `bg-gradient-to-br ${feeling.gradient}`"
             >
               <img v-if="feeling.image" :src="feeling.image" :alt="feeling.title"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                class="w-full h-full object-cover transition-transform duration-500" loading="lazy" />
               <span v-else class="text-5xl">{{ feeling.emoji }}</span>
             </div>
             <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2">
@@ -73,7 +73,7 @@
               <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
               <span class="font-semibold">{{ feeling.category }}</span>
             </div>
-            <h3 class="text-lg font-bold text-primary dark:text-white mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+            <h3 class="text-lg font-bold text-primary dark:text-white mb-2 transition-colors">
               {{ feeling.title }}
             </h3>
             <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">

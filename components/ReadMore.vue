@@ -28,7 +28,7 @@
             <button
               v-if="searchQuery"
               @click="searchQuery = ''"
-              class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-gray-400 dark:text-gray-500 transition-colors"
+              class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-gray-400 dark:text-gray-500 transition-colors"
               aria-label="Clear search"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@
                     class="px-4 py-1.5 rounded-full text-sm font-medium transition-all"
                     :class="activeTab === tab.value
                       ? 'bg-primary text-white dark:bg-white dark:text-primary shadow-sm'
-                      : 'bg-gray-100 text-gray-700 dark:bg-primary dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-primary/70'"
+                      : 'bg-gray-100 text-gray-700 dark:bg-primary dark:text-gray-200'"
                   >
                     {{ tab.label }}
                   </button>
@@ -77,7 +77,7 @@
           class="card p-6 group cursor-pointer block"
         >
           <div
-            class="h-40 rounded-lg mb-4 flex flex-col items-center justify-center gap-3 transition-transform group-hover:scale-[1.02]"
+            class="h-40 rounded-lg mb-4 flex flex-col items-center justify-center gap-3 transition-transform"
             :style="{ background: categoryGradient(post.category) }"
           >
             <svg
@@ -91,7 +91,7 @@
             <span class="text-white text-lg font-bold tracking-wide drop-shadow-lg">{{ post.category }}</span>
           </div>
           <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">{{ post.date }}</div>
-          <h2 class="text-lg font-bold text-primary dark:text-white mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+          <h2 class="text-lg font-bold text-primary dark:text-white mb-2 transition-colors">
             {{ post.title }}
           </h2>
           <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">

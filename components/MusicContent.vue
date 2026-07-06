@@ -54,7 +54,7 @@
           <button
             @click="prev"
             type="button"
-            class="p-2 rounded-full text-white/90 hover:text-white hover:bg-white/15 transition-colors"
+            class="p-2 rounded-full text-white/90 transition-colors"
             aria-label="Previous"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@
             @click="togglePlay"
             type="button"
             :disabled="!currentSrc"
-            class="p-3 rounded-full bg-white text-primary shadow-lg hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed transition-transform"
+            class="p-3 rounded-full bg-white text-primary shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed transition-transform"
             aria-label="Play / pause"
           >
             <svg v-if="!isPlaying" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@
           <button
             @click="next"
             type="button"
-            class="p-2 rounded-full text-white/90 hover:text-white hover:bg-white/15 transition-colors"
+            class="p-2 rounded-full text-white/90 transition-colors"
             aria-label="Next"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -110,7 +110,7 @@
           <button
             @click="play(track)"
             type="button"
-            class="w-full group flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-left"
+            class="w-full group flex items-center gap-3 p-3 rounded-xl transition-colors text-left"
             :class="{ 'bg-gray-50 dark:bg-white/5': isCurrent(track) }"
           >
             <div
@@ -125,7 +125,7 @@
               </span>
             </div>
             <div class="min-w-0 flex-1">
-              <p class="text-sm font-semibold text-primary dark:text-white truncate group-hover:translate-x-0.5 transition-transform">
+              <p class="text-sm font-semibold text-primary dark:text-white truncate transition-transform">
                 {{ track.title }}
               </p>
               <p class="text-xs text-gray-500 dark:text-gray-400 truncate">{{ track.artist }}</p>
@@ -135,7 +135,7 @@
               class="p-1.5 rounded-full transition-all"
               :class="isCurrent(track) && isPlaying
                 ? 'text-emerald-500'
-                : 'text-gray-400 opacity-0 group-hover:opacity-100 group-hover:text-primary dark:group-hover:text-white'"
+                : 'text-gray-400 opacity-0'"
               aria-hidden="true"
             >
               <svg v-if="!(isCurrent(track) && isPlaying)" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

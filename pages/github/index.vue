@@ -4,7 +4,7 @@
       <!-- Back Button -->
       <NuxtLink
         to="/about-me/my-info"
-        class="inline-flex items-center gap-2 mb-10 text-gray-400 hover:text-white transition-colors font-medium"
+        class="inline-flex items-center gap-2 mb-10 text-gray-400 transition-colors font-medium"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />

@@ -5,9 +5,9 @@
             <div class="flex justify-between items-center gap-3">
                 <!-- Logo Pill -->
                 <NuxtLink to="/#home"
-                    class="group flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300">
+                    class="group flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-white/70 dark:bg-white/5 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-all duration-300">
                     <img src="/images/profile.jpg" alt="Logo"
-                        class="w-9 h-9 rounded-full object-cover ring-2 ring-white dark:ring-white/20 group-hover:ring-primary/30 transition-all" />
+                        class="w-9 h-9 rounded-full object-cover ring-2 ring-white dark:ring-white/20 transition-all" />
                     <span class="text-sm font-semibold text-primary dark:text-white tracking-tight">Koeuk Dev</span>
                 </NuxtLink>
 
@@ -18,7 +18,7 @@
                         class="relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300 z-10"
                         :class="currentActive === navLink.href
                             ? 'text-white dark:text-primary'
-                            : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white'">
+                            : 'text-gray-600 dark:text-gray-300'">
                         <span class="relative z-10">{{ t(navLink.label) }}</span>
                         <span v-if="currentActive === navLink.href"
                             class="absolute inset-0 bg-primary dark:bg-white rounded-full -z-0 nav-pill-active"></span>
@@ -31,7 +31,7 @@
                     <!-- Language Selector -->
                     <div class="relative">
                         <button @click.stop="showLanguageMenu = !showLanguageMenu"
-                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-sm">
+                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-colors text-sm">
                             <span class="text-base leading-none">{{ currentFlag }}</span>
                             <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 transition-transform duration-300"
                                 :class="{ 'rotate-180': showLanguageMenu }" fill="none" stroke="currentColor"
@@ -48,7 +48,7 @@
                                     class="w-full px-3 py-2 text-left rounded-xl flex items-center gap-2.5 text-sm transition-colors"
                                     :class="currentLang === language.code
                                         ? 'bg-primary/10 dark:bg-white/10 text-primary dark:text-white font-medium'
-                                        : 'text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5'">
+                                        : 'text-gray-700 dark:text-gray-200'">
                                     <span class="text-base">{{ language.flag }}</span>
                                     <span>{{ language.name }}</span>
                                 </button>
@@ -83,7 +83,7 @@
                         <span class="toggle-slider"></span>
                     </button>
                     <button @click="isOpen = !isOpen"
-                        class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-gray-700 dark:text-white transition-colors"
+                        class="p-2 rounded-full text-gray-700 dark:text-white transition-colors"
                         aria-label="Toggle menu">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path v-if="isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -104,7 +104,7 @@
                     <NuxtLink v-for="navLink in navLinks" :key="navLink.href" :to="navLink.href" @click="isOpen = false"
                         class="block px-4 py-3 rounded-2xl transition-all text-sm font-medium" :class="currentActive === navLink.href
                             ? 'bg-primary text-white dark:bg-white dark:text-primary'
-                            : 'text-gray-700 dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10'">
+                            : 'text-gray-700 dark:text-gray-200'">
                         {{ t(navLink.label) }}
                     </NuxtLink>
                     <div class="mt-2 pt-2 border-t border-black/5 dark:border-white/10 px-1">

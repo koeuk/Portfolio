@@ -188,13 +188,7 @@ onUnmounted(() => {
   text-decoration: none;
   z-index: 70;
   animation: heroFadeUp 1s ease-out 2.2s both;
-}
-
-.explore-btn:hover {
-  color: #ffffff;
-}
-
-.explore-arrow {
+}.explore-arrow {
   display: inline-flex;
   animation: exploreBounce 1.8s ease-in-out infinite;
 }

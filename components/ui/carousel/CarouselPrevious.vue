@@ -18,8 +18,8 @@ const { canScrollPrev, scrollPrev } = useCarousel()
     aria-label="Previous slide"
     :class="cn(
       'absolute left-2 top-1/2 z-10 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border transition disabled:opacity-40 disabled:pointer-events-none',
-      'border-black/10 bg-white/80 text-primary backdrop-blur hover:bg-white',
-      'dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/15',
+      'border-black/10 bg-white/80 text-primary backdrop-blur',
+      'dark:border-white/10 dark:bg-white/10 dark:text-white',
       props.class,
     )"
     @click="scrollPrev"

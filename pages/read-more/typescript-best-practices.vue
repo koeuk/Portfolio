@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-white dark:bg-primary pt-20">
     <div class="max-w-4xl mx-auto px-6 py-12">
-      <NuxtLink to="/about-me/my-info?section=rean" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-colors mb-8">
+      <NuxtLink to="/about-me/my-info?section=rean" class="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 transition-colors mb-8">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         {{ t('readMore.back') }}
       </NuxtLink>
@@ -34,7 +34,7 @@
             <code class="px-2 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-pink-600 dark:text-pink-400">strictNullChecks</code>, and more.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -57,7 +57,7 @@
             from the assignment. Let the compiler do its job.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -82,7 +82,7 @@
             for defining object shapes and <code class="px-2 py-0.5 bg-gray-100 dark:bg-primary-light rounded text-sm font-mono text-pink-600 dark:text-pink-400">type</code> for unions, intersections, and utility types.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -113,7 +113,7 @@
             without duplicating code.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -147,7 +147,7 @@
             This pattern is especially useful for handling API responses and component states.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -177,7 +177,7 @@
             Generics allow you to create flexible, reusable functions and classes while maintaining type safety.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -204,7 +204,7 @@
             assertion tells TypeScript to infer the narrowest possible type, making values readonly and literal.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -228,7 +228,7 @@
             type-safe event names, CSS properties, or API routes.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -256,7 +256,7 @@
             throw a compile error reminding you to handle it.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -292,7 +292,7 @@
             keyword to create reusable type narrowing functions.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -327,7 +327,7 @@
             checking AND the narrowest inferred type. It's one of the most important features in modern TypeScript.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -368,7 +368,7 @@ palette.blue.map(x => x);  <span class="text-green-400">// OK! TS knows blue is 
             Combined with template literal types, they become incredibly powerful for building type-safe APIs.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -409,7 +409,7 @@ palette.blue.map(x => x);  <span class="text-green-400">// OK! TS knows blue is 
             Using a Result pattern gives you compile-time error handling without exceptions.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -459,7 +459,7 @@ palette.blue.map(x => x);  <span class="text-green-400">// OK! TS knows blue is 
             are both strings, but passing one where the other is expected is a bug.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>
@@ -498,7 +498,7 @@ getUser(orderId);  <span class="text-red-400">// Error! OrderId is not assignabl
             essential for building advanced type utilities.
           </p>
           <div class="relative group bg-gray-900 rounded-xl p-5 overflow-x-auto">
-            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-600 text-gray-400 hover:text-white transition-all opacity-0 group-hover:opacity-100">
+            <button @click="copyCode($event)" class="absolute top-3 right-3 p-2 rounded-lg bg-gray-700/50 text-gray-400 transition-all opacity-0">
               <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke-width="2"/></svg>
               <svg class="w-4 h-4 check-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </button>

@@ -20,7 +20,7 @@
               v-for="skill in category.skills"
               :key="skill.name"
               :to="getSkillLink(skill.name)"
-              class="skill-item group/item border-[1.5px] border-black/20 dark:border-white/30 hover:border-green-500/60 dark:hover:border-green-300/70"
+              class="skill-item group/item border-[1.5px] border-black/20 dark:border-white/30"
             >
               <span class="skill-logo">
                 <span class="block w-full h-full" v-html="getIcon(skill.name)"></span>
@@ -132,11 +132,6 @@ function getSkillLink(name: string): string {
   padding: 1.5rem 0.75rem;
   border-radius: 18px;
   background: transparent;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.skill-item:hover {
-  transform: translateY(-4px);
 }
 
 .skill-logo {
@@ -146,11 +141,6 @@ function getSkillLink(name: string): string {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.skill-item:hover .skill-logo {
-  transform: scale(1.1);
 }
 
 .skill-name {
@@ -168,13 +158,5 @@ function getSkillLink(name: string): string {
   color: rgb(229, 231, 235);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .skill-item,
-  .skill-item:hover,
-  .skill-logo,
-  .skill-item:hover .skill-logo {
-    transition: none;
-    transform: none;
-  }
-}
+@media (prefers-reduced-motion: reduce) {}
 </style>

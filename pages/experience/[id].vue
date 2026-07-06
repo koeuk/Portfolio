@@ -4,8 +4,8 @@
       <!-- Top Section: Header & Badge -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-20 space-y-4">
         <div class="space-y-4">
-          <NuxtLink to="/about-me/my-info?section=projects" class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 dark:border-white/15 text-sm font-bold text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:border-primary/40 dark:hover:border-white/30 transition-all uppercase tracking-widest">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <NuxtLink to="/about-me/my-info?section=projects" class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-300 dark:border-white/15 text-sm font-bold text-gray-500 dark:text-gray-300 transition-all uppercase tracking-widest">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Experience
@@ -37,13 +37,13 @@
           </Transition>
 
           <!-- Navigation Overlays -->
-          <div class="absolute inset-y-0 left-0 w-24 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <button @click.stop="previousImage" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/30 border border-white/20 transition-all hover:scale-110">
+          <div class="absolute inset-y-0 left-0 w-24 flex items-center justify-center opacity-0 transition-all duration-300">
+            <button @click.stop="previousImage" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white border border-white/20 transition-all">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
           </div>
-          <div class="absolute inset-y-0 right-0 w-24 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <button @click.stop="nextImage" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white hover:bg-white/30 border border-white/20 transition-all hover:scale-110">
+          <div class="absolute inset-y-0 right-0 w-24 flex items-center justify-center opacity-0 transition-all duration-300">
+            <button @click.stop="nextImage" class="p-4 rounded-full bg-white/10 backdrop-blur-xl text-white border border-white/20 transition-all">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
@@ -55,7 +55,7 @@
               :key="index"
               @click="currentImageIndex = index"
               class="h-1.5 transition-all duration-500 rounded-full"
-              :class="index === currentImageIndex ? 'w-10 bg-white' : 'w-2 bg-white/30 hover:bg-white/60'"
+              :class="index === currentImageIndex ? 'w-10 bg-white' : 'w-2 bg-white/30'"
             ></button>
           </div>
         </div>
@@ -64,7 +64,7 @@
         <div class="relative w-full max-w-4xl mx-auto mt-8">
           <div class="flex items-center gap-4">
             <!-- Back button -->
-            <button @click="scrollThumbnails('left')" class="p-2 text-gray-400 hover:text-primary dark:hover:text-white transition-colors flex-shrink-0">
+            <button @click="scrollThumbnails('left')" class="p-2 text-gray-400 transition-colors flex-shrink-0">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
 
@@ -74,24 +74,24 @@
                 :key="image"
                 @click="currentImageIndex = index"
                 class="flex-shrink-0 w-28 h-18 sm:w-32 sm:h-20 rounded-2xl overflow-hidden border-2 transition-all duration-300 snap-center"
-                :class="index === currentImageIndex ? 'border-primary dark:border-white scale-105 shadow-xl ring-4 ring-primary/20 dark:ring-white/20' : 'border-transparent opacity-50 hover:opacity-100'"
+                :class="index === currentImageIndex ? 'border-primary dark:border-white scale-105 shadow-xl ring-4 ring-primary/20 dark:ring-white/20' : 'border-transparent opacity-50'"
               >
                 <img :src="image" class="w-full h-full object-cover" />
               </button>
             </div>
 
             <!-- Next button -->
-            <button @click="scrollThumbnails('right')" class="p-2 text-gray-400 hover:text-primary dark:hover:text-white transition-colors flex-shrink-0">
+            <button @click="scrollThumbnails('right')" class="p-2 text-gray-400 transition-colors flex-shrink-0">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
 
           <!-- Custom Track Bar matches screenshot request -->
           <div class="flex items-center justify-between bg-gray-400 dark:bg-gray-600 rounded-full w-full h-3 mt-4 px-1 mx-auto max-w-3xl opacity-50">
-            <button @click="scrollThumbnails('left')" class="text-white hover:text-primary transition-colors flex items-center justify-center p-1">
+            <button @click="scrollThumbnails('left')" class="text-white transition-colors flex items-center justify-center p-1">
               <svg class="w-2 h-2 fill-current" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
             </button>
-            <button @click="scrollThumbnails('right')" class="text-white hover:text-primary transition-colors flex items-center justify-center p-1">
+            <button @click="scrollThumbnails('right')" class="text-white transition-colors flex items-center justify-center p-1">
               <svg class="w-2 h-2 fill-current" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
             </button>
           </div>
@@ -144,7 +144,7 @@
               <span
                 v-for="technology in experience.technologies"
                 :key="technology"
-                class="px-5 py-2 text-sm font-semibold rounded-2xl bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 shadow-sm transition-all hover:scale-110"
+                class="px-5 py-2 text-sm font-semibold rounded-2xl bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 shadow-sm transition-all"
               >
                 {{ technology }}
               </span>
@@ -218,10 +218,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(keyDifference, index) in experience.keyDifferences" :key="keyDifference.id" :class="index % 2 === 0 ? 'bg-white dark:bg-primary' : 'bg-gray-50/50 dark:bg-primary-light/30'" class="border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-primary-light transition-colors group">
+              <tr v-for="(keyDifference, index) in experience.keyDifferences" :key="keyDifference.id" :class="index % 2 === 0 ? 'bg-white dark:bg-primary' : 'bg-gray-50/50 dark:bg-primary-light/30'" class="border-b border-gray-50 dark:border-gray-800 transition-colors group">
                 <td class="py-6 px-8 text-lg font-bold text-primary dark:text-white border-r border-gray-50 dark:border-gray-800 whitespace-nowrap">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.feature`) }}</td>
-                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium border-r border-gray-50 dark:border-gray-800 group-hover:text-primary dark:group-hover:text-white transition-colors">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.web`) }}</td>
-                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium group-hover:text-primary dark:group-hover:text-white transition-colors">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.admin`) }}</td>
+                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium border-r border-gray-50 dark:border-gray-800 transition-colors">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.web`) }}</td>
+                <td class="py-6 px-8 text-lg text-gray-600 dark:text-gray-300 font-medium transition-colors">{{ t(`experience.${experience.id}.key_differences.${keyDifference.id}.admin`) }}</td>
               </tr>
             </tbody>
           </table>
@@ -234,13 +234,13 @@
       <Transition name="lightbox">
         <div v-if="lightboxOpen" class="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-4 md:p-12">
           <!-- Close Button -->
-          <button @click="lightboxOpen = false" class="absolute top-8 right-8 text-white hover:text-gray-400 transition-colors p-2">
+          <button @click="lightboxOpen = false" class="absolute top-8 right-8 text-white transition-colors p-2">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
 
           <!-- Main Lightbox Content -->
           <div class="relative w-full h-full flex items-center justify-center">
-            <button @click="previousImage" class="absolute left-0 md:-left-20 p-4 text-white hover:scale-125 transition-transform">
+            <button @click="previousImage" class="absolute left-0 md:-left-20 p-4 text-white transition-transform">
               <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
 
@@ -248,7 +248,7 @@
               <img :src="experience.images[currentImageIndex]" class="w-full h-full object-contain" />
             </div>
 
-            <button @click="nextImage" class="absolute right-0 md:-right-20 p-4 text-white hover:scale-125 transition-transform">
+            <button @click="nextImage" class="absolute right-0 md:-right-20 p-4 text-white transition-transform">
               <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
@@ -264,7 +264,7 @@
   <div v-else class="min-h-screen flex items-center justify-center bg-white dark:bg-primary">
     <div class="text-center space-y-4">
       <h1 class="text-4xl font-bold text-primary dark:text-white">Experience Not Found</h1>
-      <NuxtLink to="/experience" class="text-gray-500 hover:text-primary dark:hover:text-white underline font-semibold transition-colors">
+      <NuxtLink to="/experience" class="text-gray-500 underline font-semibold transition-colors">
         View All Experiences
       </NuxtLink>
     </div>

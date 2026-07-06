@@ -8,7 +8,7 @@
       <!-- Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-20 space-y-4">
         <div class="space-y-4">
-          <NuxtLink to="/about-me/my-info?section=projects" class="group inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-all uppercase tracking-widest translate-x-0 hover:-translate-x-2">
+          <NuxtLink to="/about-me/my-info?section=projects" class="group inline-flex items-center gap-2 text-sm font-bold text-gray-400 transition-all uppercase tracking-widest translate-x-0">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
@@ -40,7 +40,7 @@
       <!-- Overview Cards -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
         <div v-for="stat in stats" :key="stat.label"
-          class="lg-glass-dark lg-glass-hover p-5 rounded-2xl text-center">
+          class="lg-glass-dark p-5 rounded-2xl text-center">
           <p class="text-3xl font-bold text-white mb-1">{{ stat.value }}</p>
           <p class="text-sm text-gray-400">{{ stat.label }}</p>
         </div>
@@ -51,12 +51,12 @@
         <h2 class="text-3xl font-bold mb-8">Features</h2>
         <div class="grid md:grid-cols-2 gap-6">
           <div v-for="feature in features" :key="feature.title"
-            class="lg-glass-dark lg-glass-hover p-6 rounded-2xl group">
+            class="lg-glass-dark p-6 rounded-2xl group">
             <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center text-lg"
               :class="feature.iconBg">
               {{ feature.icon }}
             </div>
-            <h3 class="text-lg font-semibold mb-2 group-hover:text-green-300 transition-colors">{{ feature.title }}</h3>
+            <h3 class="text-lg font-semibold mb-2 transition-colors">{{ feature.title }}</h3>
             <p class="text-sm text-gray-400 leading-relaxed">{{ feature.description }}</p>
           </div>
         </div>
@@ -67,7 +67,7 @@
         <h2 class="text-3xl font-bold mb-8">Database Schema</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           <div v-for="table in tables" :key="table"
-            class="lg-glass-dark lg-glass-hover px-4 py-3 rounded-xl text-sm font-mono text-gray-300 hover:text-blue-300">
+            class="lg-glass-dark px-4 py-3 rounded-xl text-sm font-mono text-gray-300">
             {{ table }}
           </div>
         </div>
@@ -99,7 +99,7 @@
             <img
               :src="`/images/hotel-booking/${imageNumber}.png`"
               :alt="`Hotel Booking Screenshot ${imageNumber}`"
-              class="w-full block group-hover:scale-[1.02] transition-transform duration-500"
+              class="w-full block transition-transform duration-500"
               loading="lazy"
             />
           </div>
@@ -116,7 +116,7 @@
             <img
               :src="`/images/hotel-booking/${imageNumber}.png`"
               :alt="`Hotel Booking Screenshot ${imageNumber}`"
-              class="w-full block group-hover:scale-[1.02] transition-transform duration-500"
+              class="w-full block transition-transform duration-500"
               loading="lazy"
             />
           </div>
@@ -128,7 +128,7 @@
         <h2 class="text-3xl font-bold mb-8">{{ t('hotel.integrations') }}</h2>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div v-for="integration in integrations" :key="integration.name"
-            class="lg-glass-dark lg-glass-hover flex items-center gap-4 p-4 rounded-xl">
+            class="lg-glass-dark flex items-center gap-4 p-4 rounded-xl">
             <span class="text-2xl">{{ integration.icon }}</span>
             <div>
               <p class="font-semibold text-sm">{{ integration.name }}</p>
@@ -145,18 +145,18 @@
         <div v-if="lightboxImage" class="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4"
           @click.self="lightboxImage = null">
           <button @click="lightboxImage = null"
-            class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+            class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <button @click="previousImage" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+          <button @click="previousImage" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <img :src="`/images/hotel-booking/${lightboxImage}.png`" alt="" class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl" />
-          <button @click="nextImage" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+          <button @click="nextImage" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
