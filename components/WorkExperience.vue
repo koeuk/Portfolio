@@ -88,7 +88,7 @@
         </div>
 
         <!-- PRESENT -->
-        <div class="flex justify-center mt-4 relative z-10 timeline-step timeline-step-end">
+        <div class="flex justify-center mt-16 relative z-10 timeline-step timeline-step-end">
           <div class="glass-capsule text-emerald-600 dark:text-emerald-400 font-bold text-lg">
             PRESENT
           </div>

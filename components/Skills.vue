@@ -11,7 +11,7 @@
       <!-- Skills by Category -->
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 section-content space-y-12">
         <div v-for="category in categories" :key="category.key">
-          <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-900 dark:text-gray-500 mb-6">
             {{ t(`skills.${category.key}`) }}
           </h3>
 
@@ -147,7 +147,7 @@ function getSkillLink(name: string): string {
   font-size: 14px;
   font-weight: 600;
   text-align: center;
-  color: #c0c0c0; /* silver */
+  color: #111827; /* near black */
 }
 
 :global(.dark) .skill-logo {

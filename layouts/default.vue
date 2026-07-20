@@ -27,9 +27,8 @@ const route = useRoute()
   background: #fff;
 }
 
-:global(.dark) .page-stage {
-  background: #0a0a0a;
-}
+/* Dark variants for .page-stage / .atmosphere live in assets/css/main.css —
+   `:global()` selectors are dropped by this project's scoped-CSS pipeline. */
 
 /* Layer wrapper sits behind content, never intercepts pointer events,
    and fades both layers out toward the bottom so cards stay clean. */

@@ -54,7 +54,9 @@
                 color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  body:not(.dark) {
+  /* The theme class lives on <html>, so scope off the root — a plain
+     `body:not(.dark)` always matches and pins the page white in dark mode. */
+  html:not(.dark) body {
     background-color: #ffffff;
   }
 
