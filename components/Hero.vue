@@ -1,15 +1,10 @@
 <template>
-    <section id="home" class="relative">
-        <ClientOnly>
-            <HeroFuturistic />
-            <template #fallback>
-                <div class="h-screen w-full bg-black"></div>
-            </template>
-        </ClientOnly>
-    </section>
+  <section id="home" class="relative">
+    <HeroFuturistic />
+  </section>
 </template>
 
 <script setup lang="ts">
-// Hero now renders the WebGPU/TSL "futuristic" hero (HeroFuturistic.vue).
-// Wrapped in <ClientOnly> because WebGPU + three are browser-only.
+// Editorial card hero (HeroFuturistic.vue) — pure CSS/markup, so it renders
+// on the server too. No ClientOnly wrapper needed.
 </script>

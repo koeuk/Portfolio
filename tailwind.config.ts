@@ -51,7 +51,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif']
+        sans: ['Inter', 'sans-serif'],
+        display: ['Archivo', 'sans-serif'],
+        body: ['"Instrument Sans"', 'sans-serif']
       },
       borderRadius: {
         xl: 'calc(var(--radius) + 4px)',

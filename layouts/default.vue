@@ -1,5 +1,5 @@
 <template>
-  <div class="spotlight-wrapper min-h-screen">
+  <div class="page-stage min-h-screen">
     <!-- Static ambient atmosphere layer -->
     <div class="ambient-layers" aria-hidden="true">
       <div class="atmosphere"></div>
@@ -20,9 +20,15 @@ const route = useRoute()
 </script>
 
 <style scoped>
-.spotlight-wrapper {
+.page-stage {
   position: relative;
   isolation: isolate;
+  /* Soft grey stage the white cards float on (matches the editorial hero) */
+  background: linear-gradient(180deg, #c7cad0 0%, #b4b8bf 100%);
+}
+
+:global(.dark) .page-stage {
+  background: #0a0a0a;
 }
 
 /* Layer wrapper sits behind content, never intercepts pointer events,
