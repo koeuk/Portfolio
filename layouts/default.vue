@@ -50,12 +50,6 @@ const route = useRoute()
   background-size: 18px 18px;
 }
 
-/* Light dots read better on dark surfaces. */
-:global(.dark) .atmosphere {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 18px 18px;
-}
-
 /* Page-load entrance: gentle fade + lift, replayed per route via :key. */
 @keyframes lg-page-in {
   from {

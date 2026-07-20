@@ -320,6 +320,19 @@
   }
 }
 
+/* Dark surfaces for the layout shell. These live here rather than in
+   layouts/default.vue because `:global()` selectors are dropped by the scoped-CSS
+   pipeline. `html.dark` outweighs the scoped `.page-stage[data-v-*]` light rule. */
+html.dark .page-stage {
+  background: #0a0a0a;
+}
+
+/* Light dots read better on dark surfaces. */
+html.dark .atmosphere {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
 /* Section heading colour — solid, adapts to light/dark theme. */
 .title-shimmer {
   color: rgb(31, 41, 55);

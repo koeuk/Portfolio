@@ -5,7 +5,6 @@
     <Skills />
     <WorkExperience />
     <About />
-    <Contact />
   </div>
 </template>
 

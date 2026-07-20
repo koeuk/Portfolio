@@ -147,8 +147,7 @@ const navLinks = [
     { href: '/#home', label: 'nav.home' },
     { href: '/#skills', label: 'nav.skills' },
     { href: '/#work-experience', label: 'nav.workExperience' },
-    { href: '/#about', label: 'nav.about' },
-    { href: '/#contact', label: 'nav.contact' }
+    { href: '/#about', label: 'nav.about' }
 ]
 
 const currentFlag = computed(() => {
@@ -176,11 +175,11 @@ function handleScroll() {
     scrolled.value = window.scrollY > 20
 
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
-        activeSection.value = '/#contact'
+        activeSection.value = '/#about'
         return
     }
 
-    const sections = ['home', 'skills', 'work-experience', 'about', 'contact']
+    const sections = ['home', 'skills', 'work-experience', 'about']
     const scrollPosition = window.scrollY + 150
 
     for (let index = sections.length - 1; index >= 0; index--) {
