@@ -123,7 +123,7 @@ const socials = [
   background: #fff;
 }
 
-:global(.dark) .hero-inner {
+html.dark .hero-inner {
   background: #0a0a0a;
 }
 
@@ -160,7 +160,7 @@ const socials = [
   box-shadow: 0 6px 18px -10px rgba(13, 13, 13, 0.4);
 }
 
-:global(.dark) .status-pill {
+html.dark .status-pill {
   color: #f4f4f5;
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.12);
@@ -195,8 +195,8 @@ const socials = [
 
 .talk-btn:hover { transform: translateY(-2px); background: #22c55e; }
 
-:global(.dark) .talk-btn { color: #0d0d0d; background: #fafafa; }
-:global(.dark) .talk-btn:hover { background: #22c55e; color: #05210f; }
+html.dark .talk-btn { color: #0d0d0d; background: #fafafa; }
+html.dark .talk-btn:hover { background: #22c55e; color: #05210f; }
 
 /* ── Display name ── */
 .hero-name {
@@ -224,8 +224,8 @@ const socials = [
 
 .name-solid { color: #0d0d0d; }
 
-:global(.dark) .name-outline { -webkit-text-stroke-color: #fafafa; }
-:global(.dark) .name-solid { color: #fafafa; }
+html.dark .name-outline { -webkit-text-stroke-color: #fafafa; }
+html.dark .name-solid { color: #fafafa; }
 
 @media (min-width: 1024px) {
   .name-outline { -webkit-text-stroke-width: 3px; }
@@ -282,8 +282,8 @@ const socials = [
   overflow: hidden;
 }
 
-:global(.dark) .intro-role { color: #fafafa; }
-:global(.dark) .intro-blurb { color: rgba(250, 250, 250, 0.55); }
+html.dark .intro-role { color: #fafafa; }
+html.dark .intro-blurb { color: rgba(250, 250, 250, 0.55); }
 
 .collab-btn {
   margin-top: 1.1rem;
@@ -303,8 +303,8 @@ const socials = [
 .collab-arrow { width: 15px; height: 15px; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
 .collab-btn:hover .collab-arrow { transform: translate(2px, -2px); }
 
-:global(.dark) .collab-btn { color: #0d0d0d; background: #fafafa; }
-:global(.dark) .collab-btn:hover { background: #22c55e; color: #05210f; }
+html.dark .collab-btn { color: #0d0d0d; background: #fafafa; }
+html.dark .collab-btn:hover { background: #22c55e; color: #05210f; }
 
 /* ── Social pills ── */
 .hero-socials {
@@ -335,12 +335,12 @@ const socials = [
 .social-icon { display: inline-flex; width: 14px; height: 14px; }
 .social-icon :deep(svg) { width: 100%; height: 100%; }
 
-:global(.dark) .social-pill {
+html.dark .social-pill {
   color: #f4f4f5;
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.12);
 }
-:global(.dark) .social-pill:hover { color: #86efac; border-color: #22c55e; }
+html.dark .social-pill:hover { color: #86efac; border-color: #22c55e; }
 
 /* ── Desktop composition: intro left, socials right, portrait centered ── */
 @media (min-width: 1024px) {

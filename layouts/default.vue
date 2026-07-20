@@ -27,8 +27,12 @@ const route = useRoute()
   background: #fff;
 }
 
-/* Dark variants for .page-stage / .atmosphere live in assets/css/main.css —
-   `:global()` selectors are dropped by this project's scoped-CSS pipeline. */
+/* Theme class sits on <html>, so dark variants are written as `html.dark …`.
+   Do NOT use `:global(.dark)` — those selectors are dropped by the scoped-CSS
+   pipeline and the rule silently never reaches the browser. */
+html.dark .page-stage {
+  background: #0a0a0a;
+}
 
 /* Layer wrapper sits behind content, never intercepts pointer events,
    and fades both layers out toward the bottom so cards stay clean. */
@@ -47,6 +51,12 @@ const route = useRoute()
   position: absolute;
   inset: 0;
   background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Light dots read better on dark surfaces. */
+html.dark .atmosphere {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 18px 18px;
 }
 

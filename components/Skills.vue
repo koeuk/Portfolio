@@ -150,11 +150,11 @@ function getSkillLink(name: string): string {
   color: #111827; /* near black */
 }
 
-:global(.dark) .skill-logo {
+html.dark .skill-logo {
   color: rgb(226, 232, 240);
 }
 
-:global(.dark) .skill-name {
+html.dark .skill-name {
   color: #c0c0c0; /* silver */
 }
 
