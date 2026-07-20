@@ -55,7 +55,7 @@
   }
 
   body:not(.dark) {
-    background-color: #bcbfc5;
+    background-color: #ffffff;
   }
 
   * {
@@ -150,14 +150,14 @@
     z-index: 1;
   }
 
-  /* Light theme-aware glass */
+  /* Light surface — solid white with a hairline edge so cards read on a white page */
   .lg-glass {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.28));
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7);
+    background: #ffffff;
+    border: 1px solid rgba(13, 13, 13, 0.12);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
   }
   .lg-glass::before {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 45%);
+    background: none;
   }
 
   /* Dark variant — for always-dark surfaces and .dark theme */
@@ -179,8 +179,8 @@
     transform: translateY(-5px);
   }
   .lg-glass.lg-glass-hover:hover {
-    border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.85);
+    border-color: rgba(13, 13, 13, 0.22);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
   }
   .lg-glass-dark.lg-glass-hover:hover,
   .dark .lg-glass.lg-glass-hover:hover {
@@ -318,61 +318,45 @@
   }
 }
 
-/* Title shimmer — adapts to light/dark theme. Use on any section heading. */
+/* Section heading colour — solid, adapts to light/dark theme. */
 .title-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(31, 41, 55, 1) 0%,
-    rgba(31, 41, 55, 1) 35%,
-    rgba(34, 197, 94, 1) 30%,
-    rgba(31, 41, 55, 1) 65%,
-    rgba(31, 41, 55, 1) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: title-shimmer-sweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  color: rgb(31, 41, 55);
 }
 
 /* `title-shimmer-light` — for sections that are always dark regardless of theme
    (e.g. Contact's primary gradient). `.dark .title-shimmer` shares the same look. */
 .dark .title-shimmer,
 .title-shimmer-light {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.9) 35%,
-    rgba(134, 239, 172, 1) 30%,
-    rgba(255, 255, 255, 0.9) 65%,
-    rgba(255, 255, 255, 0.9) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: title-shimmer-sweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  color: #ffffff;
 }
 
-@keyframes title-shimmer-sweep {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+/* Masked reveal — the heading rises out of a clipped band when its section
+   scrolls into view. Put `.title-reveal` on the heading and wrap the text in
+   a `.title-reveal-inner` span; the section toggles `.section-visible`. */
+.title-reveal {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.15em;
+}
+
+.title-reveal-inner {
+  display: inline-block;
+  transform: translateY(110%) rotate(3deg);
+  opacity: 0;
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s ease;
+}
+
+.section-visible .title-reveal-inner {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .title-shimmer {
-    animation: none;
-    background: none;
-    -webkit-text-fill-color: rgb(31, 41, 55);
-    color: rgb(31, 41, 55);
-  }
-  .dark .title-shimmer,
-  .title-shimmer-light {
-    animation: none;
-    background: none;
-    -webkit-text-fill-color: #ffffff;
-    color: #ffffff;
+  .title-reveal-inner {
+    transform: none;
+    opacity: 1;
+    transition: none;
   }
 }

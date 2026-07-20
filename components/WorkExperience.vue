@@ -1,12 +1,8 @@
 <template>
   <section id="work-experience" ref="elementRef" class="section relative overflow-hidden">
-    <!-- Ambient refraction orbs so the glass material reads against the page -->
-    <div class="glass-orb glass-orb-blue" aria-hidden="true"></div>
-    <div class="glass-orb glass-orb-green" aria-hidden="true"></div>
-
-    <div class="relative" :class="{ 'section-visible': isVisible }">
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 section-title title-shimmer">
-        Work Experience
+<div class="relative" :class="{ 'section-visible': isVisible }">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 title-shimmer title-reveal">
+        <span class="title-reveal-inner">Work Experience</span>
       </h2>
 
       <div class="relative max-w-4xl mx-auto timeline-content">
@@ -93,7 +89,7 @@
 
         <!-- PRESENT -->
         <div class="flex justify-center mt-4 relative z-10 timeline-step timeline-step-end">
-          <div class="glass-capsule glass-capsule-present text-emerald-600 dark:text-emerald-400 font-bold text-lg">
+          <div class="glass-capsule text-emerald-600 dark:text-emerald-400 font-bold text-lg">
             PRESENT
           </div>
         </div>
@@ -117,18 +113,11 @@ const { isVisible, elementRef } = useScrollAnimation()
   border-radius: 24px;
   padding: 1.5rem 1.75rem;
   isolation: isolate;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.28));
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.75),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.25),
-    0 10px 30px rgba(15, 23, 42, 0.08),
-    0 2px 8px rgba(15, 23, 42, 0.04);
+  background: #ffffff;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  box-shadow: none;
   transition:
     transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.55s ease;
 }
 
@@ -169,11 +158,6 @@ const { isVisible, elementRef } = useScrollAnimation()
 
 .glass-card:hover {
   transform: translateY(-6px) scale(1.012);
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.85),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.3),
-    0 24px 50px rgba(15, 23, 42, 0.14),
-    0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
 .glass-card:hover::after {
@@ -194,9 +178,7 @@ const { isVisible, elementRef } = useScrollAnimation()
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.12),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.04),
-    0 16px 40px rgba(0, 0, 0, 0.45),
-    0 4px 12px rgba(0, 0, 0, 0.3);
+    inset 0 -1px 1px rgba(255, 255, 255, 0.04);
 }
 
 .dark .glass-card::before {
@@ -204,21 +186,14 @@ const { isVisible, elementRef } = useScrollAnimation()
 }
 
 .dark .glass-card:hover {
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.18),
-    0 28px 60px rgba(0, 0, 0, 0.55),
-    0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18);
 }
 
 /* Floating glass icon discs */
 .glass-icon {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.25));
-  -webkit-backdrop-filter: blur(14px) saturate(180%);
-  backdrop-filter: blur(14px) saturate(180%);
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.8),
-    0 8px 20px rgba(15, 23, 42, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: #ffffff;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
   z-index: 2;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -241,10 +216,7 @@ const { isVisible, elementRef } = useScrollAnimation()
   font-size: 0.72rem;
   font-weight: 500;
   border-radius: 9999px;
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
-  backdrop-filter: blur(10px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(13, 13, 13, 0.08);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
 
@@ -270,55 +242,22 @@ const { isVisible, elementRef } = useScrollAnimation()
   z-index: 10;
   padding: 0.55rem 1.6rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(244, 244, 246, 0.94));
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.8),
-    0 8px 24px rgba(15, 23, 42, 0.1);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  background: #ffffff;
+  border: 1px solid rgba(13, 13, 13, 0.14);
+  box-shadow: none;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .glass-capsule:hover { transform: translateY(-3px) scale(1.03); }
-.glass-capsule-present { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 26px rgba(16, 185, 129, 0.3); }
 
 .dark .glass-capsule {
   background: linear-gradient(135deg, rgba(38, 40, 46, 0.96), rgba(20, 22, 26, 0.95));
   border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.14), 0 10px 28px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.14);
 }
 
 /* Dashed connector — soften so it reads as light meeting the glass */
 .glass-connector { opacity: 0.7; }
-
-/* Ambient refraction orbs behind the timeline */
-.glass-orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.glass-orb-blue {
-  width: 26rem;
-  height: 26rem;
-  top: 8%;
-  right: -6rem;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.45), transparent 70%);
-}
-
-.glass-orb-green {
-  width: 28rem;
-  height: 28rem;
-  bottom: 6%;
-  left: -7rem;
-  background: radial-gradient(circle, rgba(34, 197, 94, 0.4), transparent 70%);
-}
-
-.dark .glass-orb { opacity: 0.35; }
 
 @media (prefers-reduced-motion: reduce) {
   .glass-card,
@@ -329,18 +268,11 @@ const { isVisible, elementRef } = useScrollAnimation()
   }
 }
 
-.section-title,
 .timeline-content {
   opacity: 0;
   filter: blur(10px);
   transform: translateY(50px) scale(0.95);
   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.section-visible .section-title {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0) scale(1);
 }
 
 .section-visible .timeline-content {

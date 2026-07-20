@@ -23,8 +23,8 @@ const route = useRoute()
 .page-stage {
   position: relative;
   isolation: isolate;
-  /* Soft grey stage the white cards float on (matches the editorial hero) */
-  background: linear-gradient(180deg, #c7cad0 0%, #b4b8bf 100%);
+  /* Match the editorial hero surface across every section */
+  background: #fff;
 }
 
 :global(.dark) .page-stage {
@@ -43,24 +43,18 @@ const route = useRoute()
   mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
 }
 
-/* Static atmosphere: dotted grid + two corner tints (warm + sage). */
+/* Static atmosphere: dotted grid only. */
 .atmosphere {
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(circle at 0% 0%, rgba(245, 158, 11, 0.07), transparent 40%),
-    radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.07), transparent 42%),
-    radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
-  background-size: auto, auto, 18px 18px;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
 
 /* Light dots read better on dark surfaces. */
 :global(.dark) .atmosphere {
-  background-image:
-    radial-gradient(circle at 0% 0%, rgba(245, 158, 11, 0.06), transparent 40%),
-    radial-gradient(circle at 100% 0%, rgba(34, 197, 94, 0.08), transparent 42%),
-    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: auto, auto, 18px 18px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
 
 /* Page-load entrance: gentle fade + lift, replayed per route via :key. */
