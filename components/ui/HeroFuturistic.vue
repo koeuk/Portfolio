@@ -113,6 +113,8 @@ const socials = [
 .hero-top {
   position: relative;
   z-index: 3;
+  /* Sit below the floating navbar rather than colliding with it */
+  margin-top: clamp(3.5rem, 6vw, 5.5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -182,7 +184,7 @@ const socials = [
 .hero-name {
   position: relative;
   z-index: 1;
-  margin-top: clamp(1rem, 4vw, 2.75rem);
+  margin-top: clamp(1.25rem, 3.5vw, 3rem);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
