@@ -33,8 +33,7 @@
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-primary dark:text-white mt-2">Internship</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Aug 2024 - Dec 2024</p>
-              <h4 class="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-2">IT Solutions</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Aug 2024 - Dec 2024</p>
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 Gained hands-on experience in full-stack web development, working with modern frameworks and tools.
                 Collaborated with the development team on client projects, contributed to frontend and backend features,
@@ -63,8 +62,7 @@
               </div>
               <span class="year-shimmer text-4xl md:text-5xl font-bold">2024 - 2026</span>
               <h3 class="text-xl font-bold text-primary dark:text-white mt-2">Staff</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Dec 2024 - Present</p>
-              <h4 class="text-lg font-semibold text-green-600 dark:text-green-400 mb-2">Vehabooking</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Dec 2024 - Present</p>
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 Worked on Innovation Lab Hotel Booking platform, developing responsive UI components and integrating
                 booking APIs. Gained experience in real-world product development, agile workflows, and building

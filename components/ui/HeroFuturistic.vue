@@ -2,16 +2,6 @@
   <section class="hero-stage">
     <!-- Floating editorial card -->
     <div class="hero-inner">
-      <!-- Top row: availability + CTA -->
-      <div class="hero-top">
-        <span class="status-pill" :style="{ animationDelay: '0.05s' }">
-          <span class="status-dot"></span>
-          Available for New Project
-          <span class="status-sep" aria-hidden="true"></span>
-          <span class="status-location">{{ personalInfo.location }}</span>
-        </span>
-      </div>
-
       <!-- Display name: outline + solid split -->
       <h1 class="hero-name" aria-label="Koeuk KOS">
         <span class="name-outline" aria-hidden="true">
@@ -44,6 +34,12 @@
 
       <!-- Bottom-left: role + blurb + CTA -->
       <div class="hero-intro" :style="{ animationDelay: '0.44s' }">
+        <span class="status-pill" :style="{ animationDelay: '0.38s' }">
+          <span class="status-dot"></span>
+          Available for New Project
+          <span class="status-sep" aria-hidden="true"></span>
+          <span class="status-location">{{ personalInfo.location }}</span>
+        </span>
         <h2 class="intro-role">{{ personalInfo.role }}</h2>
         <p class="intro-blurb">{{ heroBlurb }}</p>
       </div>
@@ -124,17 +120,6 @@ html.dark .hero-inner {
   background: #0a0a0a;
 }
 
-/* ── Top row ── */
-.hero-top {
-  position: relative;
-  z-index: 3;
-  /* Sit below the floating navbar rather than colliding with it */
-  margin-top: clamp(3.5rem, 6vw, 5.5rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
 
 .status-pill,
 .social-pill {
@@ -195,7 +180,7 @@ html.dark .status-location { color: rgba(244, 244, 245, 0.6); }
 .hero-name {
   position: relative;
   z-index: 1;
-  margin-top: clamp(1.25rem, 3.5vw, 3rem);
+  margin-top: clamp(5rem, 9vw, 8.5rem);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -294,8 +279,12 @@ html.dark .portrait-glow {
 .hero-intro {
   position: relative;
   z-index: 3;
-  max-width: 22rem;
+  max-width: 26rem;
   margin-top: 1.25rem;
+}
+
+.hero-intro .status-pill {
+  margin-bottom: 1rem;
 }
 
 .intro-role {
