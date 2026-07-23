@@ -7,11 +7,9 @@
         <span class="status-pill" :style="{ animationDelay: '0.05s' }">
           <span class="status-dot"></span>
           Available for New Project
+          <span class="status-sep" aria-hidden="true"></span>
+          <span class="status-location">{{ personalInfo.location }}</span>
         </span>
-
-        <NuxtLink to="/#contact" class="talk-btn" :style="{ animationDelay: '0.12s' }">
-          Let's Talk
-        </NuxtLink>
       </div>
 
       <!-- Display name: outline + solid split -->
@@ -36,6 +34,7 @@
 
       <!-- Portrait, overlapping the name -->
       <div class="hero-portrait" :style="{ animationDelay: '0.34s' }">
+        <span class="portrait-glow" aria-hidden="true"></span>
         <img
           src="/images/koeuk-profile.png"
           :alt="personalInfo.name"
@@ -46,14 +45,7 @@
       <!-- Bottom-left: role + blurb + CTA -->
       <div class="hero-intro" :style="{ animationDelay: '0.44s' }">
         <h2 class="intro-role">{{ personalInfo.role }}</h2>
-        <p class="intro-blurb">{{ personalInfo.bio }}</p>
-        <NuxtLink to="/#contact" class="collab-btn">
-          Let's collaborate
-          <svg viewBox="0 0 16 16" class="collab-arrow" aria-hidden="true">
-            <path d="M4 12L12 4M12 4H6M12 4V10" fill="none" stroke="currentColor" stroke-width="1.6"
-              stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </NuxtLink>
+        <p class="intro-blurb">{{ heroBlurb }}</p>
       </div>
 
       <!-- Bottom-right: social pills -->
@@ -85,6 +77,11 @@ const lastName = computed(() => nameParts.value.slice(1).join(' ') || nameParts.
 // Split into characters so each letter can reveal on its own delay
 const firstLetters = computed(() => [...firstName.value])
 const lastLetters = computed(() => [...lastName.value])
+
+// The location now lives in the availability pill, so drop it from the blurb
+const heroBlurb = computed(() =>
+  personalInfo.bio.replace(/\s*based in Phnom Penh\s*/i, ' ').replace(/\s{2,}/g, ' ').trim()
+)
 
 const icons = {
   github: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>`,
@@ -140,8 +137,6 @@ html.dark .hero-inner {
 }
 
 .status-pill,
-.talk-btn,
-.collab-btn,
 .social-pill {
   font-family: 'Instrument Sans', sans-serif;
 }
@@ -181,22 +176,20 @@ html.dark .status-pill {
   100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
 }
 
-.talk-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.6rem 1.35rem;
+/* Separator + location inside the availability pill */
+.status-sep {
+  width: 3px;
+  height: 3px;
   border-radius: 9999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #fff;
-  background: #0d0d0d;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
+  background: rgba(13, 13, 13, 0.3);
 }
 
-.talk-btn:hover { transform: translateY(-2px); background: #22c55e; }
+.status-location {
+  color: rgba(13, 13, 13, 0.55);
+}
 
-html.dark .talk-btn { color: #0d0d0d; background: #fafafa; }
-html.dark .talk-btn:hover { background: #22c55e; color: #05210f; }
+html.dark .status-sep { background: rgba(255, 255, 255, 0.35); }
+html.dark .status-location { color: rgba(244, 244, 245, 0.6); }
 
 /* ── Display name ── */
 .hero-name {
@@ -244,7 +237,50 @@ html.dark .name-solid { color: #fafafa; }
   pointer-events: none;
 }
 
+/* Soft orange halo behind the portrait — slow, gentle breathing */
+.portrait-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  width: 78%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(251, 146, 60, 0.42) 0%,
+    rgba(249, 115, 22, 0.22) 42%,
+    rgba(249, 115, 22, 0) 70%
+  );
+  filter: blur(46px);
+  pointer-events: none;
+  z-index: -1;
+  animation: portrait-breathe 7s ease-in-out infinite;
+}
+
+@keyframes portrait-breathe {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.06);
+  }
+}
+
+html.dark .portrait-glow {
+  background: radial-gradient(
+    circle,
+    rgba(251, 146, 60, 0.34) 0%,
+    rgba(249, 115, 22, 0.18) 42%,
+    rgba(249, 115, 22, 0) 70%
+  );
+}
+
 .portrait-img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -285,26 +321,6 @@ html.dark .name-solid { color: #fafafa; }
 html.dark .intro-role { color: #fafafa; }
 html.dark .intro-blurb { color: rgba(250, 250, 250, 0.55); }
 
-.collab-btn {
-  margin-top: 1.1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.4rem;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #fff;
-  background: #0d0d0d;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
-}
-
-.collab-btn:hover { transform: translateY(-2px); background: #22c55e; }
-.collab-arrow { width: 15px; height: 15px; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
-.collab-btn:hover .collab-arrow { transform: translate(2px, -2px); }
-
-html.dark .collab-btn { color: #0d0d0d; background: #fafafa; }
-html.dark .collab-btn:hover { background: #22c55e; color: #05210f; }
 
 /* ── Social pills ── */
 .hero-socials {
@@ -378,7 +394,6 @@ html.dark .social-pill:hover { color: #86efac; border-color: #22c55e; }
 }
 
 .status-pill,
-.talk-btn,
 .hero-portrait,
 .hero-intro,
 .social-pill {
@@ -410,18 +425,16 @@ html.dark .social-pill:hover { color: #86efac; border-color: #22c55e; }
 
 @media (prefers-reduced-motion: reduce) {
   .status-pill,
-  .talk-btn,
   .name-outline,
   .name-solid,
   .letter,
   .hero-portrait,
   .hero-intro,
   .social-pill,
-  .status-dot {
+  .status-dot,
+  .portrait-glow {
     animation: none;
   }
-  .talk-btn:hover,
-  .collab-btn:hover,
   .social-pill:hover { transform: none; }
 }
 </style>

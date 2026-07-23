@@ -87,6 +87,18 @@ const translations: Translations = {
     km: "ឧបករណ៍",
     zh: "工具",
   },
+
+  // Intro video
+  "introVideo.title": {
+    en: "Intro Video",
+    km: "វីដេអូណែនាំខ្លួន",
+    zh: "介绍视频",
+  },
+  "introVideo.subtitle": {
+    en: "A short motion intro of my portfolio, built with Remotion",
+    km: "វីដេអូចលនាខ្លីអំពីផលប័ត្ររបស់ខ្ញុំ បង្កើតដោយ Remotion",
+    zh: "使用 Remotion 制作的作品集短片",
+  },
   "skills.backHome": {
     en: "Back to Home",
     km: "ត្រឡប់ទំព័រដើម",
