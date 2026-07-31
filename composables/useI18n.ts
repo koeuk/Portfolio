@@ -148,18 +148,6 @@ const translations: Translations = {
     km: "ធ្វើការលើវេទិកា Hotel Booking របស់ Innovation Lab ដោយអភិវឌ្ឍ UI components ដែល responsive និងភ្ជាប់ booking APIs។ ទទួលបានបទពិសោធន៍ក្នុងការអភិវឌ្ឍផលិតផលពិត លំហូរការងារ agile និងការបង្កើតចំណុចប្រទាក់ងាយស្រួលប្រើសម្រាប់វិស័យបដិសណ្ឋារកិច្ច។",
     zh: "参与 Innovation Lab 酒店预订平台的开发，构建响应式 UI 组件并集成预订 API。积累了真实产品开发、敏捷工作流程以及为酒店行业打造用户友好界面的经验。",
   },
-
-  // Intro video
-  "introVideo.title": {
-    en: "Intro Video",
-    km: "វីដេអូណែនាំខ្លួន",
-    zh: "介绍视频",
-  },
-  "introVideo.subtitle": {
-    en: "A short motion intro of my portfolio, built with Remotion",
-    km: "វីដេអូចលនាខ្លីអំពីផលប័ត្ររបស់ខ្ញុំ បង្កើតដោយ Remotion",
-    zh: "使用 Remotion 制作的作品集短片",
-  },
   "skills.backHome": {
     en: "Back to Home",
     km: "ត្រឡប់ទំព័រដើម",

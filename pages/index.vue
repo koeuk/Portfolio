@@ -2,7 +2,6 @@
   <div>
     <Hero />
     <!-- <Projects /> -->
-    <IntroVideo />
     <Skills />
     <Experience />
     <WorkExperience />
