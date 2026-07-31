@@ -29,7 +29,7 @@
           >
             <NuxtLink
               :to="`/experience/${experience.id}`"
-              class="group card block p-8 border border-gray-100 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-500 transition-all duration-500 hover:-translate-y-2"
+              class="group card block p-8 border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-500 hover:-translate-y-2"
             >
               <div class="mb-6 flex justify-between items-start">
                 <span class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest group-hover:text-primary dark:group-hover:text-white transition-colors">

@@ -132,6 +132,16 @@ function getSkillLink(name: string): string {
   padding: 1.5rem 0.75rem;
   border-radius: 18px;
   background: transparent;
+  transition: background 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-item:hover {
+  background: rgba(13, 13, 13, 0.05);
+  transform: translateY(-2px);
+}
+
+html.dark .skill-item:hover {
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .skill-logo {

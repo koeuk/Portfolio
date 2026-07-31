@@ -79,6 +79,15 @@
   .section {
     @apply py-20 px-4 md:px-8 lg:py-24 max-w-7xl mx-auto;
   }
+
+  /* Divider line above each home-page section */
+  #intro-video,
+  #skills,
+  #personal-projects,
+  #work-experience,
+  #about {
+    @apply border-t border-gray-200 dark:border-gray-800;
+  }
   .btn-primary {
     @apply bg-white text-primary px-8 py-4 rounded-lg font-semibold text-lg
            hover:bg-gray-100 transition-all duration-300 transform hover:scale-105
