@@ -188,7 +188,7 @@ const { isVisible, elementRef } = useScrollAnimation()
 .glass-icon {
   background: #ffffff;
   border: 1px solid rgba(13, 13, 13, 0.12);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+  box-shadow: none;
   z-index: 2;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
