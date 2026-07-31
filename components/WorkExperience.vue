@@ -108,7 +108,7 @@ const { isVisible, elementRef } = useScrollAnimation()
    ───────────────────────────────────────────── */
 .glass-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 0.75rem;
   padding: 1.5rem 1.75rem;
   isolation: isolate;
   background: #ffffff;
@@ -193,8 +193,8 @@ const { isVisible, elementRef } = useScrollAnimation()
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.glass-icon-blue { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 22px rgba(59, 130, 246, 0.35); }
-.glass-icon-green { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 8px 22px rgba(34, 197, 94, 0.35); }
+.glass-icon-blue { box-shadow: none; }
+.glass-icon-green { box-shadow: none; }
 
 .glass-card:hover .glass-icon { transform: scale(1.08) rotate(-3deg); }
 
