@@ -1,5 +1,8 @@
 <template>
   <div :class="{ 'dark': isDark }" class="min-h-screen bg-white dark:bg-primary transition-colors">
+    <!-- First-load progress preloader -->
+    <Preloader @done="onReady" />
+
     <!-- Fixed gradient-grid background (behind everything) -->
     <GradientBlurBg />
 
@@ -24,11 +27,12 @@ const isLoaded = ref(false)
 
 onMounted(() => {
   initTheme()
-  // Small delay for smooth entrance
-  setTimeout(() => {
-    isLoaded.value = true
-  }, 100)
 })
+
+// Reveal the page once the preloader progress completes
+function onReady() {
+  isLoaded.value = true
+}
 </script>
 
 <style>
