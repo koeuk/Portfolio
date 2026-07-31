@@ -2,7 +2,7 @@
   <div class="min-h-screen pt-24 pb-20 transition-colors">
     <div class="max-w-7xl mx-auto px-4 md:px-8">
       <!-- Back Link -->
-      <NuxtLink to="/about-me/my-info?section=projects"
+      <NuxtLink to="/#personal-projects"
         class="group inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary dark:hover:text-white transition-all uppercase tracking-widest mb-10">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:-translate-x-1"
           fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -4,6 +4,7 @@
     <!-- <Projects /> -->
     <IntroVideo />
     <Skills />
+    <Experience />
     <WorkExperience />
     <About />
   </div>

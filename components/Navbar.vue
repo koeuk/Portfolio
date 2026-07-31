@@ -146,6 +146,7 @@ const currentActive = computed(() => {
 const navLinks = [
     { href: '/#home', label: 'nav.home' },
     { href: '/#skills', label: 'nav.skills' },
+    { href: '/#personal-projects', label: 'nav.personalProjects' },
     { href: '/#work-experience', label: 'nav.workExperience' },
     { href: '/#about', label: 'nav.about' }
 ]
@@ -179,7 +180,7 @@ function handleScroll() {
         return
     }
 
-    const sections = ['home', 'skills', 'work-experience', 'about']
+    const sections = ['home', 'skills', 'personal-projects', 'work-experience', 'about']
     const scrollPosition = window.scrollY + 150
 
     for (let index = sections.length - 1; index >= 0; index--) {

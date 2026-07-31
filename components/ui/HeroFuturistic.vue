@@ -2,6 +2,12 @@
   <section class="hero-stage">
     <!-- Floating editorial card -->
     <div class="hero-inner">
+      <!-- Fine film grain for depth on the flat surface -->
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <!-- Editorial side label on the left edge -->
+      <span class="hero-side-label" aria-hidden="true">Portfolio — 2026</span>
+
       <!-- Display name: outline + solid split -->
       <h1 class="hero-name" aria-label="Koeuk KOS">
         <span class="name-outline" aria-hidden="true">
@@ -59,6 +65,12 @@
           <span>{{ social.label }}</span>
         </a>
       </nav>
+
+      <!-- Scroll cue -->
+      <a href="/#skills" class="scroll-cue" aria-label="Scroll to explore">
+        <span class="scroll-cue-label">Scroll</span>
+        <span class="scroll-cue-track"><span class="scroll-cue-dot"></span></span>
+      </a>
     </div>
   </section>
 </template>
@@ -118,6 +130,49 @@ const socials = [
 
 html.dark .hero-inner {
   background: #0a0a0a;
+}
+
+/* ── Film grain overlay ── */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html.dark .hero-grain {
+  opacity: 0.07;
+  mix-blend-mode: screen;
+}
+
+/* ── Editorial side label (left edge) ── */
+.hero-side-label {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-side-label {
+    display: block;
+    position: absolute;
+    left: 1.15rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    writing-mode: vertical-rl;
+    z-index: 3;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(13, 13, 13, 0.32);
+  }
+
+  html.dark .hero-side-label {
+    color: rgba(255, 255, 255, 0.32);
+  }
 }
 
 
@@ -273,6 +328,13 @@ html.dark .portrait-glow {
   user-select: none;
   -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
   mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
+  animation: portrait-float 6.5s ease-in-out infinite;
+}
+
+/* Gentle vertical drift — layered with the glow's breathing for organic life */
+@keyframes portrait-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 /* ── Bottom-left intro ── */
@@ -335,7 +397,13 @@ html.dark .intro-blurb { color: rgba(250, 250, 250, 0.55); }
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, color 0.35s ease;
 }
 
-.social-pill:hover { transform: translateY(-2px); border-color: #22c55e; color: #16a34a; }
+/* Tactile fill on hover — pill inverts to the brand green */
+.social-pill:hover {
+  transform: translateY(-2px);
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #05210f;
+}
 
 .social-icon { display: inline-flex; width: 14px; height: 14px; }
 .social-icon :deep(svg) { width: 100%; height: 100%; }
@@ -345,7 +413,63 @@ html.dark .social-pill {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.12);
 }
-html.dark .social-pill:hover { color: #86efac; border-color: #22c55e; }
+html.dark .social-pill:hover { background: #22c55e; border-color: #22c55e; color: #05210f; }
+
+/* ── Scroll cue ── */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  animation: hero-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+}
+
+.scroll-cue-label {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(13, 13, 13, 0.4);
+}
+
+.scroll-cue-track {
+  position: relative;
+  width: 1px;
+  height: 34px;
+  background: rgba(13, 13, 13, 0.18);
+  overflow: hidden;
+}
+
+.scroll-cue-dot {
+  position: absolute;
+  left: -1.5px;
+  top: 0;
+  width: 4px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #22c55e;
+  animation: scroll-dot 1.9s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+
+@keyframes scroll-dot {
+  0% { transform: translateY(-10px); opacity: 0; }
+  35% { opacity: 1; }
+  100% { transform: translateY(34px); opacity: 0; }
+}
+
+html.dark .scroll-cue-label { color: rgba(255, 255, 255, 0.4); }
+html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
+
+@media (min-width: 1024px) {
+  .scroll-cue { display: flex; }
+}
 
 /* ── Desktop composition: intro left, socials right, portrait centered ── */
 @media (min-width: 1024px) {
@@ -421,7 +545,10 @@ html.dark .social-pill:hover { color: #86efac; border-color: #22c55e; }
   .hero-intro,
   .social-pill,
   .status-dot,
-  .portrait-glow {
+  .portrait-glow,
+  .portrait-img,
+  .scroll-cue,
+  .scroll-cue-dot {
     animation: none;
   }
   .social-pill:hover { transform: none; }
