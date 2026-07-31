@@ -88,6 +88,67 @@ const translations: Translations = {
     zh: "工具",
   },
 
+  // Hero
+  "hero.available": {
+    en: "Available for New Project",
+    km: "អាចទទួលគម្រោងថ្មី",
+    zh: "可接新项目",
+  },
+  "hero.location": {
+    en: "Phnom Penh, Cambodia",
+    km: "ភ្នំពេញ កម្ពុជា",
+    zh: "柬埔寨金边",
+  },
+  "hero.roleTitle": {
+    en: "Web Developer",
+    km: "អ្នកអភិវឌ្ឍវេបសាយ",
+    zh: "网页开发者",
+  },
+  "hero.blurb": {
+    en: "I'm a web developer with over a year of experience building web applications using Laravel and Vue.js. Right now, I'm studying Software Engineering at BELTEI (Year 4). I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
+    km: "ខ្ញុំជាអ្នកអភិវឌ្ឍវេបសាយ មានបទពិសោធន៍ជាងមួយឆ្នាំក្នុងការបង្កើតកម្មវិធីវេបសាយដោយប្រើ Laravel និង Vue.js។ បច្ចុប្បន្នខ្ញុំកំពុងសិក្សាផ្នែកវិស្វកម្មសូហ្វវែរនៅ BELTEI (ឆ្នាំទី4)។ ខ្ញុំចូលចិត្តបង្កើតប្រព័ន្ធដែលងាយស្រួលប្រើ និងដំណើរការល្អ ហើយខ្ញុំតែងតែព្យាយាមអភិវឌ្ឍជំនាញ និងរៀនបច្ចេកវិទ្យាថ្មីៗ។",
+    zh: "我是一名网页开发者，拥有一年多使用 Laravel 和 Vue.js 构建网页应用的经验。目前我在 BELTEI 攻读软件工程（四年级）。我喜欢创建易用且运行良好的系统，并一直努力提升技能、学习新技术。",
+  },
+
+  // Work Experience
+  "workExperience.title": {
+    en: "Work Experience",
+    km: "បទពិសោធន៍ការងារ",
+    zh: "工作经验",
+  },
+  "workExperience.start": { en: "START", km: "ចាប់ផ្តើម", zh: "开始" },
+  "workExperience.present": { en: "PRESENT", km: "បច្ចុប្បន្ន", zh: "至今" },
+  "workExperience.internship.role": {
+    en: "Internship",
+    km: "កម្មសិក្សា",
+    zh: "实习",
+  },
+  "workExperience.internship.period": {
+    en: "Aug 2024 - Dec 2024",
+    km: "សីហា 2024 - ធ្នូ 2024",
+    zh: "2024年8月 - 2024年12月",
+  },
+  "workExperience.internship.description": {
+    en: "Gained hands-on experience in full-stack web development, working with modern frameworks and tools. Collaborated with the development team on client projects, contributed to frontend and backend features, and learned professional software development workflows.",
+    km: "ទទួលបានបទពិសោធន៍ផ្ទាល់ក្នុងការអភិវឌ្ឍវេបសាយ full-stack ដោយប្រើ framework និងឧបករណ៍ទំនើបៗ។ សហការជាមួយក្រុមអភិវឌ្ឍន៍លើគម្រោងអតិថិជន រួមចំណែកលើមុខងារ frontend និង backend និងរៀនពីលំហូរការងារអភិវឌ្ឍន៍កម្មវិធីប្រកបដោយវិជ្ជាជីវៈ។",
+    zh: "获得了全栈网页开发的实践经验，使用现代框架和工具。与开发团队合作完成客户项目，参与前端和后端功能开发，并学习了专业的软件开发流程。",
+  },
+  "workExperience.staff.role": {
+    en: "Staff",
+    km: "បុគ្គលិក",
+    zh: "员工",
+  },
+  "workExperience.staff.period": {
+    en: "Dec 2024 - Present",
+    km: "ធ្នូ 2024 - បច្ចុប្បន្ន",
+    zh: "2024年12月 - 至今",
+  },
+  "workExperience.staff.description": {
+    en: "Worked on Innovation Lab Hotel Booking platform, developing responsive UI components and integrating booking APIs. Gained experience in real-world product development, agile workflows, and building user-friendly interfaces for the hospitality industry.",
+    km: "ធ្វើការលើវេទិកា Hotel Booking របស់ Innovation Lab ដោយអភិវឌ្ឍ UI components ដែល responsive និងភ្ជាប់ booking APIs។ ទទួលបានបទពិសោធន៍ក្នុងការអភិវឌ្ឍផលិតផលពិត លំហូរការងារ agile និងការបង្កើតចំណុចប្រទាក់ងាយស្រួលប្រើសម្រាប់វិស័យបដិសណ្ឋារកិច្ច។",
+    zh: "参与 Innovation Lab 酒店预订平台的开发，构建响应式 UI 组件并集成预订 API。积累了真实产品开发、敏捷工作流程以及为酒店行业打造用户友好界面的经验。",
+  },
+
   // Intro video
   "introVideo.title": {
     en: "Intro Video",
