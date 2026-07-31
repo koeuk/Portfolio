@@ -146,12 +146,9 @@ const { isVisible, elementRef } = useScrollAnimation()
   transition: opacity 0.55s ease;
 }
 
-.glass-card-blue::after {
-  background: radial-gradient(120% 120% at 80% 0%, rgba(59, 130, 246, 0.18), transparent 60%);
-}
-
+.glass-card-blue::after,
 .glass-card-green::after {
-  background: radial-gradient(120% 120% at 20% 0%, rgba(34, 197, 94, 0.18), transparent 60%);
+  background: none;
 }
 
 .glass-card:hover {

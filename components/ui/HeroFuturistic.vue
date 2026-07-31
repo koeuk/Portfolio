@@ -214,7 +214,7 @@ html.dark .name-solid { color: #fafafa; }
   position: relative;
   z-index: 2;
   margin: -0.32em auto 0;
-  width: min(78vw, 30rem);
+  width: min(86vw, 34rem);
   flex: 1;
   display: flex;
   align-items: flex-end;
@@ -355,8 +355,8 @@ html.dark .social-pill:hover { color: #86efac; border-color: #22c55e; }
     position: absolute;
     inset: auto 0 0;
     margin: 0 auto;
-    width: min(38vw, 32rem);
-    height: 74%;
+    width: min(44vw, 37rem);
+    height: 82%;
   }
 
   .hero-intro {
