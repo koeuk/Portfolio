@@ -8,26 +8,20 @@
         {{ t('skills.subtitle') }}
       </p>
 
-      <!-- Skills by Category -->
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 section-content space-y-12">
-        <div v-for="category in categories" :key="category.key">
-          <h3 class="text-sm font-semibold uppercase tracking-widest text-gray-900 dark:text-gray-500 mb-6">
-            {{ t(`skills.${category.key}`) }}
-          </h3>
-
-          <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-4 gap-y-8">
-            <NuxtLink
-              v-for="skill in category.skills"
-              :key="skill.name"
-              :to="getSkillLink(skill.name)"
-              class="skill-item group/item"
-            >
-              <span class="skill-logo">
-                <span class="block w-full h-full" v-html="getIcon(skill.name)"></span>
-              </span>
-              <p class="skill-name">{{ skill.name }}</p>
-            </NuxtLink>
-          </div>
+      <!-- Messy sticker wall -->
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 section-content">
+        <div class="sticker-wall">
+          <NuxtLink
+            v-for="(skill, index) in skills"
+            :key="skill.name"
+            :to="getSkillLink(skill.name)"
+            class="sticker"
+            :class="stickerSize(index)"
+            :style="{ '--r': `${rotation(index)}deg`, '--y': `${offset(index)}px` }"
+          >
+            <span class="sticker-icon" v-html="getIcon(skill.name)"></span>
+            <span class="sticker-name">{{ skill.name }}</span>
+          </NuxtLink>
         </div>
       </div>
 
@@ -40,20 +34,14 @@ const { skills } = useData()
 const { t } = useI18n()
 const { isVisible, elementRef } = useScrollAnimation()
 
-const categories = computed(() => [
-  {
-    key: 'frontend',
-    skills: skills.filter(skill => skill.category === 'frontend'),
-  },
-  {
-    key: 'backend',
-    skills: skills.filter(skill => skill.category === 'backend'),
-  },
-  {
-    key: 'tools',
-    skills: skills.filter(skill => skill.category === 'tools'),
-  },
-].filter(category => category.skills.length > 0))
+// Deterministic "messy" placement — tilt, vertical drift and size per index
+const rotations = [-7, 5, -3, 8, -5, 3, 7, -8, 4, -2, 6, -4]
+const offsets = [6, -10, 14, -4, 10, -14, 4, -8, 12, -2, 8, -12]
+const sizes = ['', 'sticker-lg', '', 'sticker-sm', '', 'sticker-lg', '', '', 'sticker-sm', '', 'sticker-lg', '']
+
+const rotation = (index: number) => rotations[index % rotations.length]
+const offset = (index: number) => offsets[index % offsets.length]
+const stickerSize = (index: number) => sizes[index % sizes.length]
 
 const icons: Record<string, string> = {
   'HTML5': `<svg viewBox="0 0 128 128"><path fill="#E44D26" d="M19.037 113.876L9.032 1.661h109.936l-10.016 112.198-45.019 12.48z"/><path fill="#F16529" d="M64 116.8l36.378-10.086 8.559-95.878H64z"/><path fill="#EBEBEB" d="M64 52.455H45.788L44.53 38.361H64V24.599H29.489l.33 3.692 3.382 37.927H64zm0 35.743l-.061.017-15.327-4.14-.979-10.975H33.816l1.928 21.609 28.193 7.826.063-.017z"/><path fill="#fff" d="M63.952 52.455v13.763h16.947l-1.597 17.849-15.35 4.143v14.319l28.215-7.82.207-2.325 3.234-36.233.335-3.696h-3.708zm0-27.856v13.762h33.244l.276-3.092.628-6.978.329-3.692z"/></svg>`,
@@ -123,49 +111,117 @@ function getSkillLink(name: string): string {
   transition-delay: 0.15s;
 }
 
-/* ===== Simple card with a modern border ===== */
-.skill-item {
+/* ===== Messy sticker wall ===== */
+.sticker-wall {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1.5rem 0.75rem;
-  border-radius: 18px;
-  background: transparent;
-  transition: background 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  gap: 1.1rem 0.8rem;
+  padding: 1.5rem 0 2.5rem;
 }
 
-.skill-item:hover {
-  background: rgba(13, 13, 13, 0.05);
-  transform: translateY(-2px);
+.sticker {
+  --r: 0deg;
+  --y: 0px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 9999px;
+  background: #fff;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  box-shadow: 0 12px 26px -20px rgba(13, 13, 13, 0.55);
+  transform: rotate(var(--r)) translateY(var(--y));
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
-html.dark .skill-item:hover {
-  background: rgba(255, 255, 255, 0.06);
+/* Straighten up and lift on hover */
+.sticker:hover {
+  transform: rotate(0deg) translateY(calc(var(--y) - 6px)) scale(1.07);
+  border-color: rgba(13, 13, 13, 0.32);
+  z-index: 2;
 }
 
-.skill-logo {
-  color: rgb(31, 41, 55);
-  width: 3rem;
-  height: 3rem;
+html.dark .sticker {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+html.dark .sticker:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.sticker-icon {
+  width: 1.5rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgb(31, 41, 55);
 }
 
-.skill-name {
-  font-size: 14px;
+.sticker-icon :deep(svg) {
+  width: 100%;
+  height: 100%;
+}
+
+.sticker-name {
   font-weight: 600;
-  text-align: center;
-  color: #111827; /* near black */
+  font-size: 0.95rem;
+  white-space: nowrap;
+  color: #111827;
 }
 
-html.dark .skill-logo {
+html.dark .sticker-icon {
   color: rgb(226, 232, 240);
 }
 
-html.dark .skill-name {
-  color: #c0c0c0; /* silver */
+html.dark .sticker-name {
+  color: #e4e4e7;
+}
+
+/* Mixed sizes for the messy look */
+.sticker-lg {
+  padding: 0.95rem 1.5rem;
+}
+
+.sticker-lg .sticker-icon {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+.sticker-lg .sticker-name {
+  font-size: 1.1rem;
+}
+
+.sticker-sm {
+  padding: 0.5rem 0.9rem;
+}
+
+.sticker-sm .sticker-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.sticker-sm .sticker-name {
+  font-size: 0.8rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker {
+    transform: none;
+    transition: none;
+  }
+  .sticker:hover {
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {}
