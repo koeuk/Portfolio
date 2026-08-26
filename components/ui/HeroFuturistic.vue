@@ -119,8 +119,12 @@ const { personalInfo, skills } = useData()
 const { t } = useI18n()
 const { getIcon } = useSkillIcons()
 
-// The 8 main skills, shown one at a time; the full wall lives in #skills
-const mainSkillNames = ['Vue.js', 'Nuxt.js', 'Laravel', 'PHP', 'TypeScript', 'Tailwind CSS', 'MySQL', 'Git']
+// The 12 main skills, shown one at a time; the full wall lives in #skills
+const mainSkillNames = [
+  'HTML5', 'CSS3', 'JavaScript', 'TypeScript',
+  'Vue.js', 'Nuxt.js', 'Tailwind CSS',
+  'PHP', 'Laravel', 'Inertia.js', 'MySQL', 'Git',
+]
 const mainSkills = computed(() =>
   mainSkillNames
     .map((name) => skills.find((skill) => skill.name === name))
