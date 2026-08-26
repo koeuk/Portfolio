@@ -100,10 +100,15 @@ const translations: Translations = {
     zh: "柬埔寨金边",
   },
   "hero.roleTitle": {
-    en: "Web Developer",
-    km: "អ្នកអភិវឌ្ឍវេបសាយ",
-    zh: "网页开发者",
+    en: "Web Development",
+    km: "ការអភិវឌ្ឍវេបសាយ",
+    zh: "网页开发",
   },
+  "hero.rolesEyebrow": { en: "What I do", km: "អ្វីដែលខ្ញុំធ្វើ", zh: "我的工作" },
+  "hero.roles.webDesign": { en: "Web Design", km: "រចនាវេបសាយ", zh: "网页设计" },
+  "hero.roles.frontend": { en: "Frontend Developer", km: "អ្នកអភិវឌ្ឍ Frontend", zh: "前端开发者" },
+  "hero.roles.backend": { en: "Backend Developer", km: "អ្នកអភិវឌ្ឍ Backend", zh: "后端开发者" },
+  "hero.roles.fullstack": { en: "Junior Full-Stack Developer", km: "អ្នកអភិវឌ្ឍ Full-Stack កម្រិតដំបូង", zh: "初级全栈开发者" },
   "hero.blurb": {
     en: "I'm a web developer with over a year of experience building web applications using Laravel and Vue.js. Right now, I'm studying Software Engineering at BELTEI (Year 4). I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
     km: "ខ្ញុំជាអ្នកអភិវឌ្ឍវេបសាយ មានបទពិសោធន៍ជាងមួយឆ្នាំក្នុងការបង្កើតកម្មវិធីវេបសាយដោយប្រើ Laravel និង Vue.js។ បច្ចុប្បន្នខ្ញុំកំពុងសិក្សាផ្នែកវិស្វកម្មសូហ្វវែរនៅ BELTEI (ឆ្នាំទី4)។ ខ្ញុំចូលចិត្តបង្កើតប្រព័ន្ធដែលងាយស្រួលប្រើ និងដំណើរការល្អ ហើយខ្ញុំតែងតែព្យាយាមអភិវឌ្ឍជំនាញ និងរៀនបច្ចេកវិទ្យាថ្មីៗ។",

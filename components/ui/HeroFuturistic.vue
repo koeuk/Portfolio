@@ -38,6 +38,22 @@
         />
       </div>
 
+      <!-- Right of portrait: one role at a time, cycling -->
+      <div class="hero-roles" :style="{ animationDelay: '0.4s' }" aria-live="polite">
+        <span class="roles-eyebrow">{{ t('hero.rolesEyebrow') }}</span>
+        <Transition name="role-swap" mode="out-in">
+          <h2 :key="roleIndex" class="roles-current">{{ roles[roleIndex] }}</h2>
+        </Transition>
+        <span class="roles-track" aria-hidden="true">
+          <span
+            v-for="(_, i) in roles"
+            :key="i"
+            class="roles-tick"
+            :class="{ 'is-active': i === roleIndex }"
+          ></span>
+        </span>
+      </div>
+
       <!-- Bottom-left: role + blurb + CTA -->
       <div class="hero-intro" :style="{ animationDelay: '0.44s' }">
         <span class="status-pill" :style="{ animationDelay: '0.38s' }">
@@ -78,6 +94,27 @@
 <script setup lang="ts">
 const { personalInfo } = useData()
 const { t } = useI18n()
+
+// Roles shown one at a time beside the portrait
+const roleKeys = [
+  'hero.roleTitle',
+  'hero.roles.webDesign',
+  'hero.roles.frontend',
+  'hero.roles.backend',
+  'hero.roles.fullstack',
+]
+const roles = computed(() => roleKeys.map((key) => t(key)))
+const roleIndex = ref(0)
+let roleTimer: ReturnType<typeof setInterval> | undefined
+
+onMounted(() => {
+  roleTimer = setInterval(() => {
+    roleIndex.value = (roleIndex.value + 1) % roleKeys.length
+  }, 2600)
+})
+onUnmounted(() => {
+  if (roleTimer) clearInterval(roleTimer)
+})
 
 const nameParts = computed(() => personalInfo.name.trim().split(' '))
 const firstName = computed(() => nameParts.value[0] ?? '')
@@ -372,6 +409,79 @@ html.dark .intro-role { color: #fafafa; }
 html.dark .intro-blurb { color: rgba(250, 250, 250, 0.55); }
 
 
+/* ── Rotating roles ── */
+.hero-roles {
+  position: relative;
+  z-index: 3;
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.roles-eyebrow {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(13, 13, 13, 0.45);
+}
+
+.roles-current {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #0d0d0d;
+  white-space: nowrap;
+}
+
+.roles-track {
+  display: inline-flex;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+}
+
+.roles-tick {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: rgba(13, 13, 13, 0.18);
+  transition: background 0.3s ease, width 0.3s ease;
+}
+
+.roles-tick.is-active {
+  width: 1.1rem;
+  background: #0d0d0d;
+}
+
+html.dark .roles-eyebrow { color: rgba(244, 244, 245, 0.5); }
+html.dark .roles-current { color: #fafafa; }
+html.dark .roles-tick { background: rgba(255, 255, 255, 0.2); }
+html.dark .roles-tick.is-active { background: #fafafa; }
+
+/* Role swap: old one rises out blurred, new one rises in */
+.role-swap-enter-active,
+.role-swap-leave-active {
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+.role-swap-enter-from {
+  opacity: 0;
+  transform: translateY(0.6em);
+  filter: blur(6px);
+}
+.role-swap-leave-to {
+  opacity: 0;
+  transform: translateY(-0.6em);
+  filter: blur(6px);
+}
+
 /* ── Social pills ── */
 .hero-socials {
   position: relative;
@@ -497,6 +607,15 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
     flex-direction: column;
     align-items: flex-end;
   }
+
+  .hero-roles {
+    position: absolute;
+    right: 2.25rem;
+    top: 52%;
+    margin-top: 0;
+    align-items: flex-end;
+    text-align: right;
+  }
 }
 
 /* ── Entrance ── */
@@ -508,6 +627,7 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
 .status-pill,
 .hero-portrait,
 .hero-intro,
+.hero-roles,
 .social-pill {
   animation: hero-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -542,6 +662,7 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
   .letter,
   .hero-portrait,
   .hero-intro,
+  .hero-roles,
   .social-pill,
   .status-dot,
   .portrait-glow,
@@ -551,5 +672,9 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
     animation: none;
   }
   .social-pill:hover { transform: none; }
+  .role-swap-enter-active,
+  .role-swap-leave-active { transition: opacity 0.2s ease; }
+  .role-swap-enter-from,
+  .role-swap-leave-to { transform: none; filter: none; }
 }
 </style>
