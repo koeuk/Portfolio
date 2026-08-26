@@ -54,6 +54,26 @@
         </span>
       </div>
 
+      <!-- Left of portrait: featured tech stack, one at a time -->
+      <div class="hero-skills" :style="{ animationDelay: '0.4s' }" aria-live="polite">
+        <span class="skills-eyebrow">{{ t('hero.skillsEyebrow') }}</span>
+        <Transition name="role-swap" mode="out-in">
+          <div :key="skillIndex" class="skills-current">
+            <span class="skills-current-icon" v-html="getIcon(currentSkill.name)"></span>
+            <span class="skills-current-name">{{ currentSkill.name }}</span>
+          </div>
+        </Transition>
+        <span class="skills-counter" aria-hidden="true">
+          <span class="skills-counter-current">{{ String(skillIndex + 1).padStart(2, '0') }}</span>
+          <span class="skills-counter-sep">/</span>
+          <span>{{ String(skills.length).padStart(2, '0') }}</span>
+        </span>
+        <a href="/#skills" class="skills-more">
+          {{ t('hero.skillsMore') }}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
       <!-- Bottom-left: role + blurb + CTA -->
       <div class="hero-intro" :style="{ animationDelay: '0.44s' }">
         <span class="status-pill" :style="{ animationDelay: '0.38s' }">
@@ -92,8 +112,14 @@
 </template>
 
 <script setup lang="ts">
-const { personalInfo } = useData()
+const { personalInfo, skills } = useData()
 const { t } = useI18n()
+const { getIcon } = useSkillIcons()
+
+// Every skill from the data, shown one at a time
+const skillIndex = ref(0)
+const currentSkill = computed(() => skills[skillIndex.value] ?? skills[0])
+let skillTimer: ReturnType<typeof setInterval> | undefined
 
 // Roles shown one at a time beside the portrait
 const roleKeys = [
@@ -111,9 +137,14 @@ onMounted(() => {
   roleTimer = setInterval(() => {
     roleIndex.value = (roleIndex.value + 1) % roleKeys.length
   }, 2600)
+  // Slightly different cadence so the two sides don't flip in lockstep
+  skillTimer = setInterval(() => {
+    skillIndex.value = (skillIndex.value + 1) % skills.length
+  }, 2200)
 })
 onUnmounted(() => {
   if (roleTimer) clearInterval(roleTimer)
+  if (skillTimer) clearInterval(skillTimer)
 })
 
 const nameParts = computed(() => personalInfo.name.trim().split(' '))
@@ -482,6 +513,93 @@ html.dark .roles-tick.is-active { background: #fafafa; }
   filter: blur(6px);
 }
 
+/* ── Tech stack chips ── */
+.hero-skills {
+  position: relative;
+  z-index: 3;
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.skills-eyebrow {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(13, 13, 13, 0.45);
+}
+
+.skills-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+
+.skills-current-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  flex-shrink: 0;
+}
+
+.skills-current-icon :deep(svg) {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.skills-current-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #0d0d0d;
+}
+
+.skills-counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-family: 'Instrument Sans', sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(13, 13, 13, 0.35);
+}
+
+.skills-counter-current { color: #0d0d0d; }
+.skills-counter-sep { opacity: 0.6; }
+
+html.dark .skills-counter { color: rgba(244, 244, 245, 0.4); }
+html.dark .skills-counter-current { color: #fafafa; }
+
+.skills-more {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(13, 13, 13, 0.55);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.skills-more:hover { color: #0d0d0d; }
+
+html.dark .skills-eyebrow { color: rgba(244, 244, 245, 0.5); }
+html.dark .skills-current-name { color: #fafafa; }
+html.dark .skills-more { color: rgba(244, 244, 245, 0.55); }
+html.dark .skills-more:hover { color: #fafafa; }
+
 /* ── Social pills ── */
 .hero-socials {
   position: relative;
@@ -616,6 +734,15 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
     align-items: flex-end;
     text-align: right;
   }
+
+  .hero-skills {
+    position: absolute;
+    left: 2.25rem;
+    top: 52%;
+    margin-top: 0;
+    align-items: flex-start;
+  }
+
 }
 
 /* ── Entrance ── */
@@ -628,6 +755,7 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
 .hero-portrait,
 .hero-intro,
 .hero-roles,
+.hero-skills,
 .social-pill {
   animation: hero-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -663,6 +791,7 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
   .hero-portrait,
   .hero-intro,
   .hero-roles,
+  .hero-skills,
   .social-pill,
   .status-dot,
   .portrait-glow,
