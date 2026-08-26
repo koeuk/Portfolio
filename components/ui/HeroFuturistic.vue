@@ -72,7 +72,7 @@
           ></span>
         </span>
         <a href="/#skills" class="skills-more">
-          {{ t('hero.skillsMore') }}
+          +{{ remainingSkillCount }} {{ t('hero.skillsMore') }}
           <span aria-hidden="true">→</span>
         </a>
       </div>
@@ -132,6 +132,8 @@ const mainSkills = computed(() =>
 )
 const skillIndex = ref(0)
 const currentSkill = computed(() => mainSkills.value[skillIndex.value] ?? mainSkills.value[0])
+// Skills that never show in the hero cycle — surfaced as "+N more" on the link
+const remainingSkillCount = computed(() => Math.max(skills.length - mainSkills.value.length, 0))
 let skillTimer: ReturnType<typeof setInterval> | undefined
 
 // Roles shown one at a time beside the portrait

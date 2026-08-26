@@ -106,7 +106,7 @@ const translations: Translations = {
   },
   "hero.rolesEyebrow": { en: "What I do", km: "អ្វីដែលខ្ញុំធ្វើ", zh: "我的工作" },
   "hero.skillsEyebrow": { en: "Tech stack", km: "បច្ចេកវិទ្យាដែលប្រើ", zh: "技术栈" },
-  "hero.skillsMore": { en: "See all skills", km: "មើលជំនាញទាំងអស់", zh: "查看全部技能" },
+  "hero.skillsMore": { en: "more skills", km: "ជំនាញទៀត", zh: "项更多技能" },
   "hero.roles.webDesign": { en: "Web Design", km: "រចនាវេបសាយ", zh: "网页设计" },
   "hero.roles.frontend": { en: "Frontend Developer", km: "អ្នកអភិវឌ្ឍ Frontend", zh: "前端开发者" },
   "hero.roles.backend": { en: "Backend Developer", km: "អ្នកអភិវឌ្ឍ Backend", zh: "后端开发者" },
