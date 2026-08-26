@@ -54,20 +54,15 @@
         </span>
       </div>
 
-      <!-- Left of portrait: featured tech stack, one at a time -->
-      <div class="hero-skills" :style="{ animationDelay: '0.4s' }" aria-live="polite">
+      <!-- Left of portrait: rolling window of the tech stack, one chip swaps at a time -->
+      <div class="hero-skills" :style="{ animationDelay: '0.4s' }">
         <span class="skills-eyebrow">{{ t('hero.skillsEyebrow') }}</span>
-        <Transition name="role-swap" mode="out-in">
-          <div :key="skillIndex" class="skills-current">
-            <span class="skills-current-icon" v-html="getIcon(currentSkill.name)"></span>
-            <span class="skills-current-name">{{ currentSkill.name }}</span>
-          </div>
-        </Transition>
-        <span class="skills-counter" aria-hidden="true">
-          <span class="skills-counter-current">{{ String(skillIndex + 1).padStart(2, '0') }}</span>
-          <span class="skills-counter-sep">/</span>
-          <span>{{ String(skills.length).padStart(2, '0') }}</span>
-        </span>
+        <TransitionGroup name="chip" tag="ul" class="skills-row" aria-label="Tech stack">
+          <li v-for="skill in visibleSkills" :key="skill.name" class="skill-chip">
+            <span class="skill-chip-icon" v-html="getIcon(skill.name)"></span>
+            <span class="skill-chip-name">{{ skill.name }}</span>
+          </li>
+        </TransitionGroup>
         <a href="/#skills" class="skills-more">
           {{ t('hero.skillsMore') }}
           <span aria-hidden="true">→</span>
@@ -116,9 +111,12 @@ const { personalInfo, skills } = useData()
 const { t } = useI18n()
 const { getIcon } = useSkillIcons()
 
-// Every skill from the data, shown one at a time
+// Rolling window over every skill: 8 visible, the oldest swaps out for the next one each tick
+const VISIBLE_SKILLS = 8
 const skillIndex = ref(0)
-const currentSkill = computed(() => skills[skillIndex.value] ?? skills[0])
+const visibleSkills = computed(() =>
+  Array.from({ length: Math.min(VISIBLE_SKILLS, skills.length) }, (_, i) => skills[(skillIndex.value + i) % skills.length]),
+)
 let skillTimer: ReturnType<typeof setInterval> | undefined
 
 // Roles shown one at a time beside the portrait
@@ -534,54 +532,65 @@ html.dark .roles-tick.is-active { background: #fafafa; }
   color: rgba(13, 13, 13, 0.45);
 }
 
-.skills-current {
+.skills-row {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1rem;
+  max-width: 24rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.4rem;
+  height: 2rem;
+  padding: 0 0.35rem;
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #0d0d0d;
   white-space: nowrap;
 }
 
-.skills-current-icon {
+.skill-chip-icon {
   display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
   align-items: center;
   justify-content: center;
-  width: 1.6em;
-  height: 1.6em;
-  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
   flex-shrink: 0;
 }
 
-.skills-current-icon :deep(svg) {
-  width: 1.1em;
-  height: 1.1em;
+.skill-chip-icon :deep(svg) {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
-.skills-current-name {
-  font-family: 'Archivo', sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: #0d0d0d;
+/* Chip swap: leaving chip fades out in place, the new one rises in, the rest slide over */
+.chip-enter-active,
+.chip-leave-active,
+.chip-move {
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
 }
-
-.skills-counter {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.3rem;
-  font-family: 'Instrument Sans', sans-serif;
-  font-variant-numeric: tabular-nums;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: rgba(13, 13, 13, 0.35);
+.chip-leave-active { position: absolute; }
+.chip-enter-from {
+  opacity: 0;
+  transform: translateY(0.6rem);
+  filter: blur(6px);
 }
-
-.skills-counter-current { color: #0d0d0d; }
-.skills-counter-sep { opacity: 0.6; }
-
-html.dark .skills-counter { color: rgba(244, 244, 245, 0.4); }
-html.dark .skills-counter-current { color: #fafafa; }
+.chip-leave-to {
+  opacity: 0;
+  transform: translateY(-0.6rem);
+  filter: blur(6px);
+}
 
 .skills-more {
   font-family: 'Instrument Sans', sans-serif;
@@ -596,7 +605,7 @@ html.dark .skills-counter-current { color: #fafafa; }
 .skills-more:hover { color: #0d0d0d; }
 
 html.dark .skills-eyebrow { color: rgba(244, 244, 245, 0.5); }
-html.dark .skills-current-name { color: #fafafa; }
+html.dark .skill-chip { color: #fafafa; }
 html.dark .skills-more { color: rgba(244, 244, 245, 0.55); }
 html.dark .skills-more:hover { color: #fafafa; }
 
@@ -743,6 +752,8 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
     align-items: flex-start;
   }
 
+  .skills-row { justify-content: flex-start; }
+
 }
 
 /* ── Entrance ── */
@@ -802,8 +813,13 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
   }
   .social-pill:hover { transform: none; }
   .role-swap-enter-active,
-  .role-swap-leave-active { transition: opacity 0.2s ease; }
+  .role-swap-leave-active,
+  .chip-enter-active,
+  .chip-leave-active { transition: opacity 0.2s ease; }
+  .chip-move { transition: none; }
   .role-swap-enter-from,
-  .role-swap-leave-to { transform: none; filter: none; }
+  .role-swap-leave-to,
+  .chip-enter-from,
+  .chip-leave-to { transform: none; filter: none; }
 }
 </style>
