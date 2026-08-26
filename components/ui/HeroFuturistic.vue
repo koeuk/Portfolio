@@ -8,7 +8,7 @@
       <!-- Editorial side label on the left edge -->
       <span class="hero-side-label" aria-hidden="true">Portfolio — 2026</span>
 
-      <!-- Display name: outline + solid split -->
+      <!-- Display name: highlighted first name + solid last name -->
       <h1 class="hero-name" aria-label="Koeuk KOS">
         <span class="name-outline" aria-hidden="true">
           <span
@@ -247,13 +247,16 @@ html.dark .status-location { color: rgba(244, 244, 245, 0.6); }
 }
 
 .name-outline {
-  color: transparent;
+  /* Highlight block: white letters with a dark outline on a solid blue slab */
+  color: #ffffff;
   -webkit-text-stroke: 2px #0d0d0d;
+  background: #3367d6;
+  padding: 0.02em 0.06em;
 }
 
 .name-solid { color: #0d0d0d; }
 
-html.dark .name-outline { -webkit-text-stroke-color: #fafafa; }
+html.dark .name-outline { background: #2f5fc4; }
 html.dark .name-solid { color: #fafafa; }
 
 @media (min-width: 1024px) {
