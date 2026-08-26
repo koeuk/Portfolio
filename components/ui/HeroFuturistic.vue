@@ -55,14 +55,22 @@
       </div>
 
       <!-- Left of portrait: rolling window of the tech stack, one chip swaps at a time -->
-      <div class="hero-skills" :style="{ animationDelay: '0.4s' }">
+      <div class="hero-skills" :style="{ animationDelay: '0.4s' }" aria-live="polite">
         <span class="skills-eyebrow">{{ t('hero.skillsEyebrow') }}</span>
-        <TransitionGroup name="chip" tag="ul" class="skills-row" aria-label="Tech stack">
-          <li v-for="skill in visibleSkills" :key="skill.name" class="skill-chip">
-            <span class="skill-chip-icon" v-html="getIcon(skill.name)"></span>
-            <span class="skill-chip-name">{{ skill.name }}</span>
-          </li>
-        </TransitionGroup>
+        <Transition name="role-swap" mode="out-in">
+          <div :key="skillIndex" class="skill-item">
+            <span class="skill-item-icon" v-html="getIcon(currentSkill.name)"></span>
+            <span class="skill-item-name">{{ currentSkill.name }}</span>
+          </div>
+        </Transition>
+        <span class="roles-track" aria-hidden="true">
+          <span
+            v-for="(_, i) in mainSkills"
+            :key="i"
+            class="roles-tick"
+            :class="{ 'is-active': i === skillIndex }"
+          ></span>
+        </span>
         <a href="/#skills" class="skills-more">
           {{ t('hero.skillsMore') }}
           <span aria-hidden="true">→</span>
@@ -111,12 +119,15 @@ const { personalInfo, skills } = useData()
 const { t } = useI18n()
 const { getIcon } = useSkillIcons()
 
-// Rolling window over every skill: 8 visible, the oldest swaps out for the next one each tick
-const VISIBLE_SKILLS = 8
-const skillIndex = ref(0)
-const visibleSkills = computed(() =>
-  Array.from({ length: Math.min(VISIBLE_SKILLS, skills.length) }, (_, i) => skills[(skillIndex.value + i) % skills.length]),
+// The 8 main skills, shown one at a time; the full wall lives in #skills
+const mainSkillNames = ['Vue.js', 'Nuxt.js', 'Laravel', 'PHP', 'TypeScript', 'Tailwind CSS', 'MySQL', 'Git']
+const mainSkills = computed(() =>
+  mainSkillNames
+    .map((name) => skills.find((skill) => skill.name === name))
+    .filter((skill): skill is NonNullable<typeof skill> => Boolean(skill)),
 )
+const skillIndex = ref(0)
+const currentSkill = computed(() => mainSkills.value[skillIndex.value] ?? mainSkills.value[0])
 let skillTimer: ReturnType<typeof setInterval> | undefined
 
 // Roles shown one at a time beside the portrait
@@ -137,7 +148,7 @@ onMounted(() => {
   }, 2600)
   // Slightly different cadence so the two sides don't flip in lockstep
   skillTimer = setInterval(() => {
-    skillIndex.value = (skillIndex.value + 1) % skills.length
+    skillIndex.value = (skillIndex.value + 1) % mainSkills.value.length
   }, 2200)
 })
 onUnmounted(() => {
@@ -532,64 +543,35 @@ html.dark .roles-tick.is-active { background: #fafafa; }
   color: rgba(13, 13, 13, 0.45);
 }
 
-.skills-row {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.35rem 1rem;
-  max-width: 24rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.skill-chip {
+.skill-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  height: 2rem;
-  padding: 0 0.35rem;
-  font-family: 'Archivo', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: #0d0d0d;
+  gap: 0.55rem;
   white-space: nowrap;
 }
 
-.skill-chip-icon {
+.skill-item-icon {
   display: inline-flex;
-  width: 1.5rem;
-  height: 1.5rem;
   align-items: center;
   justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
   flex-shrink: 0;
 }
 
-.skill-chip-icon :deep(svg) {
-  width: 1.1rem;
-  height: 1.1rem;
+.skill-item-icon :deep(svg) {
+  width: 1.1em;
+  height: 1.1em;
 }
 
-/* Chip swap: leaving chip fades out in place, the new one rises in, the rest slide over */
-.chip-enter-active,
-.chip-leave-active,
-.chip-move {
-  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.35s ease;
-}
-.chip-leave-active { position: absolute; }
-.chip-enter-from {
-  opacity: 0;
-  transform: translateY(0.6rem);
-  filter: blur(6px);
-}
-.chip-leave-to {
-  opacity: 0;
-  transform: translateY(-0.6rem);
-  filter: blur(6px);
+.skill-item-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #0d0d0d;
 }
 
 .skills-more {
@@ -605,7 +587,7 @@ html.dark .roles-tick.is-active { background: #fafafa; }
 .skills-more:hover { color: #0d0d0d; }
 
 html.dark .skills-eyebrow { color: rgba(244, 244, 245, 0.5); }
-html.dark .skill-chip { color: #fafafa; }
+html.dark .skill-item-name { color: #fafafa; }
 html.dark .skills-more { color: rgba(244, 244, 245, 0.55); }
 html.dark .skills-more:hover { color: #fafafa; }
 
@@ -752,8 +734,6 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
     align-items: flex-start;
   }
 
-  .skills-row { justify-content: flex-start; }
-
 }
 
 /* ── Entrance ── */
@@ -813,13 +793,8 @@ html.dark .scroll-cue-track { background: rgba(255, 255, 255, 0.16); }
   }
   .social-pill:hover { transform: none; }
   .role-swap-enter-active,
-  .role-swap-leave-active,
-  .chip-enter-active,
-  .chip-leave-active { transition: opacity 0.2s ease; }
-  .chip-move { transition: none; }
+  .role-swap-leave-active { transition: opacity 0.2s ease; }
   .role-swap-enter-from,
-  .role-swap-leave-to,
-  .chip-enter-from,
-  .chip-leave-to { transform: none; filter: none; }
+  .role-swap-leave-to { transform: none; filter: none; }
 }
 </style>
