@@ -10,61 +10,34 @@
         <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gray-200 dark:bg-gray-800 rounded-full hidden md:block timeline-line"></div>
         <div class="absolute left-6 top-0 bottom-0 w-1 bg-gray-200 dark:bg-gray-800 rounded-full md:hidden timeline-line"></div>
 
-        <!-- START -->
+        <!-- PRESENT (most recent first) -->
         <div class="flex justify-center mb-12 relative z-10 timeline-step timeline-step-start">
-          <div class="glass-capsule text-primary dark:text-white font-bold text-lg">
-            {{ t('workExperience.start') }}
-          </div>
-        </div>
-
-        <!-- IT Solutions -->
-        <div class="relative flex flex-col md:flex-row items-start mb-16 timeline-step timeline-step-1">
-          <div class="hidden md:block w-1/2"></div>
-          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
-            <div class="w-5 h-5 rounded-full bg-blue-500 border-4 border-white dark:border-primary shadow-lg"></div>
-          </div>
-          <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12">
-            <div class="relative glass-card glass-card-blue">
-              <div class="hidden md:block absolute left-0 top-1/2 -translate-x-full w-8 border-t-2 border-dashed border-blue-400 glass-connector"></div>
-              <span class="text-primary dark:text-white text-4xl md:text-5xl font-bold">2024</span>
-              <div class="absolute -right-4 -top-4 w-14 h-14 rounded-full glass-icon glass-icon-blue flex items-center justify-center hidden md:flex">
-                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-primary dark:text-white mt-2">{{ t('workExperience.internship.role') }}</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">{{ t('workExperience.internship.period') }}</p>
-              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                {{ t('workExperience.internship.description') }}
-              </p>
-              <div class="flex flex-wrap gap-2 mt-3">
-                <span class="glass-pill glass-pill-blue">Laravel</span>
-                <span class="glass-pill glass-pill-blue">Vue.js</span>
-                <span class="glass-pill glass-pill-blue">Vuetify</span>
-                <span class="glass-pill glass-pill-blue">Tailwind CSS</span>
-                <span class="glass-pill glass-pill-blue">Chart.js</span>
-              </div>
-            </div>
+          <div class="glass-capsule text-emerald-600 dark:text-emerald-400 font-bold text-lg">
+            {{ t('workExperience.present') }}
           </div>
         </div>
 
         <!-- Vehabooking -->
-        <div class="relative flex flex-col md:flex-row items-start mb-16 timeline-step timeline-step-2">
-          <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+        <div class="relative flex flex-col md:flex-row items-start mb-16 timeline-step timeline-step-1">
+          <div class="hidden md:block w-1/2"></div>
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
+            <div class="w-5 h-5 rounded-full bg-green-500 border-4 border-white dark:border-primary shadow-lg"></div>
+          </div>
+          <div class="ml-16 md:ml-0 md:w-1/2 md:pl-12">
             <div class="relative glass-card glass-card-green">
-              <div class="hidden md:block absolute right-0 top-1/2 translate-x-full w-8 border-t-2 border-dashed border-green-400 glass-connector"></div>
-              <div class="absolute -right-4 md:right-auto md:-left-4 -top-4 w-14 h-14 rounded-full glass-icon glass-icon-green flex items-center justify-center hidden md:flex">
+              <div class="hidden md:block absolute left-0 top-1/2 -translate-x-full w-8 border-t-2 border-dashed border-green-400 glass-connector"></div>
+              <span class="text-primary dark:text-white text-4xl md:text-5xl font-bold">2024 - 2026</span>
+              <div class="absolute -right-4 -top-4 w-14 h-14 rounded-full glass-icon glass-icon-green flex items-center justify-center hidden md:flex">
                 <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <span class="text-primary dark:text-white text-4xl md:text-5xl font-bold">2024 - 2026</span>
               <h3 class="text-xl font-bold text-primary dark:text-white mt-2">{{ t('workExperience.staff.role') }}</h3>
               <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">{{ t('workExperience.staff.period') }}</p>
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 {{ t('workExperience.staff.description') }}
               </p>
-              <div class="flex flex-wrap gap-2 mt-3 md:justify-end">
+              <div class="flex flex-wrap gap-2 mt-3">
                 <span class="glass-pill glass-pill-green">Vue.js</span>
                 <span class="glass-pill glass-pill-green">Nuxt.js</span>
                 <span class="glass-pill glass-pill-green">Shadcn Vue</span>
@@ -75,16 +48,43 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- IT Solutions -->
+        <div class="relative flex flex-col md:flex-row items-start mb-16 timeline-step timeline-step-2">
+          <div class="ml-16 md:ml-0 md:w-1/2 md:pr-12 md:text-right">
+            <div class="relative glass-card glass-card-blue">
+              <div class="hidden md:block absolute right-0 top-1/2 translate-x-full w-8 border-t-2 border-dashed border-blue-400 glass-connector"></div>
+              <div class="absolute -right-4 md:right-auto md:-left-4 -top-4 w-14 h-14 rounded-full glass-icon glass-icon-blue flex items-center justify-center hidden md:flex">
+                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span class="text-primary dark:text-white text-4xl md:text-5xl font-bold">2024</span>
+              <h3 class="text-xl font-bold text-primary dark:text-white mt-2">{{ t('workExperience.internship.role') }}</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">{{ t('workExperience.internship.period') }}</p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                {{ t('workExperience.internship.description') }}
+              </p>
+              <div class="flex flex-wrap gap-2 mt-3 md:justify-end">
+                <span class="glass-pill glass-pill-blue">Laravel</span>
+                <span class="glass-pill glass-pill-blue">Vue.js</span>
+                <span class="glass-pill glass-pill-blue">Vuetify</span>
+                <span class="glass-pill glass-pill-blue">Tailwind CSS</span>
+                <span class="glass-pill glass-pill-blue">Chart.js</span>
+              </div>
+            </div>
+          </div>
           <div class="hidden md:block w-1/2"></div>
           <div class="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
-            <div class="w-5 h-5 rounded-full bg-green-500 border-4 border-white dark:border-primary shadow-lg"></div>
+            <div class="w-5 h-5 rounded-full bg-blue-500 border-4 border-white dark:border-primary shadow-lg"></div>
           </div>
         </div>
 
-        <!-- PRESENT -->
+        <!-- START (where it began) -->
         <div class="flex justify-center mt-6 relative z-10 timeline-step timeline-step-end">
-          <div class="glass-capsule text-emerald-600 dark:text-emerald-400 font-bold text-lg">
-            {{ t('workExperience.present') }}
+          <div class="glass-capsule text-primary dark:text-white font-bold text-lg">
+            {{ t('workExperience.start') }}
           </div>
         </div>
       </div>
