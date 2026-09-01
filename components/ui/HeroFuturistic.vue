@@ -31,7 +31,6 @@
       <!-- Portrait, overlapping the name -->
       <div class="hero-portrait" :style="{ animationDelay: '0.34s' }">
         <span class="portrait-glow" aria-hidden="true"></span>
-        <span class="portrait-shade" aria-hidden="true"></span>
         <img
           src="/images/koeuk-profile.png"
           :alt="personalInfo.name"
@@ -401,25 +400,6 @@ html.dark .portrait-glow {
   );
 }
 
-/* Black shade under the suit so the photo's dark edges blend into it */
-.portrait-shade {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  bottom: -2%;
-  width: 96%;
-  height: 30%;
-  transform: translateX(-50%);
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  background: linear-gradient(
-    180deg,
-    rgba(13, 13, 13, 0) 0%,
-    rgba(13, 13, 13, 0.5) 45%,
-    rgba(13, 13, 13, 0.92) 100%
-  );
-  filter: blur(16px);
-}
-
 .portrait-img {
   position: relative;
   z-index: 1;
@@ -428,13 +408,6 @@ html.dark .portrait-glow {
   object-fit: contain;
   object-position: bottom center;
   user-select: none;
-  /* Fade the photo's hard bottom and side edges into the page */
-  -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%),
-    linear-gradient(90deg, transparent 9%, #000 26%, #000 74%, transparent 91%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(180deg, #000 82%, transparent 100%),
-    linear-gradient(90deg, transparent 9%, #000 26%, #000 74%, transparent 91%);
-  mask-composite: intersect;
   animation: portrait-float 6.5s ease-in-out infinite;
 }
 
