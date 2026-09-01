@@ -125,7 +125,7 @@
               ? 'text-white dark:text-primary'
               : 'text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white'">
             <span class="relative z-10 flex items-center gap-2">
-              <span>{{ tab.icon }}</span>
+              <span class="w-4 h-4 inline-flex items-center justify-center [&>svg]:w-full [&>svg]:h-full" v-html="tab.icon"></span>
               {{ t(tab.label) }}
             </span>
             <span v-if="activeTab === tab.key"
@@ -164,10 +164,16 @@ const socialLinks = [
   { label: 'Facebook', href: personalInfo.facebook, handle: '@koeuk25', icon: socialIcons.facebook },
 ]
 
+const tabIcons = {
+  read: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+  blog: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>`,
+  github: socialIcons.github,
+}
+
 const tabs = [
-  { key: 'rean', label: 'nav.readMore', icon: '📖' },
-  { key: 'blog', label: 'nav.blog', icon: '📝' },
-  { key: 'github', label: 'nav.github', icon: '🐙' },
+  { key: 'rean', label: 'nav.readMore', icon: tabIcons.read },
+  { key: 'blog', label: 'nav.blog', icon: tabIcons.blog },
+  { key: 'github', label: 'nav.github', icon: tabIcons.github },
 ] as const
 
 type TabKey = typeof tabs[number]['key']
