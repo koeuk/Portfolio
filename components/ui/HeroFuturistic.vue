@@ -699,7 +699,7 @@ const socials = [
   .hero-copy {
     flex: 0 1 50%;
     max-width: 38rem;
-    padding-bottom: 4.75rem;
+    padding-bottom: 5.75rem;
   }
 
   .hero-blurb {
