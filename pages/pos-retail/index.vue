@@ -205,7 +205,6 @@ const galleries: Gallery[] = [
     title: 'Point of Sale',
     description: 'The till: search or scan, pack-size prices, cart, and the three ways a sale can end — paid, on a customer tab, or taken for yourself.',
     shots: [
-      { file: 10, caption: 'Product grid with cart, category filter and online status' },
       { file: 8, caption: 'Putting a sale in debt — pick the customer who owes it' },
       { file: 9, caption: 'Partial payment now, the rest stays on the tab' },
       { file: 7, caption: 'Order history from every till, with debt badges' },
@@ -287,7 +286,7 @@ const stats = [
   { value: '3', label: 'Roles: Admin, Manager, Cashier' },
   { value: 'KHR / USD', label: 'Dual currency display' },
   { value: 'Offline', label: 'Sales queue and sync' },
-  { value: '14', label: 'Screenshots' },
+  { value: '13', label: 'Screenshots' },
 ]
 
 const features = [
