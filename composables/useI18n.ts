@@ -118,9 +118,9 @@ const translations: Translations = {
   "hero.roles.backend": { en: "Backend Developer", km: "អ្នកអភិវឌ្ឍ Backend", zh: "后端开发者" },
   "hero.roles.fullstack": { en: "Junior Full-Stack Developer", km: "អ្នកអភិវឌ្ឍ Full-Stack កម្រិតដំបូង", zh: "初级全栈开发者" },
   "hero.blurb": {
-    en: "I'm a web developer with over a year of experience building web applications using Laravel and Vue.js. Right now, I'm studying Software Engineering at BELTEI (Year 4). I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
-    km: "ខ្ញុំជាអ្នកអភិវឌ្ឍវេបសាយ មានបទពិសោធន៍ជាងមួយឆ្នាំក្នុងការបង្កើតកម្មវិធីវេបសាយដោយប្រើ Laravel និង Vue.js។ បច្ចុប្បន្នខ្ញុំកំពុងសិក្សាផ្នែកវិស្វកម្មសូហ្វវែរនៅ BELTEI (ឆ្នាំទី4)។ ខ្ញុំចូលចិត្តបង្កើតប្រព័ន្ធដែលងាយស្រួលប្រើ និងដំណើរការល្អ ហើយខ្ញុំតែងតែព្យាយាមអភិវឌ្ឍជំនាញ និងរៀនបច្ចេកវិទ្យាថ្មីៗ។",
-    zh: "我是一名网页开发者，拥有一年多使用 Laravel 和 Vue.js 构建网页应用的经验。目前我在 BELTEI 攻读软件工程（四年级）。我喜欢创建易用且运行良好的系统，并一直努力提升技能、学习新技术。",
+    en: "I'm a web developer with over a year of experience building web applications using Laravel and Vue.js. I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
+    km: "ខ្ញុំជាអ្នកអភិវឌ្ឍវេបសាយ មានបទពិសោធន៍ជាងមួយឆ្នាំក្នុងការបង្កើតកម្មវិធីវេបសាយដោយប្រើ Laravel និង Vue.js។ ខ្ញុំចូលចិត្តបង្កើតប្រព័ន្ធដែលងាយស្រួលប្រើ និងដំណើរការល្អ ហើយខ្ញុំតែងតែព្យាយាមអភិវឌ្ឍជំនាញ និងរៀនបច្ចេកវិទ្យាថ្មីៗ។",
+    zh: "我是一名网页开发者，拥有一年多使用 Laravel 和 Vue.js 构建网页应用的经验。我喜欢创建易用且运行良好的系统，并一直努力提升技能、学习新技术。",
   },
 
   // Work Experience

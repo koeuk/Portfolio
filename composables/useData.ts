@@ -55,7 +55,7 @@ export const useData = () => {
     linkedin: "https://www.linkedin.com/in/koeuk-kos-130482299/",
     telegram: "https://t.me/koeuk24",
     facebook: "https://www.facebook.com/koeuk25/",
-    bio: "I'm a web developer based in Phnom Penh with over a year of experience building web applications using Laravel and Vue.js. Right now, I'm studying Software Engineering at BELTEI (Year 4). I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
+    bio: "I'm a web developer based in Phnom Penh with over a year of experience building web applications using Laravel and Vue.js. I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
   };
 
   const projects: Project[] = [
