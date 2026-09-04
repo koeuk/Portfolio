@@ -635,6 +635,21 @@ const translations: Translations = {
     km: "វេទិកាកក់សណ្ឋាគារពេញលក្ខណៈ ជាមួយការរុករកសម្រាប់ភ្ញៀវ ការពិនិត្យបន្ទប់ទំនេរ ការទូទាត់ ប្រព័ន្ធគូប៉ុង ការវាយតម្លៃ និងផ្ទាំងគ្រប់គ្រងរដ្ឋបាលពេញលេញ។",
     zh: "功能齐全的酒店预订和管理平台，具有客户浏览、房间可用性、支付处理、优惠券系统、评论和完整的管理仪表板。",
   },
+  "experience.4.role": {
+    en: "POS Retail",
+    km: "POS Retail",
+    zh: "POS Retail",
+  },
+  "experience.4.company": {
+    en: "Offline-first Point of Sale",
+    km: "ប្រព័ន្ធលក់ដែលដំណើរការដោយគ្មានអ៊ីនធឺណិត",
+    zh: "离线优先的销售点系统",
+  },
+  "experience.4.description": {
+    en: "An offline-first point-of-sale and back-office for a Cambodian retail shop. Riel-native pricing, pack sizes sold as one product, customer debt tabs, a public QR menu, and per-store stock.",
+    km: "ប្រព័ន្ធលក់ និងគ្រប់គ្រងហាងលក់រាយនៅកម្ពុជា ដែលដំណើរការបានទោះគ្មានអ៊ីនធឺណិត។ តម្លៃជាប្រាក់រៀល ទំហំកញ្ចប់ (កំប៉ុង/កេស) ក្នុងផលិតផលតែមួយ បញ្ជីជំពាក់របស់អតិថិជន ម៉ឺនុយ QR សាធារណៈ និងស្តុកតាមហាងនីមួយៗ។",
+    zh: "面向柬埔寨零售店的离线优先销售点与后台系统。支持瑞尔本币定价、包装规格（罐/六连包/整箱）作为同一商品销售、客户赊账、公开二维码菜单以及按门店管理库存。",
+  },
 
   // About
   "about.title": { en: "About Me", km: "អំពីខ្ញុំ", zh: "关于我" },

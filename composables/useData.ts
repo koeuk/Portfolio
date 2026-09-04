@@ -30,6 +30,9 @@ export interface Experience {
   period: string;
   description: string;
   technologies: string[];
+  /** Dedicated page for this project; defaults to /experience/:id */
+  path?: string;
+  githubUrl?: string;
   images?: string[];
   categories?: {
     id: string;
@@ -303,7 +306,19 @@ export const useData = () => {
       period: "2025 - 2026",
       description: "A full-featured hotel booking and management platform with guest browsing, room availability, payment processing, coupon system, reviews, and a complete admin dashboard with analytics and reports.",
       technologies: ["Laravel 12", "React 18", "Inertia.js", "Tailwind CSS", "Shadcn UI", "MySQL"],
+      path: "/hotel-booking",
       images: Array.from({ length: 39 }, (_, i) => `/images/hotel-booking/${i + 1}.png`),
+    },
+    {
+      id: "4",
+      role: "POS Retail",
+      company: "Offline-first Point of Sale",
+      period: "2026",
+      description: "An offline-first point-of-sale and back-office for a Cambodian retail shop. Riel-native pricing, pack sizes (can / six-pack / case sold as one product), customer debt tabs, a public QR menu, and per-store stock.",
+      technologies: ["Laravel 12", "Vue 3", "TypeScript", "Inertia.js", "Shadcn UI", "Tailwind CSS", "MySQL"],
+      path: "/pos-retail",
+      githubUrl: "https://github.com/koeuk/POS-retail",
+      images: Array.from({ length: 14 }, (_, i) => `/images/pos-retail/${i + 1}.png`),
     },
   ];
 

@@ -28,7 +28,7 @@
             :class="index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'"
           >
             <NuxtLink
-              :to="`/experience/${experience.id}`"
+              :to="experience.path ?? `/experience/${experience.id}`"
               class="group card block p-8 border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-500 hover:-translate-y-2"
             >
               <div class="mb-6 flex justify-between items-start">
