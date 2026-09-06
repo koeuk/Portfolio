@@ -107,7 +107,7 @@
             </svg>
             <span>{{ t('hero.viewCv') }}</span>
           </button>
-          <VisitorCount />
+          <ViewCount />
         </div>
       </div>
 

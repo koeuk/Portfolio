@@ -1,9 +1,9 @@
 <template>
   <Transition name="visitor-appear">
-    <p v-if="visitors !== null" class="visitor-badge" :title="t('hero.visitorsTitle')">
+    <p v-if="views !== null" class="visitor-badge" :title="t('hero.viewsTitle')">
       <span class="visitor-dot" aria-hidden="true"></span>
       <span class="visitor-count">{{ formatted }}</span>
-      <span class="visitor-label">{{ t(visitors === 1 ? 'hero.visitor' : 'hero.visitors') }}</span>
+      <span class="visitor-label">{{ t(views === 1 ? 'hero.view' : 'hero.views') }}</span>
     </p>
   </Transition>
 </template>
@@ -11,40 +11,52 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const visitors = ref<number | null>(null)
-const formatted = computed(() => visitors.value?.toLocaleString('en-US') ?? '')
+const views = ref<number | null>(null)
+const formatted = computed(() => views.value?.toLocaleString('en-US') ?? '')
 
-// Marks this browser as counted, so refreshes read the total instead of adding to it.
-const COUNTED_KEY = 'koeuk:counted'
+/**
+ * Marks this visit as counted. sessionStorage rather than localStorage is the
+ * whole point: the flag dies with the tab, so hammering refresh adds nothing,
+ * but coming back to the site later counts as another view.
+ */
+const COUNTED_KEY = 'koeuk:viewed'
 
 function alreadyCounted() {
   try {
-    return localStorage.getItem(COUNTED_KEY) === '1'
+    return sessionStorage.getItem(COUNTED_KEY) === '1'
   } catch {
-    // Storage can be blocked outright; treat that as a first visit.
+    // Storage can be blocked outright; treat that as a fresh view.
     return false
   }
 }
 
 function rememberCounted() {
   try {
-    localStorage.setItem(COUNTED_KEY, '1')
+    sessionStorage.setItem(COUNTED_KEY, '1')
   } catch {
-    // Nothing to do — the visit still counted, it just cannot be remembered.
+    // Nothing to do — the view still counted, it just cannot be remembered.
   }
+}
+
+async function ask(method: 'GET' | 'POST') {
+  const result = await $fetch<{ views: number | null }>('/api/views', { method })
+  return typeof result?.views === 'number' && result.views > 0 ? result.views : null
 }
 
 onMounted(async () => {
   const counted = alreadyCounted()
 
   try {
-    const result = await $fetch<{ visitors: number | null }>('/api/views', {
-      method: counted ? 'GET' : 'POST',
-    })
+    let total = await ask(counted ? 'GET' : 'POST')
 
-    if (typeof result?.visitors === 'number' && result.visitors > 0) {
-      visitors.value = result.visitors
-      if (!counted) rememberCounted()
+    // An empty counter means it was reset since this browser was last counted,
+    // so the flag is stale — count again rather than reading an empty total
+    // forever, which would leave the badge hidden until a new visitor arrived.
+    if (counted && total === null) total = await ask('POST')
+
+    if (total !== null) {
+      views.value = total
+      rememberCounted()
     }
   } catch {
     // The counter is decorative — if it cannot be read, the badge never appears.

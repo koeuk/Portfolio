@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     // Visitor counter on abacus.jasoncameron.dev. Server-only, so the key never
     // reaches the browser; override with NUXT_VISITOR_COUNTER_* to reset the count.
     visitorCounterNamespace: 'koeuk-site-b7f3ac91',
-    visitorCounterKey: 'live-2026',
+    visitorCounterKey: 'views-live',
     public: {
       web3formsKey: ''
     }

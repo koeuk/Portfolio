@@ -1,13 +1,14 @@
 /**
- * Unique-visitor counter.
+ * Page-view counter.
  *
  * The total lives on Abacus (abacus.jasoncameron.dev), a free no-account counter,
  * so the portfolio needs no database of its own. The call is proxied through this
  * route rather than made from the browser: visitors never talk to a third party,
  * and the counter key stays out of the shipped JavaScript.
  *
- * Uniqueness is decided by the browser — VisitorCount.vue remembers that it has
- * already been counted and then asks to read (GET) instead of increment (POST).
+ * ViewCount.vue decides what counts as a view: it marks the tab once counted and
+ * then asks to read (GET) instead of increment (POST), so refreshes add nothing
+ * while a later return visit counts again.
  */
 
 // Crawlers and link unfurlers may read the number, but never add to it.
@@ -16,7 +17,7 @@ const BOT_PATTERN = /bot|crawl|spider|slurp|preview|facebookexternalhit|lighthou
 const COUNTER_ORIGIN = 'https://abacus.jasoncameron.dev'
 
 interface ViewsResponse {
-  visitors: number | null
+  views: number | null
 }
 
 // A counter nobody has hit yet does not exist, which is a 404 rather than a fault.
@@ -26,10 +27,13 @@ function isMissingCounter(error: unknown) {
 
 export default defineEventHandler(async (event): Promise<ViewsResponse> => {
   const { visitorCounterNamespace: namespace, visitorCounterKey: key } = useRuntimeConfig(event)
-  if (!namespace || !key) return { visitors: null }
+  if (!namespace || !key) return { views: null }
 
   const agent = getRequestHeader(event, 'user-agent') || ''
-  const shouldIncrement = event.method === 'POST' && !BOT_PATTERN.test(agent)
+
+  // Local development reads the live number but never adds to it, so working on
+  // the site does not inflate the count real visitors see.
+  const shouldIncrement = event.method === 'POST' && !BOT_PATTERN.test(agent) && !import.meta.dev
   const action = shouldIncrement ? 'hit' : 'get'
 
   try {
@@ -37,12 +41,12 @@ export default defineEventHandler(async (event): Promise<ViewsResponse> => {
       timeout: 4000,
     })
 
-    const visitors = Number(reply?.value)
-    return { visitors: Number.isFinite(visitors) ? visitors : null }
+    const views = Number(reply?.value)
+    return { views: Number.isFinite(views) ? views : null }
   } catch (error) {
     if (!isMissingCounter(error)) console.error('[views] counter unavailable:', error)
 
     // Null keeps the badge hidden rather than showing a number that is not real.
-    return { visitors: null }
+    return { views: null }
   }
 })

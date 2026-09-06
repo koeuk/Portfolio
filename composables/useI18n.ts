@@ -107,12 +107,12 @@ const translations: Translations = {
   "hero.rolesEyebrow": { en: "What I do", km: "អ្វីដែលខ្ញុំធ្វើ", zh: "我的工作" },
   "hero.skillsEyebrow": { en: "Tech stack", km: "បច្ចេកវិទ្យាដែលប្រើ", zh: "技术栈" },
   "hero.skillsMore": { en: "more skills", km: "ជំនាញទៀត", zh: "项更多技能" },
-  "hero.visitor": { en: "visitor", km: "អ្នកទស្សនា", zh: "位访客" },
-  "hero.visitors": { en: "visitors", km: "អ្នកទស្សនា", zh: "位访客" },
-  "hero.visitorsTitle": {
-    en: "Unique visitors to this portfolio",
-    km: "អ្នកទស្សនាផ្សេងៗគ្នាមកកាន់ផតហ្វូលីយ៉ូនេះ",
-    zh: "本作品集的独立访客数",
+  "hero.view": { en: "view", km: "ការមើល", zh: "次浏览" },
+  "hero.views": { en: "views", km: "ការមើល", zh: "次浏览" },
+  "hero.viewsTitle": {
+    en: "Times this portfolio has been viewed",
+    km: "ចំនួនដងដែលផតហ្វូលីយ៉ូនេះត្រូវបានមើល",
+    zh: "本作品集被浏览的次数",
   },
   "hero.viewCv": { en: "View my CV", km: "មើល CV របស់ខ្ញុំ", zh: "查看我的简历" },
   "cv.eyebrow": { en: "Curriculum Vitae", km: "ប្រវត្តិរូបសង្ខេប", zh: "个人简历" },
