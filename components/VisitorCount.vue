@@ -3,7 +3,7 @@
     <p v-if="visitors !== null" class="visitor-badge" :title="t('hero.visitorsTitle')">
       <span class="visitor-dot" aria-hidden="true"></span>
       <span class="visitor-count">{{ formatted }}</span>
-      <span class="visitor-label">{{ t('hero.visitors') }}</span>
+      <span class="visitor-label">{{ t(visitors === 1 ? 'hero.visitor' : 'hero.visitors') }}</span>
     </p>
   </Transition>
 </template>

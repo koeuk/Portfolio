@@ -107,6 +107,7 @@ const translations: Translations = {
   "hero.rolesEyebrow": { en: "What I do", km: "អ្វីដែលខ្ញុំធ្វើ", zh: "我的工作" },
   "hero.skillsEyebrow": { en: "Tech stack", km: "បច្ចេកវិទ្យាដែលប្រើ", zh: "技术栈" },
   "hero.skillsMore": { en: "more skills", km: "ជំនាញទៀត", zh: "项更多技能" },
+  "hero.visitor": { en: "visitor", km: "អ្នកទស្សនា", zh: "位访客" },
   "hero.visitors": { en: "visitors", km: "អ្នកទស្សនា", zh: "位访客" },
   "hero.visitorsTitle": {
     en: "Unique visitors to this portfolio",
