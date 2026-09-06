@@ -24,9 +24,10 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
-    // Server-only; Vercel's Upstash integration also injects UPSTASH_REDIS_REST_*
-    upstashRedisUrl: '',
-    upstashRedisToken: '',
+    // Visitor counter on abacus.jasoncameron.dev. Server-only, so the key never
+    // reaches the browser; override with NUXT_VISITOR_COUNTER_* to reset the count.
+    visitorCounterNamespace: 'koeuk-site-b7f3ac91',
+    visitorCounterKey: 'visitors',
     public: {
       web3formsKey: ''
     }

@@ -14,12 +14,38 @@ const { t } = useI18n()
 const visitors = ref<number | null>(null)
 const formatted = computed(() => visitors.value?.toLocaleString('en-US') ?? '')
 
-// Client-only: the request both registers this visit and returns the new total,
-// so one round trip does the whole job.
-onMounted(async () => {
+// Marks this browser as counted, so refreshes read the total instead of adding to it.
+const COUNTED_KEY = 'koeuk:counted'
+
+function alreadyCounted() {
   try {
-    const result = await $fetch<{ visitors: number | null }>('/api/views', { method: 'POST' })
-    if (typeof result?.visitors === 'number') visitors.value = result.visitors
+    return localStorage.getItem(COUNTED_KEY) === '1'
+  } catch {
+    // Storage can be blocked outright; treat that as a first visit.
+    return false
+  }
+}
+
+function rememberCounted() {
+  try {
+    localStorage.setItem(COUNTED_KEY, '1')
+  } catch {
+    // Nothing to do — the visit still counted, it just cannot be remembered.
+  }
+}
+
+onMounted(async () => {
+  const counted = alreadyCounted()
+
+  try {
+    const result = await $fetch<{ visitors: number | null }>('/api/views', {
+      method: counted ? 'GET' : 'POST',
+    })
+
+    if (typeof result?.visitors === 'number' && result.visitors > 0) {
+      visitors.value = result.visitors
+      if (!counted) rememberCounted()
+    }
   } catch {
     // The counter is decorative — if it cannot be read, the badge never appears.
   }
