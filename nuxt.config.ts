@@ -24,6 +24,9 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
+    // Server-only; Vercel's Upstash integration also injects UPSTASH_REDIS_REST_*
+    upstashRedisUrl: '',
+    upstashRedisToken: '',
     public: {
       web3formsKey: ''
     }

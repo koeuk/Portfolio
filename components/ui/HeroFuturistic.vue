@@ -78,21 +78,23 @@
           </a>
         </div>
 
-        <!-- Socials -->
-        <nav class="hero-socials" aria-label="Social links">
-          <a
-            v-for="(social, index) in socials"
-            :key="social.label"
-            :href="social.href"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            :aria-label="social.label"
-            :title="social.label"
-            :style="{ animationDelay: `${0.78 + index * 0.06}s` }"
-          >
-            <span class="social-icon" v-html="social.icon"></span>
-          </a>
+        <!-- Socials, CV and visitor count -->
+        <div class="hero-actions">
+          <nav class="hero-socials" aria-label="Social links">
+            <a
+              v-for="(social, index) in socials"
+              :key="social.label"
+              :href="social.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              :aria-label="social.label"
+              :title="social.label"
+              :style="{ animationDelay: `${0.78 + index * 0.06}s` }"
+            >
+              <span class="social-icon" v-html="social.icon"></span>
+            </a>
+          </nav>
           <button
             type="button"
             class="cv-button"
@@ -105,7 +107,8 @@
             </svg>
             <span>{{ t('hero.viewCv') }}</span>
           </button>
-        </nav>
+          <VisitorCount />
+        </div>
       </div>
 
       <!-- ── Right: portrait ── -->
@@ -545,11 +548,17 @@ const socials = [
 }
 
 /* ── Socials ── */
-.hero-socials {
+.hero-actions {
   margin-top: 1.5rem;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-socials {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -582,7 +591,6 @@ const socials = [
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-left: 0.5rem;
   height: 2.35rem;
   padding: 0 1rem 0 0.85rem;
   border-radius: 9999px;
