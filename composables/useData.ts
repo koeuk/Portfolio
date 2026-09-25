@@ -379,11 +379,23 @@ export const useData = () => {
     },
   ];
 
+  // Newest first: ongoing ("Present") projects lead, then by end year, start year,
+  // and finally the most recently added (highest id) within the same years.
+  const years = (period: string) => {
+    const [start, end = start] = period.split("-").map(part => part.trim());
+    return { start: Number(start), end: end === "Present" ? Infinity : Number(end) };
+  };
+  const sortedExperiences = [...experiences].sort((a, b) => {
+    const ya = years(a.period);
+    const yb = years(b.period);
+    return yb.end - ya.end || yb.start - ya.start || Number(b.id) - Number(a.id);
+  });
+
   return {
     personalInfo,
     projects,
     skills,
-    experiences,
+    experiences: sortedExperiences,
     badges,
     socials,
   };

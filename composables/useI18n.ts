@@ -149,9 +149,9 @@ const translations: Translations = {
     zh: "2024年8月 - 2024年12月",
   },
   "workExperience.internship.description": {
-    en: "Gained hands-on experience in full-stack web development, working with modern frameworks and tools. Collaborated with the development team on client projects, contributed to frontend and backend features, and learned professional software development workflows.",
-    km: "ទទួលបានបទពិសោធន៍ផ្ទាល់ក្នុងការអភិវឌ្ឍវេបសាយ full-stack ដោយប្រើ framework និងឧបករណ៍ទំនើបៗ។ សហការជាមួយក្រុមអភិវឌ្ឍន៍លើគម្រោងអតិថិជន រួមចំណែកលើមុខងារ frontend និង backend និងរៀនពីលំហូរការងារអភិវឌ្ឍន៍កម្មវិធីប្រកបដោយវិជ្ជាជីវៈ។",
-    zh: "获得了全栈网页开发的实践经验，使用现代框架和工具。与开发团队合作完成客户项目，参与前端和后端功能开发，并学习了专业的软件开发流程。",
+    en: "Frontend intern. Built UI pages and reusable components with Vue.js and Tailwind CSS, turned designs into responsive layouts that work on mobile and desktop, connected screens to backend APIs, and fixed UI bugs while learning the team's Git workflow.",
+    km: "កម្មសិក្សាផ្នែក Frontend។ បង្កើតទំព័រ UI និង components ដែលប្រើឡើងវិញបាន ដោយប្រើ Vue.js និង Tailwind CSS បំលែងការរចនាទៅជា layout ដែល responsive សម្រាប់ទូរស័ព្ទ និងកុំព្យូទ័រ ភ្ជាប់ទំព័រទៅនឹង backend APIs និងជួសជុលបញ្ហា UI ព្រមទាំងរៀនលំហូរការងារ Git របស់ក្រុម។",
+    zh: "前端实习生。使用 Vue.js 和 Tailwind CSS 构建 UI 页面和可复用组件，将设计稿实现为适配手机和桌面的响应式布局，对接后端 API，修复界面问题，并学习团队的 Git 工作流程。",
   },
   "workExperience.staff.role": {
     en: "Staff",
@@ -164,9 +164,9 @@ const translations: Translations = {
     zh: "2024年12月 - 至今",
   },
   "workExperience.staff.description": {
-    en: "Worked on Innovation Lab Hotel Booking platform, developing responsive UI components and integrating booking APIs. Gained experience in real-world product development, agile workflows, and building user-friendly interfaces for the hospitality industry.",
-    km: "ធ្វើការលើវេទិកា Hotel Booking របស់ Innovation Lab ដោយអភិវឌ្ឍ UI components ដែល responsive និងភ្ជាប់ booking APIs។ ទទួលបានបទពិសោធន៍ក្នុងការអភិវឌ្ឍផលិតផលពិត លំហូរការងារ agile និងការបង្កើតចំណុចប្រទាក់ងាយស្រួលប្រើសម្រាប់វិស័យបដិសណ្ឋារកិច្ច។",
-    zh: "参与 Innovation Lab 酒店预订平台的开发，构建响应式 UI 组件并集成预订 API。积累了真实产品开发、敏捷工作流程以及为酒店行业打造用户友好界面的经验。",
+    en: "Full-stack developer on VehaBooking, Innovation Lab's travel booking platform. I build the vendor portal (Nuxt 3, shadcn-vue, Tailwind CSS) where vendors manage tours, event tickets, transport timetables, fleet, bookings and reviews, and made it mobile-first so it also runs inside Telegram. On the Laravel and Vue admin I built dashboard analytics, review replies and login security.",
+    km: "អ្នកអភិវឌ្ឍ Full-stack លើ VehaBooking ដែលជាវេទិកាកក់ការធ្វើដំណើររបស់ Innovation Lab។ ខ្ញុំបង្កើត vendor portal (Nuxt 3, shadcn-vue, Tailwind CSS) ដែលអ្នកលក់គ្រប់គ្រងដំណើរកម្សាន្ត សំបុត្រព្រឹត្តិការណ៍ កាលវិភាគដឹកជញ្ជូន យានយន្ត ការកក់ និងការវាយតម្លៃ ហើយរចនាឱ្យប្រើលើទូរស័ព្ទជាចម្បង និងដំណើរការក្នុង Telegram ផងដែរ។ នៅលើផ្ទាំងគ្រប់គ្រង Laravel និង Vue ខ្ញុំបានបង្កើតការវិភាគលើ dashboard ការឆ្លើយតបការវាយតម្លៃ និងសុវត្ថិភាពការចូលប្រើ។",
+    zh: "在 Innovation Lab 的旅游预订平台 VehaBooking 担任全栈开发。负责开发供应商门户（Nuxt 3、shadcn-vue、Tailwind CSS），供应商可在其中管理旅游产品、活动门票、交通时刻表、车队、订单和评价，并以移动端优先设计，同时可在 Telegram 内运行。在 Laravel 和 Vue 管理后台中，开发了仪表板数据分析、评价回复和登录安全功能。",
   },
   "skills.backHome": {
     en: "Back to Home",
