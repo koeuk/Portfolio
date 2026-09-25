@@ -12,7 +12,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Back to Projects
+            Back
           </NuxtLink>
           <div class="flex items-center gap-5 pt-4">
             <img src="/images/pos-retail/logo.jpg" alt="POS Retail logo" class="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover border border-white/10 shadow-lg flex-shrink-0" />

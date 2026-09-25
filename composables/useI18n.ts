@@ -663,6 +663,21 @@ const translations: Translations = {
     km: "ប្រព័ន្ធលក់ និងគ្រប់គ្រងហាងលក់រាយនៅកម្ពុជា ដែលដំណើរការបានទោះគ្មានអ៊ីនធឺណិត។ តម្លៃជាប្រាក់រៀល ទំហំកញ្ចប់ (កំប៉ុង/កេស) ក្នុងផលិតផលតែមួយ បញ្ជីជំពាក់របស់អតិថិជន ម៉ឺនុយ QR សាធារណៈ និងស្តុកតាមហាងនីមួយៗ។",
     zh: "面向柬埔寨零售店的离线优先销售点与后台系统。支持瑞尔本币定价、包装规格（罐/六连包/整箱）作为同一商品销售、客户赊账、公开二维码菜单以及按门店管理库存。",
   },
+  "experience.5.role": {
+    en: "Spendlog",
+    km: "Spendlog",
+    zh: "Spendlog",
+  },
+  "experience.5.company": {
+    en: "Personal Expense Tracker",
+    km: "កម្មវិធីតាមដានការចំណាយផ្ទាល់ខ្លួន",
+    zh: "个人记账应用",
+  },
+  "experience.5.description": {
+    en: "A personal finance tracker for expenses, income, budgets, savings and debts. One Laravel API behind three clients: a Vue web app, a Flutter app and a React Native (Expo) app, with dual USD/riel currency, recurring entries, reports exported to PDF/XLSX/CSV, and English and Khmer throughout.",
+    km: "កម្មវិធីគ្រប់គ្រងហិរញ្ញវត្ថុផ្ទាល់ខ្លួន សម្រាប់ការចំណាយ ចំណូល ថវិកា ការសន្សំ និងបំណុល។ API Laravel តែមួយសម្រាប់កម្មវិធីបី៖ កម្មវិធីវេប Vue កម្មវិធី Flutter និងកម្មវិធី React Native (Expo) ជាមួយរូបិយប័ណ្ណពីរ (ដុល្លារ/រៀល) ប្រតិបត្តិការដដែលៗ របាយការណ៍នាំចេញជា PDF/XLSX/CSV និងភាសាអង់គ្លេស និងខ្មែរ។",
+    zh: "管理支出、收入、预算、储蓄和借款的个人理财应用。一个 Laravel API 同时支撑三个客户端：Vue 网页端、Flutter 应用和 React Native (Expo) 应用，支持美元/瑞尔双币种、定期记账、报表导出为 PDF/XLSX/CSV，并全面支持英文和高棉文。",
+  },
 
   // About
   "about.title": { en: "About Me", km: "អំពីខ្ញុំ", zh: "关于我" },
