@@ -663,6 +663,17 @@ const translations: Translations = {
     km: "ប្រព័ន្ធលក់ និងគ្រប់គ្រងហាងលក់រាយនៅកម្ពុជា ដែលដំណើរការបានទោះគ្មានអ៊ីនធឺណិត។ តម្លៃជាប្រាក់រៀល ទំហំកញ្ចប់ (កំប៉ុង/កេស) ក្នុងផលិតផលតែមួយ បញ្ជីជំពាក់របស់អតិថិជន ម៉ឺនុយ QR សាធារណៈ និងស្តុកតាមហាងនីមួយៗ។",
     zh: "面向柬埔寨零售店的离线优先销售点与后台系统。支持瑞尔本币定价、包装规格（罐/六连包/整箱）作为同一商品销售、客户赊账、公开二维码菜单以及按门店管理库存。",
   },
+  "experience.demo.title": { en: "Demo account", km: "គណនីសាកល្បង", zh: "演示账号" },
+  "experience.demo.note": {
+    en: "Open the live demo and log in with this account to test the app and look around every page.",
+    km: "បើក Live Demo ហើយចូលប្រើដោយគណនីនេះ ដើម្បីសាកល្បងកម្មវិធី និងមើលគ្រប់ទំព័រ។",
+    zh: "打开在线演示，使用此账号登录即可体验应用并浏览所有页面。",
+  },
+  "experience.demo.email": { en: "Email", km: "អ៊ីមែល", zh: "邮箱" },
+  "experience.demo.password": { en: "Password", km: "ពាក្យសម្ងាត់", zh: "密码" },
+  "experience.demo.copy": { en: "Copy", km: "ចម្លង", zh: "复制" },
+  "experience.demo.copied": { en: "Copied", km: "បានចម្លង", zh: "已复制" },
+  "experience.demo.open": { en: "Open live demo", km: "បើក Live Demo", zh: "打开在线演示" },
   "experience.5.role": {
     en: "Spendlog",
     km: "Spendlog",

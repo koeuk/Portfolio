@@ -41,6 +41,34 @@
         </div>
       </div>
 
+      <!-- Demo account for the live demo -->
+      <section v-if="experience.demoLogin" class="-mt-8 mb-20 p-6 md:p-8 rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-primary-light/30 slide-up-delay-2">
+        <h2 class="text-sm font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">
+          {{ t('experience.demo.title') }}
+        </h2>
+        <p class="text-gray-600 dark:text-gray-300 mb-6">
+          {{ t('experience.demo.note') }}
+        </p>
+        <div class="grid gap-3 sm:grid-cols-2 mb-6">
+          <div v-for="field in demoFields" :key="field.key"
+            class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-primary">
+            <div class="min-w-0">
+              <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{{ t(`experience.demo.${field.key}`) }}</p>
+              <p class="font-mono font-semibold text-primary dark:text-white truncate">{{ field.value }}</p>
+            </div>
+            <button type="button" @click="copyDemo(field.key, field.value)"
+              class="flex-shrink-0 px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors">
+              {{ copiedField === field.key ? t('experience.demo.copied') : t('experience.demo.copy') }}
+            </button>
+          </div>
+        </div>
+        <a v-if="experience.liveUrl" :href="experience.liveUrl" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary dark:bg-white text-white dark:text-primary font-bold uppercase tracking-widest text-sm hover:opacity-90 transition-all hover:scale-105">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          {{ t('experience.demo.open') }}
+        </a>
+      </section>
+
       <!-- Gallery Section (Full Width of Container) -->
       <section v-if="experience.images && experience.images.length > 0" class="mb-20 slide-up-delay-1" @mouseenter="stopAutoSlide" @mouseleave="startAutoSlide" @touchstart="stopAutoSlide" @touchend="startAutoSlide">
         <div class="relative group aspect-[16/9] rounded-[2rem] overflow-hidden border border-gray-100 dark:border-gray-800 shadow-2xl bg-gray-100 dark:bg-primary-dark">
@@ -303,6 +331,28 @@ let slideInterval: any = null
 const experience = computed(() => {
   return experiences.find(experience => experience.id === route.params.id)
 })
+
+const demoFields = computed(() => {
+  const login = experience.value?.demoLogin
+  if (!login) return []
+  return [
+    { key: 'email', value: login.email },
+    { key: 'password', value: login.password },
+  ]
+})
+
+const copiedField = ref<string | null>(null)
+const copyDemo = async (key: string, value: string) => {
+  try {
+    await navigator.clipboard.writeText(value)
+    copiedField.value = key
+    setTimeout(() => {
+      if (copiedField.value === key) copiedField.value = null
+    }, 1500)
+  } catch {
+    // Clipboard unavailable (e.g. insecure context); the value is still visible to copy by hand
+  }
+}
 
 // Projects with a dedicated page redirect there
 if (experience.value?.path) {
