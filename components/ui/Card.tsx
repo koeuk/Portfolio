@@ -8,14 +8,14 @@ import { cn } from '@/lib/utils'
 export function Card({
   as: Tag = 'div',
   tone = 'bw',
-  press = false,
+  press = true,
   className,
   children,
   ...props
 }: {
   as?: ElementType
   tone?: 'main' | 'bw'
-  /** Sink into the shadow on hover — for cards that are links */
+  /** Sink into the shadow on hover; on by default, pass `press={false}` to keep a card still */
   press?: boolean
   className?: string
   children: ReactNode

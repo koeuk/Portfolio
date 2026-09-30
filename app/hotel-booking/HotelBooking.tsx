@@ -107,7 +107,7 @@ export function HotelBooking() {
         ))}
       </div>
 
-      <dl className="neo mb-16 grid grid-cols-2 gap-[2px] overflow-hidden bg-border sm:grid-cols-4">
+      <dl className="neo neo-press mb-16 grid grid-cols-2 gap-[2px] overflow-hidden bg-border sm:grid-cols-4">
         {stats.map(stat => (
           <div key={stat.label} className="flex flex-col-reverse bg-main p-4 text-center text-main-fg sm:p-5">
             <dt className="text-sm">{stat.label}</dt>

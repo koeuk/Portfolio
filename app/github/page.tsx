@@ -22,14 +22,14 @@ export default function GitHubPage() {
     <Container wide>
       <PageHeader backHref="/about-me/my-info" backLabel="Back to My Info" title="GitHub Profile" />
 
-      <div className="neo mb-16 overflow-hidden bg-bw">
+      <div className="neo neo-press mb-16 overflow-hidden bg-bw">
         <img src="/images/github/profile.png" alt="GitHub Profile - koeuk kos" className="block w-full" />
       </div>
 
       <Section title="Contribution History">
         <div className="flex flex-col gap-8">
           {years.map(({ year, contributions, current }) => (
-            <div key={year} className="neo overflow-hidden bg-bw">
+            <div key={year} className="neo neo-press overflow-hidden bg-bw">
               <h3 className="flex items-center gap-3 border-b-2 border-border px-4 py-3 font-heading text-lg sm:px-6">
                 <span
                   className={cn(
@@ -52,7 +52,7 @@ export default function GitHubPage() {
         </div>
       </Section>
 
-      <div className="neo bg-main p-6 text-center text-main-fg">
+      <div className="neo neo-press bg-main p-6 text-center text-main-fg">
         <p className="text-lg">Total Contributions</p>
         <p className="mt-2 font-heading text-5xl">2,861</p>
         <p className="mt-2">Since 2023</p>

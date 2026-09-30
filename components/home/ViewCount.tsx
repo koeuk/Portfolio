@@ -72,7 +72,7 @@ export function ViewCount() {
   if (views === null) return null
 
   return (
-    <p className="neo inline-flex items-center gap-2 bg-bw px-3 py-1.5 text-sm" title={t('hero.viewsTitle')}>
+    <p className="neo neo-press inline-flex items-center gap-2 bg-bw px-3 py-1.5 text-sm" title={t('hero.viewsTitle')}>
       <span className="h-2.5 w-2.5 rounded-full border-2 border-border bg-main" aria-hidden="true" />
       <span className="font-heading tabular-nums">{views.toLocaleString('en-US')}</span>
       <span>{t(views === 1 ? 'hero.view' : 'hero.views')}</span>
