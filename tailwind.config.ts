@@ -1,91 +1,59 @@
 import type { Config } from 'tailwindcss'
-import animate from 'tailwindcss-animate'
 
+/**
+ * Neobrutalism design system, after neobrutalism-templates/portfolio (MIT).
+ * Colours are CSS variables in app/globals.css, so dark mode is a token swap:
+ *   bg        — page background (warm cream / dark brown)
+ *   bw        — secondary surface (white / near-black)
+ *   fg        — text
+ *   main      — the orange used for cards, the nav pill and highlights
+ *   main-fg   — text on `main`, always black
+ *   border    — always black, 2px
+ * Every raised element is `border-2 border-border rounded-base shadow-shadow`.
+ */
 export default {
   darkMode: ['class'],
-  safelist: ['dark'],
-  prefix: '',
-  content: [
-    './components/**/*.{js,vue,ts}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './app.vue'
-  ],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './lib/**/*.ts'],
   theme: {
-    container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px'
-      }
-    },
     extend: {
       colors: {
-        primary: { DEFAULT: '#0a0a0a', light: '#1a1a1a', dark: '#000000' },
-        accent: { DEFAULT: '#ffffff', light: '#f5f5f5', dark: '#e5e5e5' },
-        surface: { DEFAULT: '#f5f5f5', light: '#ffffff', dark: '#e5e5e5' },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))'
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))'
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))'
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))'
-        }
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Archivo', 'sans-serif'],
-        body: ['"Instrument Sans"', 'sans-serif']
+        bg: 'var(--background)',
+        bw: 'var(--secondary-background)',
+        fg: 'var(--foreground)',
+        main: 'var(--main)',
+        'main-fg': 'var(--main-foreground)',
+        border: 'var(--border)',
+        ring: 'var(--ring)',
+        overlay: 'var(--overlay)',
       },
       borderRadius: {
-        xl: 'calc(var(--radius) + 4px)',
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
+        base: '5px',
       },
-      keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' }
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' }
-        },
-        'collapsible-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-collapsible-content-height)' }
-        },
-        'collapsible-up': {
-          from: { height: 'var(--radix-collapsible-content-height)' },
-          to: { height: '0' }
-        }
+      boxShadow: {
+        shadow: 'var(--shadow)',
       },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        'collapsible-down': 'collapsible-down 0.2s ease-in-out',
-        'collapsible-up': 'collapsible-up 0.2s ease-in-out'
-      }
-    }
+      translate: {
+        boxShadowX: '4px',
+        boxShadowY: '4px',
+        reverseBoxShadowX: '-4px',
+        reverseBoxShadowY: '-4px',
+      },
+      fontWeight: {
+        base: '500',
+        heading: '700',
+      },
+      fontFamily: {
+        sans: ['Montserrat', '"Noto Sans Khmer"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
+      maxWidth: {
+        page: '750px',
+        wide: '1000px',
+      },
+      screens: {
+        w450: { max: '450px' },
+      },
+    },
   },
-  plugins: [animate]
+  plugins: [],
 } satisfies Config

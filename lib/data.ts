@@ -13,6 +13,8 @@ export interface Skill {
   name: string;
   icon: string;
   category: "frontend" | "backend" | "tools";
+  /** Self-rated proficiency, 0–100, drawn as the bar under the skill */
+  level: number;
 }
 
 export interface ExperienceCategory {
@@ -39,6 +41,8 @@ export interface Experience {
   /** Demo account for the live demo */
   demoLogin?: { email: string; password: string };
   images?: string[];
+  /** Kept in the data but left off the site */
+  hidden?: boolean;
   categories?: {
     id: string;
     items: ExperienceCategory[];
@@ -143,26 +147,27 @@ export const useData = () => {
   ];
 
   const skills: Skill[] = [
-    { name: "HTML5", icon: "🌐", category: "frontend" },
-    { name: "CSS3", icon: "🎨", category: "frontend" },
-    { name: "JavaScript", icon: "⚡", category: "frontend" },
-    { name: "TypeScript", icon: "📘", category: "frontend" },
-    { name: "Vue.js", icon: "💚", category: "frontend" },
-    { name: "Nuxt.js", icon: "💎", category: "frontend" },
-    { name: "Tailwind CSS", icon: "🎯", category: "frontend" },
-    { name: "Bootstrap", icon: "🅱️", category: "frontend" },
-    { name: "Vuetify", icon: "💠", category: "frontend" },
-    { name: "shadcn/ui", icon: "🧩", category: "frontend" },
-    { name: "PHP", icon: "🐘", category: "backend" },
-    { name: "Laravel", icon: "🔶", category: "backend" },
-    { name: "Inertia.js", icon: "🔗", category: "backend" },
-    { name: "MySQL", icon: "🐬", category: "backend" },
-    { name: "Git", icon: "📦", category: "tools" },
-    { name: "GitHub", icon: "🐙", category: "tools" },
-    { name: "VS Code", icon: "💻", category: "tools" },
-    { name: "Figma", icon: "🖌️", category: "tools" },
-    { name: "Postman", icon: "📮", category: "tools" },
-    { name: "Asana", icon: "📋", category: "tools" },
+    { name: "HTML5", icon: "🌐", category: "frontend", level: 90 },
+    { name: "CSS3", icon: "🎨", category: "frontend", level: 85 },
+    { name: "JavaScript", icon: "⚡", category: "frontend", level: 80 },
+    { name: "TypeScript", icon: "📘", category: "frontend", level: 70 },
+    { name: "Vue.js", icon: "💚", category: "frontend", level: 85 },
+    { name: "Nuxt.js", icon: "💎", category: "frontend", level: 80 },
+    { name: "React Native", icon: "📱", category: "frontend", level: 60 },
+    { name: "Tailwind CSS", icon: "🎯", category: "frontend", level: 90 },
+    { name: "Bootstrap", icon: "🅱️", category: "frontend", level: 80 },
+    { name: "Vuetify", icon: "💠", category: "frontend", level: 75 },
+    { name: "shadcn/ui", icon: "🧩", category: "frontend", level: 80 },
+    { name: "PHP", icon: "🐘", category: "backend", level: 80 },
+    { name: "Laravel", icon: "🔶", category: "backend", level: 85 },
+    { name: "Inertia.js", icon: "🔗", category: "backend", level: 70 },
+    { name: "MySQL", icon: "🐬", category: "backend", level: 75 },
+    { name: "Git", icon: "📦", category: "tools", level: 85 },
+    { name: "GitHub", icon: "🐙", category: "tools", level: 85 },
+    { name: "VS Code", icon: "💻", category: "tools", level: 90 },
+    { name: "Figma", icon: "🖌️", category: "tools", level: 65 },
+    { name: "Postman", icon: "📮", category: "tools", level: 85 },
+    { name: "Asana", icon: "📋", category: "tools", level: 75 },
   ];
 
   const experiences: Experience[] = [
@@ -171,6 +176,7 @@ export const useData = () => {
       role: "YouTube UI Project",
       company: "Build simple UI YouTube",
       period: "2026 - Present",
+      hidden: true,
       description: "Developed a desktop-based YouTube interface using Java Swing for the frontend and Oracle SQL for the database management. Focused on creating a robust, high-performance user experience with direct JDBC integration.",
       technologies: ["Java", "Java Swing", "Oracle SQL"],
       images: [
@@ -388,7 +394,7 @@ export const useData = () => {
     const [start, end = start] = period.split("-").map(part => part.trim());
     return { start: Number(start), end: end === "Present" ? Infinity : Number(end) };
   };
-  const sortedExperiences = [...experiences].sort((a, b) => {
+  const sortedExperiences = experiences.filter(experience => !experience.hidden).sort((a, b) => {
     const ya = years(a.period);
     const yb = years(b.period);
     return yb.end - ya.end || yb.start - ya.start || Number(b.id) - Number(a.id);

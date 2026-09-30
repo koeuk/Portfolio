@@ -1,4 +1,4 @@
-type Language = "en" | "km" | "zh";
+export type Language = "en" | "km" | "zh";
 
 interface Translations {
   [key: string]: {
@@ -9,6 +9,14 @@ interface Translations {
 }
 
 const translations: Translations = {
+  // Common
+  "common.back": { en: "Back", km: "ត្រឡប់ក្រោយ", zh: "返回" },
+  "common.menu": { en: "Menu", km: "ម៉ឺនុយ", zh: "菜单" },
+  "common.close": { en: "Close", km: "បិទ", zh: "关闭" },
+  "common.theme": { en: "Toggle dark mode", km: "ប្ដូរពណ៌ងងឹត", zh: "切换深色模式" },
+  "common.language": { en: "Language", km: "ភាសា", zh: "语言" },
+  "common.backToTop": { en: "Back to top", km: "ត្រឡប់ទៅខាងលើ", zh: "返回顶部" },
+
   // Navbar
   "nav.home": { en: "Home", km: "ទំព័រដើម", zh: "首页" },
   "nav.projects": { en: "Projects", km: "គម្រោង", zh: "项目" },
@@ -120,6 +128,7 @@ const translations: Translations = {
   "cv.download": { en: "Download PDF", km: "ទាញយក PDF", zh: "下载 PDF" },
   "cv.openTab": { en: "Open in new tab", km: "បើកក្នុងផ្ទាំងថ្មី", zh: "在新标签页打开" },
   "cv.close": { en: "Close", km: "បិទ", zh: "关闭" },
+  "hero.roles.mobile": { en: "Mobile Developer", km: "អ្នកអភិវឌ្ឍកម្មវិធីទូរសព្ទ", zh: "移动开发者" },
   "hero.roles.webDesign": { en: "Web Design", km: "រចនាវេបសាយ", zh: "网页设计" },
   "hero.roles.frontend": { en: "Frontend Developer", km: "អ្នកអភិវឌ្ឍ Frontend", zh: "前端开发者" },
   "hero.roles.backend": { en: "Backend Developer", km: "អ្នកអភិវឌ្ឍ Backend", zh: "后端开发者" },
@@ -812,9 +821,9 @@ const translations: Translations = {
     zh: "版权所有。",
   },
   "footer.built": {
-    en: "Built with Nuxt.js, Vue.js & Tailwind CSS",
-    km: "បង្កើតដោយ Nuxt.js, Vue.js & Tailwind CSS",
-    zh: "使用 Nuxt.js, Vue.js & Tailwind CSS 构建",
+    en: "Built with Next.js, React & Tailwind CSS",
+    km: "បង្កើតដោយ Next.js, React & Tailwind CSS",
+    zh: "使用 Next.js, React & Tailwind CSS 构建",
   },
 
   // Project descriptions
@@ -895,38 +904,20 @@ const translations: Translations = {
   },
 };
 
-export const useI18n = () => {
-  const langCookie = useCookie<Language>("lang", {
-    default: () => "en",
-    maxAge: 365 * 24 * 60 * 60,
-  });
+export const LANG_STORAGE_KEY = "lang";
 
-  const currentLang = useState<Language>(
-    "lang",
-    () => langCookie.value || "en",
-  );
+export const languages: { code: Language; name: string; flag: string }[] = [
+  { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "km", name: "ខ្មែរ", flag: "🇰🇭" },
+  // { code: "zh", name: "中文", flag: "🇨🇳" },
+];
 
-  const setLanguage = (lang: Language) => {
-    currentLang.value = lang;
-    langCookie.value = lang;
-  };
+export const isLanguage = (value: unknown): value is Language =>
+  value === "en" || value === "km" || value === "zh";
 
-  const t = (key: string): string => {
-    const translation = translations[key];
-    if (!translation) return key;
-    return translation[currentLang.value] || translation.en || key;
-  };
-
-  const languages = [
-    { code: "en", name: "English", flag: "🇺🇸" },
-    { code: "km", name: "ខ្មែរ", flag: "🇰🇭" },
-    // { code: "zh", name: "中文", flag: "🇨🇳" },
-  ];
-
-  return {
-    currentLang,
-    setLanguage,
-    t,
-    languages,
-  };
+/** Looks a key up for one language, falling back to English, then to the key itself. */
+export const translate = (lang: Language, key: string): string => {
+  const translation = translations[key];
+  if (!translation) return key;
+  return translation[lang] || translation.en || key;
 };

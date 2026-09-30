@@ -1,4 +1,10 @@
-# Nuxt dev/build outputs
+# Next.js build output
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+
+# Old Nuxt build outputs
 .output
 .data
 .nuxt
