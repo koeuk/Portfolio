@@ -18,7 +18,7 @@
   }
 
   html.dark {
-    --background: oklch(26.86% 0.0327 60.06);
+    --background: oklch(17% 0 0);
     --secondary-background: oklch(23.93% 0 0);
     --foreground: oklch(92.49% 0 0);
     --main-foreground: oklch(0% 0 0);
@@ -139,15 +139,16 @@
   @apply border-b-0;
 }
 
-/* Page entrance: children of .reveal fade up in sequence, once. */
+/* Page entrance: children of .reveal fade up in sequence, once.
+   Animates `translate`, not `transform`, so hover presses still work afterwards. */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    translate: 0 8px;
   }
   to {
     opacity: 1;
-    transform: none;
+    translate: none;
   }
 }
 
@@ -158,6 +159,28 @@
 .reveal > :nth-child(3) { animation-delay: 120ms; }
 .reveal > :nth-child(4) { animation-delay: 180ms; }
 .reveal > :nth-child(n + 5) { animation-delay: 240ms; }
+
+/* Cards fade up the first time they scroll into view (see components/layout/ScrollReveal.tsx).
+   Hidden only once JS is known to be running, so the page never stays blank without it. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+  to {
+    opacity: 1;
+    translate: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal-on-scroll:not([data-revealed]) {
+    opacity: 0;
+  }
+  .reveal-on-scroll[data-revealed] {
+    animation: rise-in 600ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+  }
+}
 
 /* Shared fade used with <Transition name="fade"> */
 .fade-enter-active,

@@ -50,7 +50,7 @@ export function ExperienceList() {
           <Link
             key={experience.id}
             href={experience.path ?? `/experience/${experience.id}`}
-            className="neo neo-press group block bg-main p-4 text-main-fg sm:p-5"
+            className="neo neo-press reveal-on-scroll group block bg-main p-4 text-main-fg sm:p-5"
           >
             {experience.images?.[0] && (
               <div className="neo mb-5 aspect-[71/26] overflow-hidden bg-bw">

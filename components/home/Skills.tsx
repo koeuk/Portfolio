@@ -32,7 +32,7 @@ export function Skills() {
             {skills
               .filter(skill => skill.category === category)
               .map(skill => (
-                <div key={skill.name} className="neo neo-press flex flex-col gap-2.5 bg-bw px-3 py-2.5 text-sm">
+                <div key={skill.name} className="neo neo-press reveal-on-scroll flex flex-col gap-2.5 bg-bw px-3 py-2.5 text-sm">
                   <span className="flex items-center gap-2">
                     <span
                       className="h-6 w-6 flex-shrink-0 [&_svg]:h-full [&_svg]:w-full"

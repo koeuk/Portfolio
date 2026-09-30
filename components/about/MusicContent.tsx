@@ -141,7 +141,7 @@ export function MusicContent() {
       />
 
       <Section title="Now Playing" className="mb-12">
-        <div className="neo neo-press bg-main p-4 text-main-fg sm:p-5">
+        <div className="neo neo-press reveal-on-scroll bg-main p-4 text-main-fg sm:p-5">
           <div className="flex items-center gap-4">
             <div className="neo relative flex h-16 w-16 flex-shrink-0 items-center justify-center" style={swatch(nowPlaying)}>
               <Music className="h-8 w-8" aria-hidden />

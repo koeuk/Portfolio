@@ -24,7 +24,7 @@ export function Card({
   return (
     <Tag
       className={cn(
-        'neo p-4 sm:p-5',
+        'neo reveal-on-scroll p-4 sm:p-5',
         tone === 'main' ? 'bg-main text-main-fg' : 'bg-bw text-fg',
         press && 'neo-press',
         className,

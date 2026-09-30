@@ -106,7 +106,7 @@ export function MyInfo() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="neo neo-press flex min-w-0 items-center gap-3 bg-bw px-4 py-3"
+              className="neo neo-press reveal-on-scroll flex min-w-0 items-center gap-3 bg-bw px-4 py-3"
             >
               <svg viewBox="0 0 24 24" className="h-6 w-6 flex-shrink-0" fill="currentColor" aria-hidden="true">
                 <path d={socials.find(social => social.href === link.href)?.path} />

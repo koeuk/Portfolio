@@ -209,7 +209,7 @@ export function ReadMoreList({
         {filteredPosts.map(post => {
           const meta = metaFor(post.category)
           return (
-            <PostLink key={post.id} post={post} className="neo neo-press flex gap-4 bg-bw p-4 text-fg sm:p-5">
+            <PostLink key={post.id} post={post} className="neo neo-press reveal-on-scroll flex gap-4 bg-bw p-4 text-fg sm:p-5">
               <span
                 className="neo flex h-12 w-12 flex-shrink-0 items-center justify-center sm:h-14 sm:w-14"
                 style={{ background: meta.background }}

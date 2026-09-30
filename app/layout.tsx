@@ -17,8 +17,9 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-// Applies the saved theme before first paint so dark-mode visitors never see a light flash.
-const themeScript = `try{if(localStorage.getItem('${THEME_STORAGE_KEY}')==='dark')document.documentElement.classList.add('dark')}catch(e){}`
+// Before first paint: flags that JS runs (lets cards wait hidden for their scroll reveal)
+// and applies the saved theme so dark-mode visitors never see a light flash.
+const themeScript = `document.documentElement.classList.add('js');try{if(localStorage.getItem('${THEME_STORAGE_KEY}')==='dark')document.documentElement.classList.add('dark')}catch(e){}`
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

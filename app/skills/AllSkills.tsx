@@ -61,7 +61,7 @@ export function AllSkills() {
                 <Link
                   key={skill.name}
                   href={skillLinkMap[skill.name] ?? '/read-more'}
-                  className="neo neo-press flex flex-col items-center gap-3 bg-bw p-4 text-center sm:p-5"
+                  className="neo neo-press reveal-on-scroll flex flex-col items-center gap-3 bg-bw p-4 text-center sm:p-5"
                 >
                   <span
                     className="h-12 w-12 [&_svg]:h-full [&_svg]:w-full"

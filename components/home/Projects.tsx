@@ -27,7 +27,7 @@ export function Projects() {
           <Link
             key={experience.id}
             href={experience.path ?? `/experience/${experience.id}`}
-            className="neo neo-press group flex flex-col bg-main p-4 text-main-fg sm:p-5"
+            className="neo neo-press reveal-on-scroll group flex flex-col bg-main p-4 text-main-fg sm:p-5"
           >
             {experience.images?.[0] && (
               <div className="neo mb-5 aspect-video overflow-hidden bg-bw">

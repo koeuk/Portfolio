@@ -164,7 +164,7 @@ export function ScreenshotGrid({
           key={image.src}
           type="button"
           onClick={() => onOpen(index)}
-          className="neo neo-press block w-full cursor-zoom-in overflow-hidden bg-bw text-left"
+          className="neo neo-press reveal-on-scroll block w-full cursor-zoom-in overflow-hidden bg-bw text-left"
         >
           <img src={image.src} alt={image.alt} className="block h-auto w-full" loading="lazy" />
           {image.caption && <span className="block border-t-2 border-border px-3 py-2 text-sm">{image.caption}</span>}

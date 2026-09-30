@@ -62,7 +62,7 @@ export function FeelingList({
   return (
     <div className={cn('flex flex-col gap-5', className)}>
       {posts.map(post => (
-        <Link key={post.id} href={`/blog/${post.slug}`} className="neo neo-press flex gap-4 bg-bw p-4 text-fg sm:p-5">
+        <Link key={post.id} href={`/blog/${post.slug}`} className="neo neo-press reveal-on-scroll flex gap-4 bg-bw p-4 text-fg sm:p-5">
           {post.image ? (
             <img
               src={post.image}

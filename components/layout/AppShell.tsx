@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { BackToTop } from '@/components/layout/BackToTop'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
+import { ScrollReveal } from '@/components/layout/ScrollReveal'
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname()
@@ -18,6 +19,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </main>
       <Footer />
       <BackToTop />
+      <ScrollReveal />
     </div>
   )
 }
