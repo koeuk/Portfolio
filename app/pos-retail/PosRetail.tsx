@@ -164,7 +164,7 @@ export function PosRetail() {
         }
         actions={
           <>
-            <span className="rounded-base border-2 border-border px-3 py-1.5 font-heading text-sm">2026</span>
+            <span className="neo-chip px-3 py-1.5 font-heading text-sm">2026</span>
             <Button href={githubUrl} variant="main">
               <GitHubIcon />
               View on GitHub

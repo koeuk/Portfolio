@@ -95,7 +95,7 @@ export function HotelBooking() {
         title="Hotel Booking"
         subtitle="Hotel Booking System"
         actions={
-          <span className="rounded-base border-2 border-border px-3 py-1.5 font-heading text-sm">2025 - 2026</span>
+          <span className="neo-chip px-3 py-1.5 font-heading text-sm">2025 - 2026</span>
         }
       />
 

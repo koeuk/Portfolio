@@ -341,6 +341,9 @@ export const useData = () => {
       technologies: ["Laravel 13", "Vue 3", "Flutter", "React Native", "Expo", "Inertia.js", "Shadcn UI", "Tailwind CSS", "MySQL"],
       liveUrl: "https://spendlog-static.vercel.app/#/dashboard",
       demoLogin: { email: "admin@gmail.com", password: "12345678" },
+      images: ["dashboard", "expenses", "budgets", "incomes", "savings", "borrowings", "reports", "categories", "login"].map(
+        screen => `/images/spendlog/${screen}.png`,
+      ),
       repos: [
         { label: "Web", url: "https://github.com/koeuk/spendlog" },
         { label: "Flutter", url: "https://github.com/koeuk/spendlog_app" },

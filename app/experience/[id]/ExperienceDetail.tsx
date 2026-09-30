@@ -69,7 +69,7 @@ export function ExperienceDetail({ id }: { id: string }) {
         subtitle={t(`experience.${id}.company`)}
         actions={
           <>
-            <span className="rounded-base border-2 border-border px-3 py-1.5 font-heading text-sm">
+            <span className="neo-chip px-3 py-1.5 font-heading text-sm">
               {experience.period}
             </span>
             {experience.githubUrl && (

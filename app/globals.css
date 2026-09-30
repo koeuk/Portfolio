@@ -88,6 +88,11 @@
   .neo-press {
     @apply transition-all duration-150 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none;
   }
+
+  /* Small chip: the same recipe at half scale, pressable */
+  .neo-chip {
+    @apply rounded-base border-2 border-border shadow-[2px_2px_0px_0px_var(--border)] transition-all duration-150 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none;
+  }
 }
 
 /* Read-more article typography (see components/ui/Article.tsx) */

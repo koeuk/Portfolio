@@ -6,7 +6,7 @@ export function Tag({ children, className }: { children: ReactNode; className?: 
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-base border-2 border-border bg-bw px-2 py-0.5 text-xs font-heading text-fg',
+        'neo-chip inline-flex items-center bg-bw px-2 py-0.5 text-xs font-heading text-fg',
         className,
       )}
     >
