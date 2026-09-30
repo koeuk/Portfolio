@@ -1,6 +1,6 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Basic Setup Project - Koeuk Dev',
@@ -243,7 +243,7 @@ export default function Page() {
       <h2>8. Useful Artisan Commands</h2>
       <CodeBlock title="Terminal" code={codes[11]} />
 
-      <Summary>
+      <ArticleSummary>
         <p>
           You now have a working Laravel project with:
         </p>
@@ -254,7 +254,7 @@ export default function Page() {
           <li>Resource controller with full CRUD operations</li>
           <li>RESTful routing with validation</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

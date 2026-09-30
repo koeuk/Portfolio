@@ -7,7 +7,25 @@ export const metadata = {
   description: 'Tailwind replaces hand-written CSS with small utility classes.',
 }
 
-// @@CODES@@
+const variantsCode = `<button class="px-4 py-2 md:px-6 md:py-3 bg-blue-500 hover:bg-blue-600 focus:ring-2 rounded-lg">
+  Click me
+</button>`
+
+const darkCode = `<div class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+  Adapts to theme automatically.
+</div>`
+
+const configCode = `// tailwind.config.js
+export default {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#1a1a1a',
+        accent: '#16a34a',
+      },
+    },
+  },
+}`
 
 export default function LearnTailwindPage() {
   return (

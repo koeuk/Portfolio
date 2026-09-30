@@ -1,6 +1,8 @@
+import { ArrowRight } from 'lucide-react'
 import { Article } from '@/components/ui/Article'
+import { Card } from '@/components/ui/Card'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Vue 3 Composition API - Koeuk Dev',
@@ -306,25 +308,25 @@ export default function Page() {
 
       <h2>Options API vs Composition API</h2>
 
-      <div class="grid md:grid-cols-2 gap-4 mb-6">
-        <div class="compare-box border-red-200 dark:border-red-800">
-          <div class="compare-header text-red-600 dark:text-red-400">Options API (old way)</div>
+      <div className="grid gap-5">
+        <Card className="space-y-3">
+          <h3 className="!mt-0">Options API (old way)</h3>
           <ul>
             <li>Code split by <em>type</em> (data, methods, computed)</li>
             <li>Related logic scattered across sections</li>
             <li>Hard to extract reusable logic</li>
             <li>Uses <code>this</code> keyword</li>
           </ul>
-        </div>
-        <div class="compare-box border-green-200 dark:border-green-800">
-          <div class="compare-header text-green-600 dark:text-green-400">Composition API (new way)</div>
+        </Card>
+        <Card tone="main" className="space-y-3">
+          <h3 className="!mt-0">Composition API (new way)</h3>
           <ul>
             <li>Code grouped by <em>feature</em></li>
             <li>Related logic stays together</li>
             <li>Easy to extract into composables</li>
             <li>No <code>this</code> — plain variables</li>
           </ul>
-        </div>
+        </Card>
       </div>
 
       <h2>1. script setup</h2>
@@ -350,25 +352,25 @@ export default function Page() {
       </p>
       <CodeBlock title="reactive() usage" code={codes[2]} />
 
-      <div class="grid md:grid-cols-2 gap-4 mt-6">
-        <div class="compare-box border-blue-200 dark:border-blue-800">
-          <div class="compare-header text-blue-600 dark:text-blue-400">ref()</div>
+      <div className="grid gap-5">
+        <Card className="space-y-3">
+          <h3 className="!mt-0">ref()</h3>
           <ul>
             <li>Works with any type</li>
             <li>Need <code>.value</code> in script</li>
             <li>Can reassign entirely</li>
             <li>Recommended for most cases</li>
           </ul>
-        </div>
-        <div class="compare-box border-blue-200 dark:border-blue-800">
-          <div class="compare-header text-blue-600 dark:text-blue-400">reactive()</div>
+        </Card>
+        <Card className="space-y-3">
+          <h3 className="!mt-0">reactive()</h3>
           <ul>
             <li>Only objects/arrays</li>
             <li>No <code>.value</code> needed</li>
             <li>Cannot reassign the whole object</li>
             <li>Good for complex state objects</li>
           </ul>
-        </div>
+        </Card>
       </div>
 
       <h2>3. Computed Properties</h2>
@@ -398,27 +400,27 @@ export default function Page() {
         </thead>
         <tbody>
           <tr>
-            <td>onMounted</td>
+            <td><code>onMounted</code></td>
             <td>After DOM is rendered</td>
             <td>Fetch data, init libraries</td>
           </tr>
           <tr>
-            <td>onUpdated</td>
+            <td><code>onUpdated</code></td>
             <td>After reactive state change causes re-render</td>
             <td>DOM-dependent operations</td>
           </tr>
           <tr>
-            <td>onUnmounted</td>
+            <td><code>onUnmounted</code></td>
             <td>Component is removed</td>
             <td>Cleanup (timers, listeners)</td>
           </tr>
           <tr>
-            <td>onBeforeMount</td>
+            <td><code>onBeforeMount</code></td>
             <td>Before DOM is rendered</td>
             <td>Pre-render logic</td>
           </tr>
           <tr>
-            <td>onBeforeUnmount</td>
+            <td><code>onBeforeUnmount</code></td>
             <td>Before component is removed</td>
             <td>Save state, cleanup</td>
           </tr>
@@ -459,18 +461,18 @@ export default function Page() {
         Pass data deep through component trees without prop drilling.
       </p>
 
-      <div class="flow-diagram mb-6">
-        <div class="flow-node flow-parent">Parent (provide)</div>
-        <div class="flow-line"></div>
-        <div class="flow-node flow-child">Child</div>
-        <div class="flow-line"></div>
-        <div class="flow-node flow-grandchild">Grandchild (inject)</div>
+      <div className="flex flex-col items-center gap-2 text-sm font-heading sm:flex-row sm:justify-center">
+        <span className="neo bg-main px-3 py-1.5 text-main-fg">Parent (provide)</span>
+        <ArrowRight className="h-4 w-4 rotate-90 sm:rotate-0" aria-hidden />
+        <span className="neo bg-bw px-3 py-1.5">Child</span>
+        <ArrowRight className="h-4 w-4 rotate-90 sm:rotate-0" aria-hidden />
+        <span className="neo bg-main px-3 py-1.5 text-main-fg">Grandchild (inject)</span>
       </div>
 
       <CodeBlock title="Parent — provide" code={codes[12]} />
       <CodeBlock title="Any descendant — inject" code={codes[13]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>script setup</strong> — cleaner syntax, auto-exposed variables</li>
           <li><strong>ref() / reactive()</strong> — make data reactive</li>
@@ -481,7 +483,7 @@ export default function Page() {
           <li><strong>Composables</strong> — reusable stateful logic (use[Something])</li>
           <li><strong>provide / inject</strong> — pass data without prop drilling</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

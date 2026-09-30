@@ -1,6 +1,6 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Authorization - Koeuk Dev',
@@ -227,7 +227,7 @@ export default function Page() {
       <CodeBlock title="AppServiceProvider — define role gates" code={codes[9]} />
       <CodeBlock title="Usage" code={codes[10]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>Gates</strong> — simple closure-based authorization checks</li>
           <li><strong>Policies</strong> — model-specific authorization organized by actions</li>
@@ -235,7 +235,7 @@ export default function Page() {
           <li><strong>@can / @cannot</strong> — conditional rendering in Blade</li>
           <li><strong>can: middleware</strong> — protect routes with authorization</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

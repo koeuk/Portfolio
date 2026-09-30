@@ -6,20 +6,6 @@ import { Section } from '@/components/ui/Section'
 import { useData, type Skill } from '@/lib/data'
 import { useSkillIcons } from '@/lib/skill-icons'
 
-// Skills with a matching read-more article; the rest link to the article index.
-const skillLinkMap: Record<string, string> = {
-  HTML5: '/read-more/learn-html5',
-  CSS3: '/read-more/learn-css3',
-  JavaScript: '/read-more/learn-javascript',
-  TypeScript: '/read-more/typescript-best-practices',
-  'Vue.js': '/read-more/vue-composition-api',
-  'Nuxt.js': '/read-more/learn-nuxt',
-  'Tailwind CSS': '/read-more/learn-tailwind',
-  Laravel: '/read-more/laravel-setup',
-  Git: '/read-more/learn-git',
-  'VS Code': '/read-more/learn-vscode',
-}
-
 const categories: Skill['category'][] = ['frontend', 'backend', 'tools']
 
 export function Skills() {
@@ -42,23 +28,33 @@ export function Skills() {
       {categories.map(category => (
         <div key={category} className="mb-10 last:mb-0">
           <h3 className="mb-4 font-heading text-lg sm:text-xl">{t(`skills.${category}`)}</h3>
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {skills
               .filter(skill => skill.category === category)
               .map(skill => (
-                <Link
-                  key={skill.name}
-                  href={skillLinkMap[skill.name] ?? '/read-more'}
-                  title={skill.name}
-                  className="neo neo-press flex items-center gap-2 bg-bw px-3 py-2 text-sm"
-                >
-                  <span
-                    className="h-6 w-6 [&_svg]:h-full [&_svg]:w-full"
-                    aria-hidden="true"
-                    dangerouslySetInnerHTML={{ __html: getIcon(skill.name) }}
-                  />
-                  {skill.name}
-                </Link>
+                <div key={skill.name} className="neo neo-press flex flex-col gap-2.5 bg-bw px-3 py-2.5 text-sm">
+                  <span className="flex items-center gap-2">
+                    <span
+                      className="h-6 w-6 flex-shrink-0 [&_svg]:h-full [&_svg]:w-full"
+                      aria-hidden="true"
+                      dangerouslySetInnerHTML={{ __html: getIcon(skill.name) }}
+                    />
+                    <span className="min-w-0 truncate">{skill.name}</span>
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <span
+                      role="progressbar"
+                      aria-label={skill.name}
+                      aria-valuenow={skill.level}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      className="block h-3 flex-1 overflow-hidden rounded-base border-2 border-border bg-bg"
+                    >
+                      <span className="block h-full border-r-2 border-border bg-main" style={{ width: `${skill.level}%` }} />
+                    </span>
+                    <span className="w-8 text-right text-xs font-heading">{skill.level}%</span>
+                  </span>
+                </div>
               ))}
           </div>
         </div>

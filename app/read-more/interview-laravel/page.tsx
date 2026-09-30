@@ -1,10 +1,10 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Interview Questions - Koeuk Dev',
-  description: 'Preparing for a Laravel interview?',
+  description: 'Preparing for a Laravel interview? This guide covers 20+ commonly asked questions with clear explanations and code examples.',
 }
 
 const codes = [
@@ -605,11 +605,11 @@ export default function Page() {
       <p>
         MVC stands for <strong>Model-View-Controller</strong>. It separates the application into three interconnected components:
       </p>
-      <ul>
+      <ol>
         <li><strong>Model</strong> — handles data logic and database interaction (Eloquent models)</li>
         <li><strong>View</strong> — presents data to the user (Blade templates)</li>
         <li><strong>Controller</strong> — handles user requests and acts as a bridge between Model and View</li>
-      </ul>
+      </ol>
       <CodeBlock title="MVC Example" code={codes[1]} />
 
       <h2>3. What are Service Providers?</h2>
@@ -730,7 +730,7 @@ export default function Page() {
         <strong>When to use which?</strong> Use <strong>Sanctum</strong> for first-party SPAs and simple API tokens. Use <strong>Passport</strong> when you need full OAuth2 support with third-party client credentials, authorization codes, and token scopes.
       </blockquote>
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>MVC Pattern</strong> — separates concerns into Model, View, and Controller</li>
           <li><strong>Service Providers & Container</strong> — the backbone of Laravel&apos;s bootstrapping and dependency management</li>
@@ -741,7 +741,7 @@ export default function Page() {
           <li><strong>Sanctum vs Passport</strong> — choose the right API authentication for your use case</li>
           <li><strong>Form Requests & Rate Limiting</strong> — validate input and protect your API from abuse</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

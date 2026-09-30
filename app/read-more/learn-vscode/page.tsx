@@ -8,7 +8,14 @@ export const metadata = {
   description: "VS Code is the most popular editor for a reason — it's fast, extensible, and runs everywhere.",
 }
 
-// @@CODES@@
+const settingsCode = `{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.linkedEditing": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true
+}`
 
 /** A keyboard key, drawn as a small raised cap. */
 function Kbd({ children }: { children: ReactNode }) {

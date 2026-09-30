@@ -1,6 +1,6 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Email Verification - Koeuk Dev',
@@ -176,7 +176,7 @@ export default function Page() {
       <h2>7. Check Verification Status</h2>
       <CodeBlock title="Checking verification in code" code={codes[6]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>MustVerifyEmail</strong> — add interface to User model</li>
           <li><strong>3 routes</strong> — notice page, verify link handler, resend</li>
@@ -184,7 +184,7 @@ export default function Page() {
           <li><strong>Registered event</strong> — auto-sends verification email</li>
           <li><strong>Customizable</strong> — modify the email template and content</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

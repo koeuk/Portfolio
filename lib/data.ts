@@ -318,7 +318,8 @@ export const useData = () => {
       description: "A full-featured hotel booking and management platform with guest browsing, room availability, payment processing, coupon system, reviews, and a complete admin dashboard with analytics and reports.",
       technologies: ["Laravel 12", "React 18", "Inertia.js", "Tailwind CSS", "Shadcn UI", "MySQL"],
       path: "/hotel-booking",
-      images: Array.from({ length: 39 }, (_, i) => `/images/hotel-booking/${i + 1}.png`),
+      // Screenshots 1–3, 11 and 18 were removed from public/images/hotel-booking
+      images: Array.from({ length: 36 }, (_, i) => i + 4).filter(n => n !== 11 && n !== 18).map(n => `/images/hotel-booking/${n}.png`),
     },
     {
       id: "4",

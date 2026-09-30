@@ -108,8 +108,16 @@ export function Transition({ name, show = true, appear = false, children }: Tran
     }
   }, [phase])
 
-  // While not leaving, render the latest props of the same child.
-  const shown = !isLeaving && target && currentKey === targetKey ? target : current
+  // Render the latest props of the child on screen: the new target while it is
+  // current, and while it leaves the still-passed child with the same key (so a
+  // closing modal keeps showing its current content, not what it opened with).
+  const latest = isValidElement(children) ? (children as TransitionChild) : null
+  const shown =
+    !isLeaving && target && currentKey === targetKey
+      ? target
+      : latest && keyOf(latest) === currentKey
+        ? latest
+        : current
   if (!shown) return null
 
   return cloneElement(shown, {

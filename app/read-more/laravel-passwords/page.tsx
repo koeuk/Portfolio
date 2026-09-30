@@ -1,20 +1,224 @@
 import { Article } from '@/components/ui/Article'
 import { Card } from '@/components/ui/Card'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Password Reset | Koeuk Dev',
   description: 'Laravel provides a complete password reset system out of the box.',
 }
 
-// @@CODES@@
+const codes = [
+  `php artisan migrate`,
+  `Schema::create('password_reset_tokens', function (Blueprint $table) {
+    $table->string('email')->primary();
+    $table->string('token');
+    $table->timestamp('created_at')->nullable();
+});`,
+  `use App\\Http\\Controllers\\PasswordResetController;
+
+Route::get('/forgot-password', [PasswordResetController::class, 'showRequestForm'])
+    ->middleware('guest')
+    ->name('password.request');
+
+Route::post('/forgot-password', [PasswordResetController::class, 'sendResetLink'])
+    ->middleware('guest')
+    ->name('password.email');`,
+  `<h1>Forgot Password</h1>
+
+@if (session('status'))
+    <div class="alert-success">{{ session('status') }}</div>
+@endif
+
+<form method="POST" action="{{ route('password.email') }}">
+    @csrf
+    <label>Email Address</label>
+    <input type="email" name="email" value="{{ old('email') }}" required>
+    @error('email')
+        <span>{{ $message }}</span>
+    @enderror
+
+    <button type="submit">Send Reset Link</button>
+</form>`,
+  `use Illuminate\\Support\\Facades\\Password;
+
+class PasswordResetController extends Controller
+{
+    public function showRequestForm()
+    {
+        return view('auth.forgot-password');
+    }
+
+    public function sendResetLink(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        // Send password reset link
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withErrors(['email' => __($status)]);
+    }
+}`,
+  `Route::get('/reset-password/{token}', [PasswordResetController::class, 'showResetForm'])
+    ->middleware('guest')
+    ->name('password.reset');
+
+Route::post('/reset-password', [PasswordResetController::class, 'resetPassword'])
+    ->middleware('guest')
+    ->name('password.update');`,
+  `<h1>Reset Password</h1>
+
+<form method="POST" action="{{ route('password.update') }}">
+    @csrf
+    <input type="hidden" name="token" value="{{ $token }}">
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ old('email', $email) }}" required>
+
+    <label>New Password</label>
+    <input type="password" name="password" required>
+
+    <label>Confirm Password</label>
+    <input type="password" name="password_confirmation" required>
+
+    @error('email')
+        <span>{{ $message }}</span>
+    @enderror
+
+    <button type="submit">Reset Password</button>
+</form>`,
+  `use Illuminate\\Support\\Facades\\Hash;
+use Illuminate\\Support\\Facades\\Password;
+use Illuminate\\Auth\\Events\\PasswordReset;
+use Illuminate\\Support\\Str;
+
+public function showResetForm(string $token)
+{
+    return view('auth.reset-password', ['token' => $token]);
+}
+
+public function resetPassword(Request $request)
+{
+    $request->validate([
+        'token'    => 'required',
+        'email'    => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, string $password) {
+            $user->forceFill([
+                'password'       => Hash::make($password),
+                'remember_token' => Str::random(60),
+            ])->save();
+
+            event(new PasswordReset($user));
+        }
+    );
+
+    return $status === Password::PASSWORD_RESET
+        ? redirect()->route('login')->with('status', __($status))
+        : back()->withErrors(['email' => [__($status)]]);
+}`,
+  `'passwords' => [
+    'users' => [
+        'provider' => 'users',
+        'table'    => 'password_reset_tokens',
+        'expire'   => 60,     // Token expires after 60 minutes
+        'throttle' => 60,     // Wait 60 seconds before resending
+    ],
+],`,
+  `use Illuminate\\Auth\\Notifications\\ResetPassword;
+use Illuminate\\Notifications\\Messages\\MailMessage;
+
+public function boot(): void
+{
+    // Customize the reset email content
+    ResetPassword::toMailUsing(function ($notifiable, string $token) {
+        $url = url("/reset-password/{$token}?email={$notifiable->email}");
+
+        return (new MailMessage)
+            ->subject('Reset Your Password')
+            ->greeting('Hello!')
+            ->line('You requested a password reset for your account.')
+            ->action('Reset Password', $url)
+            ->line('This link expires in 60 minutes.')
+            ->line('If you did not request this, ignore this email.');
+    });
+
+    // Or customize just the URL
+    ResetPassword::createUrlUsing(function ($user, string $token) {
+        return 'https://myapp.com/reset-password/' . $token
+            . '?email=' . $user->email;
+    });
+}`,
+  `Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink($request->only('email'));
+
+    if ($status === Password::RESET_LINK_SENT) {
+        return response()->json(['message' => 'Reset link sent to your email']);
+    }
+
+    return response()->json(['message' => __($status)], 400);
+});
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token'    => 'required',
+        'email'    => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, string $password) {
+            $user->forceFill([
+                'password' => Hash::make($password),
+                'remember_token' => Str::random(60),
+            ])->save();
+
+            event(new PasswordReset($user));
+        }
+    );
+
+    if ($status === Password::PASSWORD_RESET) {
+        return response()->json(['message' => 'Password reset successfully']);
+    }
+
+    return response()->json(['message' => __($status)], 400);
+});`,
+  `// These routes require password confirmation
+Route::middleware(['auth', 'password.confirm'])->group(function () {
+    Route::get('/settings/security', [SettingsController::class, 'security']);
+    Route::delete('/account', [AccountController::class, 'destroy']);
+});`,
+  `<h1>Confirm Password</h1>
+<p>Please confirm your password to continue.</p>
+
+<form method="POST" action="{{ route('password.confirm') }}">
+    @csrf
+    <input type="password" name="password" required>
+    @error('password')
+        <span>{{ $message }}</span>
+    @enderror
+    <button type="submit">Confirm</button>
+</form>`,
+]
 
 export default function LaravelPasswordsPage() {
   return (
     <Article
       title="Laravel Password Reset"
-      date="@@DATE@@"
+      date="Nov 20, 2025"
       tags={['Laravel', 'PHP']}
       backHref="/about-me/my-info?section=rean"
     >
@@ -85,7 +289,7 @@ export default function LaravelPasswordsPage() {
         this with <code>password_timeout</code> in <code>config/auth.php</code>.
       </blockquote>
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li>
             <strong>Password::sendResetLink()</strong> — sends reset email with token
@@ -106,7 +310,7 @@ export default function LaravelPasswordsPage() {
             <strong>Password confirmation</strong> — re-verify for sensitive actions
           </li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

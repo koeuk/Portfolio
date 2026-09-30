@@ -116,7 +116,7 @@
   @apply font-heading underline;
 }
 .article :not(pre) > code {
-  @apply rounded-base border-2 border-border bg-bw px-1 py-px font-mono text-[0.85em];
+  @apply rounded-base border-2 border-border bg-bw px-1 py-px font-mono text-[0.85em] text-fg;
 }
 .article blockquote {
   @apply neo bg-main p-4 text-main-fg;

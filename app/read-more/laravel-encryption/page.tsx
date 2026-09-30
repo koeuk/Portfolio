@@ -1,13 +1,95 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Encryption | Koeuk Dev',
   description: 'Encryption turns readable data into scrambled text that can only be read back with a secret key.',
 }
 
-// @@CODES@@
+const codes = [
+  `# Generate a new app key
+php artisan key:generate`,
+  `APP_KEY=base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`,
+  `use Illuminate\\Support\\Facades\\Crypt;
+
+// Encrypt a value
+$encrypted = Crypt::encryptString('my-secret-api-key');
+// Result: "eyJpdiI6IkpRb0xLT..." (long scrambled string)
+
+// Decrypt it back
+$decrypted = Crypt::decryptString($encrypted);
+// Result: "my-secret-api-key"`,
+  `use Illuminate\\Support\\Facades\\Crypt;
+
+// Encrypt arrays, numbers, objects — anything serializable
+$encrypted = Crypt::encrypt(['key' => 'value', 'secret' => true]);
+$decrypted = Crypt::decrypt($encrypted);
+// Result: ['key' => 'value', 'secret' => true]
+
+// Using the helper function
+$encrypted = encrypt('my secret');
+$decrypted = decrypt($encrypted);`,
+  `use Illuminate\\Contracts\\Encryption\\DecryptException;
+use Illuminate\\Support\\Facades\\Crypt;
+
+try {
+    $decrypted = Crypt::decryptString($encryptedValue);
+} catch (DecryptException $e) {
+    // Handle the error — data is corrupted or key changed
+    return response()->json(['error' => 'Unable to decrypt data'], 500);
+}`,
+  `class User extends Model
+{
+    protected $casts = [
+        'ssn'            => 'encrypted',         // Auto encrypt string
+        'secret_data'    => 'encrypted:array',    // Auto encrypt array
+        'api_key'        => 'encrypted',
+    ];
+}`,
+  `// Saving — automatically encrypted before storing in DB
+$user = User::create([
+    'name'    => 'John',
+    'ssn'     => '123-45-6789',  // Stored encrypted in database
+    'api_key' => 'sk-abc123',    // Stored encrypted in database
+]);
+
+// Reading — automatically decrypted when accessed
+echo $user->ssn;      // "123-45-6789" (readable)
+echo $user->api_key;  // "sk-abc123" (readable)
+
+// In database, it looks like:
+// ssn: "eyJpdiI6IkxRb0xLT0..." (encrypted gibberish)`,
+  `Schema::create('integrations', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('user_id')->constrained();
+    $table->string('provider');        // "stripe", "github"
+    $table->text('access_token');      // Will be encrypted
+    $table->text('refresh_token');     // Will be encrypted
+    $table->timestamps();
+});`,
+  `class Integration extends Model
+{
+    protected $fillable = ['user_id', 'provider', 'access_token', 'refresh_token'];
+
+    protected $casts = [
+        'access_token'  => 'encrypted',
+        'refresh_token' => 'encrypted',
+    ];
+}
+
+// Save — tokens are auto-encrypted
+Integration::create([
+    'user_id'       => auth()->id(),
+    'provider'      => 'stripe',
+    'access_token'  => 'sk_live_abc123xyz',   // Encrypted in DB
+    'refresh_token' => 'rt_live_def456uvw',   // Encrypted in DB
+]);
+
+// Read — tokens are auto-decrypted
+$integration = Integration::where('provider', 'stripe')->first();
+echo $integration->access_token; // "sk_live_abc123xyz" (readable)`,
+]
 
 export default function LaravelEncryptionPage() {
   return (
@@ -86,7 +168,7 @@ export default function LaravelEncryptionPage() {
       <CodeBlock title="Migration" code={codes[7]} />
       <CodeBlock title="app/Models/Integration.php" code={codes[8]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li>
             <strong>AES-256-CBC</strong> — Laravel uses strong encryption by default
@@ -104,7 +186,7 @@ export default function LaravelEncryptionPage() {
             <strong>Two-way</strong> — use for data you need to read back (not passwords)
           </li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

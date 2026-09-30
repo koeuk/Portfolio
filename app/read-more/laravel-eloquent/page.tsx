@@ -1,10 +1,10 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Eloquent ORM - Koeuk Dev',
-  description: 'Eloquent is Laravel\'s built-in ORM (Object-Relational Mapping).',
+  description: "Eloquent is Laravel's built-in ORM (Object-Relational Mapping).",
 }
 
 const codes = [
@@ -293,7 +293,7 @@ export default function Page() {
       <h2>6. Common Query Patterns</h2>
       <CodeBlock title="Useful Eloquent Queries" code={codes[15]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>Models</strong> — PHP classes that represent database tables</li>
           <li><strong>CRUD</strong> — create, read, update, delete with simple methods</li>
@@ -302,7 +302,7 @@ export default function Page() {
           <li><strong>Soft Deletes</strong> — safe deletion without losing data</li>
           <li><strong>Query Patterns</strong> — pagination, search, aggregates, chunking</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

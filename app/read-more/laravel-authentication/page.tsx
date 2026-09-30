@@ -1,13 +1,215 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Authentication | Koeuk Dev',
   description: 'Authentication is how your application knows who is using it.',
 }
 
-// @@CODES@@
+const codes = [
+  `'defaults' => [
+    'guard' => 'web',        // Default guard
+    'passwords' => 'users',  // Default password reset
+],
+
+'guards' => [
+    'web' => [
+        'driver' => 'session',       // Uses session cookies
+        'provider' => 'users',
+    ],
+    'api' => [
+        'driver' => 'sanctum',       // Uses API tokens
+        'provider' => 'users',
+    ],
+],
+
+'providers' => [
+    'users' => [
+        'driver' => 'eloquent',       // Uses Eloquent model
+        'model' => App\\Models\\User::class,
+    ],
+],`,
+  `# Install Breeze
+composer require laravel/breeze --dev
+
+# Scaffold auth with Blade views
+php artisan breeze:install blade
+
+# Or with Vue / React / API
+php artisan breeze:install vue
+php artisan breeze:install react
+php artisan breeze:install api
+
+# Run migrations and build assets
+php artisan migrate
+npm install && npm run dev`,
+  `use App\\Models\\User;
+use Illuminate\\Http\\Request;
+use Illuminate\\Support\\Facades\\Auth;
+use Illuminate\\Support\\Facades\\Hash;
+
+class RegisterController extends Controller
+{
+    public function showForm()
+    {
+        return view('auth.register');
+    }
+
+    public function register(Request $request)
+    {
+        // Validate input
+        $validated = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        // Create the user
+        $user = User::create([
+            'name'     => $validated['name'],
+            'email'    => $validated['email'],
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        // Log them in automatically
+        Auth::login($user);
+
+        return redirect('/dashboard');
+    }
+}`,
+  `use Illuminate\\Support\\Facades\\Auth;
+
+class LoginController extends Controller
+{
+    public function showForm()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email'    => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Attempt to authenticate
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
+        }
+
+        // Authentication failed
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match.',
+        ])->onlyInput('email');
+    }
+}`,
+  `public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/');
+}`,
+  `use App\\Http\\Controllers\\LoginController;
+use App\\Http\\Controllers\\RegisterController;
+
+// Guest only routes
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [RegisterController::class, 'showForm']);
+    Route::post('/register', [RegisterController::class, 'register']);
+    Route::get('/login', [LoginController::class, 'showForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
+});
+
+// Authenticated only routes
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout']);
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+});`,
+  `// Single route
+Route::get('/profile', [ProfileController::class, 'show'])
+    ->middleware('auth');
+
+// Group of routes
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/settings', [SettingsController::class, 'index']);
+});
+
+// In controller constructor
+class ProfileController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+}`,
+  `use Illuminate\\Support\\Facades\\Auth;
+
+// Get the currently authenticated user
+$user = Auth::user();
+
+// Get just the user's ID
+$id = Auth::id();
+
+// Check if user is logged in
+if (Auth::check()) {
+    // User is logged in
+}
+
+// In Blade templates
+@auth
+    <p>Welcome, {{ auth()->user()->name }}</p>
+@endauth
+
+@guest
+    <a href="/login">Login</a>
+@endguest`,
+  `# Install Sanctum
+php artisan install:api`,
+  `use Illuminate\\Support\\Facades\\Hash;
+
+public function login(Request $request)
+{
+    $request->validate([
+        'email'    => 'required|email',
+        'password' => 'required',
+    ]);
+
+    $user = User::where('email', $request->email)->first();
+
+    if (! $user || ! Hash::check($request->password, $user->password)) {
+        return response()->json([
+            'message' => 'Invalid credentials'
+        ], 401);
+    }
+
+    // Create a token
+    $token = $user->createToken('auth-token')->plainTextToken;
+
+    return response()->json([
+        'user'  => $user,
+        'token' => $token,
+    ]);
+}`,
+  `// routes/api.php
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::post('/logout', function (Request $request) {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json(['message' => 'Logged out']);
+    });
+});`,
+]
 
 export default function LaravelAuthenticationPage() {
   return (
@@ -76,7 +278,7 @@ export default function LaravelAuthenticationPage() {
       <CodeBlock title="API Login — return token" code={codes[9]} />
       <CodeBlock title="Protect API routes" code={codes[10]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li>
             <strong>Guards &amp; Providers</strong> — how and where users are authenticated
@@ -94,7 +296,7 @@ export default function LaravelAuthenticationPage() {
             <strong>Sanctum</strong> — token-based API authentication
           </li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

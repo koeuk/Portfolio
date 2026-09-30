@@ -1,10 +1,13 @@
+import { Fragment, type ReactNode } from 'react'
+import { ArrowRight } from 'lucide-react'
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Eloquent Relationships - Koeuk Dev',
-  description: 'In real applications, database tables are related to each other.',
+  description:
+    'Eloquent Relationships let you define connections between tables directly in your models, so you can access related data without writing complex SQL joins.',
 }
 
 const codes = [
@@ -211,27 +214,27 @@ export default function Page() {
         </thead>
         <tbody>
           <tr>
-            <td>hasOne</td>
+            <td><code>hasOne</code></td>
             <td>User has one Profile</td>
             <td>profiles table</td>
           </tr>
           <tr>
-            <td>belongsTo</td>
+            <td><code>belongsTo</code></td>
             <td>Profile belongs to User</td>
             <td>profiles table</td>
           </tr>
           <tr>
-            <td>hasMany</td>
+            <td><code>hasMany</code></td>
             <td>User has many Posts</td>
             <td>posts table</td>
           </tr>
           <tr>
-            <td>belongsToMany</td>
+            <td><code>belongsToMany</code></td>
             <td>Post has many Tags</td>
             <td>pivot table</td>
           </tr>
           <tr>
-            <td>hasOneThrough</td>
+            <td><code>hasOneThrough</code></td>
             <td>Country has one Capital through City</td>
             <td>intermediate table</td>
           </tr>
@@ -243,33 +246,27 @@ export default function Page() {
         A User has one Profile. The <code>profiles</code> table stores a <code>user_id</code> foreign key.
       </p>
 
-      <div class="grid md:grid-cols-2 gap-4 mb-6">
-        <div class="db-table">
-          <div class="db-table-header">users</div>
-          <table>
-            <thead><tr><th>id</th><th>name</th><th>email</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>John</td><td>john@mail.com</td></tr>
-              <tr><td>2</td><td>Jane</td><td>jane@mail.com</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="db-table">
-          <div class="db-table-header">profiles</div>
-          <table>
-            <thead><tr><th>id</th><th>user_id</th><th>bio</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>1</td><td>Developer</td></tr>
-              <tr><td>2</td><td>2</td><td>Designer</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <DbTable
+          name="users"
+          cols={['id', 'name', 'email']}
+          rows={[['1', 'John', 'john@mail.com'], ['2', 'Jane', 'jane@mail.com']]}
+          highlight={[0]}
+        />
+        <DbTable
+          name="profiles"
+          cols={['id', 'user_id', 'bio']}
+          fk={['user_id']}
+          rows={[['1', '1', 'Developer'], ['2', '2', 'Designer']]}
+          highlight={[0]}
+        />
       </div>
-      <div class="flow-arrow mb-6">
-        <span>User <strong>id: 1</strong></span>
-        <span></span>
-        <span>Profile <strong>user_id: 1</strong></span>
-      </div>
+      <Flow
+        steps={[
+          <>User <strong>id: 1</strong></>,
+          <>Profile <strong>user_id: 1</strong></>,
+        ]}
+      />
 
       <CodeBlock title="Migration: profiles table" code={codes[0]} />
       <CodeBlock title="app/Models/User.php" code={codes[1]} />
@@ -281,34 +278,27 @@ export default function Page() {
         A User has many Posts. Each post stores a <code>user_id</code> to know who wrote it.
       </p>
 
-      <div class="grid md:grid-cols-2 gap-4 mb-6">
-        <div class="db-table">
-          <div class="db-table-header">users</div>
-          <table>
-            <thead><tr><th>id</th><th>name</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>John</td></tr>
-              <tr><td>2</td><td>Jane</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="db-table">
-          <div class="db-table-header">posts</div>
-          <table>
-            <thead><tr><th>id</th><th>user_id</th><th>title</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>1</td><td>Laravel Basics</td></tr>
-              <tr><td>2</td><td>1</td><td>Eloquent ORM</td></tr>
-              <tr><td>3</td><td>2</td><td>CSS Grid</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <DbTable
+          name="users"
+          cols={['id', 'name']}
+          rows={[['1', 'John'], ['2', 'Jane']]}
+          highlight={[0]}
+        />
+        <DbTable
+          name="posts"
+          cols={['id', 'user_id', 'title']}
+          fk={['user_id']}
+          rows={[['1', '1', 'Laravel Basics'], ['2', '1', 'Eloquent ORM'], ['3', '2', 'CSS Grid']]}
+          highlight={[0, 1]}
+        />
       </div>
-      <div class="flow-arrow mb-6">
-        <span>User <strong>id: 1</strong></span>
-        <span></span>
-        <span>Posts <strong>user_id: 1</strong> (2 rows)</span>
-      </div>
+      <Flow
+        steps={[
+          <>User <strong>id: 1</strong></>,
+          <>Posts <strong>user_id: 1</strong> (2 rows)</>,
+        ]}
+      />
 
       <CodeBlock title="Migration: posts table" code={codes[4]} />
       <CodeBlock title="app/Models/User.php" code={codes[5]} />
@@ -320,46 +310,34 @@ export default function Page() {
         A Post can have many Tags, and a Tag can belong to many Posts. This requires a <strong>pivot table</strong> (a third table that connects them).
       </p>
 
-      <div class="grid md:grid-cols-3 gap-4 mb-6">
-        <div class="db-table">
-          <div class="db-table-header">posts</div>
-          <table>
-            <thead><tr><th>id</th><th>title</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Laravel Basics</td></tr>
-              <tr><td>2</td><td>Vue Guide</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="db-table">
-          <div class="db-table-header bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400">post_tag (pivot)</div>
-          <table>
-            <thead><tr><th>post_id</th><th>tag_id</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>1</td></tr>
-              <tr><td>1</td><td>2</td></tr>
-              <tr><td>2</td><td>1</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="db-table">
-          <div class="db-table-header">tags</div>
-          <table>
-            <thead><tr><th>id</th><th>name</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>PHP</td></tr>
-              <tr><td>2</td><td>Laravel</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div className="grid gap-5 md:grid-cols-3">
+        <DbTable
+          name="posts"
+          cols={['id', 'title']}
+          rows={[['1', 'Laravel Basics'], ['2', 'Vue Guide']]}
+          highlight={[0]}
+        />
+        <DbTable
+          name="post_tag (pivot)"
+          cols={['post_id', 'tag_id']}
+          fk={['post_id', 'tag_id']}
+          rows={[['1', '1'], ['1', '2'], ['2', '1']]}
+          highlight={[0, 1]}
+        />
+        <DbTable
+          name="tags"
+          cols={['id', 'name']}
+          rows={[['1', 'PHP'], ['2', 'Laravel']]}
+          highlight={[0, 1]}
+        />
       </div>
-      <div class="flow-arrow mb-6">
-        <span>Post <strong>id: 1</strong></span>
-        <span></span>
-        <span>pivot <strong>post_id: 1</strong></span>
-        <span></span>
-        <span>Tags <strong>id: 1, 2</strong></span>
-      </div>
+      <Flow
+        steps={[
+          <>Post <strong>id: 1</strong></>,
+          <>pivot <strong>post_id: 1</strong></>,
+          <>Tags <strong>id: 1, 2</strong></>,
+        ]}
+      />
 
       <CodeBlock title="Migration: tags table + pivot table" code={codes[8]} />
       <blockquote>
@@ -374,47 +352,35 @@ export default function Page() {
         Access distant relations through an intermediate model. Example: A Country has many Posts <strong>through</strong> Users.
       </p>
 
-      <div class="grid md:grid-cols-3 gap-4 mb-6">
-        <div class="db-table">
-          <div class="db-table-header">countries</div>
-          <table>
-            <thead><tr><th>id</th><th>name</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>Cambodia</td></tr>
-              <tr><td>2</td><td>Japan</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="db-table">
-          <div class="db-table-header">users (intermediate)</div>
-          <table>
-            <thead><tr><th>id</th><th>country_id</th><th>name</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>1</td><td>John</td></tr>
-              <tr><td>2</td><td>1</td><td>Jane</td></tr>
-              <tr><td>3</td><td>2</td><td>Yuki</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="db-table">
-          <div class="db-table-header">posts</div>
-          <table>
-            <thead><tr><th>id</th><th>user_id</th><th>title</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>1</td><td>Laravel</td></tr>
-              <tr><td>2</td><td>2</td><td>Vue.js</td></tr>
-              <tr><td>3</td><td>3</td><td>React</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div className="grid gap-5 md:grid-cols-3">
+        <DbTable
+          name="countries"
+          cols={['id', 'name']}
+          rows={[['1', 'Cambodia'], ['2', 'Japan']]}
+          highlight={[0]}
+        />
+        <DbTable
+          name="users (intermediate)"
+          cols={['id', 'country_id', 'name']}
+          fk={['country_id']}
+          rows={[['1', '1', 'John'], ['2', '1', 'Jane'], ['3', '2', 'Yuki']]}
+          highlight={[0, 1]}
+        />
+        <DbTable
+          name="posts"
+          cols={['id', 'user_id', 'title']}
+          fk={['user_id']}
+          rows={[['1', '1', 'Laravel'], ['2', '2', 'Vue.js'], ['3', '3', 'React']]}
+          highlight={[0, 1]}
+        />
       </div>
-      <div class="flow-arrow mb-6">
-        <span>Country <strong>id: 1</strong></span>
-        <span></span>
-        <span>Users <strong>country_id: 1</strong></span>
-        <span></span>
-        <span>Posts <strong>user_id: 1, 2</strong></span>
-      </div>
+      <Flow
+        steps={[
+          <>Country <strong>id: 1</strong></>,
+          <>Users <strong>country_id: 1</strong></>,
+          <>Posts <strong>user_id: 1, 2</strong></>,
+        ]}
+      />
 
       <CodeBlock title="Tables" code={codes[12]} />
       <CodeBlock title="app/Models/Country.php" code={codes[13]} />
@@ -433,7 +399,7 @@ export default function Page() {
       <h2>6. Querying Relationships</h2>
       <CodeBlock title="Useful Relationship Queries" code={codes[17]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>hasOne / belongsTo</strong> — one-to-one (User → Profile)</li>
           <li><strong>hasMany / belongsTo</strong> — one-to-many (User → Posts)</li>
@@ -442,7 +408,62 @@ export default function Page() {
           <li><strong>Eager Loading</strong> — always use <code>with()</code> to avoid N+1 queries</li>
           <li><strong>has / whereHas</strong> — query based on relationship existence</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
+  )
+}
+
+/** A small sample table for the diagrams: `fk` columns are foreign keys, `highlight` rows are the related ones. */
+function DbTable({
+  name,
+  cols,
+  fk = [],
+  rows,
+  highlight = [],
+}: {
+  name: string
+  cols: string[]
+  fk?: string[]
+  rows: string[][]
+  highlight?: number[]
+}) {
+  const cell = (col: string, value: string) => (fk.includes(col) ? <code>{value}</code> : value)
+
+  return (
+    <figure className="min-w-0">
+      <figcaption className="mb-2 text-sm font-heading">{name}</figcaption>
+      <table>
+        <thead>
+          <tr>
+            {cols.map(col => (
+              <th key={col}>{cell(col, col)}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i} className={highlight.includes(i) ? 'bg-bg font-heading' : undefined}>
+              {row.map((value, j) => (
+                <td key={j}>{cell(cols[j], value)}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </figure>
+  )
+}
+
+/** "A → B → C" row showing how the highlighted rows connect. */
+function Flow({ steps }: { steps: ReactNode[] }) {
+  return (
+    <div className="flex flex-col items-center gap-2 text-sm sm:flex-row sm:flex-wrap sm:justify-center">
+      {steps.map((step, i) => (
+        <Fragment key={i}>
+          {i > 0 && <ArrowRight className="h-4 w-4 shrink-0 rotate-90 sm:rotate-0" aria-hidden />}
+          <span className="neo bg-bw px-3 py-1.5">{step}</span>
+        </Fragment>
+      ))}
+    </div>
   )
 }

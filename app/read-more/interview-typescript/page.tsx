@@ -1,6 +1,6 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'TypeScript Interview Questions - Koeuk Dev',
@@ -789,7 +789,7 @@ export default function Page() {
       </p>
       <CodeBlock title="== vs ===" code={codes[19]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>TypeScript</strong> adds static typing to JavaScript for safer, more maintainable code</li>
           <li><strong>Interfaces &amp; Types</strong> define object shapes and complex type expressions</li>
@@ -800,7 +800,7 @@ export default function Page() {
           <li><strong>Strict mode</strong> catches more bugs at compile time and is recommended for all projects</li>
           <li><strong>Modules over Namespaces</strong> align with modern JavaScript standards</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

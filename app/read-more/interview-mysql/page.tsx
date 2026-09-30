@@ -1,6 +1,6 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'MySQL Interview Questions - Koeuk Dev',
@@ -929,7 +929,7 @@ export default function Page() {
       </ul>
       <CodeBlock title="Query Optimization Techniques" code={codes[19]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li><strong>MySQL Basics</strong> — Open-source RDBMS using SQL, with InnoDB as the default engine</li>
           <li><strong>Keys and Indexes</strong> — PRIMARY, FOREIGN, UNIQUE keys enforce integrity; indexes boost query speed</li>
@@ -942,7 +942,7 @@ export default function Page() {
           <li><strong>Replication</strong> — Master-Slave setup for high availability and read scaling</li>
           <li><strong>Deadlocks</strong> — Prevent with consistent lock ordering and short transactions</li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }

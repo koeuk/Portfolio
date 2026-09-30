@@ -7,7 +7,20 @@ export const metadata = {
   description: 'JavaScript runs the browser, the server (Node.js), and most of the modern web.',
 }
 
-// @@CODES@@
+const varsCode = `const greeting = 'hello'
+let count = 0
+count += 1
+
+const greet = (name) => \`Hello, \${name}!\`
+greet('Koeuk')`
+
+const asyncCode = `async function loadUser(id) {
+  const response = await fetch(\`/api/users/\${id}\`)
+  if (!response.ok) throw new Error('Failed to load')
+  return response.json()
+}
+
+const user = await loadUser(42)`
 
 export default function LearnJavaScriptPage() {
   return (

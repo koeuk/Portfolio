@@ -1,6 +1,6 @@
 import { Article } from '@/components/ui/Article'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Summary } from './Summary'
+import { ArticleSummary } from '@/components/ui/ArticleSummary'
 
 export const metadata = {
   title: 'Laravel Hashing | Koeuk Dev',
@@ -8,7 +8,116 @@ export const metadata = {
     'Hashing is a one-way process that turns a password (or any data) into a fixed-length scrambled string.',
 }
 
-// @@CODES@@
+const codes = [
+  `// NEVER store passwords in plain text!
+$user->password = 'secret123';  // Anyone with DB access can read it
+$user->save();`,
+  `// Hash the password — it becomes unreadable
+$user->password = Hash::make('secret123');
+$user->save();
+// Stored as: "$2y$12$K4Iu6q7cW8e..."  (nobody can read the original)`,
+  `use Illuminate\\Support\\Facades\\Hash;
+
+// Create a hash
+$hashed = Hash::make('my-password');
+// Result: "$2y$12$K4Iu6q7cW8e..."
+
+// Each call produces a DIFFERENT hash (due to random salt)
+Hash::make('my-password');  // "$2y$12$abc..."
+Hash::make('my-password');  // "$2y$12$xyz..."
+// Both are valid hashes of the same password!
+
+// Verify a password against a hash
+if (Hash::check('my-password', $hashed)) {
+    // Password is correct!
+}
+
+if (! Hash::check('wrong-password', $hashed)) {
+    // Password is wrong
+}`,
+  `'bcrypt' => [
+    'rounds' => env('BCRYPT_ROUNDS', 12),  // Default: 12
+],`,
+  `// Override rounds for a specific hash
+$hashed = Hash::make('password', [
+    'rounds' => 14,  // Slower but more secure
+]);`,
+  `// Switch to Argon2
+'driver' => 'argon2id',  // or 'argon2i'
+
+'argon' => [
+    'memory'  => 65536,  // Memory cost in KiB (64MB)
+    'threads' => 1,      // Number of threads
+    'time'    => 4,      // Number of iterations
+],`,
+  `// The API stays the same regardless of driver
+$hashed = Hash::make('password');  // Uses Argon2 if configured
+Hash::check('password', $hashed); // Works the same way`,
+  `use Illuminate\\Support\\Facades\\Hash;
+
+// Check if a hash needs to be rehashed (config changed)
+if (Hash::needsRehash($user->password)) {
+    $user->update([
+        'password' => Hash::make($plainPassword),
+    ]);
+}`,
+  `public function login(Request $request)
+{
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    if (Auth::attempt($credentials)) {
+        // Auto-rehash if config changed
+        if (Hash::needsRehash(Auth::user()->password)) {
+            Auth::user()->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        return redirect('/dashboard');
+    }
+
+    return back()->withErrors(['email' => 'Invalid credentials']);
+}`,
+  `User::create([
+    'name'     => $request->name,
+    'email'    => $request->email,
+    'password' => Hash::make($request->password),
+]);`,
+  `public function changePassword(Request $request)
+{
+    $request->validate([
+        'current_password' => 'required',
+        'new_password'     => 'required|min:8|confirmed',
+    ]);
+
+    // Verify current password
+    if (! Hash::check($request->current_password, auth()->user()->password)) {
+        return back()->withErrors(['current_password' => 'Current password is incorrect']);
+    }
+
+    // Update with new hash
+    auth()->user()->update([
+        'password' => Hash::make($request->new_password),
+    ]);
+
+    return back()->with('success', 'Password changed!');
+}`,
+  `// app/Models/User.php
+use Illuminate\\Database\\Eloquent\\Casts\\Attribute;
+
+protected function password(): Attribute
+{
+    return Attribute::make(
+        set: fn (string $value) => Hash::make($value),
+    );
+}
+
+// Now you can just do:
+$user->password = 'plain-text';  // Auto-hashed before saving!`,
+]
 
 export default function LaravelHashingPage() {
   return (
@@ -89,7 +198,7 @@ export default function LaravelHashingPage() {
       <CodeBlock title="Change Password" code={codes[10]} />
       <CodeBlock title="Auto-hash with Eloquent mutator" code={codes[11]} />
 
-      <Summary>
+      <ArticleSummary>
         <ul>
           <li>
             <strong>One-way</strong> — hashes cannot be reversed (unlike encryption)
@@ -110,7 +219,7 @@ export default function LaravelHashingPage() {
             <strong>needsRehash()</strong> — auto-upgrade hashes when config changes
           </li>
         </ul>
-      </Summary>
+      </ArticleSummary>
     </Article>
   )
 }
