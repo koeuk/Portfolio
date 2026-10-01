@@ -28,22 +28,26 @@ export function Hero() {
     <section id="home" className="reveal mb-20">
       <div className="flex flex-col-reverse gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
-          <p className="inline-flex items-center gap-2 text-sm">
-            <span className="h-2.5 w-2.5 rounded-full border-2 border-border bg-[oklch(72%_0.19_145)]" aria-hidden="true" />
-            {t('hero.available')}
-          </p>
-          <h1 className="mt-4 font-heading text-3xl sm:text-5xl">{personalInfo.name}</h1>
+          <h1 className="font-heading text-3xl sm:text-5xl">{personalInfo.name}</h1>
           <p className="mt-2 text-lg sm:text-xl">{t('hero.role')}</p>
-          <p className="mt-3 inline-flex items-center gap-1.5 text-sm">
+          <p className="mt-3 flex items-center gap-1.5 text-sm">
             <MapPin className="h-4 w-4" aria-hidden />
             {t('hero.location')}
           </p>
+          <p className="mt-2 flex items-center gap-1.5 text-sm">
+            {/* Dot centred in an icon-sized box so the text lines up with the location above */}
+            <span className="flex h-4 w-4 items-center justify-center" aria-hidden="true">
+              <span className="h-2.5 w-2.5 rounded-full border-2 border-border bg-[oklch(72%_0.19_145)]" />
+            </span>
+            {t('hero.available')}
+          </p>
+          <LocalTime />
         </div>
 
         <img
           src={personalInfo.image}
           alt={personalInfo.name}
-          className="neo h-28 w-28 flex-shrink-0 bg-main object-cover sm:h-36 sm:w-36"
+          className="neo aspect-square w-full max-w-xs flex-shrink-0 self-center bg-main object-cover sm:h-36 sm:w-36 sm:self-auto"
         />
       </div>
 
