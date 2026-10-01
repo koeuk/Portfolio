@@ -98,9 +98,9 @@ const translations: Translations = {
 
   // Hero
   "hero.available": {
-    en: "Available for New Project",
-    km: "អាចទទួលគម្រោងថ្មី",
-    zh: "可接新项目",
+    en: "Available for Work",
+    km: "អាចទទួលការងារ",
+    zh: "可接受工作机会",
   },
   "hero.location": {
     en: "Phnom Penh, Cambodia",
