@@ -52,7 +52,7 @@ export function MyInfo() {
           <img
             src={personalInfo.image}
             alt={personalInfo.name}
-            className="neo h-24 w-24 flex-shrink-0 bg-main object-cover min-[375px]:h-28 min-[375px]:w-28 sm:h-36 sm:w-36"
+            className="neo h-[clamp(6rem,34vw,9rem)] w-[clamp(6rem,34vw,9rem)] flex-shrink-0 bg-main object-cover sm:h-48 sm:w-48"
           />
         </div>
       </header>
