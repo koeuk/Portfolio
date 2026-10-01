@@ -82,7 +82,7 @@ export function Hero() {
         <img
           src={personalInfo.image}
           alt={personalInfo.name}
-          className="neo aspect-square w-full max-w-xs flex-shrink-0 self-center bg-main object-cover sm:h-36 sm:w-36 sm:self-auto"
+          className="neo aspect-square w-full max-w-xs flex-shrink-0 self-center bg-main object-cover sm:h-44 sm:w-44 sm:self-auto md:h-56 md:w-56"
         />
       </div>
 
