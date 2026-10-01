@@ -1,13 +1,13 @@
 'use client'
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { BookOpen, PenLine } from 'lucide-react'
+import { BookOpen, Mail, PenLine, Phone } from 'lucide-react'
 import { Blog } from '@/components/about/Blog'
 import { GitHub } from '@/components/about/GitHub'
 import { ReadMore, ReadMoreList } from '@/components/about/ReadMore'
 import { useI18n } from '@/components/providers/I18nProvider'
 import { BackLink } from '@/components/ui/BackLink'
-import { buttonClass } from '@/components/ui/Button'
+import { Button, buttonClass } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Section } from '@/components/ui/Section'
 import { Transition } from '@/components/ui/Transition'
@@ -26,6 +26,11 @@ type TabKey = (typeof tabs)[number]['key']
 
 const isTabKey = (value: string | null): value is TabKey => tabs.some(tab => tab.key === value)
 
+/** Opens a mailto:/tel: link from a button, so the address never shows on hover. */
+const openLink = (href: string) => {
+  window.location.href = href
+}
+
 /** Profile header, bio, quick facts and social links. */
 export function MyInfo() {
   const { personalInfo, socials } = useData()
@@ -37,17 +42,19 @@ export function MyInfo() {
     {
       label: 'Email',
       value: (
-        <a href={`mailto:${personalInfo.email}`} className="break-all font-heading underline">
-          {personalInfo.email}
-        </a>
+        <Button variant="main" onClick={() => openLink(`mailto:${personalInfo.email}`)}>
+          <Mail className="h-4 w-4 flex-shrink-0" aria-hidden />
+          Send Email
+        </Button>
       ),
     },
     {
       label: 'Phone',
       value: (
-        <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`} className="font-heading underline">
-          {personalInfo.phone}
-        </a>
+        <Button variant="main" onClick={() => openLink(`tel:${personalInfo.phone.replace(/\s/g, '')}`)}>
+          <Phone className="h-4 w-4 flex-shrink-0" aria-hidden />
+          Call Me
+        </Button>
       ),
     },
     { label: 'Location', value: personalInfo.location },
@@ -89,7 +96,7 @@ export function MyInfo() {
           {facts.map(fact => (
             <div
               key={fact.label}
-              className="flex flex-col gap-1 border-b-2 border-border px-4 py-3 last:border-b-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 sm:px-5"
+              className="flex flex-col gap-1 border-b-2 border-border px-4 py-3 last:border-b-0 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-5"
             >
               <dt className="text-xs font-heading uppercase tracking-widest">{fact.label}</dt>
               <dd className="min-w-0 sm:text-right">{fact.value}</dd>

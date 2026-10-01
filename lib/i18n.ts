@@ -147,6 +147,21 @@ const translations: Translations = {
   },
   "workExperience.start": { en: "START", km: "ចាប់ផ្តើម", zh: "开始" },
   "workExperience.present": { en: "PRESENT", km: "បច្ចុប្បន្ន", zh: "至今" },
+  "workExperience.opsMobileInternship.role": {
+    en: "OPS Mobile Developer Internship",
+    km: "កម្មសិក្សា Mobile Developer នៅ OPS",
+    zh: "OPS 移动开发实习",
+  },
+  "workExperience.opsMobileInternship.period": {
+    en: "Oct 2026 - Present",
+    km: "តុលា 2026 - បច្ចុប្បន្ន",
+    zh: "2026年10月 - 至今",
+  },
+  "workExperience.opsMobileInternship.description": {
+    en: "Mobile developer intern at OPS, building mobile app features with the team.",
+    km: "កម្មសិក្សាផ្នែក Mobile Developer នៅ OPS ដោយបង្កើតមុខងារកម្មវិធីទូរស័ព្ទជាមួយក្រុម។",
+    zh: "在 OPS 担任移动开发实习生，与团队一起开发移动应用功能。",
+  },
   "workExperience.internship.role": {
     en: "Internship",
     km: "កម្មសិក្សា",

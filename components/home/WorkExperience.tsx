@@ -7,6 +7,11 @@ import { Tag } from '@/components/ui/Tag'
 
 const jobs = [
   {
+    key: 'opsMobileInternship',
+    current: true,
+    technologies: [],
+  },
+  {
     key: 'staff',
     current: true,
     technologies: ['Vue.js', 'Nuxt.js', 'Shadcn Vue', 'Tailwind CSS', 'Laravel', 'PHP', 'REST API'],
@@ -31,11 +36,13 @@ export function WorkExperience() {
               <p className="text-sm font-heading">{t(`workExperience.${job.key}.period`)}</p>
             </div>
             <p className="mt-3 leading-relaxed">{t(`workExperience.${job.key}.description`)}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {job.technologies.map(technology => (
-                <Tag key={technology}>{technology}</Tag>
-              ))}
-            </div>
+            {job.technologies.length > 0 && (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {job.technologies.map(technology => (
+                  <Tag key={technology}>{technology}</Tag>
+                ))}
+              </div>
+            )}
           </Card>
         ))}
       </ol>
