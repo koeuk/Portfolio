@@ -99,7 +99,12 @@ function TabIcon({ tab }: { tab: TabKey }) {
 function TabList({ active, onSelect }: { active: TabKey; onSelect?: (tab: TabKey) => void }) {
   const { t } = useI18n()
   return (
-    <div role="tablist" aria-label={t('nav.myInfo')} className="mb-12 flex flex-wrap gap-3">
+    // One row that scrolls sideways on narrow screens; the padding keeps the button shadows from being clipped.
+    <div
+      role="tablist"
+      aria-label={t('nav.myInfo')}
+      className="mb-10 flex gap-3 overflow-x-auto pb-2 pr-2 pt-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    >
       {tabs.map(tab => (
         <button
           key={tab.key}
@@ -109,7 +114,7 @@ function TabList({ active, onSelect }: { active: TabKey; onSelect?: (tab: TabKey
           aria-selected={active === tab.key}
           aria-controls="my-info-panel"
           onClick={() => onSelect?.(tab.key)}
-          className={buttonClass(active === tab.key ? 'main' : 'neutral')}
+          className={buttonClass(active === tab.key ? 'main' : 'neutral', 'flex-shrink-0 whitespace-nowrap')}
         >
           <TabIcon tab={tab.key} />
           {t(tab.label)}
