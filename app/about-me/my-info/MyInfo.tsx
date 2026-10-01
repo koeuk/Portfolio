@@ -73,7 +73,7 @@ export function MyInfo() {
         <div className="mb-8">
           <BackLink href="/">{t('nav.home')}</BackLink>
         </div>
-        <div className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center justify-between gap-5 sm:gap-8">
           <div className="min-w-0">
             <p className="text-xs font-heading uppercase tracking-widest">{t('nav.myInfo')}</p>
             <h1 className="mt-3 font-heading text-2xl sm:text-4xl">{personalInfo.name}</h1>
@@ -82,7 +82,7 @@ export function MyInfo() {
           <img
             src={personalInfo.image}
             alt={personalInfo.name}
-            className="neo h-28 w-28 flex-shrink-0 bg-main object-cover sm:h-36 sm:w-36"
+            className="neo h-24 w-24 flex-shrink-0 bg-main object-cover min-[375px]:h-28 min-[375px]:w-28 sm:h-36 sm:w-36"
           />
         </div>
       </header>
