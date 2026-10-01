@@ -126,8 +126,12 @@
 .article blockquote {
   @apply neo bg-main p-4 text-main-fg;
 }
+/* Wide tables scroll inside their frame instead of widening the page on phones */
+.article .table-scroll {
+  @apply neo overflow-x-auto bg-bw;
+}
 .article table {
-  @apply neo w-full border-separate border-spacing-0 overflow-hidden bg-bw text-sm;
+  @apply w-full border-separate border-spacing-0 text-sm;
 }
 .article th {
   @apply border-b-2 border-border bg-main px-3 py-2 text-left font-heading text-main-fg;

@@ -101,32 +101,34 @@ export default function LaravelEncryptionPage() {
       </p>
 
       <h2>Encryption vs Hashing</h2>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Encryption</th>
-            <th>Hashing</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Direction</td>
-            <td>Two-way (encrypt &amp; decrypt)</td>
-            <td>One-way (cannot reverse)</td>
-          </tr>
-          <tr>
-            <td>Use for</td>
-            <td>Data you need to read back (API keys, personal data)</td>
-            <td>Data you never need to read (passwords)</td>
-          </tr>
-          <tr>
-            <td>Example</td>
-            <td>&quot;hello&quot; → &quot;eyJpdiI6...&quot; → &quot;hello&quot;</td>
-            <td>&quot;hello&quot; → &quot;$2y$12$...&quot; (cannot get &quot;hello&quot; back)</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Encryption</th>
+              <th>Hashing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Direction</td>
+              <td>Two-way (encrypt &amp; decrypt)</td>
+              <td>One-way (cannot reverse)</td>
+            </tr>
+            <tr>
+              <td>Use for</td>
+              <td>Data you need to read back (API keys, personal data)</td>
+              <td>Data you never need to read (passwords)</td>
+            </tr>
+            <tr>
+              <td>Example</td>
+              <td>&quot;hello&quot; → &quot;eyJpdiI6...&quot; → &quot;hello&quot;</td>
+              <td>&quot;hello&quot; → &quot;$2y$12$...&quot; (cannot get &quot;hello&quot; back)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>1. The Encryption Key (APP_KEY)</h2>
       <p>

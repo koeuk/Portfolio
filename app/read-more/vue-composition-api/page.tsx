@@ -390,42 +390,44 @@ export default function Page() {
         Lifecycle hooks let you run code at specific points in a component&apos;s life.
       </p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Hook</th>
-            <th>When it runs</th>
-            <th>Common use</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>onMounted</code></td>
-            <td>After DOM is rendered</td>
-            <td>Fetch data, init libraries</td>
-          </tr>
-          <tr>
-            <td><code>onUpdated</code></td>
-            <td>After reactive state change causes re-render</td>
-            <td>DOM-dependent operations</td>
-          </tr>
-          <tr>
-            <td><code>onUnmounted</code></td>
-            <td>Component is removed</td>
-            <td>Cleanup (timers, listeners)</td>
-          </tr>
-          <tr>
-            <td><code>onBeforeMount</code></td>
-            <td>Before DOM is rendered</td>
-            <td>Pre-render logic</td>
-          </tr>
-          <tr>
-            <td><code>onBeforeUnmount</code></td>
-            <td>Before component is removed</td>
-            <td>Save state, cleanup</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Hook</th>
+              <th>When it runs</th>
+              <th>Common use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>onMounted</code></td>
+              <td>After DOM is rendered</td>
+              <td>Fetch data, init libraries</td>
+            </tr>
+            <tr>
+              <td><code>onUpdated</code></td>
+              <td>After reactive state change causes re-render</td>
+              <td>DOM-dependent operations</td>
+            </tr>
+            <tr>
+              <td><code>onUnmounted</code></td>
+              <td>Component is removed</td>
+              <td>Cleanup (timers, listeners)</td>
+            </tr>
+            <tr>
+              <td><code>onBeforeMount</code></td>
+              <td>Before DOM is rendered</td>
+              <td>Pre-render logic</td>
+            </tr>
+            <tr>
+              <td><code>onBeforeUnmount</code></td>
+              <td>Before component is removed</td>
+              <td>Save state, cleanup</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <CodeBlock title="Lifecycle Hooks" code={codes[5]} />
 

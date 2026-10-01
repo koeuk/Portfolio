@@ -150,32 +150,34 @@ export default function LaravelHashingPage() {
       <p>&quot;Rounds&quot; control how slow hashing is. More rounds = more secure but slower. Default is 12.</p>
       <CodeBlock title="config/hashing.php" code={codes[3]} />
       <CodeBlock title="Custom rounds per hash" code={codes[4]} />
-      <table>
-        <thead>
-          <tr>
-            <th>Rounds</th>
-            <th>Speed</th>
-            <th>Use case</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>10</td>
-            <td>~65ms</td>
-            <td>Testing / development</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>~250ms</td>
-            <td>Default — good balance</td>
-          </tr>
-          <tr>
-            <td>14</td>
-            <td>~1s</td>
-            <td>High security applications</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Rounds</th>
+              <th>Speed</th>
+              <th>Use case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10</td>
+              <td>~65ms</td>
+              <td>Testing / development</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>~250ms</td>
+              <td>Default — good balance</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>~1s</td>
+              <td>High security applications</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>3. Argon2 (Alternative)</h2>
       <p>

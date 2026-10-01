@@ -713,37 +713,39 @@ export default function InterviewSqlPage() {
         <strong>non-relational</strong> and can store data in documents, key-value pairs, graphs, or wide-column
         formats.
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>SQL</th>
-            <th>NoSQL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Structure</td>
-            <td>Fixed schema, tables</td>
-            <td>Flexible schema, documents</td>
-          </tr>
-          <tr>
-            <td>Scalability</td>
-            <td>Vertical</td>
-            <td>Horizontal</td>
-          </tr>
-          <tr>
-            <td>ACID</td>
-            <td>Strong ACID compliance</td>
-            <td>Eventual consistency (usually)</td>
-          </tr>
-          <tr>
-            <td>Examples</td>
-            <td>MySQL, PostgreSQL, SQL Server</td>
-            <td>MongoDB, Redis, Cassandra</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>SQL</th>
+              <th>NoSQL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Structure</td>
+              <td>Fixed schema, tables</td>
+              <td>Flexible schema, documents</td>
+            </tr>
+            <tr>
+              <td>Scalability</td>
+              <td>Vertical</td>
+              <td>Horizontal</td>
+            </tr>
+            <tr>
+              <td>ACID</td>
+              <td>Strong ACID compliance</td>
+              <td>Eventual consistency (usually)</td>
+            </tr>
+            <tr>
+              <td>Examples</td>
+              <td>MySQL, PostgreSQL, SQL Server</td>
+              <td>MongoDB, Redis, Cassandra</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <CodeBlock title="SQL vs NoSQL Examples" code={codes[1]} />
 
       <h3>3. What is a Primary Key vs Foreign Key?</h3>

@@ -625,65 +625,69 @@ export default function Page() {
       <p>
         <code>SQL</code> (Structured Query Language) is a <strong>language</strong> used to communicate with relational databases. <code>MySQL</code> is a <strong>database management system</strong> that uses SQL as its query language.
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>SQL</th>
-            <th>MySQL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>A query language (standard)</td>
-            <td>A database software (RDBMS)</td>
-          </tr>
-          <tr>
-            <td>Defines how to interact with data</td>
-            <td>Implements SQL to store/retrieve data</td>
-          </tr>
-          <tr>
-            <td>Used by many RDBMS (PostgreSQL, SQLite, etc.)</td>
-            <td>One specific RDBMS that uses SQL</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>SQL</th>
+              <th>MySQL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A query language (standard)</td>
+              <td>A database software (RDBMS)</td>
+            </tr>
+            <tr>
+              <td>Defines how to interact with data</td>
+              <td>Implements SQL to store/retrieve data</td>
+            </tr>
+            <tr>
+              <td>Used by many RDBMS (PostgreSQL, SQLite, etc.)</td>
+              <td>One specific RDBMS that uses SQL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <CodeBlock title="SQL is the language, MySQL is the tool" code={codes[1]} />
 
       <h2>3. What are Storage Engines? InnoDB vs MyISAM?</h2>
       <p>
         Storage engines are the underlying components that MySQL uses to handle SQL operations for different table types. The two most common are <code>InnoDB</code> (default) and <code>MyISAM</code>.
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>InnoDB</th>
-            <th>MyISAM</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Transactions</td>
-            <td>Yes (ACID)</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>Foreign Keys</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>Row-level Locking</td>
-            <td>Yes</td>
-            <td>No (table-level)</td>
-          </tr>
-          <tr>
-            <td>Full-text Search</td>
-            <td>Yes (5.6+)</td>
-            <td>Yes</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>InnoDB</th>
+              <th>MyISAM</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Transactions</td>
+              <td>Yes (ACID)</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Foreign Keys</td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Row-level Locking</td>
+              <td>Yes</td>
+              <td>No (table-level)</td>
+            </tr>
+            <tr>
+              <td>Full-text Search</td>
+              <td>Yes (5.6+)</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <CodeBlock title="Storage Engine Commands" code={codes[2]} />
 
       <h2>4. What are PRIMARY KEY, FOREIGN KEY, and UNIQUE KEY?</h2>
@@ -770,42 +774,44 @@ export default function Page() {
       <p>
         All three remove data, but they work differently:
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>DELETE</th>
-            <th>TRUNCATE</th>
-            <th>DROP</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Removes</td>
-            <td>Specific rows</td>
-            <td>All rows</td>
-            <td>Entire table</td>
-          </tr>
-          <tr>
-            <td>WHERE clause</td>
-            <td>Yes</td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>Rollback</td>
-            <td>Yes</td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-            <td>Speed</td>
-            <td>Slower</td>
-            <td>Faster</td>
-            <td>Fastest</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>DELETE</th>
+              <th>TRUNCATE</th>
+              <th>DROP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Removes</td>
+              <td>Specific rows</td>
+              <td>All rows</td>
+              <td>Entire table</td>
+            </tr>
+            <tr>
+              <td>WHERE clause</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Rollback</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td>Speed</td>
+              <td>Slower</td>
+              <td>Faster</td>
+              <td>Fastest</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <CodeBlock title="DELETE vs TRUNCATE vs DROP" code={codes[10]} />
 
       <h2>12. What are Views?</h2>
@@ -834,37 +840,39 @@ export default function Page() {
       <p>
         Both store string data, but they handle storage differently:
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>CHAR</th>
-            <th>VARCHAR</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Storage</td>
-            <td>Fixed-length (padded with spaces)</td>
-            <td>Variable-length</td>
-          </tr>
-          <tr>
-            <td>Max length</td>
-            <td>255 characters</td>
-            <td>65,535 characters</td>
-          </tr>
-          <tr>
-            <td>Performance</td>
-            <td>Faster for fixed-size data</td>
-            <td>Better for variable-size data</td>
-          </tr>
-          <tr>
-            <td>Use case</td>
-            <td>Country codes, status flags</td>
-            <td>Names, emails, descriptions</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>CHAR</th>
+              <th>VARCHAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Storage</td>
+              <td>Fixed-length (padded with spaces)</td>
+              <td>Variable-length</td>
+            </tr>
+            <tr>
+              <td>Max length</td>
+              <td>255 characters</td>
+              <td>65,535 characters</td>
+            </tr>
+            <tr>
+              <td>Performance</td>
+              <td>Faster for fixed-size data</td>
+              <td>Better for variable-size data</td>
+            </tr>
+            <tr>
+              <td>Use case</td>
+              <td>Country codes, status flags</td>
+              <td>Names, emails, descriptions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <CodeBlock title="CHAR vs VARCHAR" code={codes[14]} />
 
       <h2>16. What is UNION vs UNION ALL?</h2>

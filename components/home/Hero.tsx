@@ -50,7 +50,7 @@ export function Hero() {
       <p className="mt-8 text-base leading-relaxed sm:text-lg">{t('hero.blurb')}</p>
 
       <div className="neo neo-press mt-8 flex items-center justify-between gap-4 bg-main p-4 text-main-fg">
-        <span className="text-xs font-heading uppercase tracking-widest">{t('hero.rolesEyebrow')}</span>
+        <span className="whitespace-nowrap text-xs font-heading uppercase tracking-widest">{t('hero.rolesEyebrow')}</span>
         <span className="relative overflow-hidden text-right font-heading sm:text-lg" aria-live="polite">
           <Transition name="fade">
             <span key={roleIndex} className="block">

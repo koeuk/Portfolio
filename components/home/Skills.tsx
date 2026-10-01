@@ -32,14 +32,14 @@ export function Skills() {
             {skills
               .filter(skill => skill.category === category)
               .map(skill => (
-                <div key={skill.name} className="neo neo-press reveal-on-scroll flex flex-col gap-2.5 bg-bw px-3 py-2.5 text-sm">
+                <div key={skill.name} className="neo neo-press reveal-on-scroll flex flex-col gap-2.5 bg-bw px-2 py-2.5 text-sm min-[360px]:px-3">
                   <span className="flex items-center gap-2">
                     <span
                       className="h-6 w-6 flex-shrink-0 [&_svg]:h-full [&_svg]:w-full"
                       aria-hidden="true"
                       dangerouslySetInnerHTML={{ __html: getIcon(skill.name) }}
                     />
-                    <span className="min-w-0 truncate">{skill.name}</span>
+                    <span className="min-w-0 break-words leading-tight">{skill.name}</span>
                   </span>
                   <span className="flex items-center gap-2">
                     <span

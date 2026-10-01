@@ -204,42 +204,44 @@ export default function Page() {
       </p>
 
       <h2>Relationship Types Overview</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Relationship</th>
-            <th>Example</th>
-            <th>Foreign Key On</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>hasOne</code></td>
-            <td>User has one Profile</td>
-            <td>profiles table</td>
-          </tr>
-          <tr>
-            <td><code>belongsTo</code></td>
-            <td>Profile belongs to User</td>
-            <td>profiles table</td>
-          </tr>
-          <tr>
-            <td><code>hasMany</code></td>
-            <td>User has many Posts</td>
-            <td>posts table</td>
-          </tr>
-          <tr>
-            <td><code>belongsToMany</code></td>
-            <td>Post has many Tags</td>
-            <td>pivot table</td>
-          </tr>
-          <tr>
-            <td><code>hasOneThrough</code></td>
-            <td>Country has one Capital through City</td>
-            <td>intermediate table</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Relationship</th>
+              <th>Example</th>
+              <th>Foreign Key On</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>hasOne</code></td>
+              <td>User has one Profile</td>
+              <td>profiles table</td>
+            </tr>
+            <tr>
+              <td><code>belongsTo</code></td>
+              <td>Profile belongs to User</td>
+              <td>profiles table</td>
+            </tr>
+            <tr>
+              <td><code>hasMany</code></td>
+              <td>User has many Posts</td>
+              <td>posts table</td>
+            </tr>
+            <tr>
+              <td><code>belongsToMany</code></td>
+              <td>Post has many Tags</td>
+              <td>pivot table</td>
+            </tr>
+            <tr>
+              <td><code>hasOneThrough</code></td>
+              <td>Country has one Capital through City</td>
+              <td>intermediate table</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>1. One to One (hasOne / belongsTo)</h2>
       <p>
@@ -432,24 +434,26 @@ function DbTable({
   return (
     <figure className="min-w-0">
       <figcaption className="mb-2 text-sm font-heading">{name}</figcaption>
-      <table>
-        <thead>
-          <tr>
-            {cols.map(col => (
-              <th key={col}>{cell(col, col)}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <tr key={i} className={highlight.includes(i) ? 'bg-bg font-heading' : undefined}>
-              {row.map((value, j) => (
-                <td key={j}>{cell(cols[j], value)}</td>
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              {cols.map(col => (
+                <th key={col}>{cell(col, col)}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map((row, i) => (
+              <tr key={i} className={highlight.includes(i) ? 'bg-bg font-heading' : undefined}>
+                {row.map((value, j) => (
+                  <td key={j}>{cell(cols[j], value)}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </figure>
   )
 }
