@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { FileText, MapPin } from 'lucide-react'
+import { Clock, FileText, MapPin } from 'lucide-react'
 import { CvViewer } from '@/components/home/CvViewer'
 import { ViewCount } from '@/components/home/ViewCount'
 import { SocialLinks } from '@/components/layout/SocialLinks'
@@ -12,6 +12,41 @@ import { useData } from '@/lib/data'
 
 // Shown one at a time in the orange role box
 const roleKeys = ['hero.roles.mobile', 'hero.roles.webDesign', 'hero.roles.frontend', 'hero.roles.backend', 'hero.roles.fullstack']
+
+const dateLocales = { en: 'en-US', km: 'km-KH', zh: 'zh-CN' } as const
+
+/**
+ * Live date and time in Phnom Penh, ticking every second. Empty until mounted
+ * so the static HTML never disagrees with the visitor's clock.
+ */
+function LocalTime() {
+  const { currentLang } = useI18n()
+  const [now, setNow] = useState<Date | null>(null)
+
+  useEffect(() => {
+    setNow(new Date())
+    const timer = setInterval(() => setNow(new Date()), 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const formatted = now?.toLocaleString(dateLocales[currentLang], {
+    timeZone: 'Asia/Phnom_Penh',
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+  })
+
+  return (
+    <p className="mt-2 flex items-center gap-1.5 text-sm tabular-nums">
+      <Clock className="h-4 w-4" aria-hidden />
+      {now ? <time dateTime={now.toISOString()}>{formatted}</time> : ' '}
+    </p>
+  )
+}
 
 export function Hero() {
   const { personalInfo } = useData()
