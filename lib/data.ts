@@ -55,7 +55,7 @@ export interface Experience {
 export const useData = () => {
   const personalInfo = {
     name: "Koeuk KOS",
-    image: '/images/koeuk.jpg', // ✅ Correct path
+    image: '/images/koeuk-avatar.jpg', // ✅ Correct path
     role: "Web Developer",
     email: "koeukkos@gmail.com",
     phone: "090 959 206",

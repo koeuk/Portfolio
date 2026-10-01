@@ -24,7 +24,7 @@ export function About() {
     <Section id="about" title={t('about.title')} className="mb-0">
       <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
         <img
-          src="/images/koeuk.jpg"
+          src={personalInfo.image}
           alt={personalInfo.name}
           className="neo h-40 w-40 flex-shrink-0 bg-main object-cover"
           loading="lazy"

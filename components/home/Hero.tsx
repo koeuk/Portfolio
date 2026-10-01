@@ -41,7 +41,7 @@ export function Hero() {
         </div>
 
         <img
-          src="/images/koeuk-profile.png"
+          src={personalInfo.image}
           alt={personalInfo.name}
           className="neo h-28 w-28 flex-shrink-0 bg-main object-cover sm:h-36 sm:w-36"
         />
