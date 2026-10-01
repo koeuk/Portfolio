@@ -34,9 +34,9 @@ const translations: Translations = {
   // Hero
   "hero.greeting": { en: "Hi, I'm", km: "សួស្តី ខ្ញុំឈ្មោះ", zh: "你好，我是" },
   "hero.role": {
-    en: "Web Developer & Creative Thinker",
-    km: "អ្នកបង្កើតវេបសាយ និង អ្នកគិតប្រកបដោយការច្នៃប្រឌិត",
-    zh: "网页开发者 & 创意思考者",
+    en: "Software Developer & Creative Thinker",
+    km: "អ្នកអភិវឌ្ឍកម្មវិធី និង អ្នកគិតប្រកបដោយការច្នៃប្រឌិត",
+    zh: "软件开发者 & 创意思考者",
   },
   "hero.cta": {
     en: "View My Work",
@@ -134,9 +134,9 @@ const translations: Translations = {
   "hero.roles.backend": { en: "Backend Developer", km: "អ្នកអភិវឌ្ឍ Backend", zh: "后端开发者" },
   "hero.roles.fullstack": { en: "Junior Full-Stack Developer", km: "អ្នកអភិវឌ្ឍ Full-Stack កម្រិតដំបូង", zh: "初级全栈开发者" },
   "hero.blurb": {
-    en: "I'm a web developer with over a year of experience building web applications using Laravel and Vue.js. I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
-    km: "ខ្ញុំជាអ្នកអភិវឌ្ឍវេបសាយ មានបទពិសោធន៍ជាងមួយឆ្នាំក្នុងការបង្កើតកម្មវិធីវេបសាយដោយប្រើ Laravel និង Vue.js។ ខ្ញុំចូលចិត្តបង្កើតប្រព័ន្ធដែលងាយស្រួលប្រើ និងដំណើរការល្អ ហើយខ្ញុំតែងតែព្យាយាមអភិវឌ្ឍជំនាញ និងរៀនបច្ចេកវិទ្យាថ្មីៗ។",
-    zh: "我是一名网页开发者，拥有一年多使用 Laravel 和 Vue.js 构建网页应用的经验。我喜欢创建易用且运行良好的系统，并一直努力提升技能、学习新技术。",
+    en: "I'm a software developer with over a year of experience building web applications using Laravel and Vue.js. I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
+    km: "ខ្ញុំជាអ្នកអភិវឌ្ឍកម្មវិធី មានបទពិសោធន៍ជាងមួយឆ្នាំក្នុងការបង្កើតកម្មវិធីវេបសាយដោយប្រើ Laravel និង Vue.js។ ខ្ញុំចូលចិត្តបង្កើតប្រព័ន្ធដែលងាយស្រួលប្រើ និងដំណើរការល្អ ហើយខ្ញុំតែងតែព្យាយាមអភិវឌ្ឍជំនាញ និងរៀនបច្ចេកវិទ្យាថ្មីៗ។",
+    zh: "我是一名软件开发者，拥有一年多使用 Laravel 和 Vue.js 构建网页应用的经验。我喜欢创建易用且运行良好的系统，并一直努力提升技能、学习新技术。",
   },
 
   // Work Experience
@@ -717,9 +717,9 @@ const translations: Translations = {
   // About
   "about.title": { en: "About Me", km: "អំពីខ្ញុំ", zh: "关于我" },
   "about.bio": {
-    en: "Passionate web developer with expertise in modern JavaScript frameworks. I specialize in building beautiful, responsive websites and applications that solve real-world problems. With a focus on clean code and exceptional user experiences, I bring ideas to life through technology.",
-    km: "អ្នកបង្កើតវេបសាយដែលមានចំណង់ចំណូលចិត្តជាមួយនឹងជំនាញក្នុង JavaScript frameworks ទំនើប។ ខ្ញុំមានជំនាញក្នុងការបង្កើតវេបសាយ និងកម្មវិធីដ៏ស្រស់ស្អាត ឆ្លើយតបបានល្អ ដែលដោះស្រាយបញ្ហាក្នុងពិភពពិត។",
-    zh: "热情的网页开发者，精通现代JavaScript框架。我专注于构建美观、响应式的网站和应用程序，解决现实世界的问题。注重简洁的代码和卓越的用户体验，通过技术将想法变为现实。",
+    en: "Passionate software developer with expertise in modern JavaScript frameworks. I specialize in building beautiful, responsive websites and applications that solve real-world problems. With a focus on clean code and exceptional user experiences, I bring ideas to life through technology.",
+    km: "អ្នកអភិវឌ្ឍកម្មវិធីដែលមានចំណង់ចំណូលចិត្តជាមួយនឹងជំនាញក្នុង JavaScript frameworks ទំនើប។ ខ្ញុំមានជំនាញក្នុងការបង្កើតវេបសាយ និងកម្មវិធីដ៏ស្រស់ស្អាត ឆ្លើយតបបានល្អ ដែលដោះស្រាយបញ្ហាក្នុងពិភពពិត។",
+    zh: "热情的软件开发者，精通现代JavaScript框架。我专注于构建美观、响应式的网站和应用程序，解决现实世界的问题。注重简洁的代码和卓越的用户体验，通过技术将想法变为现实。",
   },
   "about.keySkills": { en: "Key Skills", km: "ជំនាញសំខាន់ៗ", zh: "核心技能" },
   "about.downloadResume": {

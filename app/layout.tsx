@@ -7,8 +7,8 @@ import { THEME_STORAGE_KEY } from '@/lib/theme'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Koeuk Dev - Web Developer Portfolio',
-  description: 'Portfolio of Koeuk KOS, a web developer in Phnom Penh building with Laravel, Vue and React.',
+  title: 'Koeuk Dev - Software Developer Portfolio',
+  description: 'Portfolio of Koeuk KOS, a software developer in Phnom Penh building with Laravel, Vue and React.',
   icons: { icon: { url: '/images/profile.jpg', type: 'image/jpeg' } },
 }
 
