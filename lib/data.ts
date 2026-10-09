@@ -330,6 +330,7 @@ export const useData = () => {
       technologies: ["Laravel 12", "Vue 3", "TypeScript", "Inertia.js", "Shadcn UI", "Tailwind CSS", "MySQL"],
       path: "/pos-retail",
       githubUrl: "https://github.com/koeuk/POS-retail",
+      liveUrl: "https://pos-retail-ui.vercel.app/",
       images: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14].map(n => `/images/pos-retail/${n}.png`),
     },
     {
