@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useState } from 'react'
+import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Container } from '@/components/ui/Container'
@@ -12,6 +13,7 @@ import { Tag } from '@/components/ui/Tag'
 import { useData } from '@/lib/data'
 
 const githubUrl = 'https://github.com/koeuk/POS-retail'
+const liveUrl = 'https://pos-retail-ui.vercel.app/'
 
 interface Shot {
   file: number
@@ -165,7 +167,11 @@ export function PosRetail() {
         actions={
           <>
             <span className="neo-chip px-3 py-1.5 font-heading text-sm">2026</span>
-            <Button href={githubUrl} variant="main">
+            <Button href={liveUrl} variant="main">
+              <ExternalLink className="h-4 w-4" />
+              Live Demo
+            </Button>
+            <Button href={githubUrl}>
               <GitHubIcon />
               View on GitHub
             </Button>
@@ -263,17 +269,23 @@ export function PosRetail() {
       <Card as="section" className="flex flex-col justify-between gap-6 md:flex-row md:items-center" aria-labelledby="pos-source">
         <div className="min-w-0">
           <h2 id="pos-source" className="font-heading text-xl sm:text-2xl">
-            Source code
+            Live Demo & Source Code
           </h2>
           <p className="mt-2 leading-relaxed">
-            The full Laravel + Vue codebase, migrations, seeders, tests and API docs are public on GitHub.
+            Try the interactive POS interface live in your browser, or explore the full Laravel + Vue codebase on GitHub.
           </p>
-          <p className="mt-2 break-all font-mono text-sm">{githubUrl.replace('https://', '')}</p>
+          <p className="mt-2 break-all font-mono text-sm">{liveUrl.replace('https://', '')}</p>
         </div>
-        <Button href={githubUrl} variant="main" className="flex-shrink-0">
-          <GitHubIcon />
-          Open repository
-        </Button>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button href={liveUrl} variant="main" className="flex-shrink-0">
+            <ExternalLink className="h-4 w-4" />
+            Open Live Demo
+          </Button>
+          <Button href={githubUrl} className="flex-shrink-0">
+            <GitHubIcon />
+            Open repository
+          </Button>
+        </div>
       </Card>
 
       <Lightbox images={allShots} index={lightboxIndex} onIndexChange={setLightboxIndex} onClose={closeLightbox} />
