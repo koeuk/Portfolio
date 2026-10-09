@@ -269,23 +269,17 @@ export function PosRetail() {
       <Card as="section" className="flex flex-col justify-between gap-6 md:flex-row md:items-center" aria-labelledby="pos-source">
         <div className="min-w-0">
           <h2 id="pos-source" className="font-heading text-xl sm:text-2xl">
-            Live Demo & Source Code
+            Source code
           </h2>
           <p className="mt-2 leading-relaxed">
-            Try the interactive POS interface live in your browser, or explore the full Laravel + Vue codebase on GitHub.
+            The full Laravel + Vue codebase, migrations, seeders, tests and API docs are public on GitHub.
           </p>
-          <p className="mt-2 break-all font-mono text-sm">{liveUrl.replace('https://', '')}</p>
+          <p className="mt-2 break-all font-mono text-sm">{githubUrl.replace('https://', '')}</p>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <Button href={liveUrl} variant="main" className="flex-shrink-0">
-            <ExternalLink className="h-4 w-4" />
-            Open Live Demo
-          </Button>
-          <Button href={githubUrl} className="flex-shrink-0">
-            <GitHubIcon />
-            Open repository
-          </Button>
-        </div>
+        <Button href={githubUrl} variant="main" className="flex-shrink-0">
+          <GitHubIcon />
+          Open repository
+        </Button>
       </Card>
 
       <Lightbox images={allShots} index={lightboxIndex} onIndexChange={setLightboxIndex} onClose={closeLightbox} />
