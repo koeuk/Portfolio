@@ -713,6 +713,111 @@ const translations: Translations = {
     km: "កម្មវិធីគ្រប់គ្រងហិរញ្ញវត្ថុផ្ទាល់ខ្លួន សម្រាប់ការចំណាយ ចំណូល ថវិកា ការសន្សំ និងបំណុល។ API Laravel តែមួយសម្រាប់កម្មវិធីបី៖ កម្មវិធីវេប Vue កម្មវិធី Flutter និងកម្មវិធី React Native (Expo) ជាមួយរូបិយប័ណ្ណពីរ (ដុល្លារ/រៀល) ប្រតិបត្តិការដដែលៗ របាយការណ៍នាំចេញជា PDF/XLSX/CSV និងភាសាអង់គ្លេស និងខ្មែរ។",
     zh: "管理支出、收入、预算、储蓄和借款的个人理财应用。一个 Laravel API 同时支撑三个客户端：Vue 网页端、Flutter 应用和 React Native (Expo) 应用，支持美元/瑞尔双币种、定期记账、报表导出为 PDF/XLSX/CSV，并全面支持英文和高棉文。",
   },
+  "experience.6.role": {
+    en: "Mini Shop",
+    km: "Mini Shop",
+    zh: "Mini Shop",
+  },
+  "experience.6.company": {
+    en: "Static Luxury E-Commerce",
+    km: "ហាងទំនិញអេឡិចត្រូនិកបែបប្រណិត",
+    zh: "静态奢华电商平台",
+  },
+  "experience.6.description": {
+    en: "An editorial minimalist luxury e-commerce web application featuring high-fashion catalog curation, 5-image hero lookbook slideshow, multi-currency conversion (USD, EUR, GBP, JPY, CHF), multi-attribute filtering, interactive quick-view modal, slide-over bag drawer with voucher codes, and a simulated checkout flow with credit card visualizer. Built with React 19, Vite, and 100% client-side static array data.",
+    km: "កម្មវិធីវេបសាយពាណិជ្ជកម្មអេឡិចត្រូនិចបែបប្រណិត និងសាមញ្ញ ដែលមានការជ្រើសរើសសម្លៀកបំពាក់ទាន់សម័យ ការបញ្ចាំងរូបភាព Hero ៥ សន្លឹក ការប្តូររូបិយប័ណ្ណច្រើនប្រភេទ តម្រងស្វែងរកផលិតផល ផ្ទាំង Quick-view អន្តរកម្ម កាតាបទិញទំនិញដែលមានកូដបញ្ចុះតម្លៃ និងដំណើរការទូទាត់ប្រាក់សាកល្បងជាមួយកាតឥណទាន។ បង្កើតឡើងដោយ React 19 និងទិន្នន័យ static ដោយមិនពឹងផ្អែកលើ backend។",
+    zh: "基于 React 19 和纯前端静态数据构建的编辑风极简奢华电商应用。具备 5 图轮播 Hero Lookbook、多币种实时换算、多维度商品筛选、商品快速预览弹窗、支持优惠券的侧边购物车，以及带信用卡实时预览的结账流程。",
+  },
+  "experience.6.editorial_ui.title": {
+    en: "Editorial & Discovery Interface",
+    km: "ចំណុចប្រទាក់បែបវិចារណកថា និងការរុករក",
+    zh: "社论风格与发现界面",
+  },
+  "experience.6.editorial_ui.lookbook_hero.label": {
+    en: "Editorial Lookbook & Hero Slideshow",
+    km: "Lookbook បែបវិចារណកថា និងការបញ្ចាំងស្លាយ Hero",
+    zh: "社论 Lookbook 与 Hero 轮播",
+  },
+  "experience.6.editorial_ui.lookbook_hero.hero_slideshow": {
+    en: "5-slide luxury editorial carousel featuring curated seasonal looks with smooth transitions and auto-play controls",
+    km: "ស្លាយបង្ហាញម៉ូដសម្លៀកបំពាក់បែបប្រណិតចំនួន ៥ សន្លឹក ជាមួយចលនាផ្លាស់ប្តូរយ៉ាងរលូន និងការគ្រប់គ្រងស្វ័យប្រវត្តិ",
+    zh: "精选季度造型的 5 张奢华社论轮播图，配备平滑过渡效果与自动播放控制",
+  },
+  "experience.6.editorial_ui.lookbook_hero.rotating_ticker": {
+    en: "Glassmorphic header with animated global announcement ticker and real-time live search across garments",
+    km: "របារក្បាលទំព័របែប Glassmorphic ជាមួយអក្សររត់ជូនដំណឹងជាសកល និងការស្វែងរកទំនិញផ្ទាល់",
+    zh: "毛玻璃质感导航栏，包含动态全局通告滚动栏及全商品实时搜索",
+  },
+  "experience.6.editorial_ui.lookbook_hero.fluid_typography": {
+    en: "Refined Cormorant Garamond editorial serif paired with clean Inter sans-serif typography for high-fashion elegance",
+    km: "ពុម្ពអក្សរ Cormorant Garamond ដ៏ប្រណិត រួមផ្សំជាមួយ Inter យ៉ាងស្អាតបាតសម្រាប់ភាពទាក់ទាញ",
+    zh: "采用优雅的 Cormorant Garamond 衬线字体搭配现代简约的 Inter 无衬线体",
+  },
+  "experience.6.editorial_ui.catalog_discovery.label": {
+    en: "Curated Catalog & Precision Filtering",
+    km: "កាតាឡុកទំនិញ និងតម្រងស្វែងរកជាក់លាក់",
+    zh: "精选商品目录与精准筛选",
+  },
+  "experience.6.editorial_ui.catalog_discovery.category_filtering": {
+    en: "Multi-category tabs (Outerwear, Knitwear, Tailoring, Essentials, Dresses, Accessories) with real-time counters",
+    km: "ផ្ទាំងបែងចែកប្រភេទផលិតផល (អាវក្រៅ អាវរងា សម្លៀកបំពាក់កាត់ដេរ គ្រឿងបន្ថែម) ជាមួយចំនួនទំនិញផ្ទាល់",
+    zh: "多品类切换标签（外套、针织、定制正装、基础款、连衣裙、配饰）及实时数量统计",
+  },
+  "experience.6.editorial_ui.catalog_discovery.material_chips": {
+    en: "Material and craft chips for filtering garments by Mongolian Cashmere, Italian Wool, Mulberry Silk, and more",
+    km: "ស្លាកជ្រើសរើសប្រភេទសាច់ក្រណាត់ ដូចជា រោមចៀមម៉ុងហ្គោលី រោមចៀមអ៊ីតាលី និងសូត្រធម្មជាតិ",
+    zh: "材质与工艺标签，可按蒙古羊绒、双面意大利羊毛、桑蚕丝等面料筛选",
+  },
+  "experience.6.editorial_ui.catalog_discovery.sorting_engine": {
+    en: "Dynamic sorting by curated editorial ranking, price ascending/descending, and archival special offers",
+    km: "ការតម្រៀបតាមការណែនាំពិសេស តម្លៃពីទាបទៅខ្ពស់/ខ្ពស់ទៅទាប និងការផ្តល់ជូនពិសេស",
+    zh: "支持按编辑精选、价格升序/降序以及特别归档折扣灵活排序",
+  },
+  "experience.6.commerce_flow.title": {
+    en: "Commerce Flow & Client State",
+    km: "ដំណើរការទិញទំនិញ និងការរក្សាទុកទិន្នន័យ",
+    zh: "电商购物流程与本地状态管理",
+  },
+  "experience.6.commerce_flow.interactive_shopping.label": {
+    en: "Slide-Over Bag & Multi-Currency Engine",
+    km: "កាតាបទិញទំនិញចំហៀង និងប្រព័ន្ធប្តូររូបិយប័ណ្ណ",
+    zh: "侧边抽屉购物车与多币种引擎",
+  },
+  "experience.6.commerce_flow.interactive_shopping.multi_currency": {
+    en: "Instant multi-currency conversion across USD ($), EUR (€), GBP (£), JPY (¥), and CHF with locale formatting",
+    km: "ការប្តូររូបិយប័ណ្ណភ្លាមៗរវាង USD, EUR, GBP, JPY និង CHF ជាមួយទម្រង់រូបិយប័ណ្ណត្រឹមត្រូវតាមតំបន់",
+    zh: "支持美元 ($)、欧元 (€)、英镑 (£)、日元 (¥) 及瑞士法郎 (CHF) 的实时汇率转换与本地化金额格式",
+  },
+  "experience.6.commerce_flow.interactive_shopping.free_shipping_meter": {
+    en: "Interactive free shipping progress bar incentivizing increased basket size with celebration unlock state",
+    km: "របារវាស់កម្រិតការដឹកជញ្ជូនឥតគិតថ្លៃ ដែលលើកទឹកចិត្តឱ្យទិញបន្ថែមជាមួយចលនាអបអរសាទរ",
+    zh: "动态包邮进度条，鼓励增加购物件数并在达标后呈现解锁动效",
+  },
+  "experience.6.commerce_flow.interactive_shopping.voucher_system": {
+    en: "Promo voucher code verification with one-click test voucher chips (MINIMAL10, SUMMER20, etc.)",
+    km: "ការផ្ទៀងផ្ទាត់កូដបញ្ចុះតម្លៃ ជាមួយប៊ូតុងសាកល្បងចុចម្តងបាន (MINIMAL10, SUMMER20)",
+    zh: "优惠券码验证系统，提供一键快捷测试优惠券（MINIMAL10、SUMMER20 等）",
+  },
+  "experience.6.commerce_flow.checkout_simulation.label": {
+    en: "Simulated Checkout & State Persistence",
+    km: "ការទូទាត់ប្រាក់សាកល្បង និងការរក្សាទុកទិន្នន័យក្នុង Browser",
+    zh: "极速模拟结账与本地持久化",
+  },
+  "experience.6.commerce_flow.checkout_simulation.quickview_modal": {
+    en: "High-resolution quick-view modal with multi-angle photography, size stock availability, and review submission",
+    km: "ផ្ទាំង Quick-view កម្រិតច្បាស់ ជាមួយរូបថតច្រើនមុំ ការជ្រើសរើសទំហំ និងទម្រង់សរសេរការវាយតម្លៃ",
+    zh: "高清快速预览模态框，包含多视角图库、尺码库存状态及用户评价提交表单",
+  },
+  "experience.6.commerce_flow.checkout_simulation.card_visualizer": {
+    en: "Checkout modal with auto-fill demo button, live credit card preview visualizer, and order receipt generation",
+    km: "ផ្ទាំងទូទាត់ប្រាក់ជាមួយប៊ូតុងបំពេញព័ត៌មានស្វ័យប្រវត្តិ ការបង្ហាញរូបរាងកាតឥណទានផ្ទាល់ និងបង្កាន់ដៃវិក្កយបត្រ",
+    zh: "结账弹窗配备一键自动填充演示信息、实时双面信用卡视觉动效及生成订单收据",
+  },
+  "experience.6.commerce_flow.checkout_simulation.localstorage_persistence": {
+    en: "Complete client-side persistence for cart items, wishlist, currency preferences, and submitted reviews in localStorage",
+    km: "រក្សាទុកទំនិញក្នុងកាតាប បញ្ជីចង់បាន រូបិយប័ណ្ណ និងការវាយតម្លៃក្នុង localStorage មិនបាត់បង់ពេល Refresh",
+    zh: "购物车、心愿单、货币偏好与新增评价均通过 localStorage 实现纯前端持久化存储",
+  },
 
   // About
   "about.title": { en: "About Me", km: "អំពីខ្ញុំ", zh: "关于我" },

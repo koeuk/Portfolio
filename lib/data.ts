@@ -70,13 +70,13 @@ export const useData = () => {
   const projects: Project[] = [
     {
       id: "1",
-      title: "E-Commerce Platform",
+      title: "Mini Shop (Atelier Édition)",
       description:
-        "Full-stack e-commerce solution with secure payment integration, inventory management, and modern shopping experience",
-      image: "/images/projects/ecommerce.jpg",
-      technologies: ["Nuxt.js", "TypeScript", "Stripe", "PostgreSQL"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/yourusername/ecommerce",
+        "Editorial luxury e-commerce web application with 5-image hero lookbook slideshow, multi-currency conversion, quick-view modal, slide-over bag drawer, and simulated checkout",
+      image: "/images/mini-shop/home.png",
+      technologies: ["React 19", "Vite", "JavaScript", "Lucide React", "CSS3", "localStorage"],
+      liveUrl: "https://mini-shop-henna-chi.vercel.app/",
+      githubUrl: "https://github.com/koeuk/mini-shop",
       featured: true,
     },
     {
@@ -349,6 +349,59 @@ export const useData = () => {
         { label: "Flutter", url: "https://github.com/koeuk/spendlog_app" },
         { label: "React Native", url: "https://github.com/koeuk/spendlog_native" },
       ],
+    },
+    {
+      id: "6",
+      role: "Mini Shop",
+      company: "Static Luxury E-Commerce",
+      period: "2026",
+      description: "An editorial minimalist luxury e-commerce web application featuring high-fashion catalog curation, 5-image hero lookbook slideshow, multi-currency conversion, multi-attribute filtering, interactive quick-view modal, slide-over bag drawer with voucher codes, and a simulated checkout flow with credit card visualizer. Built with React 19, Vite, and 100% client-side static array data.",
+      technologies: ["React 19", "Vite", "JavaScript", "Lucide React", "CSS3", "localStorage"],
+      liveUrl: "https://mini-shop-henna-chi.vercel.app/",
+      githubUrl: "https://github.com/koeuk/mini-shop",
+      images: ["home", "catalog", "quickview", "cart", "checkout"].map(
+        screen => `/images/mini-shop/${screen}.png`,
+      ),
+      categories: [
+        {
+          id: 'editorial_ui',
+          items: [
+            {
+              id: 'lookbook_hero',
+              period: 'HERO & SHOWCASE',
+              subheading: 'Editorial Flat 2.0 Aesthetic & 5-Slide Visual Carousel',
+              points: ['hero_slideshow', 'rotating_ticker', 'fluid_typography'],
+              technologies: ['Cormorant Garamond', 'Inter', 'Vanilla CSS']
+            },
+            {
+              id: 'catalog_discovery',
+              period: 'CATALOG',
+              subheading: 'Multi-Attribute Filtering & Curated Garment Collection',
+              points: ['category_filtering', 'material_chips', 'sorting_engine'],
+              technologies: ['Client-Side Filtering', 'Micro-Animations']
+            }
+          ]
+        },
+        {
+          id: 'commerce_flow',
+          items: [
+            {
+              id: 'interactive_shopping',
+              period: 'SHOPPING BAG',
+              subheading: 'Slide-Over Bag Drawer & Currency Engine',
+              points: ['multi_currency', 'free_shipping_meter', 'voucher_system'],
+              technologies: ['Real-time Rates', 'State Management']
+            },
+            {
+              id: 'checkout_simulation',
+              period: 'CHECKOUT',
+              subheading: 'Frictionless Simulated Checkout & Local Persistence',
+              points: ['quickview_modal', 'card_visualizer', 'localstorage_persistence'],
+              technologies: ['localStorage', 'React 19 Hooks']
+            }
+          ]
+        }
+      ]
     },
   ];
 
