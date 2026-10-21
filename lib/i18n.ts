@@ -163,9 +163,9 @@ const translations: Translations = {
     zh: "在 OPS 担任移动开发实习生，与团队一起开发移动应用功能。",
   },
   "workExperience.internship.role": {
-    en: "Internship",
-    km: "កម្មសិក្សា",
-    zh: "实习",
+    en: "IT Solution Digital - Web Developer Intern (Backend + Frontend)",
+    km: "IT Solution Digital - កម្មសិក្សាការី Web Developer (Backend + Frontend)",
+    zh: "IT Solution Digital - Web开发实习生 (Backend + Frontend)",
   },
   "workExperience.internship.period": {
     en: "Aug 2024 - Dec 2024",
@@ -178,9 +178,9 @@ const translations: Translations = {
     zh: "前端实习生。使用 Vue.js 和 Tailwind CSS 构建 UI 页面和可复用组件，将设计稿实现为适配手机和桌面的响应式布局，对接后端 API，修复界面问题，并学习团队的 Git 工作流程。",
   },
   "workExperience.staff.role": {
-    en: "Staff",
-    km: "បុគ្គលិក",
-    zh: "员工",
+    en: "VehaBooking - Full-Stack Developer (Backend + Frontend)",
+    km: "VehaBooking - Full-Stack Developer (Backend + Frontend)",
+    zh: "VehaBooking - 全栈开发工程师 (Backend + Frontend)",
   },
   "workExperience.staff.period": {
     en: "Dec 2024 - Present",
@@ -191,6 +191,11 @@ const translations: Translations = {
     en: "Full-stack developer on VehaBooking, Innovation Lab's travel booking platform. I build the vendor portal (Nuxt 3, shadcn-vue, Tailwind CSS) where vendors manage tours, event tickets, transport timetables, fleet, bookings and reviews, and made it mobile-first so it also runs as a Telegram Mini App. On the Laravel and Vue admin I built dashboard analytics, review replies and login security.",
     km: "អ្នកអភិវឌ្ឍ Full-stack លើ VehaBooking ដែលជាវេទិកាកក់ការធ្វើដំណើររបស់ Innovation Lab។ ខ្ញុំបង្កើត vendor portal (Nuxt 3, shadcn-vue, Tailwind CSS) ដែលអ្នកលក់គ្រប់គ្រងដំណើរកម្សាន្ត សំបុត្រព្រឹត្តិការណ៍ កាលវិភាគដឹកជញ្ជូន យានយន្ត ការកក់ និងការវាយតម្លៃ ហើយរចនាឱ្យប្រើលើទូរស័ព្ទជាចម្បង និងដំណើរការជា Telegram Mini App ផងដែរ។ នៅលើផ្ទាំងគ្រប់គ្រង Laravel និង Vue ខ្ញុំបានបង្កើតការវិភាគលើ dashboard ការឆ្លើយតបការវាយតម្លៃ និងសុវត្ថិភាពការចូលប្រើ។",
     zh: "在 Innovation Lab 的旅游预订平台 VehaBooking 担任全栈开发。负责开发供应商门户（Nuxt 3、shadcn-vue、Tailwind CSS），供应商可在其中管理旅游产品、活动门票、交通时刻表、车队、订单和评价，并以移动端优先设计，同时可作为 Telegram 小程序（Mini App）运行。在 Laravel 和 Vue 管理后台中，开发了仪表板数据分析、评价回复和登录安全功能。",
+  },
+  "workExperience.view": {
+    en: "View",
+    km: "មើល",
+    zh: "查看",
   },
   "skills.backHome": {
     en: "Back to Home",
