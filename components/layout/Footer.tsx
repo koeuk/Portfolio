@@ -11,7 +11,7 @@ export function Footer() {
 
   return (
     <footer className="border-t-2 border-border bg-bw py-10">
-      <Container className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <Container wide className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-sm">
           <p className="font-heading">
             © {new Date().getFullYear()} {personalInfo.name}. {t('footer.rights')}

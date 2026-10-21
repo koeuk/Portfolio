@@ -47,8 +47,8 @@ export default {
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       maxWidth: {
-        page: '750px',
-        wide: '1000px',
+        page: '950px',
+        wide: '1200px',
       },
       screens: {
         w450: { max: '450px' },

@@ -7,7 +7,7 @@ import { Container } from '@/components/ui/Container'
 
 export default function HomePage() {
   return (
-    <Container>
+    <Container wide>
       <Hero />
       <Skills />
       <Projects />

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <Container wide className="max-w-6xl">
+    <Container wide>
       <ExperienceList />
     </Container>
   )
