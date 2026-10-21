@@ -21,7 +21,7 @@ const jobs: Job[] = [
   },
   {
     key: 'staff',
-    current: true,
+    current: false,
     image: '/images/work/vehabooking.png',
     link: 'https://vehabooking.com/',
   },

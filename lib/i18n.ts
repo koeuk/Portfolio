@@ -148,9 +148,9 @@ const translations: Translations = {
   "workExperience.start": { en: "START", km: "ចាប់ផ្តើម", zh: "开始" },
   "workExperience.present": { en: "PRESENT", km: "បច្ចុប្បន្ន", zh: "至今" },
   "workExperience.opsMobileInternship.role": {
-    en: "OPS Mobile Developer Internship",
-    km: "កម្មសិក្សា Mobile Developer នៅ OPS",
-    zh: "OPS 移动开发实习",
+    en: "OPS Mobile Developer (Frontend)",
+    km: "Mobile Developer នៅ OPS (Frontend)",
+    zh: "OPS 移动开发者 (Frontend)",
   },
   "workExperience.opsMobileInternship.period": {
     en: "Oct 2026 - Present",
@@ -163,9 +163,9 @@ const translations: Translations = {
     zh: "在 OPS 担任移动开发实习生，与团队一起开发移动应用功能。",
   },
   "workExperience.internship.role": {
-    en: "IT Solution Digital - Web Developer Intern (Backend + Frontend)",
-    km: "IT Solution Digital - កម្មសិក្សាការី Web Developer (Backend + Frontend)",
-    zh: "IT Solution Digital - Web开发实习生 (Backend + Frontend)",
+    en: "IT Solution Digital - Web Developer Intern (Frontend)",
+    km: "IT Solution Digital - កម្មសិក្សាការី Web Developer (Frontend)",
+    zh: "IT Solution Digital - Web开发实习生 (Frontend)",
   },
   "workExperience.internship.period": {
     en: "Aug 2024 - Dec 2024",
@@ -183,9 +183,9 @@ const translations: Translations = {
     zh: "VehaBooking - 全栈开发工程师 (Backend + Frontend)",
   },
   "workExperience.staff.period": {
-    en: "Dec 2024 - Present",
-    km: "ធ្នូ 2024 - បច្ចុប្បន្ន",
-    zh: "2024年12月 - 至今",
+    en: "Dec 2024 - Aug 2026",
+    km: "ធ្នូ 2024 - សីហា 2026",
+    zh: "2024年12月 - 2026年8月",
   },
   "workExperience.staff.description": {
     en: "Full-stack developer on VehaBooking, Innovation Lab's travel booking platform. I build the vendor portal (Nuxt 3, shadcn-vue, Tailwind CSS) where vendors manage tours, event tickets, transport timetables, fleet, bookings and reviews, and made it mobile-first so it also runs as a Telegram Mini App. On the Laravel and Vue admin I built dashboard analytics, review replies and login security.",
