@@ -45,40 +45,44 @@ export function ExperienceList() {
         ))}
       </div>
 
-      <div className="flex flex-col gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {shown.map(experience => (
           <Link
             key={experience.id}
             href={experience.path ?? `/experience/${experience.id}`}
-            className="neo neo-press reveal-on-scroll group block bg-main p-4 text-main-fg sm:p-5"
+            className="neo neo-press reveal-on-scroll group flex flex-col bg-main p-4 text-main-fg sm:p-5 h-full"
           >
             {experience.images?.[0] && (
-              <div className="neo mb-5 aspect-[71/26] overflow-hidden bg-bw">
+              <div className="neo mb-4 aspect-[16/10] overflow-hidden bg-bw">
                 <img
                   src={experience.images[0]}
                   alt={t(`experience.${experience.id}.role`)}
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
             )}
 
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h2 className="font-heading text-xl sm:text-2xl">{t(`experience.${experience.id}.role`)}</h2>
-                <p className="mt-1">{t(`experience.${experience.id}.company`)}</p>
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <h2 className="font-heading text-lg sm:text-xl leading-snug">{t(`experience.${experience.id}.role`)}</h2>
+                <p className="mt-1 text-xs sm:text-sm line-clamp-1">{t(`experience.${experience.id}.company`)}</p>
               </div>
-              <span className="flex-shrink-0 font-heading">{experience.period}</span>
+              <span className="flex-shrink-0 text-xs sm:text-sm font-heading">{experience.period}</span>
             </div>
 
-            <p className="mt-3 line-clamp-3">{t(`experience.${experience.id}.description`)}</p>
+            <p className="mt-3 line-clamp-3 text-xs sm:text-sm leading-relaxed flex-grow">
+              {t(`experience.${experience.id}.description`)}
+            </p>
 
-            <div className="mt-5 flex flex-wrap items-center gap-2">
+            <div className="mt-4 flex flex-wrap items-center gap-1.5 pt-1">
               {experience.technologies.map(technology => (
-                <Tag key={technology}>{technology}</Tag>
+                <Tag key={technology} className="px-2 py-0.5 text-xs">
+                  {technology}
+                </Tag>
               ))}
               <ArrowUpRight
-                className="ml-auto h-6 w-6 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="ml-auto h-5 w-5 flex-shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 aria-hidden
               />
             </div>
