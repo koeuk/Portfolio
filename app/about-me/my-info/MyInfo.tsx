@@ -31,10 +31,10 @@ export function MyInfo() {
   const { t } = useI18n()
 
   const connect = [
-    { label: 'GitHub', href: personalInfo.github, handle: '@koeuk' },
-    { label: 'LinkedIn', href: personalInfo.linkedin, handle: 'koeuk-kos' },
-    { label: 'Telegram', href: personalInfo.telegram, handle: '@koeuk24' },
-    { label: 'Facebook', href: personalInfo.facebook, handle: '@koeuk25' },
+    { label: 'GitHub', href: personalInfo.github },
+    { label: 'LinkedIn', href: personalInfo.linkedin },
+    { label: 'Telegram', href: personalInfo.telegram },
+    { label: 'Facebook', href: personalInfo.facebook },
   ]
 
   return (
@@ -69,15 +69,12 @@ export function MyInfo() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="neo neo-press reveal-on-scroll flex min-w-0 items-center gap-3 bg-bw px-4 py-3"
+              className="neo neo-press reveal-on-scroll flex items-center gap-2.5 bg-bw px-4 py-2.5 font-heading text-sm"
             >
-              <svg viewBox="0 0 24 24" className="h-6 w-6 flex-shrink-0" fill="currentColor" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 flex-shrink-0" fill="currentColor" aria-hidden="true">
                 <path d={socials.find(social => social.href === link.href)?.path} />
               </svg>
-              <span className="block min-w-0">
-                <span className="block text-xs font-heading uppercase tracking-widest">{link.label}</span>
-                <span className="block truncate text-sm">{link.handle}</span>
-              </span>
+              <span>{link.label}</span>
             </a>
           ))}
         </div>

@@ -87,9 +87,14 @@ export function Navbar() {
 
   return (
     <div className="fixed left-0 top-5 z-50 w-full px-5">
-      <nav className="neo mx-auto flex w-full items-center gap-4 bg-main p-2.5 px-5 text-sm font-base text-main-fg sm:text-base md:w-max md:max-w-full lg:gap-5">
-        {/* Desktop: every link in the pill */}
-        <div className="hidden items-center gap-3 md:flex lg:gap-5">
+      <nav className="neo mx-auto flex w-full max-w-wide items-center justify-between bg-main p-2.5 px-5 text-sm font-base text-main-fg sm:text-base">
+        {/* Brand */}
+        <Link href="/" className="font-heading text-lg tracking-tight">
+          Koeuk
+        </Link>
+
+        {/* Desktop: navigation links */}
+        <div className="hidden items-center gap-1.5 md:flex lg:gap-3">
           {navLinks.map(link => (
             <Link key={link.href} href={link.href} className={linkClass(link.section)}>
               {t(link.label)}
@@ -97,26 +102,23 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Mobile: brand + menu toggle */}
-        <Link href="/" className="mr-auto font-heading md:hidden">
-          Koeuk
-        </Link>
-
-        <div className="flex items-center gap-2 sm:gap-3">{controls}</div>
-
-        <button
-          type="button"
-          className="md:hidden"
-          onClick={() => setMenuOpen(open => !open)}
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? t('common.close') : t('common.menu')}
-        >
-          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        {/* Controls & Mobile menu toggle */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {controls}
+          <button
+            type="button"
+            className="md:hidden"
+            onClick={() => setMenuOpen(open => !open)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? t('common.close') : t('common.menu')}
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       {menuOpen && (
-        <div className="neo mx-auto mt-3 flex flex-col gap-1 bg-main p-3 text-main-fg md:hidden">
+        <div className="neo mx-auto mt-3 flex max-w-wide flex-col gap-1 bg-main p-3 text-main-fg md:hidden">
           {navLinks.map(link => (
             <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className={linkClass(link.section)}>
               {t(link.label)}
