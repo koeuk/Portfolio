@@ -47,8 +47,8 @@ export function WorkExperience() {
           <Card as="li" key={job.key} tone={job.current ? 'main' : 'bw'} className="reveal-on-scroll p-4 sm:p-5">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               {/* Left: Logo & Job Details */}
-              <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
-                <div className="neo h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 overflow-hidden bg-white p-1.5 flex items-center justify-center">
+              <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 min-w-0">
+                <div className="neo h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 overflow-hidden bg-white p-1.5 flex items-center justify-center mt-0.5 sm:mt-0">
                   <img
                     src={job.image}
                     alt={t(`workExperience.${job.key}.role`)}
