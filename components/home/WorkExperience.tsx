@@ -5,14 +5,12 @@ import { useI18n } from '@/components/providers/I18nProvider'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Section } from '@/components/ui/Section'
-import { Tag } from '@/components/ui/Tag'
 
 interface Job {
   key: string
   current: boolean
   image: string
   link?: string
-  technologies: string[]
 }
 
 const jobs: Job[] = [
@@ -20,20 +18,17 @@ const jobs: Job[] = [
     key: 'opsMobileInternship',
     current: true,
     image: '/images/work/ops.png',
-    technologies: ['React Native', 'Expo', 'TypeScript', 'Tailwind CSS', 'REST API'],
   },
   {
     key: 'staff',
     current: true,
     image: '/images/work/vehabooking.png',
     link: 'https://vehabooking.com/',
-    technologies: ['Vue.js', 'Nuxt.js', 'Shadcn Vue', 'Tailwind CSS', 'Laravel', 'PHP', 'REST API'],
   },
   {
     key: 'internship',
     current: false,
     image: '/images/work/itsolution.svg',
-    technologies: ['Laravel', 'Vue.js', 'Vuetify', 'Tailwind CSS', 'Chart.js'],
   },
 ]
 
@@ -47,8 +42,8 @@ export function WorkExperience() {
           <Card as="li" key={job.key} tone={job.current ? 'main' : 'bw'} className="reveal-on-scroll p-4 sm:p-5">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               {/* Left: Logo & Job Details */}
-              <div className="flex items-start sm:items-center gap-3.5 sm:gap-4 min-w-0">
-                <div className="neo h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 overflow-hidden bg-white p-1.5 flex items-center justify-center mt-0.5 sm:mt-0">
+              <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
+                <div className="neo h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 overflow-hidden bg-white p-1.5 flex items-center justify-center">
                   <img
                     src={job.image}
                     alt={t(`workExperience.${job.key}.role`)}
@@ -60,15 +55,6 @@ export function WorkExperience() {
                   <h3 className="font-heading text-lg sm:text-xl leading-snug">
                     {t(`workExperience.${job.key}.role`)}
                   </h3>
-                  {job.technologies.length > 0 && (
-                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                      {job.technologies.map(technology => (
-                        <Tag key={technology} className="px-2 py-0.5 text-xs">
-                          {technology}
-                        </Tag>
-                      ))}
-                    </div>
-                  )}
                 </div>
               </div>
 
