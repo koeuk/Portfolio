@@ -84,6 +84,12 @@ export function ExperienceDetail({ id }: { id: string }) {
                 Live Demo
               </Button>
             )}
+            {experience.liveLinks?.map(link => (
+              <Button key={link.url} href={link.url} variant="main">
+                <ExternalLink className="h-4 w-4" />
+                {link.label}
+              </Button>
+            ))}
             {experience.repos?.map(repo => (
               <Button key={repo.url} href={repo.url}>
                 <GitHubIcon />

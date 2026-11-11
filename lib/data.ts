@@ -38,6 +38,8 @@ export interface Experience {
   /** Extra repositories, e.g. separate mobile clients */
   repos?: { label: string; url: string }[];
   liveUrl?: string;
+  /** Additional live site links shown alongside liveUrl */
+  liveLinks?: { label: string; url: string }[];
   /** Demo account for the live demo */
   demoLogin?: { email: string; password: string };
   images?: string[];
@@ -341,6 +343,9 @@ export const useData = () => {
       description: "A personal finance tracker for expenses, income, budgets, savings and debts. One Laravel API behind three clients: a Vue web app, a Flutter app and a React Native (Expo) app, with dual USD/riel currency, recurring entries, reports exported to PDF/XLSX/CSV, and English and Khmer throughout.",
       technologies: ["Laravel 13", "Vue 3", "Flutter", "React Native", "Expo", "Inertia.js", "Shadcn UI", "Tailwind CSS", "MySQL"],
       liveUrl: "https://spendlog-static.vercel.app/#/dashboard",
+      liveLinks: [
+        { label: "Live App", url: "https://budgettracking.site/login" },
+      ],
       demoLogin: { email: "admin@gmail.com", password: "12345678" },
       images: ["dashboard", "expenses", "budgets", "incomes", "savings", "borrowings", "reports", "categories", "login"].map(
         screen => `/images/spendlog/${screen}.png`,
