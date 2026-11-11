@@ -64,7 +64,7 @@ export const useData = () => {
     location: "Phnom Penh, Cambodia",
     github: "https://github.com/koeuk",
     linkedin: "https://www.linkedin.com/in/koeuk-kos-130482299/",
-    telegram: "https://t.me/koeuk24",
+    telegram: "https://t.me/koeuk025",
     facebook: "https://www.facebook.com/koeuk25/",
     bio: "I'm a software developer based in Phnom Penh with over a year of experience building web applications using Laravel and Vue.js. I enjoy creating systems that are easy to use and work well, and I'm always trying to improve my skills and learn new technologies.",
   };
